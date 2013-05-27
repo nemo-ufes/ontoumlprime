@@ -1,0 +1,65 @@
+/**
+ * This file specifies the syntactic constraints for OntoUMLPrime metamodel.
+ * 
+ * It uses the OCL Complete functionality of Eclipse.
+ * 
+ * It is a port of the OCL Constraints as defined by Carraretto for the OntoUML reference metamodel, 
+ * which are an evolution of the constraints defined by Benevides, following Guizzardi's thesis.
+ * 
+ * In order to load these constraints into Eclipse, open a serialized instance of the OntoUML prime metamodel
+ * (an XML file) with the sample reflective ecore model editor. Right click and select "Load Complete OCL Resource".
+ * From this moment on any Validation on the model will result in warnings in the "Problems" window.
+ * 
+ * History: 
+ * created by João Paulo A. Almeida
+ * 
+ * Todo:
+ * Port constraints, considering that the RefOntoUML and OntoUMLPrime metamodels are different, but the content of the constrains 
+ * should be the same
+ * 
+ * 
+*/
+
+-- import the ecore metamodel (generated from xcore in this project).
+
+import 'platform:/resource/ontoumlprime/model/ontoumlprime.ecore'
+
+package ontoumlprime
+
+
+
+-- helper functions
+context Universal def : parents() : Set(Universal) =
+		self.specializesVia->collect(specializedUniversal)->asSet()
+
+-- apparently cannot call parents from allparents, seems to be a limitation of defining them here in a separate OCL file instead
+-- of as part of the model
+context Universal def : allParents() : Set(Universal) =
+		self.specializesVia->collect(specializedUniversal)->asSet()->union(
+			self.specializesVia->collect(specializedUniversal)->asSet()->collect(p : Universal | p.allParents())
+		)
+
+-- if parents and allParents were part of the model, they could be defined in this way:
+-- context Universal::parents() : Set(Universal)
+--		body: self.specializesVia->collect(specializedUniversal)->asSet()
+
+-- context Universal::allParents() : Set(Universal)
+--		body: self.parents()->union(self.parents()->collect(p : Universal | p.allParents()))
+
+-- invariants
+context Universal inv 
+		mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor('A universal cannot specialize more than one substance sortal universal. This would lead to conflicting identity criteria.'):
+--		asError(
+			allParents()->select(x : Universal | x.oclIsKindOf(SubstanceSortalUniversal))->size() <= 1
+--		)
+
+
+-- if an OCL invariant returns null, it is treated as an Error by Eclipse (during Validation)
+-- if it returns false, it is treated as a Warning
+
+-- I think this asError could be useful in 
+--def: asError(verdict : Boolean) : Boolean =
+--		if verdict then true else null endif
+
+endpackage
+
