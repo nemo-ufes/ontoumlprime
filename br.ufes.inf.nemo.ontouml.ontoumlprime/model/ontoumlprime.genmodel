@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime/src" modelPluginID="br.ufes.inf.nemo.ontouml.ontoumlprime"
+    runtimeJar="true" modelName="Ontoumlprime" updateClasspath="false" testsDirectory="br.ufes.inf.nemo.ontouml.ontoumlprime.tests/src"
+    booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.ecore.xcore.importer"
+    containmentProxies="true" minimalReflectiveMethods="false" complianceLevel="7.0"
+    runtimeVersion="2.8" language="en" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore"
+    operationReflection="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>ontoumlprime.xcore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <genPackages prefix="PrimeOntoUML" basePackage="br.ufes.inf.nemo.ontouml" disposableProviderFactory="true"
+      ecorePackage="PrimeOntoUML.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="PrimeOntoUML.ecore#//PrimitiveDataTypeType">
+      <genEnumLiterals ecoreEnumLiteral="PrimeOntoUML.ecore#//PrimitiveDataTypeType/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="PrimeOntoUML.ecore#//PrimitiveDataTypeType/String"/>
+      <genEnumLiterals ecoreEnumLiteral="PrimeOntoUML.ecore#//PrimitiveDataTypeType/Real"/>
+      <genEnumLiterals ecoreEnumLiteral="PrimeOntoUML.ecore#//PrimitiveDataTypeType/UnlimitedNatural"/>
+    </genEnums>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Model/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//Element"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//PackageableElement"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Package">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Package/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//Universal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Universal/isSpecializedVia"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Universal/specializesVia"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//GeneralizationSet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//GeneralizationSet/isCovering"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//GeneralizationSet/specializedUniversal"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//GeneralizationSet/specializingUniversals"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//DataType"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//PrimitiveDataType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//PrimitiveDataType/_type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//UserDefinedDataType"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//ComplexDataType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//ComplexDataType/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//DataTypeAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//DataTypeAttribute/isOfType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//DataTypeAttribute/complexDataType"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Enumeration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//Enumeration/enumerationLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//MeronymicRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//MeronymicRelation/whole"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//MeronymicRelation/part"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//MeronymicRelation/partIsEssential"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//MeronymicRelation/partIsInseparable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//MeronymicRelation/partIsShareable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//MeronymicRelation/partIsImmutable"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//ComponentOfRelation"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//MembershipRelation"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//SubCollectionRelation"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//SubQuantityRelation"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//EndurantUniversal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//EndurantUniversal/characterizedBy"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//SubstantialUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//SortalUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//RigidSortalUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//AntiRigidSortalUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//SubstanceSortalUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Kind"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//QuantityUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//CollectiveUniversal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//CollectiveUniversal/isExtensional"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//SubKind"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Role"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Phase"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//MixinUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//RigidMixinUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Category"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//NonRigidMixinUniversal"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//SemiRigidMixinUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Mixin"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//AntiRigidMixinUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//RoleMixin"/>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//ExternallyDependentUniversal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//ExternallyDependentUniversal/mediation"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//MomentUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//RelatorUniversal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//RelatorUniversal/mediations"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//BinaryDirectedRelationship">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceEndName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetEndName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceLowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceUpperBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetLowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetUpperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//BinaryMaterialRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//BinaryMaterialRelation/derivedFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//BinaryMaterialRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//BinaryMaterialRelation/target"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//BinaryFormalRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//BinaryFormalRelation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//BinaryFormalRelation/target"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Mediation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Mediation/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Mediation/target"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//Characterization">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Characterization/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//Characterization/target"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//IntrinsicMomentUniversal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//IntrinsicMomentUniversal/characterization"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//ModeUniversal"/>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//QualityUniversal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//QualityUniversal/datatypes"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//nAryMaterialRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//nAryMaterialRelation/derivedFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//nAryMaterialRelation/targetRelata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryMaterialRelation/targetEndNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryMaterialRelation/sourceLowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryMaterialRelation/sourceUpperBound"/>
+    </genClasses>
+    <genClasses ecoreClass="PrimeOntoUML.ecore#//nAryFormalRelation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference PrimeOntoUML.ecore#//nAryFormalRelation/targetRelata"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryFormalRelation/targetEndNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryFormalRelation/sourceLowerBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//nAryFormalRelation/sourceUpperBound"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
