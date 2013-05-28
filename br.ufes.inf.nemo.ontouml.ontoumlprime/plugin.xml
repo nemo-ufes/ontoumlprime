@@ -12,4 +12,7 @@
             class="br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage"
             genModel="model/ontoumlprime.xcore"/>
    </extension>
+   <extension point="org.eclipse.ui.startup">
+      <startup class="br.ufes.inf.nemo.ontouml.PrimeOntoUML.adapter.Startup"/>
+   </extension>
 </plugin>
