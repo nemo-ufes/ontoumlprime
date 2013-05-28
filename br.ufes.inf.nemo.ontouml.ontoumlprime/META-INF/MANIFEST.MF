@@ -13,5 +13,6 @@ Export-Package: br.ufes.inf.nemo.ontouml.PrimeOntoUML,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib;visibility:=reexport,
+ org.eclipse.ocl.examples.xtext.completeocl;bundle-version="3.2.1",
 Bundle-ActivationPolicy: lazy
 Import-Package: br.ufes.inf.nemo.ontouml.PrimeOntoUML.util
