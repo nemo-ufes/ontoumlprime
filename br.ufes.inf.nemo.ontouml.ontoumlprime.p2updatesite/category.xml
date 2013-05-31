@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature_1.0.0.qualifier.jar" id="br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature" version="1.0.0.qualifier">
+      <category name="OntoUML"/>
+   </feature>
+<!--
+   <feature url="features/br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature_1.0.0.qualifier.jar" id="br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature" version="1.0.0.qualifier">
+      <category name="OntoUML"/>
+   </feature>
+  -->
+   <category-def name="OntoUML" label="ontouml"/>
+</site>
