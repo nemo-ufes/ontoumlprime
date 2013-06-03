@@ -10,10 +10,7 @@
   </parent>
 
   <groupId>br.ufes.inf.nemo.ontouml</groupId>
-  <artifactId>br.ufes.inf.nemo.ontouml.ontoumlprime.p2updatesite</artifactId>
+  <artifactId>br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>eclipse-repository</packaging>
-  <!--
   <packaging>eclipse-update-site</packaging>
-  -->
 </project>

@@ -6,14 +6,15 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
-    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark</module-->
-    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.tests</module-->
-    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature</module-->
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.edit</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.editor</module>
+    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark</module-->
+    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature</module-->
+    <!--module>br.ufes.inf.nemo.ontouml.ontoumlprime.tests</module-->
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature</module>
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.p2updatesite</module>
+
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite</module>
   </modules>
 
   <properties>
