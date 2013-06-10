@@ -2,10 +2,13 @@
 	nsPrefix="ontouml-prime", //Used for XMI serialization
 	nsURI="http://nemo.inf.ufes.br/ontouml/ontoumlprime" //Used for o
 )
-@GenModel(testsDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.tests/src-gen")
-@GenModel(editDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.edit/src-gen")
-@GenModel(editorDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.editor/src-gen")
-@GenModel(fileExtensions="pouml")
+
+@GenModel(
+	testsDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.tests/src-gen",
+	editDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.edit/src-gen",
+	editorDirectory="/br.ufes.inf.nemo.ontouml.ontoumlprime.editor/src-gen",
+	fileExtensions="pouml"
+)
 
 package br.ufes.inf.nemo.ontouml.PrimeOntoUML
 
