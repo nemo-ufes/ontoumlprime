@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.sdk"
+      label="OntoUML Text Editor"
+      version="1.0.0.qualifier"
+      provider-name="NEMO">
+
+   <plugin
+         id="br.ufes.inf.nemo.ontouml.ontoumlprime.dsl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
