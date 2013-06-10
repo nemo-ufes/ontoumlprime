@@ -156,7 +156,7 @@ class Enumeration extends UserDefinedDataType
 // enforce also some constraints in the concrete syntax for example, since subQuantityOf is never
 // shareable, partIsShareable should not even apply to it
 
-class MeronymicRelation extends PackageableElement, BinaryDirectedRelationship
+abstract class MeronymicRelation extends PackageableElement, BinaryDirectedRelationship
 {
 	refers SubstantialUniversal[1] whole // acts as source of the Association
 	refers SubstantialUniversal[1] part  // acts as target of the Association
