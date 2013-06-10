@@ -4,6 +4,9 @@
     nsPrefix="ontouml-prime">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="basePackage" value="br.ufes.inf.nemo.ontouml"/>
+    <details key="testsDirectory" value="/br.ufes.inf.nemo.ontouml.ontoumlprime.tests/src-gen"/>
+    <details key="editDirectory" value="/br.ufes.inf.nemo.ontouml.ontoumlprime.edit/src-gen"/>
+    <details key="editorDirectory" value="/br.ufes.inf.nemo.ontouml.ontoumlprime.editor/src-gen"/>
     <details key="fileExtensions" value="pouml"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Model">
