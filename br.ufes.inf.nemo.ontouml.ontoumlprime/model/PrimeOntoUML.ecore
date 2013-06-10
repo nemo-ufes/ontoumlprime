@@ -31,17 +31,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Universal" abstract="true" eSuperTypes="#//NamedElement #//PackageableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="isSpecializedVia" ordered="false"
-        upperBound="-1" eType="#//GeneralizationSet" eOpposite="#//GeneralizationSet/specializedUniversal"/>
+        upperBound="-1" eType="#//GeneralizationSet" transient="true" eOpposite="#//GeneralizationSet/specializedUniversal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializesVia" ordered="false"
-        upperBound="-1" eType="#//GeneralizationSet" eOpposite="#//GeneralizationSet/specializingUniversals"/>
+        upperBound="-1" eType="#//GeneralizationSet" transient="true" eOpposite="#//GeneralizationSet/specializingUniversals"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GeneralizationSet" eSuperTypes="#//NamedElement #//PackageableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCovering" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializedUniversal" lowerBound="1"
-        eType="#//Universal" eOpposite="#//Universal/isSpecializedVia"/>
+        eType="#//Universal" resolveProxies="false" eOpposite="#//Universal/isSpecializedVia"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="specializingUniversals"
-        ordered="false" lowerBound="1" upperBound="-1" eType="#//Universal" eOpposite="#//Universal/specializesVia"/>
+        ordered="false" lowerBound="1" upperBound="-1" eType="#//Universal" resolveProxies="false"
+        eOpposite="#//Universal/specializesVia"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//NamedElement #//PackageableElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//DataType">
@@ -71,7 +72,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumerationLiterals" unique="false"
         lowerBound="2" upperBound="-1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MeronymicRelation" eSuperTypes="#//PackageableElement #//BinaryDirectedRelationship">
+  <eClassifiers xsi:type="ecore:EClass" name="MeronymicRelation" abstract="true" eSuperTypes="#//PackageableElement #//BinaryDirectedRelationship">
     <eStructuralFeatures xsi:type="ecore:EReference" name="whole" lowerBound="1" eType="#//SubstantialUniversal"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="part" lowerBound="1" eType="#//SubstantialUniversal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="partIsEssential" unique="false"
@@ -91,6 +92,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="characterizedBy" ordered="false"
         upperBound="-1" eType="#//Characterization" containment="true" resolveProxies="false"
         eOpposite="#//Characterization/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExternallyDependentUniversal" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediation" lowerBound="1"
+        eType="#//Mediation" eOpposite="#//Mediation/target"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SubstantialUniversal" abstract="true"
       eSuperTypes="#//EndurantUniversal"/>
@@ -122,10 +127,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="AntiRigidMixinUniversal" abstract="true"
       eSuperTypes="#//NonRigidMixinUniversal"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoleMixin" eSuperTypes="#//AntiRigidMixinUniversal #//ExternallyDependentUniversal"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternallyDependentUniversal" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mediation" lowerBound="1"
-        eType="#//Mediation" eOpposite="#//Mediation/target"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MomentUniversal" abstract="true" eSuperTypes="#//EndurantUniversal"/>
   <eClassifiers xsi:type="ecore:EClass" name="RelatorUniversal" eSuperTypes="#//MomentUniversal">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediations" ordered="false"
