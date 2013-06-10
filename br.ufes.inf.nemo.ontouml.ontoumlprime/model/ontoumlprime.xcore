@@ -190,28 +190,6 @@ abstract class EndurantUniversal extends Universal {
 
 }
 
-// SubstantialUniversals
-abstract class SubstantialUniversal extends EndurantUniversal {}
-abstract class SortalUniversal extends SubstantialUniversal {}
-abstract class RigidSortalUniversal extends SortalUniversal {}
-abstract class AntiRigidSortalUniversal extends SortalUniversal {}
-abstract class SubstanceSortalUniversal extends RigidSortalUniversal {}
-class Kind extends SubstanceSortalUniversal {}
-class QuantityUniversal extends SubstanceSortalUniversal {}
-class CollectiveUniversal extends SubstanceSortalUniversal {
-		boolean[1] isExtensional
-}
-class SubKind extends RigidSortalUniversal {}
-class Role extends AntiRigidSortalUniversal, ExternallyDependentUniversal {}
-class Phase extends AntiRigidSortalUniversal {}
-abstract class MixinUniversal extends Universal {}
-abstract class RigidMixinUniversal extends MixinUniversal {}
-class Category extends RigidMixinUniversal  {}
-abstract class NonRigidMixinUniversal extends MixinUniversal {}
-abstract class SemiRigidMixinUniversal extends NonRigidMixinUniversal {}
-class Mixin extends SemiRigidMixinUniversal {}
-abstract class AntiRigidMixinUniversal extends NonRigidMixinUniversal {}
-class RoleMixin extends AntiRigidMixinUniversal, ExternallyDependentUniversal {}
 abstract class ExternallyDependentUniversal {
 	refers Mediation[1] mediation opposite target
 	// should be derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13 instead 
@@ -223,6 +201,33 @@ abstract class ExternallyDependentUniversal {
 	// but mediations are not named. Making this derived should solve this.. but have to check later in Xtext
 }
 
+// SubstantialUniversals
+abstract class SubstantialUniversal extends EndurantUniversal {}
+abstract class SortalUniversal extends SubstantialUniversal {}
+abstract class RigidSortalUniversal extends SortalUniversal {}
+abstract class AntiRigidSortalUniversal extends SortalUniversal {}
+abstract class SubstanceSortalUniversal extends RigidSortalUniversal {}
+
+class Kind extends SubstanceSortalUniversal {}
+class QuantityUniversal extends SubstanceSortalUniversal {}
+class CollectiveUniversal extends SubstanceSortalUniversal {
+		boolean[1] isExtensional
+}
+class SubKind extends RigidSortalUniversal {}
+
+class Role extends AntiRigidSortalUniversal, ExternallyDependentUniversal {}
+class Phase extends AntiRigidSortalUniversal {}
+
+abstract class MixinUniversal extends Universal {}
+abstract class RigidMixinUniversal extends MixinUniversal {}
+class Category extends RigidMixinUniversal  {}
+abstract class NonRigidMixinUniversal extends MixinUniversal {}
+
+abstract class SemiRigidMixinUniversal extends NonRigidMixinUniversal {}
+class Mixin extends SemiRigidMixinUniversal {}
+abstract class AntiRigidMixinUniversal extends NonRigidMixinUniversal {}
+
+class RoleMixin extends AntiRigidMixinUniversal, ExternallyDependentUniversal {}
 
 // Moment Universals
 abstract class MomentUniversal extends EndurantUniversal {}
