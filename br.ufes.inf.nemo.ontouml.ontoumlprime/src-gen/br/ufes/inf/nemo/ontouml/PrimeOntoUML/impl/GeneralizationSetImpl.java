@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -129,26 +129,6 @@ public class GeneralizationSetImpl extends NamedElementImpl implements Generaliz
    */
   public Universal getSpecializedUniversal()
   {
-    if (specializedUniversal != null && specializedUniversal.eIsProxy())
-    {
-      InternalEObject oldSpecializedUniversal = (InternalEObject)specializedUniversal;
-      specializedUniversal = (Universal)eResolveProxy(oldSpecializedUniversal);
-      if (specializedUniversal != oldSpecializedUniversal)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, PrimeOntoUMLPackage.GENERALIZATION_SET__SPECIALIZED_UNIVERSAL, oldSpecializedUniversal, specializedUniversal));
-      }
-    }
-    return specializedUniversal;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Universal basicGetSpecializedUniversal()
-  {
     return specializedUniversal;
   }
 
@@ -199,7 +179,7 @@ public class GeneralizationSetImpl extends NamedElementImpl implements Generaliz
   {
     if (specializingUniversals == null)
     {
-      specializingUniversals = new EObjectWithInverseResolvingEList.ManyInverse<Universal>(Universal.class, this, PrimeOntoUMLPackage.GENERALIZATION_SET__SPECIALIZING_UNIVERSALS, PrimeOntoUMLPackage.UNIVERSAL__SPECIALIZES_VIA);
+      specializingUniversals = new EObjectWithInverseEList.ManyInverse<Universal>(Universal.class, this, PrimeOntoUMLPackage.GENERALIZATION_SET__SPECIALIZING_UNIVERSALS, PrimeOntoUMLPackage.UNIVERSAL__SPECIALIZES_VIA);
     }
     return specializingUniversals;
   }
@@ -256,8 +236,7 @@ public class GeneralizationSetImpl extends NamedElementImpl implements Generaliz
       case PrimeOntoUMLPackage.GENERALIZATION_SET__IS_COVERING:
         return isIsCovering();
       case PrimeOntoUMLPackage.GENERALIZATION_SET__SPECIALIZED_UNIVERSAL:
-        if (resolve) return getSpecializedUniversal();
-        return basicGetSpecializedUniversal();
+        return getSpecializedUniversal();
       case PrimeOntoUMLPackage.GENERALIZATION_SET__SPECIALIZING_UNIVERSALS:
         return getSpecializingUniversals();
     }

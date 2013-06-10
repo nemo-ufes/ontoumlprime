@@ -15,7 +15,6 @@ import br.ufes.inf.nemo.ontouml.PrimeOntoUML.GeneralizationSet;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.Kind;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.Mediation;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.MembershipRelation;
-import br.ufes.inf.nemo.ontouml.PrimeOntoUML.MeronymicRelation;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.Mixin;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.ModeUniversal;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.Model;

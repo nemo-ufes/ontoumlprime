@@ -211,6 +211,13 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass externallyDependentUniversalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass substantialUniversalEClass = null;
 
   /**
@@ -338,13 +345,6 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * @generated
    */
   private EClass roleMixinEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass externallyDependentUniversalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -898,6 +898,26 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getExternallyDependentUniversal()
+  {
+    return externallyDependentUniversalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getExternallyDependentUniversal_Mediation()
+  {
+    return (EReference)externallyDependentUniversalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSubstantialUniversal()
   {
     return substantialUniversalEClass;
@@ -1091,26 +1111,6 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
   public EClass getRoleMixin()
   {
     return roleMixinEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getExternallyDependentUniversal()
-  {
-    return externallyDependentUniversalEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getExternallyDependentUniversal_Mediation()
-  {
-    return (EReference)externallyDependentUniversalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1807,13 +1807,13 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     initEReference(getPackage_Elements(), this.getPackageableElement(), null, "elements", null, 0, -1, br.ufes.inf.nemo.ontouml.PrimeOntoUML.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
     initEClass(universalEClass, Universal.class, "Universal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUniversal_IsSpecializedVia(), this.getGeneralizationSet(), this.getGeneralizationSet_SpecializedUniversal(), "isSpecializedVia", null, 0, -1, Universal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-    initEReference(getUniversal_SpecializesVia(), this.getGeneralizationSet(), this.getGeneralizationSet_SpecializingUniversals(), "specializesVia", null, 0, -1, Universal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+    initEReference(getUniversal_IsSpecializedVia(), this.getGeneralizationSet(), this.getGeneralizationSet_SpecializedUniversal(), "isSpecializedVia", null, 0, -1, Universal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+    initEReference(getUniversal_SpecializesVia(), this.getGeneralizationSet(), this.getGeneralizationSet_SpecializingUniversals(), "specializesVia", null, 0, -1, Universal.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
     initEClass(generalizationSetEClass, GeneralizationSet.class, "GeneralizationSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGeneralizationSet_IsCovering(), theEcorePackage.getEBoolean(), "isCovering", null, 0, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGeneralizationSet_SpecializedUniversal(), this.getUniversal(), this.getUniversal_IsSpecializedVia(), "specializedUniversal", null, 1, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGeneralizationSet_SpecializingUniversals(), this.getUniversal(), this.getUniversal_SpecializesVia(), "specializingUniversals", null, 1, -1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+    initEReference(getGeneralizationSet_SpecializedUniversal(), this.getUniversal(), this.getUniversal_IsSpecializedVia(), "specializedUniversal", null, 1, 1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getGeneralizationSet_SpecializingUniversals(), this.getUniversal(), this.getUniversal_SpecializesVia(), "specializingUniversals", null, 1, -1, GeneralizationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
     initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

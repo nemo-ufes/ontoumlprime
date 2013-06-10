@@ -687,6 +687,21 @@ public class PrimeOntoUMLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal <em>Externally Dependent Universal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal
+   * @generated
+   */
+  public Adapter createExternallyDependentUniversalAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.SubstantialUniversal <em>Substantial Universal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -967,21 +982,6 @@ public class PrimeOntoUMLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createRoleMixinAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal <em>Externally Dependent Universal</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal
-   * @generated
-   */
-  public Adapter createExternallyDependentUniversalAdapter()
   {
     return null;
   }

@@ -1366,196 +1366,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int ENDURANT_UNIVERSAL_OPERATION_COUNT = UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl <em>Substantial Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubstantialUniversal()
-   * @generated
-   */
-  int SUBSTANTIAL_UNIVERSAL = 20;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SortalUniversalImpl <em>Sortal Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SortalUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSortalUniversal()
-   * @generated
-   */
-  int SORTAL_UNIVERSAL = 21;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidSortalUniversalImpl <em>Rigid Sortal Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidSortalUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRigidSortalUniversal()
-   * @generated
-   */
-  int RIGID_SORTAL_UNIVERSAL = 22;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidSortalUniversalImpl <em>Anti Rigid Sortal Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidSortalUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getAntiRigidSortalUniversal()
-   * @generated
-   */
-  int ANTI_RIGID_SORTAL_UNIVERSAL = 23;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstanceSortalUniversalImpl <em>Substance Sortal Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstanceSortalUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubstanceSortalUniversal()
-   * @generated
-   */
-  int SUBSTANCE_SORTAL_UNIVERSAL = 24;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.KindImpl <em>Kind</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.KindImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getKind()
-   * @generated
-   */
-  int KIND = 25;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.QuantityUniversalImpl <em>Quantity Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.QuantityUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getQuantityUniversal()
-   * @generated
-   */
-  int QUANTITY_UNIVERSAL = 26;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CollectiveUniversalImpl <em>Collective Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CollectiveUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getCollectiveUniversal()
-   * @generated
-   */
-  int COLLECTIVE_UNIVERSAL = 27;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubKindImpl <em>Sub Kind</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubKindImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubKind()
-   * @generated
-   */
-  int SUB_KIND = 28;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleImpl <em>Role</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRole()
-   * @generated
-   */
-  int ROLE = 29;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PhaseImpl <em>Phase</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PhaseImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getPhase()
-   * @generated
-   */
-  int PHASE = 30;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinUniversalImpl <em>Mixin Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getMixinUniversal()
-   * @generated
-   */
-  int MIXIN_UNIVERSAL = 31;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidMixinUniversalImpl <em>Rigid Mixin Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidMixinUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRigidMixinUniversal()
-   * @generated
-   */
-  int RIGID_MIXIN_UNIVERSAL = 32;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CategoryImpl <em>Category</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CategoryImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getCategory()
-   * @generated
-   */
-  int CATEGORY = 33;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.NonRigidMixinUniversalImpl <em>Non Rigid Mixin Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.NonRigidMixinUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getNonRigidMixinUniversal()
-   * @generated
-   */
-  int NON_RIGID_MIXIN_UNIVERSAL = 34;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SemiRigidMixinUniversalImpl <em>Semi Rigid Mixin Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SemiRigidMixinUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSemiRigidMixinUniversal()
-   * @generated
-   */
-  int SEMI_RIGID_MIXIN_UNIVERSAL = 35;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinImpl <em>Mixin</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getMixin()
-   * @generated
-   */
-  int MIXIN = 36;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidMixinUniversalImpl <em>Anti Rigid Mixin Universal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidMixinUniversalImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getAntiRigidMixinUniversal()
-   * @generated
-   */
-  int ANTI_RIGID_MIXIN_UNIVERSAL = 37;
-
-  /**
-   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleMixinImpl <em>Role Mixin</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleMixinImpl
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRoleMixin()
-   * @generated
-   */
-  int ROLE_MIXIN = 38;
-
-  /**
    * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.ExternallyDependentUniversalImpl <em>Externally Dependent Universal</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1591,6 +1401,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int EXTERNALLY_DEPENDENT_UNIVERSAL_OPERATION_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl <em>Substantial Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubstantialUniversal()
+   * @generated
+   */
+  int SUBSTANTIAL_UNIVERSAL = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1647,6 +1467,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int SUBSTANTIAL_UNIVERSAL_OPERATION_COUNT = ENDURANT_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SortalUniversalImpl <em>Sortal Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SortalUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSortalUniversal()
+   * @generated
+   */
+  int SORTAL_UNIVERSAL = 21;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1699,6 +1529,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int SORTAL_UNIVERSAL_OPERATION_COUNT = SUBSTANTIAL_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidSortalUniversalImpl <em>Rigid Sortal Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidSortalUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRigidSortalUniversal()
+   * @generated
+   */
+  int RIGID_SORTAL_UNIVERSAL = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1755,6 +1595,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT = SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidSortalUniversalImpl <em>Anti Rigid Sortal Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidSortalUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getAntiRigidSortalUniversal()
+   * @generated
+   */
+  int ANTI_RIGID_SORTAL_UNIVERSAL = 23;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1807,6 +1657,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int ANTI_RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT = SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstanceSortalUniversalImpl <em>Substance Sortal Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstanceSortalUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubstanceSortalUniversal()
+   * @generated
+   */
+  int SUBSTANCE_SORTAL_UNIVERSAL = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1863,6 +1723,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int SUBSTANCE_SORTAL_UNIVERSAL_OPERATION_COUNT = RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.KindImpl <em>Kind</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.KindImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getKind()
+   * @generated
+   */
+  int KIND = 25;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1917,6 +1787,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int KIND_OPERATION_COUNT = SUBSTANCE_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.QuantityUniversalImpl <em>Quantity Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.QuantityUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getQuantityUniversal()
+   * @generated
+   */
+  int QUANTITY_UNIVERSAL = 26;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1969,6 +1849,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int QUANTITY_UNIVERSAL_OPERATION_COUNT = SUBSTANCE_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CollectiveUniversalImpl <em>Collective Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CollectiveUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getCollectiveUniversal()
+   * @generated
+   */
+  int COLLECTIVE_UNIVERSAL = 27;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2034,6 +1924,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int COLLECTIVE_UNIVERSAL_OPERATION_COUNT = SUBSTANCE_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubKindImpl <em>Sub Kind</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubKindImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSubKind()
+   * @generated
+   */
+  int SUB_KIND = 28;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2086,6 +1986,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int SUB_KIND_OPERATION_COUNT = RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleImpl <em>Role</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRole()
+   * @generated
+   */
+  int ROLE = 29;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2151,6 +2061,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int ROLE_OPERATION_COUNT = ANTI_RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PhaseImpl <em>Phase</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PhaseImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getPhase()
+   * @generated
+   */
+  int PHASE = 30;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2205,6 +2125,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int PHASE_OPERATION_COUNT = ANTI_RIGID_SORTAL_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinUniversalImpl <em>Mixin Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getMixinUniversal()
+   * @generated
+   */
+  int MIXIN_UNIVERSAL = 31;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2248,6 +2178,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int MIXIN_UNIVERSAL_OPERATION_COUNT = UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidMixinUniversalImpl <em>Rigid Mixin Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RigidMixinUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRigidMixinUniversal()
+   * @generated
+   */
+  int RIGID_MIXIN_UNIVERSAL = 32;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2295,6 +2235,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT = MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CategoryImpl <em>Category</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.CategoryImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getCategory()
+   * @generated
+   */
+  int CATEGORY = 33;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2338,6 +2288,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int CATEGORY_OPERATION_COUNT = RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.NonRigidMixinUniversalImpl <em>Non Rigid Mixin Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.NonRigidMixinUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getNonRigidMixinUniversal()
+   * @generated
+   */
+  int NON_RIGID_MIXIN_UNIVERSAL = 34;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2385,6 +2345,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int NON_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT = MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SemiRigidMixinUniversalImpl <em>Semi Rigid Mixin Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SemiRigidMixinUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getSemiRigidMixinUniversal()
+   * @generated
+   */
+  int SEMI_RIGID_MIXIN_UNIVERSAL = 35;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2428,6 +2398,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int SEMI_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT = NON_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinImpl <em>Mixin</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MixinImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getMixin()
+   * @generated
+   */
+  int MIXIN = 36;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2475,6 +2455,16 @@ public interface PrimeOntoUMLPackage extends EPackage
   int MIXIN_OPERATION_COUNT = SEMI_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
 
   /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidMixinUniversalImpl <em>Anti Rigid Mixin Universal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.AntiRigidMixinUniversalImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getAntiRigidMixinUniversal()
+   * @generated
+   */
+  int ANTI_RIGID_MIXIN_UNIVERSAL = 37;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2518,6 +2508,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int ANTI_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT = NON_RIGID_MIXIN_UNIVERSAL_OPERATION_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleMixinImpl <em>Role Mixin</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.RoleMixinImpl
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getRoleMixin()
+   * @generated
+   */
+  int ROLE_MIXIN = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4024,6 +4024,27 @@ public interface PrimeOntoUMLPackage extends EPackage
   EReference getEndurantUniversal_CharacterizedBy();
 
   /**
+   * Returns the meta object for class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal <em>Externally Dependent Universal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Externally Dependent Universal</em>'.
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal
+   * @generated
+   */
+  EClass getExternallyDependentUniversal();
+
+  /**
+   * Returns the meta object for the reference '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal#getMediation <em>Mediation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Mediation</em>'.
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal#getMediation()
+   * @see #getExternallyDependentUniversal()
+   * @generated
+   */
+  EReference getExternallyDependentUniversal_Mediation();
+
+  /**
    * Returns the meta object for class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.SubstantialUniversal <em>Substantial Universal</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4223,27 +4244,6 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    */
   EClass getRoleMixin();
-
-  /**
-   * Returns the meta object for class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal <em>Externally Dependent Universal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Externally Dependent Universal</em>'.
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal
-   * @generated
-   */
-  EClass getExternallyDependentUniversal();
-
-  /**
-   * Returns the meta object for the reference '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal#getMediation <em>Mediation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Mediation</em>'.
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal#getMediation()
-   * @see #getExternallyDependentUniversal()
-   * @generated
-   */
-  EReference getExternallyDependentUniversal_Mediation();
 
   /**
    * Returns the meta object for class '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.MomentUniversal <em>Moment Universal</em>}'.
@@ -5047,6 +5047,24 @@ public interface PrimeOntoUMLPackage extends EPackage
     EReference ENDURANT_UNIVERSAL__CHARACTERIZED_BY = eINSTANCE.getEndurantUniversal_CharacterizedBy();
 
     /**
+     * The meta object literal for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.ExternallyDependentUniversalImpl <em>Externally Dependent Universal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.ExternallyDependentUniversalImpl
+     * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getExternallyDependentUniversal()
+     * @generated
+     */
+    EClass EXTERNALLY_DEPENDENT_UNIVERSAL = eINSTANCE.getExternallyDependentUniversal();
+
+    /**
+     * The meta object literal for the '<em><b>Mediation</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION = eINSTANCE.getExternallyDependentUniversal_Mediation();
+
+    /**
      * The meta object literal for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl <em>Substantial Universal</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5243,24 +5261,6 @@ public interface PrimeOntoUMLPackage extends EPackage
      * @generated
      */
     EClass ROLE_MIXIN = eINSTANCE.getRoleMixin();
-
-    /**
-     * The meta object literal for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.ExternallyDependentUniversalImpl <em>Externally Dependent Universal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.ExternallyDependentUniversalImpl
-     * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.PrimeOntoUMLPackageImpl#getExternallyDependentUniversal()
-     * @generated
-     */
-    EClass EXTERNALLY_DEPENDENT_UNIVERSAL = eINSTANCE.getExternallyDependentUniversal();
-
-    /**
-     * The meta object literal for the '<em><b>Mediation</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION = eINSTANCE.getExternallyDependentUniversal_Mediation();
 
     /**
      * The meta object literal for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MomentUniversalImpl <em>Moment Universal</em>}' class.

@@ -36,7 +36,7 @@ public interface Universal extends NamedElement, PackageableElement
    * @return the value of the '<em>Is Specialized Via</em>' reference list.
    * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage#getUniversal_IsSpecializedVia()
    * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.GeneralizationSet#getSpecializedUniversal
-   * @model opposite="specializedUniversal" ordered="false"
+   * @model opposite="specializedUniversal" transient="true" ordered="false"
    * @generated
    */
   EList<GeneralizationSet> getIsSpecializedVia();
@@ -54,7 +54,7 @@ public interface Universal extends NamedElement, PackageableElement
    * @return the value of the '<em>Specializes Via</em>' reference list.
    * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage#getUniversal_SpecializesVia()
    * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.GeneralizationSet#getSpecializingUniversals
-   * @model opposite="specializingUniversals" ordered="false"
+   * @model opposite="specializingUniversals" transient="true" ordered="false"
    * @generated
    */
   EList<GeneralizationSet> getSpecializesVia();
