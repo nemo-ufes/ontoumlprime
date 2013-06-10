@@ -13,18 +13,8 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MeronymicRelationTest extends PackageableElementTest
+public abstract class MeronymicRelationTest extends PackageableElementTest
 {
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public static void main(String[] args)
-  {
-    TestRunner.run(MeronymicRelationTest.class);
-  }
 
   /**
    * Constructs a new Meronymic Relation test case with the given name.
@@ -47,30 +37,6 @@ public class MeronymicRelationTest extends PackageableElementTest
   protected MeronymicRelation getFixture()
   {
     return (MeronymicRelation)fixture;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#setUp()
-   * @generated
-   */
-  @Override
-  protected void setUp() throws Exception
-  {
-    setFixture(PrimeOntoUMLFactory.eINSTANCE.createMeronymicRelation());
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see junit.framework.TestCase#tearDown()
-   * @generated
-   */
-  @Override
-  protected void tearDown() throws Exception
-  {
-    setFixture(null);
   }
 
 } //MeronymicRelationTest

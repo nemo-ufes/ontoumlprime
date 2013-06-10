@@ -21,7 +21,7 @@ package br.ufes.inf.nemo.ontouml.PrimeOntoUML;
  * </p>
  *
  * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage#getMeronymicRelation()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface MeronymicRelation extends PackageableElement, BinaryDirectedRelationship

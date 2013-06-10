@@ -103,7 +103,6 @@ public class PrimeOntoUMLFactoryImpl extends EFactoryImpl implements PrimeOntoUM
       case PrimeOntoUMLPackage.COMPLEX_DATA_TYPE: return createComplexDataType();
       case PrimeOntoUMLPackage.DATA_TYPE_ATTRIBUTE: return createDataTypeAttribute();
       case PrimeOntoUMLPackage.ENUMERATION: return createEnumeration();
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION: return createMeronymicRelation();
       case PrimeOntoUMLPackage.COMPONENT_OF_RELATION: return createComponentOfRelation();
       case PrimeOntoUMLPackage.MEMBERSHIP_RELATION: return createMembershipRelation();
       case PrimeOntoUMLPackage.SUB_COLLECTION_RELATION: return createSubCollectionRelation();
@@ -240,17 +239,6 @@ public class PrimeOntoUMLFactoryImpl extends EFactoryImpl implements PrimeOntoUM
   {
     EnumerationImpl enumeration = new EnumerationImpl();
     return enumeration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MeronymicRelation createMeronymicRelation()
-  {
-    MeronymicRelationImpl meronymicRelation = new MeronymicRelationImpl();
-    return meronymicRelation;
   }
 
   /**

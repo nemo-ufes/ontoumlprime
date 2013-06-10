@@ -86,15 +86,6 @@ public interface PrimeOntoUMLFactory extends EFactory
   Enumeration createEnumeration();
 
   /**
-   * Returns a new object of class '<em>Meronymic Relation</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Meronymic Relation</em>'.
-   * @generated
-   */
-  MeronymicRelation createMeronymicRelation();
-
-  /**
    * Returns a new object of class '<em>Component Of Relation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

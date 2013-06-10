@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class MeronymicRelationImpl extends PackageableElementImpl implements MeronymicRelation
+public abstract class MeronymicRelationImpl extends PackageableElementImpl implements MeronymicRelation
 {
   /**
    * The default value of the '{@link #getSourceEndName() <em>Source End Name</em>}' attribute.

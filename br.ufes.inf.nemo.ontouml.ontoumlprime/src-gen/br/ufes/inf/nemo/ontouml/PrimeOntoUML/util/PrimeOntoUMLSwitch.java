@@ -312,6 +312,13 @@ public class PrimeOntoUMLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PrimeOntoUMLPackage.EXTERNALLY_DEPENDENT_UNIVERSAL:
+      {
+        ExternallyDependentUniversal externallyDependentUniversal = (ExternallyDependentUniversal)theEObject;
+        T result = caseExternallyDependentUniversal(externallyDependentUniversal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PrimeOntoUMLPackage.SUBSTANTIAL_UNIVERSAL:
       {
         SubstantialUniversal substantialUniversal = (SubstantialUniversal)theEObject;
@@ -574,13 +581,6 @@ public class PrimeOntoUMLSwitch<T> extends Switch<T>
         if (result == null) result = caseNamedElement(roleMixin);
         if (result == null) result = casePackageableElement(roleMixin);
         if (result == null) result = caseElement(roleMixin);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case PrimeOntoUMLPackage.EXTERNALLY_DEPENDENT_UNIVERSAL:
-      {
-        ExternallyDependentUniversal externallyDependentUniversal = (ExternallyDependentUniversal)theEObject;
-        T result = caseExternallyDependentUniversal(externallyDependentUniversal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

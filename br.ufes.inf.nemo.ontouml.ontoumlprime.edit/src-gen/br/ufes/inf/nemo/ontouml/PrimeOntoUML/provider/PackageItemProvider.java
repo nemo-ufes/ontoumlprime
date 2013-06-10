@@ -186,11 +186,6 @@ public class PackageItemProvider
     newChildDescriptors.add
       (createChildParameter
         (PrimeOntoUMLPackage.Literals.PACKAGE__ELEMENTS,
-         PrimeOntoUMLFactory.eINSTANCE.createMeronymicRelation()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (PrimeOntoUMLPackage.Literals.PACKAGE__ELEMENTS,
          PrimeOntoUMLFactory.eINSTANCE.createComponentOfRelation()));
 
     newChildDescriptors.add

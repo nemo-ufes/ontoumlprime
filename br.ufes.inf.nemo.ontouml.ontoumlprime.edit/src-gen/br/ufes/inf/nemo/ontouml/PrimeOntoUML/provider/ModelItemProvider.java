@@ -187,11 +187,6 @@ public class ModelItemProvider
     newChildDescriptors.add
       (createChildParameter
         (PrimeOntoUMLPackage.Literals.MODEL__ELEMENTS,
-         PrimeOntoUMLFactory.eINSTANCE.createMeronymicRelation()));
-
-    newChildDescriptors.add
-      (createChildParameter
-        (PrimeOntoUMLPackage.Literals.MODEL__ELEMENTS,
          PrimeOntoUMLFactory.eINSTANCE.createComponentOfRelation()));
 
     newChildDescriptors.add

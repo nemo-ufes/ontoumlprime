@@ -249,31 +249,6 @@ public class PrimeOntoUMLItemProviderAdapterFactory extends PrimeOntoUMLAdapterF
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.MeronymicRelation} instances.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected MeronymicRelationItemProvider meronymicRelationItemProvider;
-
-  /**
-   * This creates an adapter for a {@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.MeronymicRelation}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Adapter createMeronymicRelationAdapter()
-  {
-    if (meronymicRelationItemProvider == null)
-    {
-      meronymicRelationItemProvider = new MeronymicRelationItemProvider(this);
-    }
-
-    return meronymicRelationItemProvider;
-  }
-
-  /**
    * This keeps track of the one adapter used for all {@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.ComponentOfRelation} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -941,7 +916,6 @@ public class PrimeOntoUMLItemProviderAdapterFactory extends PrimeOntoUMLAdapterF
     if (complexDataTypeItemProvider != null) complexDataTypeItemProvider.dispose();
     if (dataTypeAttributeItemProvider != null) dataTypeAttributeItemProvider.dispose();
     if (enumerationItemProvider != null) enumerationItemProvider.dispose();
-    if (meronymicRelationItemProvider != null) meronymicRelationItemProvider.dispose();
     if (componentOfRelationItemProvider != null) componentOfRelationItemProvider.dispose();
     if (membershipRelationItemProvider != null) membershipRelationItemProvider.dispose();
     if (subCollectionRelationItemProvider != null) subCollectionRelationItemProvider.dispose();

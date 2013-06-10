@@ -1601,6 +1601,9 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     endurantUniversalEClass = createEClass(ENDURANT_UNIVERSAL);
     createEReference(endurantUniversalEClass, ENDURANT_UNIVERSAL__CHARACTERIZED_BY);
 
+    externallyDependentUniversalEClass = createEClass(EXTERNALLY_DEPENDENT_UNIVERSAL);
+    createEReference(externallyDependentUniversalEClass, EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION);
+
     substantialUniversalEClass = createEClass(SUBSTANTIAL_UNIVERSAL);
 
     sortalUniversalEClass = createEClass(SORTAL_UNIVERSAL);
@@ -1639,9 +1642,6 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     antiRigidMixinUniversalEClass = createEClass(ANTI_RIGID_MIXIN_UNIVERSAL);
 
     roleMixinEClass = createEClass(ROLE_MIXIN);
-
-    externallyDependentUniversalEClass = createEClass(EXTERNALLY_DEPENDENT_UNIVERSAL);
-    createEReference(externallyDependentUniversalEClass, EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION);
 
     momentUniversalEClass = createEClass(MOMENT_UNIVERSAL);
 
@@ -1832,7 +1832,7 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumeration_EnumerationLiterals(), theEcorePackage.getEString(), "enumerationLiterals", null, 2, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(meronymicRelationEClass, MeronymicRelation.class, "MeronymicRelation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(meronymicRelationEClass, MeronymicRelation.class, "MeronymicRelation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMeronymicRelation_Whole(), this.getSubstantialUniversal(), null, "whole", null, 1, 1, MeronymicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMeronymicRelation_Part(), this.getSubstantialUniversal(), null, "part", null, 1, 1, MeronymicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getMeronymicRelation_PartIsEssential(), theEcorePackage.getEBoolean(), "partIsEssential", null, 1, 1, MeronymicRelation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1850,6 +1850,9 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
 
     initEClass(endurantUniversalEClass, EndurantUniversal.class, "EndurantUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEndurantUniversal_CharacterizedBy(), this.getCharacterization(), this.getCharacterization_Source(), "characterizedBy", null, 0, -1, EndurantUniversal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+    initEClass(externallyDependentUniversalEClass, ExternallyDependentUniversal.class, "ExternallyDependentUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExternallyDependentUniversal_Mediation(), this.getMediation(), this.getMediation_Target(), "mediation", null, 1, 1, ExternallyDependentUniversal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(substantialUniversalEClass, SubstantialUniversal.class, "SubstantialUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1889,9 +1892,6 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     initEClass(antiRigidMixinUniversalEClass, AntiRigidMixinUniversal.class, "AntiRigidMixinUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(roleMixinEClass, RoleMixin.class, "RoleMixin", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(externallyDependentUniversalEClass, ExternallyDependentUniversal.class, "ExternallyDependentUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExternallyDependentUniversal_Mediation(), this.getMediation(), this.getMediation_Target(), "mediation", null, 1, 1, ExternallyDependentUniversal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(momentUniversalEClass, MomentUniversal.class, "MomentUniversal", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

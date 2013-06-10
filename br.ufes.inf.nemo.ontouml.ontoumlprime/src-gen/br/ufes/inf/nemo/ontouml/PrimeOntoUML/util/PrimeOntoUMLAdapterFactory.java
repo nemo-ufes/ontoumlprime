@@ -220,6 +220,11 @@ public class PrimeOntoUMLAdapterFactory extends AdapterFactoryImpl
         return createEndurantUniversalAdapter();
       }
       @Override
+      public Adapter caseExternallyDependentUniversal(ExternallyDependentUniversal object)
+      {
+        return createExternallyDependentUniversalAdapter();
+      }
+      @Override
       public Adapter caseSubstantialUniversal(SubstantialUniversal object)
       {
         return createSubstantialUniversalAdapter();
@@ -313,11 +318,6 @@ public class PrimeOntoUMLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseRoleMixin(RoleMixin object)
       {
         return createRoleMixinAdapter();
-      }
-      @Override
-      public Adapter caseExternallyDependentUniversal(ExternallyDependentUniversal object)
-      {
-        return createExternallyDependentUniversalAdapter();
       }
       @Override
       public Adapter caseMomentUniversal(MomentUniversal object)
