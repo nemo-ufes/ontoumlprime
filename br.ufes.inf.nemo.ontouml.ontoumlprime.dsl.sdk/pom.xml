@@ -8,10 +8,8 @@
     <artifactId>parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-
   <groupId>br.ufes.inf.nemo.ontouml</groupId>
-  <artifactId>br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite</artifactId>
+  <artifactId>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.sdk</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>eclipse-update-site</packaging>
-
+  <packaging>eclipse-feature</packaging>
 </project>

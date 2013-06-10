@@ -1,50 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <modelVersion>4.0.0</modelVersion>
+  <!-- Tycho requires Maven 3 -->
+  <prerequisites>
+    <maven>3.0</maven>
+  </prerequisites>
+
   <groupId>br.ufes.inf.nemo.ontouml</groupId>
   <artifactId>parent</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <modules>
+
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.edit</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.editor</module>
     <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark</module-->
     <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature</module-->
     <!--module>br.ufes.inf.nemo.ontouml.ontoumlprime.tests</module-->
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature</module>
 
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl</module>
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.ui</module>
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.sdk</module>
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.tests</module>
+
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite</module>
   </modules>
 
   <properties>
-    <tycho.version>0.17.0</tycho.version>
-    <tycho-extras.version>0.17.0</tycho-extras.version>
+    <tycho-version>0.17.0</tycho-version>
+    <junit-version>4.8.1</junit-version>
+    <xtext-version>2.4.1</xtext-version>
 
-    <juno-repo.url>http://download.eclipse.org/releases/juno</juno-repo.url>
-    <helios-repo.url>http://download.eclipse.org/releases/helios</helios-repo.url>
-    <xtext-repo.url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</xtext-repo.url>
-    <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
+    <platform-version-name>juno</platform-version-name>
+    <eclipse-site>http://download.eclipse.org/releases/${platform-version-name}</eclipse-site>
   </properties>
 
   <repositories>
+    <!-- Repository to resolve the Eclipse Tycho dependencies -->
     <repository>
-      <id>juno</id>
-      <url>${juno-repo.url}</url>
+      <id>p2.eclipse.${platform-version-name}</id>
+      <url>${eclipse-site}</url>
       <layout>p2</layout>
+    </repository>
+
+    <!-- Repository to resolve the XText dependencies -->
+    <repository>
+      <id>p2.eclipse.xtext</id>
+      <url>http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/</url>
+      <layout>p2</layout>
+    </repository>
+
+    <!-- OntoUML repo -->
+    <!--
+    <repository>
+      <id>p2.eclipse.primeontouml</id>
+      <url>http://ontouml.sourceforge.net/eclipse/</url>
+      <layout>p2</layout>
+    </repository>
+    -->
+    <repository>
+      <id>xtend</id>
+      <url>http://build.eclipse.org/common/xtend/maven/</url>
     </repository>
   </repositories>
 
   <pluginRepositories>
+    <!-- Repository to resolve fornax-oaw-m2-plugin -->
     <pluginRepository>
-      <id>tycho</id>
-      <url>${tycho-repo.url}</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
+      <id>fornax.plugin.repository</id>
+      <name>Fornax Plugin Repository</name>
+      <url>http://www.fornax-platform.org/m2/repository</url>
+    </pluginRepository>
+    <!-- Repository to resolve xtend-maven-plugin -->
+    <pluginRepository>
+      <id>xtend</id>
+      <url>http://build.eclipse.org/common/xtend/maven/</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -53,25 +85,18 @@
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
-        <version>${tycho.version}</version>
+        <version>${tycho-version}</version>
         <extensions>true</extensions>
       </plugin>
 
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
         <configuration>
+          <resolver>p2</resolver>
+          <pomDependencies>consider</pomDependencies>
           <environments>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86</arch>
-            </environment>
-            <environment>
-              <os>linux</os>
-              <ws>gtk</ws>
-              <arch>x86_64</arch>
-            </environment>
             <environment>
               <os>win32</os>
               <ws>win32</ws>
@@ -87,121 +112,203 @@
               <ws>cocoa</ws>
               <arch>x86_64</arch>
             </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
           </environments>
         </configuration>
       </plugin>
 
-      <!--
       <plugin>
         <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>plugin-source</id>
-            <goals>
-              <goal>plugin-source</goal>
-            </goals>
-          </execution>
-        </executions>
+        <artifactId>tycho-surefire-plugin</artifactId>
       </plugin>
-      -->
+
     </plugins>
 
     <pluginManagement>
       <plugins>
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
-          <artifactId>target-platform-configuration</artifactId>
-          <version>${tycho.version}</version>
+          <artifactId>tycho-p2-repository-plugin</artifactId>
+          <version>${tycho-version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.6</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.5.1</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.7</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.eclipse.tycho</groupId>
+          <artifactId>tycho-maven-plugin</artifactId>
+          <version>${tycho-version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
           <artifactId>tycho-compiler-plugin</artifactId>
-          <version>${tycho.version}</version>
+          <version>${tycho-version}</version>
           <configuration>
-            <compilerArguments>
-              <inlineJSR />
-              <enableJavadoc />
-              <encoding>UTF-8</encoding>
-            </compilerArguments>
+            <meminitial>128m</meminitial>
+            <maxmem>1g</maxmem>
+            <!--
+            <source>7.0</source>
+            <target>7.0</target>
+            -->
+            <verbose>true</verbose>
+            <excludeResources>
+              <excludeResource>**/*.xtend</excludeResource>
+            </excludeResources>
           </configuration>
         </plugin>
 
-        <!-- I've disabled because refontouml is not in the same git repo -->
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-packaging-plugin</artifactId>
-          <version>${tycho.version}</version>
-          <!--
-          <dependencies>
-            <dependency>
-              <groupId>org.eclipse.tycho.extras</groupId>
-              <artifactId>tycho-buildtimestamp-jgit</artifactId>
-              <version>${tycho-extras.version}</version>
-            </dependency>
-          </dependencies>
-          -->
-          <configuration>
-            <format>'v'yyyyMMdd-HHmm</format>
-            <!--
-            <strictBinIncludes>false</strictBinIncludes>
-            <timestampProvider>jgit</timestampProvider>
-            <jgit.ignore>
-            </jgit.ignore>
-            -->
-          </configuration>
+          <artifactId>target-platform-configuration</artifactId>
+          <version>${tycho-version}</version>
         </plugin>
 
         <plugin>
           <groupId>org.eclipse.tycho</groupId>
           <artifactId>tycho-surefire-plugin</artifactId>
-          <version>${tycho.version}</version>
+          <version>${tycho-version}</version>
         </plugin>
+
         <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-source-plugin</artifactId>
-          <version>${tycho.version}</version>
+          <groupId>org.fornax.toolsupport</groupId>
+          <artifactId>fornax-oaw-m2-plugin</artifactId>
+          <version>3.4.0</version>
           <configuration>
-            <strictSrcIncludes>false</strictSrcIncludes>
+            <workflowEngine>mwe2</workflowEngine>
           </configuration>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>run-workflow</goal>
+              </goals>
+            </execution>
+          </executions>
         </plugin>
+
         <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-p2-director-plugin</artifactId>
-          <version>${tycho.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-p2-repository-plugin</artifactId>
-          <version>${tycho.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho.extras</groupId>
-          <artifactId>tycho-source-feature-plugin</artifactId>
-          <version>${tycho-extras.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho.extras</groupId>
-          <artifactId>tycho-custom-bundle-plugin</artifactId>
-          <version>${tycho-extras.version}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.eclipse.tycho</groupId>
-          <artifactId>tycho-p2-plugin</artifactId>
-          <version>${tycho.version}</version>
+          <groupId>org.eclipse.xtend</groupId>
+          <artifactId>xtend-maven-plugin</artifactId>
+          <version>${xtext-version}</version>
           <configuration>
-            <baselineMode>warn</baselineMode>
-            <baselineReplace>none</baselineReplace>
-            <baselineRepositories>
-              <repository>
-                <url>http://download.eclipse.org/eclipse/updates/4.2</url>
-              </repository>
-            </baselineRepositories>
+            <encoding>UTF-8</encoding>
           </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <dependencies>
+            <!-- these dependencies are contributed in Eclipse by the "Xtend Library" classpath container -->
+            <dependency>
+              <groupId>org.eclipse.xtend</groupId>
+              <artifactId>org.eclipse.xtend.lib</artifactId>
+              <version>${xtext-version}</version>
+              <type>pom</type>
+            </dependency>
+          </dependencies>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>commons-cli</groupId>
+        <artifactId>commons-cli</artifactId>
+        <version>1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.xtend</groupId>
+        <artifactId>org.eclipse.xtend.standalone</artifactId>
+        <version>${xtext-version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>10.0.1</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>3.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.antlr</groupId>
+        <artifactId>antlr-runtime</artifactId>
+        <version>3.2</version>
+      </dependency>
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit-version}</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>
