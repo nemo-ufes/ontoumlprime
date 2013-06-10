@@ -92,11 +92,11 @@ abstract class Universal extends NamedElement, PackageableElement
 	
 	// @TODO: refers unordered unique HigherOrderClass[*] instanceOf
 	
-	refers unordered unique GeneralizationSet[*] isSpecializedVia opposite specializedUniversal	
+	refers transient unordered unique GeneralizationSet[*] isSpecializedVia opposite specializedUniversal	
 	// @TODO: make this derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13
 	// subclasses can be derived from isSpecializedVia
 
-	refers unordered unique GeneralizationSet[*] specializesVia opposite specializingUniversals 
+	refers transient unordered unique GeneralizationSet[*] specializesVia opposite specializingUniversals 
 	// @TODO: make this derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13
 	// superclasses can be derived from specializesVia	
 }
@@ -108,10 +108,10 @@ class GeneralizationSet extends NamedElement, PackageableElement
 
 	// boolean isDisjoint // default true
 	// isDijoint has been removed, use different GeneralizationSets if necessary to represent disjointNess
-	
-	refers Universal[1] specializedUniversal opposite isSpecializedVia
+
+	refers local Universal[1] specializedUniversal opposite isSpecializedVia
 	// here we diverge from UML, which refers to Generalizations from a GeneralizationSet
-	refers unordered unique Universal[1..*] specializingUniversals opposite specializesVia
+	refers local unordered unique Universal[1..*] specializingUniversals opposite specializesVia
 	// @TODO: add constraints for universals of the same metaclass
 	// @TODO: refers HigherOrderUniversal[0..1] powertype
 }
