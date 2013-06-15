@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getSourceEndName <em>Source End Name</em>}</li>
- *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getSourceLowerBound <em>Source Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getSourceUpperBound <em>Source Upper Bound</em>}</li>
+ *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getTargetLowerBound <em>Target Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.BinaryDirectedRelationshipImpl#getTargetUpperBound <em>Target Upper Bound</em>}</li>
  * </ul>
@@ -51,26 +51,6 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
    * @ordered
    */
   protected String sourceEndName = SOURCE_END_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTargetEndName()
-   * @generated
-   * @ordered
-   */
-  protected static final String TARGET_END_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTargetEndName()
-   * @generated
-   * @ordered
-   */
-  protected String targetEndName = TARGET_END_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getSourceLowerBound() <em>Source Lower Bound</em>}' attribute.
@@ -111,6 +91,26 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
    * @ordered
    */
   protected int sourceUpperBound = SOURCE_UPPER_BOUND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetEndName()
+   * @generated
+   * @ordered
+   */
+  protected static final String TARGET_END_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetEndName()
+   * @generated
+   * @ordered
+   */
+  protected String targetEndName = TARGET_END_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTargetLowerBound() <em>Target Lower Bound</em>}' attribute.
@@ -201,29 +201,6 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTargetEndName()
-  {
-    return targetEndName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTargetEndName(String newTargetEndName)
-  {
-    String oldTargetEndName = targetEndName;
-    targetEndName = newTargetEndName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME, oldTargetEndName, targetEndName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public int getSourceLowerBound()
   {
     return sourceLowerBound;
@@ -263,6 +240,29 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
     sourceUpperBound = newSourceUpperBound;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND, oldSourceUpperBound, sourceUpperBound));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTargetEndName()
+  {
+    return targetEndName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTargetEndName(String newTargetEndName)
+  {
+    String oldTargetEndName = targetEndName;
+    targetEndName = newTargetEndName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME, oldTargetEndName, targetEndName));
   }
 
   /**
@@ -323,12 +323,12 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
     {
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME:
         return getSourceEndName();
-      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
-        return getTargetEndName();
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND:
         return getSourceLowerBound();
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND:
         return getSourceUpperBound();
+      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
+        return getTargetEndName();
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND:
         return getTargetLowerBound();
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND:
@@ -350,14 +350,14 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME:
         setSourceEndName((String)newValue);
         return;
-      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
-        setTargetEndName((String)newValue);
-        return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND:
         setSourceLowerBound((Integer)newValue);
         return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND:
         setSourceUpperBound((Integer)newValue);
+        return;
+      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
+        setTargetEndName((String)newValue);
         return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND:
         setTargetLowerBound((Integer)newValue);
@@ -382,14 +382,14 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME:
         setSourceEndName(SOURCE_END_NAME_EDEFAULT);
         return;
-      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
-        setTargetEndName(TARGET_END_NAME_EDEFAULT);
-        return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND:
         setSourceLowerBound(SOURCE_LOWER_BOUND_EDEFAULT);
         return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND:
         setSourceUpperBound(SOURCE_UPPER_BOUND_EDEFAULT);
+        return;
+      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
+        setTargetEndName(TARGET_END_NAME_EDEFAULT);
         return;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND:
         setTargetLowerBound(TARGET_LOWER_BOUND_EDEFAULT);
@@ -413,12 +413,12 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
     {
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME:
         return SOURCE_END_NAME_EDEFAULT == null ? sourceEndName != null : !SOURCE_END_NAME_EDEFAULT.equals(sourceEndName);
-      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
-        return TARGET_END_NAME_EDEFAULT == null ? targetEndName != null : !TARGET_END_NAME_EDEFAULT.equals(targetEndName);
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND:
         return sourceLowerBound != SOURCE_LOWER_BOUND_EDEFAULT;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND:
         return sourceUpperBound != SOURCE_UPPER_BOUND_EDEFAULT;
+      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
+        return TARGET_END_NAME_EDEFAULT == null ? targetEndName != null : !TARGET_END_NAME_EDEFAULT.equals(targetEndName);
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND:
         return targetLowerBound != TARGET_LOWER_BOUND_EDEFAULT;
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND:
@@ -440,12 +440,12 @@ public abstract class BinaryDirectedRelationshipImpl extends MinimalEObjectImpl.
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (sourceEndName: ");
     result.append(sourceEndName);
-    result.append(", targetEndName: ");
-    result.append(targetEndName);
     result.append(", sourceLowerBound: ");
     result.append(sourceLowerBound);
     result.append(", sourceUpperBound: ");
     result.append(sourceUpperBound);
+    result.append(", targetEndName: ");
+    result.append(targetEndName);
     result.append(", targetLowerBound: ");
     result.append(targetLowerBound);
     result.append(", targetUpperBound: ");

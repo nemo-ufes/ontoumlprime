@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getSourceEndName <em>Source End Name</em>}</li>
- *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getSourceLowerBound <em>Source Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getSourceUpperBound <em>Source Upper Bound</em>}</li>
+ *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetLowerBound <em>Target Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetUpperBound <em>Target Upper Bound</em>}</li>
  * </ul>
@@ -52,32 +52,6 @@ public interface BinaryDirectedRelationship extends EObject
    * @generated
    */
   void setSourceEndName(String value);
-
-  /**
-   * Returns the value of the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Target End Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Target End Name</em>' attribute.
-   * @see #setTargetEndName(String)
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage#getBinaryDirectedRelationship_TargetEndName()
-   * @model unique="false"
-   * @generated
-   */
-  String getTargetEndName();
-
-  /**
-   * Sets the value of the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Target End Name</em>' attribute.
-   * @see #getTargetEndName()
-   * @generated
-   */
-  void setTargetEndName(String value);
 
   /**
    * Returns the value of the '<em><b>Source Lower Bound</b></em>' attribute.
@@ -130,6 +104,32 @@ public interface BinaryDirectedRelationship extends EObject
    * @generated
    */
   void setSourceUpperBound(int value);
+
+  /**
+   * Returns the value of the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Target End Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Target End Name</em>' attribute.
+   * @see #setTargetEndName(String)
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage#getBinaryDirectedRelationship_TargetEndName()
+   * @model unique="false"
+   * @generated
+   */
+  String getTargetEndName();
+
+  /**
+   * Sets the value of the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Target End Name</em>' attribute.
+   * @see #getTargetEndName()
+   * @generated
+   */
+  void setTargetEndName(String value);
 
   /**
    * Returns the value of the '<em><b>Target Lower Bound</b></em>' attribute.

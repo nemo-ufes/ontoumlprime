@@ -641,22 +641,13 @@ public interface PrimeOntoUMLPackage extends EPackage
   int MERONYMIC_RELATION__SOURCE_END_NAME = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MERONYMIC_RELATION__TARGET_END_NAME = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MERONYMIC_RELATION__SOURCE_LOWER_BOUND = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 2;
+  int MERONYMIC_RELATION__SOURCE_LOWER_BOUND = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Source Upper Bound</b></em>' attribute.
@@ -665,7 +656,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MERONYMIC_RELATION__SOURCE_UPPER_BOUND = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 3;
+  int MERONYMIC_RELATION__SOURCE_UPPER_BOUND = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MERONYMIC_RELATION__TARGET_END_NAME = PACKAGEABLE_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -777,15 +777,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int COMPONENT_OF_RELATION__SOURCE_END_NAME = MERONYMIC_RELATION__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMPONENT_OF_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -802,6 +793,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int COMPONENT_OF_RELATION__SOURCE_UPPER_BOUND = MERONYMIC_RELATION__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT_OF_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -913,15 +913,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int MEMBERSHIP_RELATION__SOURCE_END_NAME = MERONYMIC_RELATION__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEMBERSHIP_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -938,6 +929,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int MEMBERSHIP_RELATION__SOURCE_UPPER_BOUND = MERONYMIC_RELATION__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEMBERSHIP_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -1049,15 +1049,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int SUB_COLLECTION_RELATION__SOURCE_END_NAME = MERONYMIC_RELATION__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_COLLECTION_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1074,6 +1065,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int SUB_COLLECTION_RELATION__SOURCE_UPPER_BOUND = MERONYMIC_RELATION__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_COLLECTION_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -1185,15 +1185,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int SUB_QUANTITY_RELATION__SOURCE_END_NAME = MERONYMIC_RELATION__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SUB_QUANTITY_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1210,6 +1201,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int SUB_QUANTITY_RELATION__SOURCE_UPPER_BOUND = MERONYMIC_RELATION__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUB_QUANTITY_RELATION__TARGET_END_NAME = MERONYMIC_RELATION__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -2730,22 +2730,13 @@ public interface PrimeOntoUMLPackage extends EPackage
   int BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME = 1;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND = 2;
+  int BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND = 1;
 
   /**
    * The feature id for the '<em><b>Source Upper Bound</b></em>' attribute.
@@ -2754,7 +2745,16 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND = 3;
+  int BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND = 2;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME = 3;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -2812,15 +2812,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int BINARY_MATERIAL_RELATION__SOURCE_END_NAME = BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_MATERIAL_RELATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2837,6 +2828,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int BINARY_MATERIAL_RELATION__SOURCE_UPPER_BOUND = BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_MATERIAL_RELATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -2930,15 +2930,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int BINARY_FORMAL_RELATION__SOURCE_END_NAME = BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BINARY_FORMAL_RELATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2955,6 +2946,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int BINARY_FORMAL_RELATION__SOURCE_UPPER_BOUND = BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINARY_FORMAL_RELATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -3039,15 +3039,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int MEDIATION__SOURCE_END_NAME = BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MEDIATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3064,6 +3055,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int MEDIATION__SOURCE_UPPER_BOUND = BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MEDIATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -3139,15 +3139,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   int CHARACTERIZATION__SOURCE_END_NAME = BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME;
 
   /**
-   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHARACTERIZATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
-
-  /**
    * The feature id for the '<em><b>Source Lower Bound</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3164,6 +3155,15 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @ordered
    */
   int CHARACTERIZATION__SOURCE_UPPER_BOUND = BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND;
+
+  /**
+   * The feature id for the '<em><b>Target End Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHARACTERIZATION__TARGET_END_NAME = BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
 
   /**
    * The feature id for the '<em><b>Target Lower Bound</b></em>' attribute.
@@ -4298,17 +4298,6 @@ public interface PrimeOntoUMLPackage extends EPackage
   EAttribute getBinaryDirectedRelationship_SourceEndName();
 
   /**
-   * Returns the meta object for the attribute '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Target End Name</em>'.
-   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName()
-   * @see #getBinaryDirectedRelationship()
-   * @generated
-   */
-  EAttribute getBinaryDirectedRelationship_TargetEndName();
-
-  /**
    * Returns the meta object for the attribute '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getSourceLowerBound <em>Source Lower Bound</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4329,6 +4318,17 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    */
   EAttribute getBinaryDirectedRelationship_SourceUpperBound();
+
+  /**
+   * Returns the meta object for the attribute '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName <em>Target End Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Target End Name</em>'.
+   * @see br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetEndName()
+   * @see #getBinaryDirectedRelationship()
+   * @generated
+   */
+  EAttribute getBinaryDirectedRelationship_TargetEndName();
 
   /**
    * Returns the meta object for the attribute '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.BinaryDirectedRelationship#getTargetLowerBound <em>Target Lower Bound</em>}'.
@@ -5309,14 +5309,6 @@ public interface PrimeOntoUMLPackage extends EPackage
     EAttribute BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME = eINSTANCE.getBinaryDirectedRelationship_SourceEndName();
 
     /**
-     * The meta object literal for the '<em><b>Target End Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME = eINSTANCE.getBinaryDirectedRelationship_TargetEndName();
-
-    /**
      * The meta object literal for the '<em><b>Source Lower Bound</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5331,6 +5323,14 @@ public interface PrimeOntoUMLPackage extends EPackage
      * @generated
      */
     EAttribute BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND = eINSTANCE.getBinaryDirectedRelationship_SourceUpperBound();
+
+    /**
+     * The meta object literal for the '<em><b>Target End Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME = eINSTANCE.getBinaryDirectedRelationship_TargetEndName();
 
     /**
      * The meta object literal for the '<em><b>Target Lower Bound</b></em>' attribute feature.

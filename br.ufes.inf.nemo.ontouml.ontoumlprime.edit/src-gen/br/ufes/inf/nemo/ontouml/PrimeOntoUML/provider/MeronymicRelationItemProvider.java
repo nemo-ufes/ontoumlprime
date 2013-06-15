@@ -62,9 +62,9 @@ public class MeronymicRelationItemProvider
       super.getPropertyDescriptors(object);
 
       addSourceEndNamePropertyDescriptor(object);
-      addTargetEndNamePropertyDescriptor(object);
       addSourceLowerBoundPropertyDescriptor(object);
       addSourceUpperBoundPropertyDescriptor(object);
+      addTargetEndNamePropertyDescriptor(object);
       addTargetLowerBoundPropertyDescriptor(object);
       addTargetUpperBoundPropertyDescriptor(object);
       addWholePropertyDescriptor(object);
@@ -383,9 +383,9 @@ public class MeronymicRelationItemProvider
     switch (notification.getFeatureID(MeronymicRelation.class))
     {
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME:
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND:
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND:
+      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND:
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_UPPER_BOUND:
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__PART_IS_ESSENTIAL:

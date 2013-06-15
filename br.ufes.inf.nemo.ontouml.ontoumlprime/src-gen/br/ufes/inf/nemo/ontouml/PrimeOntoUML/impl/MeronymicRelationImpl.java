@@ -22,9 +22,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getSourceEndName <em>Source End Name</em>}</li>
- *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getSourceLowerBound <em>Source Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getSourceUpperBound <em>Source Upper Bound</em>}</li>
+ *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getTargetEndName <em>Target End Name</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getTargetLowerBound <em>Target Lower Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getTargetUpperBound <em>Target Upper Bound</em>}</li>
  *   <li>{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.MeronymicRelationImpl#getWhole <em>Whole</em>}</li>
@@ -59,26 +59,6 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
    * @ordered
    */
   protected String sourceEndName = SOURCE_END_NAME_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTargetEndName()
-   * @generated
-   * @ordered
-   */
-  protected static final String TARGET_END_NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTargetEndName()
-   * @generated
-   * @ordered
-   */
-  protected String targetEndName = TARGET_END_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getSourceLowerBound() <em>Source Lower Bound</em>}' attribute.
@@ -119,6 +99,26 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
    * @ordered
    */
   protected int sourceUpperBound = SOURCE_UPPER_BOUND_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetEndName()
+   * @generated
+   * @ordered
+   */
+  protected static final String TARGET_END_NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getTargetEndName() <em>Target End Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTargetEndName()
+   * @generated
+   * @ordered
+   */
+  protected String targetEndName = TARGET_END_NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getTargetLowerBound() <em>Target Lower Bound</em>}' attribute.
@@ -309,29 +309,6 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getTargetEndName()
-  {
-    return targetEndName;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setTargetEndName(String newTargetEndName)
-  {
-    String oldTargetEndName = targetEndName;
-    targetEndName = newTargetEndName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME, oldTargetEndName, targetEndName));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public int getSourceLowerBound()
   {
     return sourceLowerBound;
@@ -371,6 +348,29 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
     sourceUpperBound = newSourceUpperBound;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND, oldSourceUpperBound, sourceUpperBound));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getTargetEndName()
+  {
+    return targetEndName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setTargetEndName(String newTargetEndName)
+  {
+    String oldTargetEndName = targetEndName;
+    targetEndName = newTargetEndName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME, oldTargetEndName, targetEndName));
   }
 
   /**
@@ -609,12 +609,12 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
     {
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME:
         return getSourceEndName();
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
-        return getTargetEndName();
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND:
         return getSourceLowerBound();
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND:
         return getSourceUpperBound();
+      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
+        return getTargetEndName();
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND:
         return getTargetLowerBound();
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_UPPER_BOUND:
@@ -650,14 +650,14 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME:
         setSourceEndName((String)newValue);
         return;
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
-        setTargetEndName((String)newValue);
-        return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND:
         setSourceLowerBound((Integer)newValue);
         return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND:
         setSourceUpperBound((Integer)newValue);
+        return;
+      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
+        setTargetEndName((String)newValue);
         return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND:
         setTargetLowerBound((Integer)newValue);
@@ -700,14 +700,14 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME:
         setSourceEndName(SOURCE_END_NAME_EDEFAULT);
         return;
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
-        setTargetEndName(TARGET_END_NAME_EDEFAULT);
-        return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND:
         setSourceLowerBound(SOURCE_LOWER_BOUND_EDEFAULT);
         return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND:
         setSourceUpperBound(SOURCE_UPPER_BOUND_EDEFAULT);
+        return;
+      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
+        setTargetEndName(TARGET_END_NAME_EDEFAULT);
         return;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND:
         setTargetLowerBound(TARGET_LOWER_BOUND_EDEFAULT);
@@ -749,12 +749,12 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
     {
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME:
         return SOURCE_END_NAME_EDEFAULT == null ? sourceEndName != null : !SOURCE_END_NAME_EDEFAULT.equals(sourceEndName);
-      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
-        return TARGET_END_NAME_EDEFAULT == null ? targetEndName != null : !TARGET_END_NAME_EDEFAULT.equals(targetEndName);
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND:
         return sourceLowerBound != SOURCE_LOWER_BOUND_EDEFAULT;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND:
         return sourceUpperBound != SOURCE_UPPER_BOUND_EDEFAULT;
+      case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME:
+        return TARGET_END_NAME_EDEFAULT == null ? targetEndName != null : !TARGET_END_NAME_EDEFAULT.equals(targetEndName);
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND:
         return targetLowerBound != TARGET_LOWER_BOUND_EDEFAULT;
       case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_UPPER_BOUND:
@@ -788,9 +788,9 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
       switch (derivedFeatureID)
       {
         case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME;
-        case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
         case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND;
         case PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND;
+        case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME;
         case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND;
         case PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_UPPER_BOUND: return PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND;
         default: return -1;
@@ -812,9 +812,9 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
       switch (baseFeatureID)
       {
         case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME: return PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_END_NAME;
-        case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME: return PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME;
         case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND: return PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_LOWER_BOUND;
         case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND: return PrimeOntoUMLPackage.MERONYMIC_RELATION__SOURCE_UPPER_BOUND;
+        case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME: return PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_END_NAME;
         case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND: return PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_LOWER_BOUND;
         case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND: return PrimeOntoUMLPackage.MERONYMIC_RELATION__TARGET_UPPER_BOUND;
         default: return -1;
@@ -836,12 +836,12 @@ public abstract class MeronymicRelationImpl extends PackageableElementImpl imple
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (sourceEndName: ");
     result.append(sourceEndName);
-    result.append(", targetEndName: ");
-    result.append(targetEndName);
     result.append(", sourceLowerBound: ");
     result.append(sourceLowerBound);
     result.append(", sourceUpperBound: ");
     result.append(sourceUpperBound);
+    result.append(", targetEndName: ");
+    result.append(targetEndName);
     result.append(", targetLowerBound: ");
     result.append(targetLowerBound);
     result.append(", targetUpperBound: ");

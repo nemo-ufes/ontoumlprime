@@ -65,9 +65,9 @@ public class BinaryDirectedRelationshipItemProvider
       super.getPropertyDescriptors(object);
 
       addSourceEndNamePropertyDescriptor(object);
-      addTargetEndNamePropertyDescriptor(object);
       addSourceLowerBoundPropertyDescriptor(object);
       addSourceUpperBoundPropertyDescriptor(object);
+      addTargetEndNamePropertyDescriptor(object);
       addTargetLowerBoundPropertyDescriptor(object);
       addTargetUpperBoundPropertyDescriptor(object);
     }
@@ -242,9 +242,9 @@ public class BinaryDirectedRelationshipItemProvider
     switch (notification.getFeatureID(BinaryDirectedRelationship.class))
     {
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME:
-      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND:
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND:
+      case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME:
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND:
       case PrimeOntoUMLPackage.BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND:
         fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

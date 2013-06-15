@@ -1168,7 +1168,7 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBinaryDirectedRelationship_TargetEndName()
+  public EAttribute getBinaryDirectedRelationship_SourceLowerBound()
   {
     return (EAttribute)binaryDirectedRelationshipEClass.getEStructuralFeatures().get(1);
   }
@@ -1178,7 +1178,7 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBinaryDirectedRelationship_SourceLowerBound()
+  public EAttribute getBinaryDirectedRelationship_SourceUpperBound()
   {
     return (EAttribute)binaryDirectedRelationshipEClass.getEStructuralFeatures().get(2);
   }
@@ -1188,7 +1188,7 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBinaryDirectedRelationship_SourceUpperBound()
+  public EAttribute getBinaryDirectedRelationship_TargetEndName()
   {
     return (EAttribute)binaryDirectedRelationshipEClass.getEStructuralFeatures().get(3);
   }
@@ -1650,9 +1650,9 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
 
     binaryDirectedRelationshipEClass = createEClass(BINARY_DIRECTED_RELATIONSHIP);
     createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__SOURCE_END_NAME);
-    createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME);
     createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__SOURCE_LOWER_BOUND);
     createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__SOURCE_UPPER_BOUND);
+    createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__TARGET_END_NAME);
     createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__TARGET_LOWER_BOUND);
     createEAttribute(binaryDirectedRelationshipEClass, BINARY_DIRECTED_RELATIONSHIP__TARGET_UPPER_BOUND);
 
@@ -1900,9 +1900,9 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
 
     initEClass(binaryDirectedRelationshipEClass, BinaryDirectedRelationship.class, "BinaryDirectedRelationship", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBinaryDirectedRelationship_SourceEndName(), theEcorePackage.getEString(), "sourceEndName", null, 0, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBinaryDirectedRelationship_TargetEndName(), theEcorePackage.getEString(), "targetEndName", null, 0, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinaryDirectedRelationship_SourceLowerBound(), theEcorePackage.getEInt(), "sourceLowerBound", null, 1, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinaryDirectedRelationship_SourceUpperBound(), theEcorePackage.getEInt(), "sourceUpperBound", null, 1, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinaryDirectedRelationship_TargetEndName(), theEcorePackage.getEString(), "targetEndName", null, 0, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinaryDirectedRelationship_TargetLowerBound(), theEcorePackage.getEInt(), "targetLowerBound", null, 1, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBinaryDirectedRelationship_TargetUpperBound(), theEcorePackage.getEInt(), "targetUpperBound", null, 1, 1, BinaryDirectedRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
