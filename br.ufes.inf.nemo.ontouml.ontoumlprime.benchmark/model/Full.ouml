@@ -1,0 +1,146 @@
+
+Category SpatialThing { }
+Category GeographicalSpace { }
+
+//GeneralizationSet SpatialThing_GeographicalSpace specializes SpatialThing into GeographicalSpace;
+GeographicalSpace => SpatialThing;
+
+Category MaterialEntity { }
+
+Category InanimatedEntity { }
+Category BiologicalEntity { }
+GeneralizationSet InanimatedOrBiological specializes MaterialEntity into InanimatedEntity, BiologicalEntity;
+
+Category HumanOrgan {}
+HumanOrgan => BiologicalEntity;
+
+Category Agent { }
+Mixin ActiveAgent { }
+Mixin PerformerArtist { }
+
+Kind Person { }
+Person => Agent;
+
+Kind SurgeryRoom { }
+Kind Gallery { }
+Kind Museum { }
+
+SurgeryRoom, Gallery, Museum specialize GeographicalSpace; 
+
+
+Kind Statue {}
+Statue => InanimatedEntity;
+
+Kind HumanHeart {}
+HumanHeart => HumanOrgan;
+
+Kind Organization { }
+Organization => Agent;
+
+Kind Track { }
+Kind Album {}
+
+extensional CollectiveUniversal Group { }
+
+Quantity PhysicalObject { }
+
+SubKind MalePerson { }
+SubKind FemalePerson { }
+complete GeneralizationSet Gender specializes Person into MalePerson, FemalePerson;
+
+SubKind Band {}
+Band => Organization;
+Band => PerformerArtist;
+
+Phase DeceasedPerson { }
+Phase LivingPerson { }
+LivingPerson => ActiveAgent;
+
+complete GeneralizationSet PersonLifeStatus specializes Person into LivingPerson, DeceasedPerson;
+
+Phase ExtinctOrganization {}
+Phase ActiveOrganization {}
+ActiveOrganization => ActiveAgent;
+complete GeneralizationSet OrganizationLifeStatus specializes Organization into ActiveOrganization, ExtinctOrganization;
+
+//mediation is required
+//RoleMixin Parent { }
+
+Role Parent { }
+Parent => Person; // Is it needed? Isn't it derived from the completeness of the GeneralizationSet
+
+// They have no mediation but it is required. Why?
+Role Father { }
+Father => MalePerson;
+
+// They have no mediation but it is required. Why?
+Role Mother { }
+Mother => FemalePerson;
+
+complete GeneralizationSet FatherOrMother specializes Parent into Father, Mother;
+
+Role Offspring { }
+Offspring => Person;
+
+// Big win! Haven't needed to extend the DSL to make this construct
+RelatorUniversal Registration {
+	mediates Offspring[1..1];
+	mediates Parent[1..2];
+}
+
+//
+//
+//
+////------------------------------------------------------------v 
+////	derived materialAssociation isParentOf {
+////		property <unique> pA[1, 2] (Parent);
+////		property <unique> pB (Offspring);
+////		memberEnd : pA, pB;	
+////	}
+////
+////	derivation D1{
+////		material: property <unique> d1_1 [1,2] (isParentOf);
+////		relator: property <read-only unique> d1_2 (Registration);
+////		memberEnd : d1_1, d1_2;
+////	}
+////------------------------------------------------------------^
+//
+//
+////------------------------------------------------------------v
+//	//OCL: precisa de ter 2 ou mais mediations
+////	relator Recording { }
+////
+////	mediation M3 {
+////		property <unique> m31 (Recording);
+////		property <read-only unique> m32 (PerformerArtist);
+////		memberEnd : m31, m32;
+////	}
+////
+////	mediation M4 {
+////		property <unique> m41 (Recording);
+////		property <read-only unique> m42[1,2] (Track);
+////		memberEnd : m41, m42;
+////	}
+////------------------------------------------------------------^
+//
+//
+////------------------------------------------------------------v
+////	derived materialAssociation records {
+////		property <unique> r1[1, 99] (PerformerArtist);
+////		property <unique> r2[1, 99] (Track);
+////		memberEnd : r1, r2;	
+////	}
+////
+////	derivation D2{
+////		material: property <unique> d2_1 [1, 99] (records);
+////		relator: property <read-only unique> d2_2 (Recording);
+////		memberEnd : d2_1, d2_2;
+////	}
+////------------------------------------------------------------^
+//
+//
+////	formalAssociation isLocatedIn {
+////		property <unique> isLocatedInA[0, 99] (PhysicalObject);
+////		property <unique> isLocatedInB[1, 99] (SpatialThing);
+////		memberEnd : isLocatedInA, isLocatedInB;	
+////	}

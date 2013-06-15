@@ -1,0 +1,35 @@
+// mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor
+Kind GrandParent {}
+Kind Parent {}
+Kind Child {}
+
+GeneralizationSet A specializes GrandParent into Parent;
+GeneralizationSet B specializes Parent into Child;
+
+// ConcreteSortalHasSubstanceSortalAncestor
+Role Foo {}
+
+// SubstanceSortalDoesNotSpecializeRigidSortal
+SubKind SubKindFoo {}
+Kind KindFoo {}
+GeneralizationSet D specializes SubKindFoo into KindFoo;
+// KindFoo specializes SubKindFoo; // Anonymous generalization
+
+
+// RigidSortalDoesNotSpecializeAntiRigid
+SubKind SubKindFoo3 {}
+Role RoleFoo2 {}
+GeneralizationSet E specializes RoleFoo2 into SubKindFoo3;
+
+// MixinClassDoesNotSpecializeSortalClass
+Kind KindFoo2 {}
+Mixin MixinFoo {}
+GeneralizationSet F specializes KindFoo2 into MixinFoo;
+
+
+// CategoryDoesNotSpecializeRoleMixin
+Category CatFoo {}
+RoleMixin RoleMixinFoo {}
+GeneralizationSet G specializes RoleMixinFoo into CatFoo;
+
+// 
