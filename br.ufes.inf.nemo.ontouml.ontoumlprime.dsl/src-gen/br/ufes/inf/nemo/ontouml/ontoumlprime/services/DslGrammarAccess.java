@@ -355,6 +355,32 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class GeneralizationSetElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "GeneralizationSet");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cCompleteGeneralizationSetParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAnonymousGeneralizationSetParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//// complete generalizationSet gender specializes Person into Man, Woman
+		//// => GeographicalSpace specializes SpatialThing
+		//// => GeographicalSpace, FooBar specialize SpatialThing
+		//// => GeographicalSpace specializationOf SpatialThing
+		//// GeographicalSpace => SpatialThing
+		//// GeographicalSpace, MultiDimensionalSpace => SpatialThing
+		//GeneralizationSet:
+		//	CompleteGeneralizationSet | AnonymousGeneralizationSet;
+		public ParserRule getRule() { return rule; }
+
+		//CompleteGeneralizationSet | AnonymousGeneralizationSet
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//CompleteGeneralizationSet
+		public RuleCall getCompleteGeneralizationSetParserRuleCall_0() { return cCompleteGeneralizationSetParserRuleCall_0; }
+
+		//AnonymousGeneralizationSet
+		public RuleCall getAnonymousGeneralizationSetParserRuleCall_1() { return cAnonymousGeneralizationSetParserRuleCall_1; }
+	}
+
+	public class CompleteGeneralizationSetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CompleteGeneralizationSet");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIsCoveringAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cIsCoveringCompleteKeyword_0_0 = (Keyword)cIsCoveringAssignment_0.eContents().get(0);
@@ -376,8 +402,7 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_7_1_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_7_1_0.eContents().get(1);
 		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
-		//// complete generalizationSet gender specializes Person into Man, Woman
-		//GeneralizationSet:
+		//CompleteGeneralizationSet returns GeneralizationSet:
 		//	isCovering?="complete"? "GeneralizationSet" name=ID "specializes" specializedUniversal=[Universal] "into"
 		//	specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])* ";";
 		public ParserRule getRule() { return rule; }
@@ -442,6 +467,226 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//";"
 		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
+	}
+
+	public class AnonymousGeneralizationSetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AnonymousGeneralizationSet");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSpecializingUniversalsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSpecializingUniversalsUniversalCrossReference_0_0 = (CrossReference)cSpecializingUniversalsAssignment_0.eContents().get(0);
+		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_0_0.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
+		private final Group cGroup_1_0_0 = (Group)cGroup_1_0.eContents().get(0);
+		private final Keyword cCommaKeyword_1_0_0_0 = (Keyword)cGroup_1_0_0.eContents().get(0);
+		private final Assignment cSpecializingUniversalsAssignment_1_0_0_1 = (Assignment)cGroup_1_0_0.eContents().get(1);
+		private final CrossReference cSpecializingUniversalsUniversalCrossReference_1_0_0_1_0 = (CrossReference)cSpecializingUniversalsAssignment_1_0_0_1.eContents().get(0);
+		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_1_0_0_1_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_1_0_0_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_1_0_1 = (Alternatives)cGroup_1_0.eContents().get(1);
+		private final Keyword cSpecializeKeyword_1_0_1_0 = (Keyword)cAlternatives_1_0_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_1_0_1_1 = (Keyword)cAlternatives_1_0_1.eContents().get(1);
+		private final Alternatives cAlternatives_1_1 = (Alternatives)cAlternatives_1.eContents().get(1);
+		private final Keyword cSpecializesKeyword_1_1_0 = (Keyword)cAlternatives_1_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_1_1_1 = (Keyword)cAlternatives_1_1.eContents().get(1);
+		private final Assignment cSpecializedUniversalAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cSpecializedUniversalUniversalCrossReference_2_0 = (CrossReference)cSpecializedUniversalAssignment_2.eContents().get(0);
+		private final RuleCall cSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1 = (RuleCall)cSpecializedUniversalUniversalCrossReference_2_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//AnonymousGeneralizationSet returns GeneralizationSet:
+		//	specializingUniversals+=[Universal] (("," specializingUniversals+=[Universal])+ ("specialize" | "=>") | ("specializes"
+		//	| "=>")) specializedUniversal=[Universal] ";";
+		public ParserRule getRule() { return rule; }
+
+		//specializingUniversals+=[Universal] (("," specializingUniversals+=[Universal])+ ("specialize" | "=>") | ("specializes" |
+		//"=>")) specializedUniversal=[Universal] ";"
+		public Group getGroup() { return cGroup; }
+
+		//specializingUniversals+=[Universal]
+		public Assignment getSpecializingUniversalsAssignment_0() { return cSpecializingUniversalsAssignment_0; }
+
+		//[Universal]
+		public CrossReference getSpecializingUniversalsUniversalCrossReference_0_0() { return cSpecializingUniversalsUniversalCrossReference_0_0; }
+
+		//ID
+		public RuleCall getSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1() { return cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1; }
+
+		//("," specializingUniversals+=[Universal])+ ("specialize" | "=>") | ("specializes" | "=>")
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//("," specializingUniversals+=[Universal])+ ("specialize" | "=>")
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//("," specializingUniversals+=[Universal])+
+		public Group getGroup_1_0_0() { return cGroup_1_0_0; }
+
+		//","
+		public Keyword getCommaKeyword_1_0_0_0() { return cCommaKeyword_1_0_0_0; }
+
+		//specializingUniversals+=[Universal]
+		public Assignment getSpecializingUniversalsAssignment_1_0_0_1() { return cSpecializingUniversalsAssignment_1_0_0_1; }
+
+		//[Universal]
+		public CrossReference getSpecializingUniversalsUniversalCrossReference_1_0_0_1_0() { return cSpecializingUniversalsUniversalCrossReference_1_0_0_1_0; }
+
+		//ID
+		public RuleCall getSpecializingUniversalsUniversalIDTerminalRuleCall_1_0_0_1_0_1() { return cSpecializingUniversalsUniversalIDTerminalRuleCall_1_0_0_1_0_1; }
+
+		//"specialize" | "=>"
+		public Alternatives getAlternatives_1_0_1() { return cAlternatives_1_0_1; }
+
+		//"specialize"
+		public Keyword getSpecializeKeyword_1_0_1_0() { return cSpecializeKeyword_1_0_1_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_1_0_1_1() { return cEqualsSignGreaterThanSignKeyword_1_0_1_1; }
+
+		//"specializes" | "=>"
+		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
+
+		//"specializes"
+		public Keyword getSpecializesKeyword_1_1_0() { return cSpecializesKeyword_1_1_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_1_1_1() { return cEqualsSignGreaterThanSignKeyword_1_1_1; }
+
+		//specializedUniversal=[Universal]
+		public Assignment getSpecializedUniversalAssignment_2() { return cSpecializedUniversalAssignment_2; }
+
+		//[Universal]
+		public CrossReference getSpecializedUniversalUniversalCrossReference_2_0() { return cSpecializedUniversalUniversalCrossReference_2_0; }
+
+		//ID
+		public RuleCall getSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1() { return cSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class SingleAnonymousGeneralizationSetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SingleAnonymousGeneralizationSet");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSpecializingUniversalsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSpecializingUniversalsUniversalCrossReference_0_0 = (CrossReference)cSpecializingUniversalsAssignment_0.eContents().get(0);
+		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_0_0.eContents().get(1);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Keyword cSpecializesKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cSpecializedUniversalAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cSpecializedUniversalUniversalCrossReference_2_0 = (CrossReference)cSpecializedUniversalAssignment_2.eContents().get(0);
+		private final RuleCall cSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1 = (RuleCall)cSpecializedUniversalUniversalCrossReference_2_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//SingleAnonymousGeneralizationSet returns GeneralizationSet:
+		//	specializingUniversals+=[Universal] ("specializes" | "=>") specializedUniversal=[Universal] ";";
+		public ParserRule getRule() { return rule; }
+
+		//specializingUniversals+=[Universal] ("specializes" | "=>") specializedUniversal=[Universal] ";"
+		public Group getGroup() { return cGroup; }
+
+		//specializingUniversals+=[Universal]
+		public Assignment getSpecializingUniversalsAssignment_0() { return cSpecializingUniversalsAssignment_0; }
+
+		//[Universal]
+		public CrossReference getSpecializingUniversalsUniversalCrossReference_0_0() { return cSpecializingUniversalsUniversalCrossReference_0_0; }
+
+		//ID
+		public RuleCall getSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1() { return cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1; }
+
+		//"specializes" | "=>"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+
+		//"specializes"
+		public Keyword getSpecializesKeyword_1_0() { return cSpecializesKeyword_1_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_1_1() { return cEqualsSignGreaterThanSignKeyword_1_1; }
+
+		//specializedUniversal=[Universal]
+		public Assignment getSpecializedUniversalAssignment_2() { return cSpecializedUniversalAssignment_2; }
+
+		//[Universal]
+		public CrossReference getSpecializedUniversalUniversalCrossReference_2_0() { return cSpecializedUniversalUniversalCrossReference_2_0; }
+
+		//ID
+		public RuleCall getSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1() { return cSpecializedUniversalUniversalIDTerminalRuleCall_2_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_3() { return cSemicolonKeyword_3; }
+	}
+
+	public class MultipleAnonymousGeneralizationSetElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MultipleAnonymousGeneralizationSet");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSpecializingUniversalsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cSpecializingUniversalsUniversalCrossReference_0_0 = (CrossReference)cSpecializingUniversalsAssignment_0.eContents().get(0);
+		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cSpecializingUniversalsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cSpecializingUniversalsUniversalCrossReference_1_1_0 = (CrossReference)cSpecializingUniversalsAssignment_1_1.eContents().get(0);
+		private final RuleCall cSpecializingUniversalsUniversalIDTerminalRuleCall_1_1_0_1 = (RuleCall)cSpecializingUniversalsUniversalCrossReference_1_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Keyword cSpecializeKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
+		private final Assignment cSpecializedUniversalAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cSpecializedUniversalUniversalCrossReference_3_0 = (CrossReference)cSpecializedUniversalAssignment_3.eContents().get(0);
+		private final RuleCall cSpecializedUniversalUniversalIDTerminalRuleCall_3_0_1 = (RuleCall)cSpecializedUniversalUniversalCrossReference_3_0.eContents().get(1);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//MultipleAnonymousGeneralizationSet returns GeneralizationSet:
+		//	specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])+ ("specialize" | "=>")
+		//	specializedUniversal=[Universal] ";";
+		public ParserRule getRule() { return rule; }
+
+		//specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])+ ("specialize" | "=>")
+		//specializedUniversal=[Universal] ";"
+		public Group getGroup() { return cGroup; }
+
+		//specializingUniversals+=[Universal]
+		public Assignment getSpecializingUniversalsAssignment_0() { return cSpecializingUniversalsAssignment_0; }
+
+		//[Universal]
+		public CrossReference getSpecializingUniversalsUniversalCrossReference_0_0() { return cSpecializingUniversalsUniversalCrossReference_0_0; }
+
+		//ID
+		public RuleCall getSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1() { return cSpecializingUniversalsUniversalIDTerminalRuleCall_0_0_1; }
+
+		//("," specializingUniversals+=[Universal])+
+		public Group getGroup_1() { return cGroup_1; }
+
+		//","
+		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+
+		//specializingUniversals+=[Universal]
+		public Assignment getSpecializingUniversalsAssignment_1_1() { return cSpecializingUniversalsAssignment_1_1; }
+
+		//[Universal]
+		public CrossReference getSpecializingUniversalsUniversalCrossReference_1_1_0() { return cSpecializingUniversalsUniversalCrossReference_1_1_0; }
+
+		//ID
+		public RuleCall getSpecializingUniversalsUniversalIDTerminalRuleCall_1_1_0_1() { return cSpecializingUniversalsUniversalIDTerminalRuleCall_1_1_0_1; }
+
+		//"specialize" | "=>"
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+
+		//"specialize"
+		public Keyword getSpecializeKeyword_2_0() { return cSpecializeKeyword_2_0; }
+
+		//"=>"
+		public Keyword getEqualsSignGreaterThanSignKeyword_2_1() { return cEqualsSignGreaterThanSignKeyword_2_1; }
+
+		//specializedUniversal=[Universal]
+		public Assignment getSpecializedUniversalAssignment_3() { return cSpecializedUniversalAssignment_3; }
+
+		//[Universal]
+		public CrossReference getSpecializedUniversalUniversalCrossReference_3_0() { return cSpecializedUniversalUniversalCrossReference_3_0; }
+
+		//ID
+		public RuleCall getSpecializedUniversalUniversalIDTerminalRuleCall_3_0_1() { return cSpecializedUniversalUniversalIDTerminalRuleCall_3_0_1; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class PrimitiveDataTypeElements extends AbstractParserRuleElementFinder {
@@ -2781,6 +3026,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	private IntrinsicMomentUniversalElements pIntrinsicMomentUniversal;
 	private PackageElements pPackage;
 	private GeneralizationSetElements pGeneralizationSet;
+	private CompleteGeneralizationSetElements pCompleteGeneralizationSet;
+	private AnonymousGeneralizationSetElements pAnonymousGeneralizationSet;
+	private SingleAnonymousGeneralizationSetElements pSingleAnonymousGeneralizationSet;
+	private MultipleAnonymousGeneralizationSetElements pMultipleAnonymousGeneralizationSet;
 	private PrimitiveDataTypeElements pPrimitiveDataType;
 	private ComplexDataTypeElements pComplexDataType;
 	private EnumerationElements pEnumeration;
@@ -2932,15 +3181,62 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// complete generalizationSet gender specializes Person into Man, Woman
+	//// => GeographicalSpace specializes SpatialThing
+	//// => GeographicalSpace, FooBar specialize SpatialThing
+	//// => GeographicalSpace specializationOf SpatialThing
+	//// GeographicalSpace => SpatialThing
+	//// GeographicalSpace, MultiDimensionalSpace => SpatialThing
 	//GeneralizationSet:
-	//	isCovering?="complete"? "GeneralizationSet" name=ID "specializes" specializedUniversal=[Universal] "into"
-	//	specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])* ";";
+	//	CompleteGeneralizationSet | AnonymousGeneralizationSet;
 	public GeneralizationSetElements getGeneralizationSetAccess() {
 		return (pGeneralizationSet != null) ? pGeneralizationSet : (pGeneralizationSet = new GeneralizationSetElements());
 	}
 	
 	public ParserRule getGeneralizationSetRule() {
 		return getGeneralizationSetAccess().getRule();
+	}
+
+	//CompleteGeneralizationSet returns GeneralizationSet:
+	//	isCovering?="complete"? "GeneralizationSet" name=ID "specializes" specializedUniversal=[Universal] "into"
+	//	specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])* ";";
+	public CompleteGeneralizationSetElements getCompleteGeneralizationSetAccess() {
+		return (pCompleteGeneralizationSet != null) ? pCompleteGeneralizationSet : (pCompleteGeneralizationSet = new CompleteGeneralizationSetElements());
+	}
+	
+	public ParserRule getCompleteGeneralizationSetRule() {
+		return getCompleteGeneralizationSetAccess().getRule();
+	}
+
+	//AnonymousGeneralizationSet returns GeneralizationSet:
+	//	specializingUniversals+=[Universal] (("," specializingUniversals+=[Universal])+ ("specialize" | "=>") | ("specializes"
+	//	| "=>")) specializedUniversal=[Universal] ";";
+	public AnonymousGeneralizationSetElements getAnonymousGeneralizationSetAccess() {
+		return (pAnonymousGeneralizationSet != null) ? pAnonymousGeneralizationSet : (pAnonymousGeneralizationSet = new AnonymousGeneralizationSetElements());
+	}
+	
+	public ParserRule getAnonymousGeneralizationSetRule() {
+		return getAnonymousGeneralizationSetAccess().getRule();
+	}
+
+	//SingleAnonymousGeneralizationSet returns GeneralizationSet:
+	//	specializingUniversals+=[Universal] ("specializes" | "=>") specializedUniversal=[Universal] ";";
+	public SingleAnonymousGeneralizationSetElements getSingleAnonymousGeneralizationSetAccess() {
+		return (pSingleAnonymousGeneralizationSet != null) ? pSingleAnonymousGeneralizationSet : (pSingleAnonymousGeneralizationSet = new SingleAnonymousGeneralizationSetElements());
+	}
+	
+	public ParserRule getSingleAnonymousGeneralizationSetRule() {
+		return getSingleAnonymousGeneralizationSetAccess().getRule();
+	}
+
+	//MultipleAnonymousGeneralizationSet returns GeneralizationSet:
+	//	specializingUniversals+=[Universal] ("," specializingUniversals+=[Universal])+ ("specialize" | "=>")
+	//	specializedUniversal=[Universal] ";";
+	public MultipleAnonymousGeneralizationSetElements getMultipleAnonymousGeneralizationSetAccess() {
+		return (pMultipleAnonymousGeneralizationSet != null) ? pMultipleAnonymousGeneralizationSet : (pMultipleAnonymousGeneralizationSet = new MultipleAnonymousGeneralizationSetElements());
+	}
+	
+	public ParserRule getMultipleAnonymousGeneralizationSetRule() {
+		return getMultipleAnonymousGeneralizationSetAccess().getRule();
 	}
 
 	//PrimitiveDataType:

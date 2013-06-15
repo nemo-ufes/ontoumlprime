@@ -445,16 +445,56 @@ ruleGeneralizationSet returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getGeneralizationSetAccess().getCompleteGeneralizationSetParserRuleCall_0()); 
+    }
+    this_CompleteGeneralizationSet_0=ruleCompleteGeneralizationSet
+    { 
+        $current = $this_CompleteGeneralizationSet_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getGeneralizationSetAccess().getAnonymousGeneralizationSetParserRuleCall_1()); 
+    }
+    this_AnonymousGeneralizationSet_1=ruleAnonymousGeneralizationSet
+    { 
+        $current = $this_AnonymousGeneralizationSet_1.current; 
+        afterParserOrEnumRuleCall();
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleCompleteGeneralizationSet
+entryRuleCompleteGeneralizationSet returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCompleteGeneralizationSetRule()); }
+	 iv_ruleCompleteGeneralizationSet=ruleCompleteGeneralizationSet 
+	 { $current=$iv_ruleCompleteGeneralizationSet.current; } 
+	 EOF 
+;
+
+// Rule CompleteGeneralizationSet
+ruleCompleteGeneralizationSet returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
 ((
 (
 		lv_isCovering_0_0=	'complete' 
     {
-        newLeafNode(lv_isCovering_0_0, grammarAccess.getGeneralizationSetAccess().getIsCoveringCompleteKeyword_0_0());
+        newLeafNode(lv_isCovering_0_0, grammarAccess.getCompleteGeneralizationSetAccess().getIsCoveringCompleteKeyword_0_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGeneralizationSetRule());
+	            $current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
 	        }
        		setWithLastConsumed($current, "isCovering", true, "complete");
 	    }
@@ -462,17 +502,17 @@ ruleGeneralizationSet returns [EObject current=null]
 )
 )?	otherlv_1='GeneralizationSet' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getGeneralizationSetAccess().getGeneralizationSetKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getCompleteGeneralizationSetAccess().getGeneralizationSetKeyword_1());
     }
 (
 (
 		lv_name_2_0=RULE_ID
 		{
-			newLeafNode(lv_name_2_0, grammarAccess.getGeneralizationSetAccess().getNameIDTerminalRuleCall_2_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getCompleteGeneralizationSetAccess().getNameIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGeneralizationSetRule());
+	            $current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -484,61 +524,152 @@ ruleGeneralizationSet returns [EObject current=null]
 )
 )	otherlv_3='specializes' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getGeneralizationSetAccess().getSpecializesKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializesKeyword_3());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGeneralizationSetRule());
+	            $current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
 	        }
         }
 	otherlv_4=RULE_ID
 	{
-		newLeafNode(otherlv_4, grammarAccess.getGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_4_0()); 
+		newLeafNode(otherlv_4, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_4_0()); 
 	}
 
 )
 )	otherlv_5='into' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getGeneralizationSetAccess().getIntoKeyword_5());
+    	newLeafNode(otherlv_5, grammarAccess.getCompleteGeneralizationSetAccess().getIntoKeyword_5());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGeneralizationSetRule());
+	            $current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
 	        }
         }
 	otherlv_6=RULE_ID
 	{
-		newLeafNode(otherlv_6, grammarAccess.getGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_6_0()); 
+		newLeafNode(otherlv_6, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_6_0()); 
 	}
 
 )
 )(	otherlv_7=',' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getGeneralizationSetAccess().getCommaKeyword_7_0());
+    	newLeafNode(otherlv_7, grammarAccess.getCompleteGeneralizationSetAccess().getCommaKeyword_7_0());
     }
 (
 (
 		{
 			if ($current==null) {
-	            $current = createModelElement(grammarAccess.getGeneralizationSetRule());
+	            $current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
 	        }
         }
 	otherlv_8=RULE_ID
 	{
-		newLeafNode(otherlv_8, grammarAccess.getGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_7_1_0()); 
+		newLeafNode(otherlv_8, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_7_1_0()); 
 	}
 
 )
 ))*	otherlv_9=';' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getGeneralizationSetAccess().getSemicolonKeyword_8());
+    	newLeafNode(otherlv_9, grammarAccess.getCompleteGeneralizationSetAccess().getSemicolonKeyword_8());
     }
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleAnonymousGeneralizationSet
+entryRuleAnonymousGeneralizationSet returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAnonymousGeneralizationSetRule()); }
+	 iv_ruleAnonymousGeneralizationSet=ruleAnonymousGeneralizationSet 
+	 { $current=$iv_ruleAnonymousGeneralizationSet.current; } 
+	 EOF 
+;
+
+// Rule AnonymousGeneralizationSet
+ruleAnonymousGeneralizationSet returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+	        }
+        }
+	otherlv_0=RULE_ID
+	{
+		newLeafNode(otherlv_0, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_0_0()); 
+	}
+
+)
+)(((	otherlv_1=',' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAnonymousGeneralizationSetAccess().getCommaKeyword_1_0_0_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+	        }
+        }
+	otherlv_2=RULE_ID
+	{
+		newLeafNode(otherlv_2, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_1_0_0_1_0()); 
+	}
+
+)
+))+(	otherlv_3='specialize' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializeKeyword_1_0_1_0());
+    }
+
+    |	otherlv_4='=>' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getAnonymousGeneralizationSetAccess().getEqualsSignGreaterThanSignKeyword_1_0_1_1());
+    }
+))
+    |(	otherlv_5='specializes' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializesKeyword_1_1_0());
+    }
+
+    |	otherlv_6='=>' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getAnonymousGeneralizationSetAccess().getEqualsSignGreaterThanSignKeyword_1_1_1());
+    }
+))(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+	        }
+        }
+	otherlv_7=RULE_ID
+	{
+		newLeafNode(otherlv_7, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_2_0()); 
+	}
+
+)
+)	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getAnonymousGeneralizationSetAccess().getSemicolonKeyword_3());
+    }
+)
+;
+
+
+
+
 
 
 

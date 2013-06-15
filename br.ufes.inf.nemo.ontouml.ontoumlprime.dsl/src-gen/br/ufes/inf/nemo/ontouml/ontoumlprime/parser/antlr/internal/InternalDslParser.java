@@ -21,11 +21,12 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'complete'", "'GeneralizationSet'", "'specializes'", "'into'", "','", "';'", "'PrimitiveDataType'", "'('", "')'", "'ComplexDataType'", "'enum'", "'essential'", "'inseparable'", "'shareable'", "'immutable'", "'relation'", "'['", "'..'", "']'", "'isComponentOf'", "'isMemberOf'", "'isSubCollectionOf'", "'isSubQuantityOf'", "'Kind'", "'Quantity'", "'extensional'", "'CollectiveUniversal'", "'SubKind'", "'Role'", "'Phase'", "'Category'", "'Mixin'", "'RoleMixin'", "'RelatorUniversal'", "'material'", "'rel'", "'target'", "'formal'", "'ModeUniversal'", "'QualityUniversal'", "'characterizes'", "'datatypes'", "'assoc'", "'PrimitiveDataTypeType'", "'-'", "'characterizedBy'", "'mediates'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'complete'", "'GeneralizationSet'", "'specializes'", "'into'", "','", "';'", "'specialize'", "'=>'", "'PrimitiveDataType'", "'('", "')'", "'ComplexDataType'", "'enum'", "'essential'", "'inseparable'", "'shareable'", "'immutable'", "'relation'", "'['", "'..'", "']'", "'isComponentOf'", "'isMemberOf'", "'isSubCollectionOf'", "'isSubQuantityOf'", "'Kind'", "'Quantity'", "'extensional'", "'CollectiveUniversal'", "'SubKind'", "'Role'", "'Phase'", "'Category'", "'Mixin'", "'RoleMixin'", "'RelatorUniversal'", "'material'", "'rel'", "'target'", "'formal'", "'ModeUniversal'", "'QualityUniversal'", "'characterizes'", "'datatypes'", "'assoc'", "'PrimitiveDataTypeType'", "'-'", "'characterizedBy'", "'mediates'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
     public static final int T__28=28;
+    public static final int T__62=62;
     public static final int T__27=27;
     public static final int T__26=26;
     public static final int T__25=25;
@@ -35,6 +36,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__21=21;
     public static final int T__20=20;
+    public static final int T__61=61;
     public static final int T__60=60;
     public static final int EOF=-1;
     public static final int T__55=55;
@@ -190,7 +192,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==11||(LA1_0>=14 && LA1_0<=15)||LA1_0==20||(LA1_0>=23 && LA1_0<=28)||(LA1_0>=37 && LA1_0<=48)||(LA1_0>=51 && LA1_0<=53)) ) {
+                if ( (LA1_0==RULE_ID||LA1_0==11||(LA1_0>=14 && LA1_0<=15)||LA1_0==22||(LA1_0>=25 && LA1_0<=30)||(LA1_0>=39 && LA1_0<=50)||(LA1_0>=53 && LA1_0<=55)) ) {
                     alt1=1;
                 }
 
@@ -874,7 +876,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==11||(LA3_0>=14 && LA3_0<=15)||LA3_0==20||(LA3_0>=23 && LA3_0<=28)||(LA3_0>=37 && LA3_0<=48)||(LA3_0>=51 && LA3_0<=53)) ) {
+                if ( (LA3_0==RULE_ID||LA3_0==11||(LA3_0>=14 && LA3_0<=15)||LA3_0==22||(LA3_0>=25 && LA3_0<=30)||(LA3_0>=39 && LA3_0<=50)||(LA3_0>=53 && LA3_0<=55)) ) {
                     alt3=1;
                 }
 
@@ -982,196 +984,74 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGeneralizationSet"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:444:1: ruleGeneralizationSet returns [EObject current=null] : ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:444:1: ruleGeneralizationSet returns [EObject current=null] : (this_CompleteGeneralizationSet_0= ruleCompleteGeneralizationSet | this_AnonymousGeneralizationSet_1= ruleAnonymousGeneralizationSet ) ;
     public final EObject ruleGeneralizationSet() throws RecognitionException {
         EObject current = null;
 
-        Token lv_isCovering_0_0=null;
-        Token otherlv_1=null;
-        Token lv_name_2_0=null;
-        Token otherlv_3=null;
-        Token otherlv_4=null;
-        Token otherlv_5=null;
-        Token otherlv_6=null;
-        Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_9=null;
+        EObject this_CompleteGeneralizationSet_0 = null;
+
+        EObject this_AnonymousGeneralizationSet_1 = null;
+
 
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:447:28: ( ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:1: ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:447:28: ( (this_CompleteGeneralizationSet_0= ruleCompleteGeneralizationSet | this_AnonymousGeneralizationSet_1= ruleAnonymousGeneralizationSet ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:1: (this_CompleteGeneralizationSet_0= ruleCompleteGeneralizationSet | this_AnonymousGeneralizationSet_1= ruleAnonymousGeneralizationSet )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:1: ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:2: ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';'
-            {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:2: ( (lv_isCovering_0_0= 'complete' ) )?
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:448:1: (this_CompleteGeneralizationSet_0= ruleCompleteGeneralizationSet | this_AnonymousGeneralizationSet_1= ruleAnonymousGeneralizationSet )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==14) ) {
+            if ( ((LA4_0>=14 && LA4_0<=15)) ) {
                 alt4=1;
+            }
+            else if ( (LA4_0==RULE_ID) ) {
+                alt4=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
+
+                throw nvae;
             }
             switch (alt4) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:449:1: (lv_isCovering_0_0= 'complete' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:449:5: this_CompleteGeneralizationSet_0= ruleCompleteGeneralizationSet
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:449:1: (lv_isCovering_0_0= 'complete' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:450:3: lv_isCovering_0_0= 'complete'
-                    {
-                    lv_isCovering_0_0=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleGeneralizationSet1057); 
-
-                            newLeafNode(lv_isCovering_0_0, grammarAccess.getGeneralizationSetAccess().getIsCoveringCompleteKeyword_0_0());
+                     
+                            newCompositeNode(grammarAccess.getGeneralizationSetAccess().getCompleteGeneralizationSetParserRuleCall_0()); 
                         
+                    pushFollow(FollowSets000.FOLLOW_ruleCompleteGeneralizationSet_in_ruleGeneralizationSet1061);
+                    this_CompleteGeneralizationSet_0=ruleCompleteGeneralizationSet();
 
-                    	        if (current==null) {
-                    	            current = createModelElement(grammarAccess.getGeneralizationSetRule());
-                    	        }
-                           		setWithLastConsumed(current, "isCovering", true, "complete");
-                    	    
+                    state._fsp--;
 
-                    }
-
+                     
+                            current = this_CompleteGeneralizationSet_0; 
+                            afterParserOrEnumRuleCall();
+                        
 
                     }
                     break;
+                case 2 :
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:459:5: this_AnonymousGeneralizationSet_1= ruleAnonymousGeneralizationSet
+                    {
+                     
+                            newCompositeNode(grammarAccess.getGeneralizationSetAccess().getAnonymousGeneralizationSetParserRuleCall_1()); 
+                        
+                    pushFollow(FollowSets000.FOLLOW_ruleAnonymousGeneralizationSet_in_ruleGeneralizationSet1088);
+                    this_AnonymousGeneralizationSet_1=ruleAnonymousGeneralizationSet();
 
-            }
+                    state._fsp--;
 
-            otherlv_1=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleGeneralizationSet1083); 
+                     
+                            current = this_AnonymousGeneralizationSet_1; 
+                            afterParserOrEnumRuleCall();
+                        
 
-                	newLeafNode(otherlv_1, grammarAccess.getGeneralizationSetAccess().getGeneralizationSetKeyword_1());
-                
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:467:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:468:1: (lv_name_2_0= RULE_ID )
-            {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:468:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:469:3: lv_name_2_0= RULE_ID
-            {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleGeneralizationSet1100); 
-
-            			newLeafNode(lv_name_2_0, grammarAccess.getGeneralizationSetAccess().getNameIDTerminalRuleCall_2_0()); 
-            		
-
-            	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getGeneralizationSetRule());
-            	        }
-                   		setWithLastConsumed(
-                   			current, 
-                   			"name",
-                    		lv_name_2_0, 
-                    		"ID");
-            	    
-
-            }
-
-
-            }
-
-            otherlv_3=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleGeneralizationSet1117); 
-
-                	newLeafNode(otherlv_3, grammarAccess.getGeneralizationSetAccess().getSpecializesKeyword_3());
-                
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:489:1: ( (otherlv_4= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:490:1: (otherlv_4= RULE_ID )
-            {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:490:1: (otherlv_4= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:491:3: otherlv_4= RULE_ID
-            {
-
-            			if (current==null) {
-            	            current = createModelElement(grammarAccess.getGeneralizationSetRule());
-            	        }
-                    
-            otherlv_4=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleGeneralizationSet1137); 
-
-            		newLeafNode(otherlv_4, grammarAccess.getGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_4_0()); 
-            	
-
-            }
-
-
-            }
-
-            otherlv_5=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleGeneralizationSet1149); 
-
-                	newLeafNode(otherlv_5, grammarAccess.getGeneralizationSetAccess().getIntoKeyword_5());
-                
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:506:1: ( (otherlv_6= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:507:1: (otherlv_6= RULE_ID )
-            {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:507:1: (otherlv_6= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:508:3: otherlv_6= RULE_ID
-            {
-
-            			if (current==null) {
-            	            current = createModelElement(grammarAccess.getGeneralizationSetRule());
-            	        }
-                    
-            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleGeneralizationSet1169); 
-
-            		newLeafNode(otherlv_6, grammarAccess.getGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_6_0()); 
-            	
-
-            }
-
-
-            }
-
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:519:2: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
-            loop5:
-            do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
-
-                if ( (LA5_0==18) ) {
-                    alt5=1;
-                }
-
-
-                switch (alt5) {
-            	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:519:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
-            	    {
-            	    otherlv_7=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleGeneralizationSet1182); 
-
-            	        	newLeafNode(otherlv_7, grammarAccess.getGeneralizationSetAccess().getCommaKeyword_7_0());
-            	        
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:523:1: ( (otherlv_8= RULE_ID ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:524:1: (otherlv_8= RULE_ID )
-            	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:524:1: (otherlv_8= RULE_ID )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:525:3: otherlv_8= RULE_ID
-            	    {
-
-            	    			if (current==null) {
-            	    	            current = createModelElement(grammarAccess.getGeneralizationSetRule());
-            	    	        }
-            	            
-            	    otherlv_8=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleGeneralizationSet1202); 
-
-            	    		newLeafNode(otherlv_8, grammarAccess.getGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_7_1_0()); 
-            	    	
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop5;
-                }
-            } while (true);
-
-            otherlv_9=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleGeneralizationSet1216); 
-
-                	newLeafNode(otherlv_9, grammarAccess.getGeneralizationSetAccess().getSemicolonKeyword_8());
-                
+                    }
+                    break;
 
             }
 
@@ -1192,8 +1072,553 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleGeneralizationSet"
 
 
+    // $ANTLR start "entryRuleCompleteGeneralizationSet"
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:475:1: entryRuleCompleteGeneralizationSet returns [EObject current=null] : iv_ruleCompleteGeneralizationSet= ruleCompleteGeneralizationSet EOF ;
+    public final EObject entryRuleCompleteGeneralizationSet() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCompleteGeneralizationSet = null;
+
+
+        try {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:476:2: (iv_ruleCompleteGeneralizationSet= ruleCompleteGeneralizationSet EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:477:2: iv_ruleCompleteGeneralizationSet= ruleCompleteGeneralizationSet EOF
+            {
+             newCompositeNode(grammarAccess.getCompleteGeneralizationSetRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleCompleteGeneralizationSet_in_entryRuleCompleteGeneralizationSet1123);
+            iv_ruleCompleteGeneralizationSet=ruleCompleteGeneralizationSet();
+
+            state._fsp--;
+
+             current =iv_ruleCompleteGeneralizationSet; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCompleteGeneralizationSet1133); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCompleteGeneralizationSet"
+
+
+    // $ANTLR start "ruleCompleteGeneralizationSet"
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:484:1: ruleCompleteGeneralizationSet returns [EObject current=null] : ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' ) ;
+    public final EObject ruleCompleteGeneralizationSet() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_isCovering_0_0=null;
+        Token otherlv_1=null;
+        Token lv_name_2_0=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
+        Token otherlv_9=null;
+
+         enterRule(); 
+            
+        try {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:487:28: ( ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:488:1: ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:488:1: ( ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:488:2: ( (lv_isCovering_0_0= 'complete' ) )? otherlv_1= 'GeneralizationSet' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= 'specializes' ( (otherlv_4= RULE_ID ) ) otherlv_5= 'into' ( (otherlv_6= RULE_ID ) ) (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )* otherlv_9= ';'
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:488:2: ( (lv_isCovering_0_0= 'complete' ) )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==14) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:489:1: (lv_isCovering_0_0= 'complete' )
+                    {
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:489:1: (lv_isCovering_0_0= 'complete' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:490:3: lv_isCovering_0_0= 'complete'
+                    {
+                    lv_isCovering_0_0=(Token)match(input,14,FollowSets000.FOLLOW_14_in_ruleCompleteGeneralizationSet1176); 
+
+                            newLeafNode(lv_isCovering_0_0, grammarAccess.getCompleteGeneralizationSetAccess().getIsCoveringCompleteKeyword_0_0());
+                        
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
+                    	        }
+                           		setWithLastConsumed(current, "isCovering", true, "complete");
+                    	    
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            otherlv_1=(Token)match(input,15,FollowSets000.FOLLOW_15_in_ruleCompleteGeneralizationSet1202); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getCompleteGeneralizationSetAccess().getGeneralizationSetKeyword_1());
+                
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:507:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:508:1: (lv_name_2_0= RULE_ID )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:508:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:509:3: lv_name_2_0= RULE_ID
+            {
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1219); 
+
+            			newLeafNode(lv_name_2_0, grammarAccess.getCompleteGeneralizationSetAccess().getNameIDTerminalRuleCall_2_0()); 
+            		
+
+            	        if (current==null) {
+            	            current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
+            	        }
+                   		setWithLastConsumed(
+                   			current, 
+                   			"name",
+                    		lv_name_2_0, 
+                    		"ID");
+            	    
+
+            }
+
+
+            }
+
+            otherlv_3=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleCompleteGeneralizationSet1236); 
+
+                	newLeafNode(otherlv_3, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializesKeyword_3());
+                
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:529:1: ( (otherlv_4= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:530:1: (otherlv_4= RULE_ID )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:530:1: (otherlv_4= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:531:3: otherlv_4= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
+            	        }
+                    
+            otherlv_4=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1256); 
+
+            		newLeafNode(otherlv_4, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_4_0()); 
+            	
+
+            }
+
+
+            }
+
+            otherlv_5=(Token)match(input,17,FollowSets000.FOLLOW_17_in_ruleCompleteGeneralizationSet1268); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getCompleteGeneralizationSetAccess().getIntoKeyword_5());
+                
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:546:1: ( (otherlv_6= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:547:1: (otherlv_6= RULE_ID )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:547:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:548:3: otherlv_6= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
+            	        }
+                    
+            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1288); 
+
+            		newLeafNode(otherlv_6, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_6_0()); 
+            	
+
+            }
+
+
+            }
+
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:559:2: (otherlv_7= ',' ( (otherlv_8= RULE_ID ) ) )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==18) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:559:4: otherlv_7= ',' ( (otherlv_8= RULE_ID ) )
+            	    {
+            	    otherlv_7=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleCompleteGeneralizationSet1301); 
+
+            	        	newLeafNode(otherlv_7, grammarAccess.getCompleteGeneralizationSetAccess().getCommaKeyword_7_0());
+            	        
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:563:1: ( (otherlv_8= RULE_ID ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:564:1: (otherlv_8= RULE_ID )
+            	    {
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:564:1: (otherlv_8= RULE_ID )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:565:3: otherlv_8= RULE_ID
+            	    {
+
+            	    			if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getCompleteGeneralizationSetRule());
+            	    	        }
+            	            
+            	    otherlv_8=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1321); 
+
+            	    		newLeafNode(otherlv_8, grammarAccess.getCompleteGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_7_1_0()); 
+            	    	
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+            otherlv_9=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleCompleteGeneralizationSet1335); 
+
+                	newLeafNode(otherlv_9, grammarAccess.getCompleteGeneralizationSetAccess().getSemicolonKeyword_8());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCompleteGeneralizationSet"
+
+
+    // $ANTLR start "entryRuleAnonymousGeneralizationSet"
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:588:1: entryRuleAnonymousGeneralizationSet returns [EObject current=null] : iv_ruleAnonymousGeneralizationSet= ruleAnonymousGeneralizationSet EOF ;
+    public final EObject entryRuleAnonymousGeneralizationSet() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAnonymousGeneralizationSet = null;
+
+
+        try {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:589:2: (iv_ruleAnonymousGeneralizationSet= ruleAnonymousGeneralizationSet EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:590:2: iv_ruleAnonymousGeneralizationSet= ruleAnonymousGeneralizationSet EOF
+            {
+             newCompositeNode(grammarAccess.getAnonymousGeneralizationSetRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleAnonymousGeneralizationSet_in_entryRuleAnonymousGeneralizationSet1371);
+            iv_ruleAnonymousGeneralizationSet=ruleAnonymousGeneralizationSet();
+
+            state._fsp--;
+
+             current =iv_ruleAnonymousGeneralizationSet; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnonymousGeneralizationSet1381); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAnonymousGeneralizationSet"
+
+
+    // $ANTLR start "ruleAnonymousGeneralizationSet"
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:597:1: ruleAnonymousGeneralizationSet returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) ) ( (otherlv_7= RULE_ID ) ) otherlv_8= ';' ) ;
+    public final EObject ruleAnonymousGeneralizationSet() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
+        Token otherlv_8=null;
+
+         enterRule(); 
+            
+        try {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:600:28: ( ( ( (otherlv_0= RULE_ID ) ) ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) ) ( (otherlv_7= RULE_ID ) ) otherlv_8= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:601:1: ( ( (otherlv_0= RULE_ID ) ) ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) ) ( (otherlv_7= RULE_ID ) ) otherlv_8= ';' )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:601:1: ( ( (otherlv_0= RULE_ID ) ) ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) ) ( (otherlv_7= RULE_ID ) ) otherlv_8= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:601:2: ( (otherlv_0= RULE_ID ) ) ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) ) ( (otherlv_7= RULE_ID ) ) otherlv_8= ';'
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:601:2: ( (otherlv_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:602:1: (otherlv_0= RULE_ID )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:602:1: (otherlv_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:603:3: otherlv_0= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+            	        }
+                    
+            otherlv_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1426); 
+
+            		newLeafNode(otherlv_0, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_0_0()); 
+            	
+
+            }
+
+
+            }
+
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:2: ( ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) ) | (otherlv_5= 'specializes' | otherlv_6= '=>' ) )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==18) ) {
+                alt10=1;
+            }
+            else if ( (LA10_0==16||LA10_0==21) ) {
+                alt10=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 10, 0, input);
+
+                throw nvae;
+            }
+            switch (alt10) {
+                case 1 :
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:3: ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) )
+                    {
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:3: ( (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:4: (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+ (otherlv_3= 'specialize' | otherlv_4= '=>' )
+                    {
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:4: (otherlv_1= ',' ( (otherlv_2= RULE_ID ) ) )+
+                    int cnt7=0;
+                    loop7:
+                    do {
+                        int alt7=2;
+                        int LA7_0 = input.LA(1);
+
+                        if ( (LA7_0==18) ) {
+                            alt7=1;
+                        }
+
+
+                        switch (alt7) {
+                    	case 1 :
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:614:6: otherlv_1= ',' ( (otherlv_2= RULE_ID ) )
+                    	    {
+                    	    otherlv_1=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleAnonymousGeneralizationSet1441); 
+
+                    	        	newLeafNode(otherlv_1, grammarAccess.getAnonymousGeneralizationSetAccess().getCommaKeyword_1_0_0_0());
+                    	        
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:618:1: ( (otherlv_2= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:619:1: (otherlv_2= RULE_ID )
+                    	    {
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:619:1: (otherlv_2= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:620:3: otherlv_2= RULE_ID
+                    	    {
+
+                    	    			if (current==null) {
+                    	    	            current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+                    	    	        }
+                    	            
+                    	    otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1461); 
+
+                    	    		newLeafNode(otherlv_2, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializingUniversalsUniversalCrossReference_1_0_0_1_0()); 
+                    	    	
+
+                    	    }
+
+
+                    	    }
+
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    if ( cnt7 >= 1 ) break loop7;
+                                EarlyExitException eee =
+                                    new EarlyExitException(7, input);
+                                throw eee;
+                        }
+                        cnt7++;
+                    } while (true);
+
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:631:4: (otherlv_3= 'specialize' | otherlv_4= '=>' )
+                    int alt8=2;
+                    int LA8_0 = input.LA(1);
+
+                    if ( (LA8_0==20) ) {
+                        alt8=1;
+                    }
+                    else if ( (LA8_0==21) ) {
+                        alt8=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 8, 0, input);
+
+                        throw nvae;
+                    }
+                    switch (alt8) {
+                        case 1 :
+                            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:631:6: otherlv_3= 'specialize'
+                            {
+                            otherlv_3=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleAnonymousGeneralizationSet1476); 
+
+                                	newLeafNode(otherlv_3, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializeKeyword_1_0_1_0());
+                                
+
+                            }
+                            break;
+                        case 2 :
+                            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:636:7: otherlv_4= '=>'
+                            {
+                            otherlv_4=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleAnonymousGeneralizationSet1494); 
+
+                                	newLeafNode(otherlv_4, grammarAccess.getAnonymousGeneralizationSetAccess().getEqualsSignGreaterThanSignKeyword_1_0_1_1());
+                                
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:641:6: (otherlv_5= 'specializes' | otherlv_6= '=>' )
+                    {
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:641:6: (otherlv_5= 'specializes' | otherlv_6= '=>' )
+                    int alt9=2;
+                    int LA9_0 = input.LA(1);
+
+                    if ( (LA9_0==16) ) {
+                        alt9=1;
+                    }
+                    else if ( (LA9_0==21) ) {
+                        alt9=2;
+                    }
+                    else {
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 9, 0, input);
+
+                        throw nvae;
+                    }
+                    switch (alt9) {
+                        case 1 :
+                            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:641:8: otherlv_5= 'specializes'
+                            {
+                            otherlv_5=(Token)match(input,16,FollowSets000.FOLLOW_16_in_ruleAnonymousGeneralizationSet1515); 
+
+                                	newLeafNode(otherlv_5, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializesKeyword_1_1_0());
+                                
+
+                            }
+                            break;
+                        case 2 :
+                            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:646:7: otherlv_6= '=>'
+                            {
+                            otherlv_6=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleAnonymousGeneralizationSet1533); 
+
+                                	newLeafNode(otherlv_6, grammarAccess.getAnonymousGeneralizationSetAccess().getEqualsSignGreaterThanSignKeyword_1_1_1());
+                                
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:650:3: ( (otherlv_7= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:651:1: (otherlv_7= RULE_ID )
+            {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:651:1: (otherlv_7= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:652:3: otherlv_7= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getAnonymousGeneralizationSetRule());
+            	        }
+                    
+            otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1555); 
+
+            		newLeafNode(otherlv_7, grammarAccess.getAnonymousGeneralizationSetAccess().getSpecializedUniversalUniversalCrossReference_2_0()); 
+            	
+
+            }
+
+
+            }
+
+            otherlv_8=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleAnonymousGeneralizationSet1567); 
+
+                	newLeafNode(otherlv_8, grammarAccess.getAnonymousGeneralizationSetAccess().getSemicolonKeyword_3());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAnonymousGeneralizationSet"
+
+
     // $ANTLR start "entryRulePrimitiveDataType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:548:1: entryRulePrimitiveDataType returns [EObject current=null] : iv_rulePrimitiveDataType= rulePrimitiveDataType EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:679:1: entryRulePrimitiveDataType returns [EObject current=null] : iv_rulePrimitiveDataType= rulePrimitiveDataType EOF ;
     public final EObject entryRulePrimitiveDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1201,17 +1626,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:549:2: (iv_rulePrimitiveDataType= rulePrimitiveDataType EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:550:2: iv_rulePrimitiveDataType= rulePrimitiveDataType EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:680:2: (iv_rulePrimitiveDataType= rulePrimitiveDataType EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:681:2: iv_rulePrimitiveDataType= rulePrimitiveDataType EOF
             {
              newCompositeNode(grammarAccess.getPrimitiveDataTypeRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataType_in_entryRulePrimitiveDataType1252);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataType_in_entryRulePrimitiveDataType1607);
             iv_rulePrimitiveDataType=rulePrimitiveDataType();
 
             state._fsp--;
 
              current =iv_rulePrimitiveDataType; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveDataType1262); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveDataType1617); 
 
             }
 
@@ -1229,7 +1654,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimitiveDataType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:557:1: rulePrimitiveDataType returns [EObject current=null] : (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:688:1: rulePrimitiveDataType returns [EObject current=null] : (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' ) ;
     public final EObject rulePrimitiveDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1244,23 +1669,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:560:28: ( (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:561:1: (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:691:28: ( (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:692:1: (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:561:1: (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:561:3: otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:692:1: (otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:692:3: otherlv_0= 'PrimitiveDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '(' ( (lv__type_3_0= rulePrimitiveDataTypeType ) ) otherlv_4= ')' otherlv_5= ';'
             {
-            otherlv_0=(Token)match(input,20,FollowSets000.FOLLOW_20_in_rulePrimitiveDataType1299); 
+            otherlv_0=(Token)match(input,22,FollowSets000.FOLLOW_22_in_rulePrimitiveDataType1654); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getPrimitiveDataTypeAccess().getPrimitiveDataTypeKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:565:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:566:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:696:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:697:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:566:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:567:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:697:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:698:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePrimitiveDataType1316); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePrimitiveDataType1671); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getPrimitiveDataTypeAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -1280,20 +1705,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,21,FollowSets000.FOLLOW_21_in_rulePrimitiveDataType1333); 
+            otherlv_2=(Token)match(input,23,FollowSets000.FOLLOW_23_in_rulePrimitiveDataType1688); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getPrimitiveDataTypeAccess().getLeftParenthesisKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:587:1: ( (lv__type_3_0= rulePrimitiveDataTypeType ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:588:1: (lv__type_3_0= rulePrimitiveDataTypeType )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:718:1: ( (lv__type_3_0= rulePrimitiveDataTypeType ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:719:1: (lv__type_3_0= rulePrimitiveDataTypeType )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:588:1: (lv__type_3_0= rulePrimitiveDataTypeType )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:589:3: lv__type_3_0= rulePrimitiveDataTypeType
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:719:1: (lv__type_3_0= rulePrimitiveDataTypeType )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:720:3: lv__type_3_0= rulePrimitiveDataTypeType
             {
              
             	        newCompositeNode(grammarAccess.getPrimitiveDataTypeAccess().get_typePrimitiveDataTypeTypeParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataTypeType_in_rulePrimitiveDataType1354);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataTypeType_in_rulePrimitiveDataType1709);
             lv__type_3_0=rulePrimitiveDataTypeType();
 
             state._fsp--;
@@ -1315,11 +1740,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,22,FollowSets000.FOLLOW_22_in_rulePrimitiveDataType1366); 
+            otherlv_4=(Token)match(input,24,FollowSets000.FOLLOW_24_in_rulePrimitiveDataType1721); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getPrimitiveDataTypeAccess().getRightParenthesisKeyword_4());
                 
-            otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePrimitiveDataType1378); 
+            otherlv_5=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulePrimitiveDataType1733); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getPrimitiveDataTypeAccess().getSemicolonKeyword_5());
                 
@@ -1344,7 +1769,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComplexDataType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:621:1: entryRuleComplexDataType returns [EObject current=null] : iv_ruleComplexDataType= ruleComplexDataType EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:752:1: entryRuleComplexDataType returns [EObject current=null] : iv_ruleComplexDataType= ruleComplexDataType EOF ;
     public final EObject entryRuleComplexDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1352,17 +1777,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:622:2: (iv_ruleComplexDataType= ruleComplexDataType EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:623:2: iv_ruleComplexDataType= ruleComplexDataType EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:753:2: (iv_ruleComplexDataType= ruleComplexDataType EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:754:2: iv_ruleComplexDataType= ruleComplexDataType EOF
             {
              newCompositeNode(grammarAccess.getComplexDataTypeRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleComplexDataType_in_entryRuleComplexDataType1414);
+            pushFollow(FollowSets000.FOLLOW_ruleComplexDataType_in_entryRuleComplexDataType1769);
             iv_ruleComplexDataType=ruleComplexDataType();
 
             state._fsp--;
 
              current =iv_ruleComplexDataType; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComplexDataType1424); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComplexDataType1779); 
 
             }
 
@@ -1380,7 +1805,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComplexDataType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:630:1: ruleComplexDataType returns [EObject current=null] : (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:761:1: ruleComplexDataType returns [EObject current=null] : (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' ) ;
     public final EObject ruleComplexDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1397,23 +1822,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:633:28: ( (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:634:1: (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:764:28: ( (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:765:1: (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:634:1: (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:634:3: otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:765:1: (otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:765:3: otherlv_0= 'ComplexDataType' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_attributes_3_0= ruleDataTypeAttribute ) ) (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )* otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleComplexDataType1461); 
+            otherlv_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleComplexDataType1816); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getComplexDataTypeAccess().getComplexDataTypeKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:638:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:639:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:769:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:770:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:639:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:640:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:770:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:771:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComplexDataType1478); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComplexDataType1833); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getComplexDataTypeAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -1433,20 +1858,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleComplexDataType1495); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleComplexDataType1850); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getComplexDataTypeAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:660:1: ( (lv_attributes_3_0= ruleDataTypeAttribute ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:661:1: (lv_attributes_3_0= ruleDataTypeAttribute )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:791:1: ( (lv_attributes_3_0= ruleDataTypeAttribute ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:792:1: (lv_attributes_3_0= ruleDataTypeAttribute )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:661:1: (lv_attributes_3_0= ruleDataTypeAttribute )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:662:3: lv_attributes_3_0= ruleDataTypeAttribute
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:792:1: (lv_attributes_3_0= ruleDataTypeAttribute )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:793:3: lv_attributes_3_0= ruleDataTypeAttribute
             {
              
             	        newCompositeNode(grammarAccess.getComplexDataTypeAccess().getAttributesDataTypeAttributeParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1516);
+            pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1871);
             lv_attributes_3_0=ruleDataTypeAttribute();
 
             state._fsp--;
@@ -1468,35 +1893,35 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:678:2: (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )*
-            loop6:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:809:2: (otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) ) )*
+            loop11:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA6_0==19) ) {
-                    alt6=1;
+                if ( (LA11_0==19) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt11) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:678:4: otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:809:4: otherlv_4= ';' ( (lv_attributes_5_0= ruleDataTypeAttribute ) )
             	    {
-            	    otherlv_4=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleComplexDataType1529); 
+            	    otherlv_4=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleComplexDataType1884); 
 
             	        	newLeafNode(otherlv_4, grammarAccess.getComplexDataTypeAccess().getSemicolonKeyword_4_0());
             	        
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:682:1: ( (lv_attributes_5_0= ruleDataTypeAttribute ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:683:1: (lv_attributes_5_0= ruleDataTypeAttribute )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:813:1: ( (lv_attributes_5_0= ruleDataTypeAttribute ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:814:1: (lv_attributes_5_0= ruleDataTypeAttribute )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:683:1: (lv_attributes_5_0= ruleDataTypeAttribute )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:684:3: lv_attributes_5_0= ruleDataTypeAttribute
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:814:1: (lv_attributes_5_0= ruleDataTypeAttribute )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:815:3: lv_attributes_5_0= ruleDataTypeAttribute
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getComplexDataTypeAccess().getAttributesDataTypeAttributeParserRuleCall_4_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1550);
+            	    pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1905);
             	    lv_attributes_5_0=ruleDataTypeAttribute();
 
             	    state._fsp--;
@@ -1523,11 +1948,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop11;
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleComplexDataType1564); 
+            otherlv_6=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleComplexDataType1919); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getComplexDataTypeAccess().getRightCurlyBracketKeyword_5());
                 
@@ -1552,7 +1977,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEnumeration"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:712:1: entryRuleEnumeration returns [EObject current=null] : iv_ruleEnumeration= ruleEnumeration EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:843:1: entryRuleEnumeration returns [EObject current=null] : iv_ruleEnumeration= ruleEnumeration EOF ;
     public final EObject entryRuleEnumeration() throws RecognitionException {
         EObject current = null;
 
@@ -1560,17 +1985,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:713:2: (iv_ruleEnumeration= ruleEnumeration EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:714:2: iv_ruleEnumeration= ruleEnumeration EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:844:2: (iv_ruleEnumeration= ruleEnumeration EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:845:2: iv_ruleEnumeration= ruleEnumeration EOF
             {
              newCompositeNode(grammarAccess.getEnumerationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEnumeration_in_entryRuleEnumeration1600);
+            pushFollow(FollowSets000.FOLLOW_ruleEnumeration_in_entryRuleEnumeration1955);
             iv_ruleEnumeration=ruleEnumeration();
 
             state._fsp--;
 
              current =iv_ruleEnumeration; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEnumeration1610); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEnumeration1965); 
 
             }
 
@@ -1588,7 +2013,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEnumeration"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:721:1: ruleEnumeration returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:852:1: ruleEnumeration returns [EObject current=null] : (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' ) ;
     public final EObject ruleEnumeration() throws RecognitionException {
         EObject current = null;
 
@@ -1605,23 +2030,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:724:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:725:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:855:28: ( (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:856:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:725:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:725:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:856:1: (otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:856:3: otherlv_0= 'enum' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_enumerationLiterals_3_0= ruleEString ) ) (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )* otherlv_6= '}'
             {
-            otherlv_0=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleEnumeration1647); 
+            otherlv_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleEnumeration2002); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getEnumerationAccess().getEnumKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:729:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:730:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:860:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:861:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:730:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:731:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:861:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:862:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEnumeration1664); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEnumeration2019); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getEnumerationAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -1641,20 +2066,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleEnumeration1681); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleEnumeration2036); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getEnumerationAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:751:1: ( (lv_enumerationLiterals_3_0= ruleEString ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:752:1: (lv_enumerationLiterals_3_0= ruleEString )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:882:1: ( (lv_enumerationLiterals_3_0= ruleEString ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:883:1: (lv_enumerationLiterals_3_0= ruleEString )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:752:1: (lv_enumerationLiterals_3_0= ruleEString )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:753:3: lv_enumerationLiterals_3_0= ruleEString
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:883:1: (lv_enumerationLiterals_3_0= ruleEString )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:884:3: lv_enumerationLiterals_3_0= ruleEString
             {
              
             	        newCompositeNode(grammarAccess.getEnumerationAccess().getEnumerationLiteralsEStringParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleEnumeration1702);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleEnumeration2057);
             lv_enumerationLiterals_3_0=ruleEString();
 
             state._fsp--;
@@ -1676,35 +2101,35 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:769:2: (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )*
-            loop7:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:900:2: (otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) ) )*
+            loop12:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA7_0==18) ) {
-                    alt7=1;
+                if ( (LA12_0==18) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt12) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:769:4: otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:900:4: otherlv_4= ',' ( (lv_enumerationLiterals_5_0= ruleEString ) )
             	    {
-            	    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleEnumeration1715); 
+            	    otherlv_4=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleEnumeration2070); 
 
             	        	newLeafNode(otherlv_4, grammarAccess.getEnumerationAccess().getCommaKeyword_4_0());
             	        
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:773:1: ( (lv_enumerationLiterals_5_0= ruleEString ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:774:1: (lv_enumerationLiterals_5_0= ruleEString )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:904:1: ( (lv_enumerationLiterals_5_0= ruleEString ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:905:1: (lv_enumerationLiterals_5_0= ruleEString )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:774:1: (lv_enumerationLiterals_5_0= ruleEString )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:775:3: lv_enumerationLiterals_5_0= ruleEString
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:905:1: (lv_enumerationLiterals_5_0= ruleEString )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:906:3: lv_enumerationLiterals_5_0= ruleEString
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getEnumerationAccess().getEnumerationLiteralsEStringParserRuleCall_4_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleEnumeration1736);
+            	    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleEnumeration2091);
             	    lv_enumerationLiterals_5_0=ruleEString();
 
             	    state._fsp--;
@@ -1731,11 +2156,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop12;
                 }
             } while (true);
 
-            otherlv_6=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleEnumeration1750); 
+            otherlv_6=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleEnumeration2105); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getEnumerationAccess().getRightCurlyBracketKeyword_5());
                 
@@ -1760,7 +2185,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMeronymicRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:803:1: entryRuleMeronymicRelation returns [EObject current=null] : iv_ruleMeronymicRelation= ruleMeronymicRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:934:1: entryRuleMeronymicRelation returns [EObject current=null] : iv_ruleMeronymicRelation= ruleMeronymicRelation EOF ;
     public final EObject entryRuleMeronymicRelation() throws RecognitionException {
         EObject current = null;
 
@@ -1768,17 +2193,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:804:2: (iv_ruleMeronymicRelation= ruleMeronymicRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:805:2: iv_ruleMeronymicRelation= ruleMeronymicRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:935:2: (iv_ruleMeronymicRelation= ruleMeronymicRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:936:2: iv_ruleMeronymicRelation= ruleMeronymicRelation EOF
             {
              newCompositeNode(grammarAccess.getMeronymicRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMeronymicRelation_in_entryRuleMeronymicRelation1786);
+            pushFollow(FollowSets000.FOLLOW_ruleMeronymicRelation_in_entryRuleMeronymicRelation2141);
             iv_ruleMeronymicRelation=ruleMeronymicRelation();
 
             state._fsp--;
 
              current =iv_ruleMeronymicRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMeronymicRelation1796); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMeronymicRelation2151); 
 
             }
 
@@ -1796,7 +2221,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMeronymicRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:812:1: ruleMeronymicRelation returns [EObject current=null] : (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:943:1: ruleMeronymicRelation returns [EObject current=null] : (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation ) ;
     public final EObject ruleMeronymicRelation() throws RecognitionException {
         EObject current = null;
 
@@ -1812,20 +2237,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:815:28: ( (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:816:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:946:28: ( (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:947:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:816:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )
-            int alt8=4;
-            alt8 = dfa8.predict(input);
-            switch (alt8) {
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:947:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )
+            int alt13=4;
+            alt13 = dfa13.predict(input);
+            switch (alt13) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:817:5: this_ComponentOfRelation_0= ruleComponentOfRelation
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:948:5: this_ComponentOfRelation_0= ruleComponentOfRelation
                     {
                      
                             newCompositeNode(grammarAccess.getMeronymicRelationAccess().getComponentOfRelationParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleComponentOfRelation_in_ruleMeronymicRelation1843);
+                    pushFollow(FollowSets000.FOLLOW_ruleComponentOfRelation_in_ruleMeronymicRelation2198);
                     this_ComponentOfRelation_0=ruleComponentOfRelation();
 
                     state._fsp--;
@@ -1838,12 +2263,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:827:5: this_MembershipRelation_1= ruleMembershipRelation
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:958:5: this_MembershipRelation_1= ruleMembershipRelation
                     {
                      
                             newCompositeNode(grammarAccess.getMeronymicRelationAccess().getMembershipRelationParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleMembershipRelation_in_ruleMeronymicRelation1870);
+                    pushFollow(FollowSets000.FOLLOW_ruleMembershipRelation_in_ruleMeronymicRelation2225);
                     this_MembershipRelation_1=ruleMembershipRelation();
 
                     state._fsp--;
@@ -1856,12 +2281,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:837:5: this_SubCollectionRelation_2= ruleSubCollectionRelation
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:968:5: this_SubCollectionRelation_2= ruleSubCollectionRelation
                     {
                      
                             newCompositeNode(grammarAccess.getMeronymicRelationAccess().getSubCollectionRelationParserRuleCall_2()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleSubCollectionRelation_in_ruleMeronymicRelation1897);
+                    pushFollow(FollowSets000.FOLLOW_ruleSubCollectionRelation_in_ruleMeronymicRelation2252);
                     this_SubCollectionRelation_2=ruleSubCollectionRelation();
 
                     state._fsp--;
@@ -1874,12 +2299,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:847:5: this_SubQuantityRelation_3= ruleSubQuantityRelation
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:978:5: this_SubQuantityRelation_3= ruleSubQuantityRelation
                     {
                      
                             newCompositeNode(grammarAccess.getMeronymicRelationAccess().getSubQuantityRelationParserRuleCall_3()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleSubQuantityRelation_in_ruleMeronymicRelation1924);
+                    pushFollow(FollowSets000.FOLLOW_ruleSubQuantityRelation_in_ruleMeronymicRelation2279);
                     this_SubQuantityRelation_3=ruleSubQuantityRelation();
 
                     state._fsp--;
@@ -1912,7 +2337,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComponentOfRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:863:1: entryRuleComponentOfRelation returns [EObject current=null] : iv_ruleComponentOfRelation= ruleComponentOfRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:994:1: entryRuleComponentOfRelation returns [EObject current=null] : iv_ruleComponentOfRelation= ruleComponentOfRelation EOF ;
     public final EObject entryRuleComponentOfRelation() throws RecognitionException {
         EObject current = null;
 
@@ -1920,17 +2345,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:864:2: (iv_ruleComponentOfRelation= ruleComponentOfRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:865:2: iv_ruleComponentOfRelation= ruleComponentOfRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:995:2: (iv_ruleComponentOfRelation= ruleComponentOfRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:996:2: iv_ruleComponentOfRelation= ruleComponentOfRelation EOF
             {
              newCompositeNode(grammarAccess.getComponentOfRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleComponentOfRelation_in_entryRuleComponentOfRelation1959);
+            pushFollow(FollowSets000.FOLLOW_ruleComponentOfRelation_in_entryRuleComponentOfRelation2314);
             iv_ruleComponentOfRelation=ruleComponentOfRelation();
 
             state._fsp--;
 
              current =iv_ruleComponentOfRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComponentOfRelation1969); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComponentOfRelation2324); 
 
             }
 
@@ -1948,7 +2373,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComponentOfRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:872:1: ruleComponentOfRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1003:1: ruleComponentOfRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
     public final EObject ruleComponentOfRelation() throws RecognitionException {
         EObject current = null;
 
@@ -1979,74 +2404,74 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:875:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:876:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1006:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1007:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:876:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:876:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1007:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1007:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isComponentOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:876:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:878:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1007:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1009:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:878:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:879:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1009:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1010:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0());
             	
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:882:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:883:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1013:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1014:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:883:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
-            int cnt9=0;
-            loop9:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1014:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
+            int cnt14=0;
+            loop14:
             do {
-                int alt9=5;
-                int LA9_0 = input.LA(1);
+                int alt14=5;
+                int LA14_0 = input.LA(1);
 
-                if ( LA9_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 0) ) {
-                    alt9=1;
+                if ( LA14_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 0) ) {
+                    alt14=1;
                 }
-                else if ( LA9_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 1) ) {
-                    alt9=2;
+                else if ( LA14_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 1) ) {
+                    alt14=2;
                 }
-                else if ( LA9_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 2) ) {
-                    alt9=3;
+                else if ( LA14_0 ==29 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 2) ) {
+                    alt14=3;
                 }
-                else if ( LA9_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 3) ) {
-                    alt9=4;
+                else if ( LA14_0 ==30 && getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 3) ) {
+                    alt14=4;
                 }
 
 
-                switch (alt9) {
+                switch (alt14) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:885:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1016:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:885:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:886:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1016:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1017:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 0)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:886:116: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:887:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1017:116: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1018:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 0);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:890:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:890:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1021:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1021:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:890:16: ( (lv_partIsEssential_1_0= 'essential' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:891:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1021:16: ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1022:1: (lv_partIsEssential_1_0= 'essential' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:891:1: (lv_partIsEssential_1_0= 'essential' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:892:3: lv_partIsEssential_1_0= 'essential'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1022:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1023:3: lv_partIsEssential_1_0= 'essential'
             	    {
-            	    lv_partIsEssential_1_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleComponentOfRelation2057); 
+            	    lv_partIsEssential_1_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleComponentOfRelation2412); 
 
             	            newLeafNode(lv_partIsEssential_1_0, grammarAccess.getComponentOfRelationAccess().getPartIsEssentialEssentialKeyword_0_0_0());
             	        
@@ -2078,33 +2503,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:912:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1043:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:912:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:913:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1043:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1044:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 1)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:913:116: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:914:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1044:116: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1045:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 1);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:917:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:917:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1048:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1048:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:917:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:918:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1048:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1049:1: (lv_partIsInseparable_2_0= 'inseparable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:918:1: (lv_partIsInseparable_2_0= 'inseparable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:919:3: lv_partIsInseparable_2_0= 'inseparable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1049:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1050:3: lv_partIsInseparable_2_0= 'inseparable'
             	    {
-            	    lv_partIsInseparable_2_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleComponentOfRelation2142); 
+            	    lv_partIsInseparable_2_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleComponentOfRelation2497); 
 
             	            newLeafNode(lv_partIsInseparable_2_0, grammarAccess.getComponentOfRelationAccess().getPartIsInseparableInseparableKeyword_0_1_0());
             	        
@@ -2136,33 +2561,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:939:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1070:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:939:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:940:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1070:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1071:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 2)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:940:116: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:941:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1071:116: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1072:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 2);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:944:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:944:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1075:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1075:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:944:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:945:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1075:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1076:1: (lv_partIsShareable_3_0= 'shareable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:945:1: (lv_partIsShareable_3_0= 'shareable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:946:3: lv_partIsShareable_3_0= 'shareable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1076:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1077:3: lv_partIsShareable_3_0= 'shareable'
             	    {
-            	    lv_partIsShareable_3_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleComponentOfRelation2227); 
+            	    lv_partIsShareable_3_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleComponentOfRelation2582); 
 
             	            newLeafNode(lv_partIsShareable_3_0, grammarAccess.getComponentOfRelationAccess().getPartIsShareableShareableKeyword_0_2_0());
             	        
@@ -2194,33 +2619,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:966:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1097:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:966:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:967:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1097:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1098:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 3) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 3)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:967:116: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:968:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1098:116: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1099:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), 3);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:971:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:971:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1102:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1102:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleComponentOfRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:971:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:972:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1102:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1103:1: (lv_partIsImmutable_4_0= 'immutable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:972:1: (lv_partIsImmutable_4_0= 'immutable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:973:3: lv_partIsImmutable_4_0= 'immutable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1103:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1104:3: lv_partIsImmutable_4_0= 'immutable'
             	    {
-            	    lv_partIsImmutable_4_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleComponentOfRelation2312); 
+            	    lv_partIsImmutable_4_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleComponentOfRelation2667); 
 
             	            newLeafNode(lv_partIsImmutable_4_0, grammarAccess.getComponentOfRelationAccess().getPartIsImmutableImmutableKeyword_0_3_0());
             	        
@@ -2253,12 +2678,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt9 >= 1 ) break loop9;
+            	    if ( cnt14 >= 1 ) break loop14;
                         EarlyExitException eee =
-                            new EarlyExitException(9, input);
+                            new EarlyExitException(14, input);
                         throw eee;
                 }
-                cnt9++;
+                cnt14++;
             } while (true);
 
             if ( ! getUnorderedGroupHelper().canLeave(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0()) ) {
@@ -2276,22 +2701,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleComponentOfRelation2383); 
+            otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleComponentOfRelation2738); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getComponentOfRelationAccess().getRelationKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1005:1: ( (otherlv_6= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1006:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1136:1: ( (otherlv_6= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1137:1: (otherlv_6= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1006:1: (otherlv_6= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1007:3: otherlv_6= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1137:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1138:3: otherlv_6= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getComponentOfRelationRule());
             	        }
                     
-            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComponentOfRelation2403); 
+            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComponentOfRelation2758); 
 
             		newLeafNode(otherlv_6, grammarAccess.getComponentOfRelationAccess().getPartSubstantialUniversalCrossReference_2_0()); 
             	
@@ -2301,31 +2726,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1018:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1149:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
 
-            if ( (LA10_0==30) ) {
-                alt10=1;
+            if ( (LA15_0==32) ) {
+                alt15=1;
             }
-            switch (alt10) {
+            switch (alt15) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1018:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1149:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
                     {
-                    otherlv_7=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleComponentOfRelation2416); 
+                    otherlv_7=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleComponentOfRelation2771); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getComponentOfRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1022:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1023:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1153:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1154:1: (lv_sourceLowerBound_8_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1023:1: (lv_sourceLowerBound_8_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1024:3: lv_sourceLowerBound_8_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1154:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1155:3: lv_sourceLowerBound_8_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getComponentOfRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2437);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2792);
                     lv_sourceLowerBound_8_0=ruleEInt();
 
                     state._fsp--;
@@ -2347,20 +2772,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleComponentOfRelation2449); 
+                    otherlv_9=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleComponentOfRelation2804); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getComponentOfRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1044:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1045:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1175:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1176:1: (lv_sourceUpperBound_10_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1045:1: (lv_sourceUpperBound_10_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1046:3: lv_sourceUpperBound_10_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1176:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1177:3: lv_sourceUpperBound_10_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getComponentOfRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2470);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2825);
                     lv_sourceUpperBound_10_0=ruleEInt();
 
                     state._fsp--;
@@ -2382,7 +2807,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleComponentOfRelation2482); 
+                    otherlv_11=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleComponentOfRelation2837); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getComponentOfRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -2392,22 +2817,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleComponentOfRelation2496); 
+            otherlv_12=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleComponentOfRelation2851); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getComponentOfRelationAccess().getIsComponentOfKeyword_4());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1070:1: ( (otherlv_13= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1071:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1201:1: ( (otherlv_13= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1202:1: (otherlv_13= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1071:1: (otherlv_13= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1072:3: otherlv_13= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1202:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1203:3: otherlv_13= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getComponentOfRelationRule());
             	        }
                     
-            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComponentOfRelation2516); 
+            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleComponentOfRelation2871); 
 
             		newLeafNode(otherlv_13, grammarAccess.getComponentOfRelationAccess().getWholeSubstantialUniversalCrossReference_5_0()); 
             	
@@ -2417,31 +2842,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1083:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1214:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( (LA11_0==30) ) {
-                alt11=1;
+            if ( (LA16_0==32) ) {
+                alt16=1;
             }
-            switch (alt11) {
+            switch (alt16) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1083:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1214:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
                     {
-                    otherlv_14=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleComponentOfRelation2529); 
+                    otherlv_14=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleComponentOfRelation2884); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getComponentOfRelationAccess().getLeftSquareBracketKeyword_6_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1087:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1088:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1218:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1219:1: (lv_targetLowerBound_15_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1088:1: (lv_targetLowerBound_15_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1089:3: lv_targetLowerBound_15_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1219:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1220:3: lv_targetLowerBound_15_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getComponentOfRelationAccess().getTargetLowerBoundEIntParserRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2550);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2905);
                     lv_targetLowerBound_15_0=ruleEInt();
 
                     state._fsp--;
@@ -2463,20 +2888,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleComponentOfRelation2562); 
+                    otherlv_16=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleComponentOfRelation2917); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getComponentOfRelationAccess().getFullStopFullStopKeyword_6_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1109:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1110:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1240:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1241:1: (lv_targetUpperBound_17_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1110:1: (lv_targetUpperBound_17_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1111:3: lv_targetUpperBound_17_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1241:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1242:3: lv_targetUpperBound_17_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getComponentOfRelationAccess().getTargetUpperBoundEIntParserRuleCall_6_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2583);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleComponentOfRelation2938);
                     lv_targetUpperBound_17_0=ruleEInt();
 
                     state._fsp--;
@@ -2498,7 +2923,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_18=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleComponentOfRelation2595); 
+                    otherlv_18=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleComponentOfRelation2950); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getComponentOfRelationAccess().getRightSquareBracketKeyword_6_4());
                         
@@ -2508,7 +2933,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleComponentOfRelation2609); 
+            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleComponentOfRelation2964); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getComponentOfRelationAccess().getSemicolonKeyword_7());
                 
@@ -2533,7 +2958,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMembershipRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1143:1: entryRuleMembershipRelation returns [EObject current=null] : iv_ruleMembershipRelation= ruleMembershipRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1274:1: entryRuleMembershipRelation returns [EObject current=null] : iv_ruleMembershipRelation= ruleMembershipRelation EOF ;
     public final EObject entryRuleMembershipRelation() throws RecognitionException {
         EObject current = null;
 
@@ -2541,17 +2966,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1144:2: (iv_ruleMembershipRelation= ruleMembershipRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1145:2: iv_ruleMembershipRelation= ruleMembershipRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1275:2: (iv_ruleMembershipRelation= ruleMembershipRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1276:2: iv_ruleMembershipRelation= ruleMembershipRelation EOF
             {
              newCompositeNode(grammarAccess.getMembershipRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMembershipRelation_in_entryRuleMembershipRelation2645);
+            pushFollow(FollowSets000.FOLLOW_ruleMembershipRelation_in_entryRuleMembershipRelation3000);
             iv_ruleMembershipRelation=ruleMembershipRelation();
 
             state._fsp--;
 
              current =iv_ruleMembershipRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMembershipRelation2655); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMembershipRelation3010); 
 
             }
 
@@ -2569,7 +2994,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMembershipRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1152:1: ruleMembershipRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1283:1: ruleMembershipRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
     public final EObject ruleMembershipRelation() throws RecognitionException {
         EObject current = null;
 
@@ -2600,74 +3025,74 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1155:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1156:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1286:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1287:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1156:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1156:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1287:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1287:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isMemberOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1156:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1158:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1287:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1289:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1158:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1159:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1289:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1290:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0());
             	
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1162:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1163:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1293:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1294:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1163:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
-            int cnt12=0;
-            loop12:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1294:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
+            int cnt17=0;
+            loop17:
             do {
-                int alt12=5;
-                int LA12_0 = input.LA(1);
+                int alt17=5;
+                int LA17_0 = input.LA(1);
 
-                if ( LA12_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 0) ) {
-                    alt12=1;
+                if ( LA17_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 0) ) {
+                    alt17=1;
                 }
-                else if ( LA12_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 1) ) {
-                    alt12=2;
+                else if ( LA17_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 1) ) {
+                    alt17=2;
                 }
-                else if ( LA12_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 2) ) {
-                    alt12=3;
+                else if ( LA17_0 ==29 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 2) ) {
+                    alt17=3;
                 }
-                else if ( LA12_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 3) ) {
-                    alt12=4;
+                else if ( LA17_0 ==30 && getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 3) ) {
+                    alt17=4;
                 }
 
 
-                switch (alt12) {
+                switch (alt17) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1165:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1296:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1165:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1166:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1296:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1297:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 0)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1166:115: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1167:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1297:115: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1298:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 0);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1170:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1170:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1301:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1301:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1170:16: ( (lv_partIsEssential_1_0= 'essential' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1171:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1301:16: ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1302:1: (lv_partIsEssential_1_0= 'essential' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1171:1: (lv_partIsEssential_1_0= 'essential' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1172:3: lv_partIsEssential_1_0= 'essential'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1302:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1303:3: lv_partIsEssential_1_0= 'essential'
             	    {
-            	    lv_partIsEssential_1_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleMembershipRelation2743); 
+            	    lv_partIsEssential_1_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleMembershipRelation3098); 
 
             	            newLeafNode(lv_partIsEssential_1_0, grammarAccess.getMembershipRelationAccess().getPartIsEssentialEssentialKeyword_0_0_0());
             	        
@@ -2699,33 +3124,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1192:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1323:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1192:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1193:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1323:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1324:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 1)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1193:115: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1194:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1324:115: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1325:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 1);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1197:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1197:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1328:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1328:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1197:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1198:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1328:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1329:1: (lv_partIsInseparable_2_0= 'inseparable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1198:1: (lv_partIsInseparable_2_0= 'inseparable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1199:3: lv_partIsInseparable_2_0= 'inseparable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1329:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1330:3: lv_partIsInseparable_2_0= 'inseparable'
             	    {
-            	    lv_partIsInseparable_2_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleMembershipRelation2828); 
+            	    lv_partIsInseparable_2_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleMembershipRelation3183); 
 
             	            newLeafNode(lv_partIsInseparable_2_0, grammarAccess.getMembershipRelationAccess().getPartIsInseparableInseparableKeyword_0_1_0());
             	        
@@ -2757,33 +3182,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1219:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1350:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1219:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1220:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1350:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1351:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 2)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1220:115: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1221:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1351:115: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1352:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 2);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1224:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1224:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1355:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1355:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1224:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1225:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1355:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1356:1: (lv_partIsShareable_3_0= 'shareable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1225:1: (lv_partIsShareable_3_0= 'shareable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1226:3: lv_partIsShareable_3_0= 'shareable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1356:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1357:3: lv_partIsShareable_3_0= 'shareable'
             	    {
-            	    lv_partIsShareable_3_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleMembershipRelation2913); 
+            	    lv_partIsShareable_3_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleMembershipRelation3268); 
 
             	            newLeafNode(lv_partIsShareable_3_0, grammarAccess.getMembershipRelationAccess().getPartIsShareableShareableKeyword_0_2_0());
             	        
@@ -2815,33 +3240,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1246:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1377:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1246:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1247:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1377:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1378:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 3) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 3)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1247:115: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1248:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1378:115: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1379:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), 3);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1251:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1251:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1382:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1382:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleMembershipRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1251:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1252:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1382:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1383:1: (lv_partIsImmutable_4_0= 'immutable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1252:1: (lv_partIsImmutable_4_0= 'immutable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1253:3: lv_partIsImmutable_4_0= 'immutable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1383:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1384:3: lv_partIsImmutable_4_0= 'immutable'
             	    {
-            	    lv_partIsImmutable_4_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleMembershipRelation2998); 
+            	    lv_partIsImmutable_4_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleMembershipRelation3353); 
 
             	            newLeafNode(lv_partIsImmutable_4_0, grammarAccess.getMembershipRelationAccess().getPartIsImmutableImmutableKeyword_0_3_0());
             	        
@@ -2874,12 +3299,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt12 >= 1 ) break loop12;
+            	    if ( cnt17 >= 1 ) break loop17;
                         EarlyExitException eee =
-                            new EarlyExitException(12, input);
+                            new EarlyExitException(17, input);
                         throw eee;
                 }
-                cnt12++;
+                cnt17++;
             } while (true);
 
             if ( ! getUnorderedGroupHelper().canLeave(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0()) ) {
@@ -2897,22 +3322,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleMembershipRelation3069); 
+            otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleMembershipRelation3424); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getMembershipRelationAccess().getRelationKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1285:1: ( (otherlv_6= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1286:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1416:1: ( (otherlv_6= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1417:1: (otherlv_6= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1286:1: (otherlv_6= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1287:3: otherlv_6= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1417:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1418:3: otherlv_6= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getMembershipRelationRule());
             	        }
                     
-            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMembershipRelation3089); 
+            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMembershipRelation3444); 
 
             		newLeafNode(otherlv_6, grammarAccess.getMembershipRelationAccess().getPartSubstantialUniversalCrossReference_2_0()); 
             	
@@ -2922,31 +3347,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1298:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1429:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA13_0==30) ) {
-                alt13=1;
+            if ( (LA18_0==32) ) {
+                alt18=1;
             }
-            switch (alt13) {
+            switch (alt18) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1298:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1429:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
                     {
-                    otherlv_7=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleMembershipRelation3102); 
+                    otherlv_7=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMembershipRelation3457); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getMembershipRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1302:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1303:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1433:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1434:1: (lv_sourceLowerBound_8_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1303:1: (lv_sourceLowerBound_8_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1304:3: lv_sourceLowerBound_8_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1434:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1435:3: lv_sourceLowerBound_8_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMembershipRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3123);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3478);
                     lv_sourceLowerBound_8_0=ruleEInt();
 
                     state._fsp--;
@@ -2968,20 +3393,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleMembershipRelation3135); 
+                    otherlv_9=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleMembershipRelation3490); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getMembershipRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1324:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1325:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1455:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1456:1: (lv_sourceUpperBound_10_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1325:1: (lv_sourceUpperBound_10_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1326:3: lv_sourceUpperBound_10_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1456:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1457:3: lv_sourceUpperBound_10_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMembershipRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3156);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3511);
                     lv_sourceUpperBound_10_0=ruleEInt();
 
                     state._fsp--;
@@ -3003,7 +3428,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMembershipRelation3168); 
+                    otherlv_11=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleMembershipRelation3523); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getMembershipRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -3013,22 +3438,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleMembershipRelation3182); 
+            otherlv_12=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleMembershipRelation3537); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getMembershipRelationAccess().getIsMemberOfKeyword_4());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1350:1: ( (otherlv_13= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1351:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1481:1: ( (otherlv_13= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1482:1: (otherlv_13= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1351:1: (otherlv_13= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1352:3: otherlv_13= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1482:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1483:3: otherlv_13= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getMembershipRelationRule());
             	        }
                     
-            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMembershipRelation3202); 
+            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMembershipRelation3557); 
 
             		newLeafNode(otherlv_13, grammarAccess.getMembershipRelationAccess().getWholeSubstantialUniversalCrossReference_5_0()); 
             	
@@ -3038,31 +3463,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1363:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1494:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA14_0==30) ) {
-                alt14=1;
+            if ( (LA19_0==32) ) {
+                alt19=1;
             }
-            switch (alt14) {
+            switch (alt19) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1363:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1494:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
                     {
-                    otherlv_14=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleMembershipRelation3215); 
+                    otherlv_14=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMembershipRelation3570); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getMembershipRelationAccess().getLeftSquareBracketKeyword_6_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1367:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1368:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1498:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1499:1: (lv_targetLowerBound_15_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1368:1: (lv_targetLowerBound_15_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1369:3: lv_targetLowerBound_15_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1499:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1500:3: lv_targetLowerBound_15_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMembershipRelationAccess().getTargetLowerBoundEIntParserRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3236);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3591);
                     lv_targetLowerBound_15_0=ruleEInt();
 
                     state._fsp--;
@@ -3084,20 +3509,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleMembershipRelation3248); 
+                    otherlv_16=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleMembershipRelation3603); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getMembershipRelationAccess().getFullStopFullStopKeyword_6_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1389:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1390:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1520:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1521:1: (lv_targetUpperBound_17_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1390:1: (lv_targetUpperBound_17_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1391:3: lv_targetUpperBound_17_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1521:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1522:3: lv_targetUpperBound_17_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMembershipRelationAccess().getTargetUpperBoundEIntParserRuleCall_6_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3269);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMembershipRelation3624);
                     lv_targetUpperBound_17_0=ruleEInt();
 
                     state._fsp--;
@@ -3119,7 +3544,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_18=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMembershipRelation3281); 
+                    otherlv_18=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleMembershipRelation3636); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getMembershipRelationAccess().getRightSquareBracketKeyword_6_4());
                         
@@ -3129,7 +3554,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleMembershipRelation3295); 
+            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleMembershipRelation3650); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getMembershipRelationAccess().getSemicolonKeyword_7());
                 
@@ -3154,7 +3579,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSubCollectionRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1423:1: entryRuleSubCollectionRelation returns [EObject current=null] : iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1554:1: entryRuleSubCollectionRelation returns [EObject current=null] : iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF ;
     public final EObject entryRuleSubCollectionRelation() throws RecognitionException {
         EObject current = null;
 
@@ -3162,17 +3587,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1424:2: (iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1425:2: iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1555:2: (iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1556:2: iv_ruleSubCollectionRelation= ruleSubCollectionRelation EOF
             {
              newCompositeNode(grammarAccess.getSubCollectionRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSubCollectionRelation_in_entryRuleSubCollectionRelation3331);
+            pushFollow(FollowSets000.FOLLOW_ruleSubCollectionRelation_in_entryRuleSubCollectionRelation3686);
             iv_ruleSubCollectionRelation=ruleSubCollectionRelation();
 
             state._fsp--;
 
              current =iv_ruleSubCollectionRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubCollectionRelation3341); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubCollectionRelation3696); 
 
             }
 
@@ -3190,7 +3615,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSubCollectionRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1432:1: ruleSubCollectionRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1563:1: ruleSubCollectionRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
     public final EObject ruleSubCollectionRelation() throws RecognitionException {
         EObject current = null;
 
@@ -3221,74 +3646,74 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1435:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1436:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1566:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1567:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1436:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1436:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1567:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1567:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_5= 'relation' ( (otherlv_6= RULE_ID ) ) (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )? otherlv_12= 'isSubCollectionOf' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1436:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1438:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1567:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1569:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1438:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1439:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1569:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1570:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0());
             	
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1442:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1443:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1573:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1574:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+ {...}?
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1443:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
-            int cnt15=0;
-            loop15:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1574:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) ) )+
+            int cnt20=0;
+            loop20:
             do {
-                int alt15=5;
-                int LA15_0 = input.LA(1);
+                int alt20=5;
+                int LA20_0 = input.LA(1);
 
-                if ( LA15_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 0) ) {
-                    alt15=1;
+                if ( LA20_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 0) ) {
+                    alt20=1;
                 }
-                else if ( LA15_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 1) ) {
-                    alt15=2;
+                else if ( LA20_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 1) ) {
+                    alt20=2;
                 }
-                else if ( LA15_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 2) ) {
-                    alt15=3;
+                else if ( LA20_0 ==29 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 2) ) {
+                    alt20=3;
                 }
-                else if ( LA15_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 3) ) {
-                    alt15=4;
+                else if ( LA20_0 ==30 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 3) ) {
+                    alt20=4;
                 }
 
 
-                switch (alt15) {
+                switch (alt20) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1445:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1576:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1445:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1446:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1576:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1577:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 0)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1446:118: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1447:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1577:118: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1578:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 0);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1450:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1450:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1581:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1581:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1450:16: ( (lv_partIsEssential_1_0= 'essential' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1451:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1581:16: ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1582:1: (lv_partIsEssential_1_0= 'essential' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1451:1: (lv_partIsEssential_1_0= 'essential' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1452:3: lv_partIsEssential_1_0= 'essential'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1582:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1583:3: lv_partIsEssential_1_0= 'essential'
             	    {
-            	    lv_partIsEssential_1_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSubCollectionRelation3429); 
+            	    lv_partIsEssential_1_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSubCollectionRelation3784); 
 
             	            newLeafNode(lv_partIsEssential_1_0, grammarAccess.getSubCollectionRelationAccess().getPartIsEssentialEssentialKeyword_0_0_0());
             	        
@@ -3320,33 +3745,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1472:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1603:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1472:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1473:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1603:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1604:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 1)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1473:118: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1474:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1604:118: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1605:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 1);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1477:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1477:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1608:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1608:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1477:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1478:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1608:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1609:1: (lv_partIsInseparable_2_0= 'inseparable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1478:1: (lv_partIsInseparable_2_0= 'inseparable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1479:3: lv_partIsInseparable_2_0= 'inseparable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1609:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1610:3: lv_partIsInseparable_2_0= 'inseparable'
             	    {
-            	    lv_partIsInseparable_2_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSubCollectionRelation3514); 
+            	    lv_partIsInseparable_2_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleSubCollectionRelation3869); 
 
             	            newLeafNode(lv_partIsInseparable_2_0, grammarAccess.getSubCollectionRelationAccess().getPartIsInseparableInseparableKeyword_0_1_0());
             	        
@@ -3378,33 +3803,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1499:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1630:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1499:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1500:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1630:4: ({...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1631:5: {...}? => ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 2)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1500:118: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1501:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1631:118: ( ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1632:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 2);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1504:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1504:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1635:6: ({...}? => ( (lv_partIsShareable_3_0= 'shareable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1635:7: {...}? => ( (lv_partIsShareable_3_0= 'shareable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1504:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1505:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1635:16: ( (lv_partIsShareable_3_0= 'shareable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1636:1: (lv_partIsShareable_3_0= 'shareable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1505:1: (lv_partIsShareable_3_0= 'shareable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1506:3: lv_partIsShareable_3_0= 'shareable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1636:1: (lv_partIsShareable_3_0= 'shareable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1637:3: lv_partIsShareable_3_0= 'shareable'
             	    {
-            	    lv_partIsShareable_3_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSubCollectionRelation3599); 
+            	    lv_partIsShareable_3_0=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleSubCollectionRelation3954); 
 
             	            newLeafNode(lv_partIsShareable_3_0, grammarAccess.getSubCollectionRelationAccess().getPartIsShareableShareableKeyword_0_2_0());
             	        
@@ -3436,33 +3861,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 4 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1526:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1657:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1526:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1527:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1657:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1658:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 3) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 3)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1527:118: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1528:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1658:118: ( ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1659:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), 3);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1531:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1531:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1662:6: ({...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1662:7: {...}? => ( (lv_partIsImmutable_4_0= 'immutable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubCollectionRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1531:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1532:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1662:16: ( (lv_partIsImmutable_4_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1663:1: (lv_partIsImmutable_4_0= 'immutable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1532:1: (lv_partIsImmutable_4_0= 'immutable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1533:3: lv_partIsImmutable_4_0= 'immutable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1663:1: (lv_partIsImmutable_4_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1664:3: lv_partIsImmutable_4_0= 'immutable'
             	    {
-            	    lv_partIsImmutable_4_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleSubCollectionRelation3684); 
+            	    lv_partIsImmutable_4_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubCollectionRelation4039); 
 
             	            newLeafNode(lv_partIsImmutable_4_0, grammarAccess.getSubCollectionRelationAccess().getPartIsImmutableImmutableKeyword_0_3_0());
             	        
@@ -3495,12 +3920,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt15 >= 1 ) break loop15;
+            	    if ( cnt20 >= 1 ) break loop20;
                         EarlyExitException eee =
-                            new EarlyExitException(15, input);
+                            new EarlyExitException(20, input);
                         throw eee;
                 }
-                cnt15++;
+                cnt20++;
             } while (true);
 
             if ( ! getUnorderedGroupHelper().canLeave(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0()) ) {
@@ -3518,22 +3943,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleSubCollectionRelation3755); 
+            otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubCollectionRelation4110); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getSubCollectionRelationAccess().getRelationKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1565:1: ( (otherlv_6= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1566:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1696:1: ( (otherlv_6= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1697:1: (otherlv_6= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1566:1: (otherlv_6= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1567:3: otherlv_6= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1697:1: (otherlv_6= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1698:3: otherlv_6= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getSubCollectionRelationRule());
             	        }
                     
-            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubCollectionRelation3775); 
+            otherlv_6=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubCollectionRelation4130); 
 
             		newLeafNode(otherlv_6, grammarAccess.getSubCollectionRelationAccess().getPartSubstantialUniversalCrossReference_2_0()); 
             	
@@ -3543,31 +3968,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1578:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1709:2: (otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']' )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA16_0==30) ) {
-                alt16=1;
+            if ( (LA21_0==32) ) {
+                alt21=1;
             }
-            switch (alt16) {
+            switch (alt21) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1578:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1709:4: otherlv_7= '[' ( (lv_sourceLowerBound_8_0= ruleEInt ) ) otherlv_9= '..' ( (lv_sourceUpperBound_10_0= ruleEInt ) ) otherlv_11= ']'
                     {
-                    otherlv_7=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubCollectionRelation3788); 
+                    otherlv_7=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubCollectionRelation4143); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getSubCollectionRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1582:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1583:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1713:1: ( (lv_sourceLowerBound_8_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1714:1: (lv_sourceLowerBound_8_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1583:1: (lv_sourceLowerBound_8_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1584:3: lv_sourceLowerBound_8_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1714:1: (lv_sourceLowerBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1715:3: lv_sourceLowerBound_8_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubCollectionRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation3809);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation4164);
                     lv_sourceLowerBound_8_0=ruleEInt();
 
                     state._fsp--;
@@ -3589,20 +4014,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubCollectionRelation3821); 
+                    otherlv_9=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleSubCollectionRelation4176); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getSubCollectionRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1604:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1605:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1735:1: ( (lv_sourceUpperBound_10_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1736:1: (lv_sourceUpperBound_10_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1605:1: (lv_sourceUpperBound_10_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1606:3: lv_sourceUpperBound_10_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1736:1: (lv_sourceUpperBound_10_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1737:3: lv_sourceUpperBound_10_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubCollectionRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation3842);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation4197);
                     lv_sourceUpperBound_10_0=ruleEInt();
 
                     state._fsp--;
@@ -3624,7 +4049,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubCollectionRelation3854); 
+                    otherlv_11=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleSubCollectionRelation4209); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getSubCollectionRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -3634,22 +4059,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,35,FollowSets000.FOLLOW_35_in_ruleSubCollectionRelation3868); 
+            otherlv_12=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleSubCollectionRelation4223); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getSubCollectionRelationAccess().getIsSubCollectionOfKeyword_4());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1630:1: ( (otherlv_13= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1631:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1761:1: ( (otherlv_13= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1762:1: (otherlv_13= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1631:1: (otherlv_13= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1632:3: otherlv_13= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1762:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1763:3: otherlv_13= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getSubCollectionRelationRule());
             	        }
                     
-            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubCollectionRelation3888); 
+            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubCollectionRelation4243); 
 
             		newLeafNode(otherlv_13, grammarAccess.getSubCollectionRelationAccess().getWholeSubstantialUniversalCrossReference_5_0()); 
             	
@@ -3659,31 +4084,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1643:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1774:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA17_0==30) ) {
-                alt17=1;
+            if ( (LA22_0==32) ) {
+                alt22=1;
             }
-            switch (alt17) {
+            switch (alt22) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1643:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1774:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
                     {
-                    otherlv_14=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubCollectionRelation3901); 
+                    otherlv_14=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubCollectionRelation4256); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getSubCollectionRelationAccess().getLeftSquareBracketKeyword_6_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1647:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1648:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1778:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1779:1: (lv_targetLowerBound_15_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1648:1: (lv_targetLowerBound_15_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1649:3: lv_targetLowerBound_15_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1779:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1780:3: lv_targetLowerBound_15_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubCollectionRelationAccess().getTargetLowerBoundEIntParserRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation3922);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation4277);
                     lv_targetLowerBound_15_0=ruleEInt();
 
                     state._fsp--;
@@ -3705,20 +4130,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubCollectionRelation3934); 
+                    otherlv_16=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleSubCollectionRelation4289); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getSubCollectionRelationAccess().getFullStopFullStopKeyword_6_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1669:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1670:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1800:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1801:1: (lv_targetUpperBound_17_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1670:1: (lv_targetUpperBound_17_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1671:3: lv_targetUpperBound_17_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1801:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1802:3: lv_targetUpperBound_17_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubCollectionRelationAccess().getTargetUpperBoundEIntParserRuleCall_6_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation3955);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubCollectionRelation4310);
                     lv_targetUpperBound_17_0=ruleEInt();
 
                     state._fsp--;
@@ -3740,7 +4165,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_18=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubCollectionRelation3967); 
+                    otherlv_18=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleSubCollectionRelation4322); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getSubCollectionRelationAccess().getRightSquareBracketKeyword_6_4());
                         
@@ -3750,7 +4175,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSubCollectionRelation3981); 
+            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSubCollectionRelation4336); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getSubCollectionRelationAccess().getSemicolonKeyword_7());
                 
@@ -3775,7 +4200,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSubQuantityRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1703:1: entryRuleSubQuantityRelation returns [EObject current=null] : iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1834:1: entryRuleSubQuantityRelation returns [EObject current=null] : iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF ;
     public final EObject entryRuleSubQuantityRelation() throws RecognitionException {
         EObject current = null;
 
@@ -3783,17 +4208,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1704:2: (iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1705:2: iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1835:2: (iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1836:2: iv_ruleSubQuantityRelation= ruleSubQuantityRelation EOF
             {
              newCompositeNode(grammarAccess.getSubQuantityRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSubQuantityRelation_in_entryRuleSubQuantityRelation4017);
+            pushFollow(FollowSets000.FOLLOW_ruleSubQuantityRelation_in_entryRuleSubQuantityRelation4372);
             iv_ruleSubQuantityRelation=ruleSubQuantityRelation();
 
             state._fsp--;
 
              current =iv_ruleSubQuantityRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubQuantityRelation4027); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubQuantityRelation4382); 
 
             }
 
@@ -3811,7 +4236,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSubQuantityRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1712:1: ruleSubQuantityRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1843:1: ruleSubQuantityRelation returns [EObject current=null] : ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' ) ;
     public final EObject ruleSubQuantityRelation() throws RecognitionException {
         EObject current = null;
 
@@ -3841,71 +4266,71 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1715:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1716:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1846:28: ( ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1847:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1716:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1716:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1847:1: ( ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1847:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) ) otherlv_4= 'relation' ( (otherlv_5= RULE_ID ) ) (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )? otherlv_11= 'isSubQuantityOf' ( (otherlv_12= RULE_ID ) ) (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )? otherlv_18= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1716:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1718:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1847:2: ( ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1849:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1718:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1719:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1849:1: ( ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1850:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?)
             {
              
             	  getUnorderedGroupHelper().enter(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0());
             	
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1722:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?)
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1723:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1853:2: ( ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?)
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1854:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+ {...}?
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1723:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+
-            int cnt18=0;
-            loop18:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1854:3: ( ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) ) | ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) ) )+
+            int cnt23=0;
+            loop23:
             do {
-                int alt18=4;
-                int LA18_0 = input.LA(1);
+                int alt23=4;
+                int LA23_0 = input.LA(1);
 
-                if ( LA18_0 ==25 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 0) ) {
-                    alt18=1;
+                if ( LA23_0 ==27 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 0) ) {
+                    alt23=1;
                 }
-                else if ( LA18_0 ==26 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 1) ) {
-                    alt18=2;
+                else if ( LA23_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 1) ) {
+                    alt23=2;
                 }
-                else if ( LA18_0 ==28 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 2) ) {
-                    alt18=3;
+                else if ( LA23_0 ==30 && getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 2) ) {
+                    alt23=3;
                 }
 
 
-                switch (alt18) {
+                switch (alt23) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1725:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1856:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1725:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1726:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1856:4: ({...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1857:5: {...}? => ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 0) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 0)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1726:116: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1727:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1857:116: ( ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1858:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 0);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1730:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1730:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1861:6: ({...}? => ( (lv_partIsEssential_1_0= 'essential' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1861:7: {...}? => ( (lv_partIsEssential_1_0= 'essential' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1730:16: ( (lv_partIsEssential_1_0= 'essential' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1731:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1861:16: ( (lv_partIsEssential_1_0= 'essential' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1862:1: (lv_partIsEssential_1_0= 'essential' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1731:1: (lv_partIsEssential_1_0= 'essential' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1732:3: lv_partIsEssential_1_0= 'essential'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1862:1: (lv_partIsEssential_1_0= 'essential' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1863:3: lv_partIsEssential_1_0= 'essential'
             	    {
-            	    lv_partIsEssential_1_0=(Token)match(input,25,FollowSets000.FOLLOW_25_in_ruleSubQuantityRelation4115); 
+            	    lv_partIsEssential_1_0=(Token)match(input,27,FollowSets000.FOLLOW_27_in_ruleSubQuantityRelation4470); 
 
             	            newLeafNode(lv_partIsEssential_1_0, grammarAccess.getSubQuantityRelationAccess().getPartIsEssentialEssentialKeyword_0_0_0());
             	        
@@ -3937,33 +4362,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1752:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1883:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1752:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1753:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1883:4: ({...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1884:5: {...}? => ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 1) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 1)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1753:116: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1754:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1884:116: ( ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1885:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 1);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1757:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1757:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1888:6: ({...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1888:7: {...}? => ( (lv_partIsInseparable_2_0= 'inseparable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1757:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1758:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1888:16: ( (lv_partIsInseparable_2_0= 'inseparable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1889:1: (lv_partIsInseparable_2_0= 'inseparable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1758:1: (lv_partIsInseparable_2_0= 'inseparable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1759:3: lv_partIsInseparable_2_0= 'inseparable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1889:1: (lv_partIsInseparable_2_0= 'inseparable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1890:3: lv_partIsInseparable_2_0= 'inseparable'
             	    {
-            	    lv_partIsInseparable_2_0=(Token)match(input,26,FollowSets000.FOLLOW_26_in_ruleSubQuantityRelation4200); 
+            	    lv_partIsInseparable_2_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleSubQuantityRelation4555); 
 
             	            newLeafNode(lv_partIsInseparable_2_0, grammarAccess.getSubQuantityRelationAccess().getPartIsInseparableInseparableKeyword_0_1_0());
             	        
@@ -3995,33 +4420,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 3 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1779:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1910:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1779:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1780:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1910:4: ({...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1911:5: {...}? => ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) )
             	    {
             	    if ( ! getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 2) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "getUnorderedGroupHelper().canSelect(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 2)");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1780:116: ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1781:6: ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1911:116: ( ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1912:6: ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) )
             	    {
             	     
             	    	 				  getUnorderedGroupHelper().select(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0(), 2);
             	    	 				
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1784:6: ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1784:7: {...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1915:6: ({...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1915:7: {...}? => ( (lv_partIsImmutable_3_0= 'immutable' ) )
             	    {
             	    if ( !((true)) ) {
             	        throw new FailedPredicateException(input, "ruleSubQuantityRelation", "true");
             	    }
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1784:16: ( (lv_partIsImmutable_3_0= 'immutable' ) )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1785:1: (lv_partIsImmutable_3_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1915:16: ( (lv_partIsImmutable_3_0= 'immutable' ) )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1916:1: (lv_partIsImmutable_3_0= 'immutable' )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1785:1: (lv_partIsImmutable_3_0= 'immutable' )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1786:3: lv_partIsImmutable_3_0= 'immutable'
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1916:1: (lv_partIsImmutable_3_0= 'immutable' )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1917:3: lv_partIsImmutable_3_0= 'immutable'
             	    {
-            	    lv_partIsImmutable_3_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleSubQuantityRelation4285); 
+            	    lv_partIsImmutable_3_0=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubQuantityRelation4640); 
 
             	            newLeafNode(lv_partIsImmutable_3_0, grammarAccess.getSubQuantityRelationAccess().getPartIsImmutableImmutableKeyword_0_2_0());
             	        
@@ -4054,12 +4479,12 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt18 >= 1 ) break loop18;
+            	    if ( cnt23 >= 1 ) break loop23;
                         EarlyExitException eee =
-                            new EarlyExitException(18, input);
+                            new EarlyExitException(23, input);
                         throw eee;
                 }
-                cnt18++;
+                cnt23++;
             } while (true);
 
             if ( ! getUnorderedGroupHelper().canLeave(grammarAccess.getSubQuantityRelationAccess().getUnorderedGroup_0()) ) {
@@ -4077,22 +4502,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleSubQuantityRelation4356); 
+            otherlv_4=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubQuantityRelation4711); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getSubQuantityRelationAccess().getRelationKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1818:1: ( (otherlv_5= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1819:1: (otherlv_5= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1949:1: ( (otherlv_5= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1950:1: (otherlv_5= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1819:1: (otherlv_5= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1820:3: otherlv_5= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1950:1: (otherlv_5= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1951:3: otherlv_5= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getSubQuantityRelationRule());
             	        }
                     
-            otherlv_5=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubQuantityRelation4376); 
+            otherlv_5=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubQuantityRelation4731); 
 
             		newLeafNode(otherlv_5, grammarAccess.getSubQuantityRelationAccess().getPartSubstantialUniversalCrossReference_2_0()); 
             	
@@ -4102,31 +4527,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1831:2: (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1962:2: (otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']' )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA19_0==30) ) {
-                alt19=1;
+            if ( (LA24_0==32) ) {
+                alt24=1;
             }
-            switch (alt19) {
+            switch (alt24) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1831:4: otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1962:4: otherlv_6= '[' ( (lv_sourceLowerBound_7_0= ruleEInt ) ) otherlv_8= '..' ( (lv_sourceUpperBound_9_0= ruleEInt ) ) otherlv_10= ']'
                     {
-                    otherlv_6=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubQuantityRelation4389); 
+                    otherlv_6=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubQuantityRelation4744); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getSubQuantityRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1835:1: ( (lv_sourceLowerBound_7_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1836:1: (lv_sourceLowerBound_7_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1966:1: ( (lv_sourceLowerBound_7_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1967:1: (lv_sourceLowerBound_7_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1836:1: (lv_sourceLowerBound_7_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1837:3: lv_sourceLowerBound_7_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1967:1: (lv_sourceLowerBound_7_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1968:3: lv_sourceLowerBound_7_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubQuantityRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4410);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4765);
                     lv_sourceLowerBound_7_0=ruleEInt();
 
                     state._fsp--;
@@ -4148,20 +4573,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubQuantityRelation4422); 
+                    otherlv_8=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleSubQuantityRelation4777); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getSubQuantityRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1857:1: ( (lv_sourceUpperBound_9_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1858:1: (lv_sourceUpperBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1988:1: ( (lv_sourceUpperBound_9_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1989:1: (lv_sourceUpperBound_9_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1858:1: (lv_sourceUpperBound_9_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1859:3: lv_sourceUpperBound_9_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1989:1: (lv_sourceUpperBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1990:3: lv_sourceUpperBound_9_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubQuantityRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4443);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4798);
                     lv_sourceUpperBound_9_0=ruleEInt();
 
                     state._fsp--;
@@ -4183,7 +4608,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_10=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubQuantityRelation4455); 
+                    otherlv_10=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleSubQuantityRelation4810); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getSubQuantityRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -4193,22 +4618,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_11=(Token)match(input,36,FollowSets000.FOLLOW_36_in_ruleSubQuantityRelation4469); 
+            otherlv_11=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleSubQuantityRelation4824); 
 
                 	newLeafNode(otherlv_11, grammarAccess.getSubQuantityRelationAccess().getIsSubQuantityOfKeyword_4());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1883:1: ( (otherlv_12= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1884:1: (otherlv_12= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2014:1: ( (otherlv_12= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2015:1: (otherlv_12= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1884:1: (otherlv_12= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1885:3: otherlv_12= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2015:1: (otherlv_12= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2016:3: otherlv_12= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getSubQuantityRelationRule());
             	        }
                     
-            otherlv_12=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubQuantityRelation4489); 
+            otherlv_12=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubQuantityRelation4844); 
 
             		newLeafNode(otherlv_12, grammarAccess.getSubQuantityRelationAccess().getWholeSubstantialUniversalCrossReference_5_0()); 
             	
@@ -4218,31 +4643,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1896:2: (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2027:2: (otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']' )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA20_0==30) ) {
-                alt20=1;
+            if ( (LA25_0==32) ) {
+                alt25=1;
             }
-            switch (alt20) {
+            switch (alt25) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1896:4: otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2027:4: otherlv_13= '[' ( (lv_targetLowerBound_14_0= ruleEInt ) ) otherlv_15= '..' ( (lv_targetUpperBound_16_0= ruleEInt ) ) otherlv_17= ']'
                     {
-                    otherlv_13=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleSubQuantityRelation4502); 
+                    otherlv_13=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubQuantityRelation4857); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getSubQuantityRelationAccess().getLeftSquareBracketKeyword_6_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1900:1: ( (lv_targetLowerBound_14_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1901:1: (lv_targetLowerBound_14_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2031:1: ( (lv_targetLowerBound_14_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2032:1: (lv_targetLowerBound_14_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1901:1: (lv_targetLowerBound_14_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1902:3: lv_targetLowerBound_14_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2032:1: (lv_targetLowerBound_14_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2033:3: lv_targetLowerBound_14_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubQuantityRelationAccess().getTargetLowerBoundEIntParserRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4523);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4878);
                     lv_targetLowerBound_14_0=ruleEInt();
 
                     state._fsp--;
@@ -4264,20 +4689,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_15=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleSubQuantityRelation4535); 
+                    otherlv_15=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleSubQuantityRelation4890); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getSubQuantityRelationAccess().getFullStopFullStopKeyword_6_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1922:1: ( (lv_targetUpperBound_16_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1923:1: (lv_targetUpperBound_16_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2053:1: ( (lv_targetUpperBound_16_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2054:1: (lv_targetUpperBound_16_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1923:1: (lv_targetUpperBound_16_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1924:3: lv_targetUpperBound_16_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2054:1: (lv_targetUpperBound_16_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2055:3: lv_targetUpperBound_16_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getSubQuantityRelationAccess().getTargetUpperBoundEIntParserRuleCall_6_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4556);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleSubQuantityRelation4911);
                     lv_targetUpperBound_16_0=ruleEInt();
 
                     state._fsp--;
@@ -4299,7 +4724,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_17=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleSubQuantityRelation4568); 
+                    otherlv_17=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleSubQuantityRelation4923); 
 
                         	newLeafNode(otherlv_17, grammarAccess.getSubQuantityRelationAccess().getRightSquareBracketKeyword_6_4());
                         
@@ -4309,7 +4734,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_18=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSubQuantityRelation4582); 
+            otherlv_18=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleSubQuantityRelation4937); 
 
                 	newLeafNode(otherlv_18, grammarAccess.getSubQuantityRelationAccess().getSemicolonKeyword_7());
                 
@@ -4334,7 +4759,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKind"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1956:1: entryRuleKind returns [EObject current=null] : iv_ruleKind= ruleKind EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2087:1: entryRuleKind returns [EObject current=null] : iv_ruleKind= ruleKind EOF ;
     public final EObject entryRuleKind() throws RecognitionException {
         EObject current = null;
 
@@ -4342,17 +4767,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1957:2: (iv_ruleKind= ruleKind EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1958:2: iv_ruleKind= ruleKind EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2088:2: (iv_ruleKind= ruleKind EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2089:2: iv_ruleKind= ruleKind EOF
             {
              newCompositeNode(grammarAccess.getKindRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleKind_in_entryRuleKind4618);
+            pushFollow(FollowSets000.FOLLOW_ruleKind_in_entryRuleKind4973);
             iv_ruleKind=ruleKind();
 
             state._fsp--;
 
              current =iv_ruleKind; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleKind4628); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleKind4983); 
 
             }
 
@@ -4370,7 +4795,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKind"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1965:1: ruleKind returns [EObject current=null] : ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2096:1: ruleKind returns [EObject current=null] : ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
     public final EObject ruleKind() throws RecognitionException {
         EObject current = null;
 
@@ -4384,14 +4809,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1968:28: ( ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1969:1: ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2099:28: ( ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2100:1: ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1969:1: ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1969:2: () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2100:1: ( () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2100:2: () otherlv_1= 'Kind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1969:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1970:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2100:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2101:5: 
             {
 
                     current = forceCreateModelElement(
@@ -4401,17 +4826,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,37,FollowSets000.FOLLOW_37_in_ruleKind4674); 
+            otherlv_1=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleKind5029); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getKindAccess().getKindKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1979:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1980:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2110:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2111:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1980:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:1981:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2111:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2112:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleKind4691); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleKind5046); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getKindAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -4431,32 +4856,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleKind4708); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleKind5063); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getKindAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2001:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
-            loop21:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2132:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
+            loop26:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA21_0==30||LA21_0==59) ) {
-                    alt21=1;
+                if ( (LA26_0==32||LA26_0==61) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt26) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2002:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2133:1: (lv_characterizedBy_4_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2002:1: (lv_characterizedBy_4_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2003:3: lv_characterizedBy_4_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2133:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2134:3: lv_characterizedBy_4_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getKindAccess().getCharacterizedByCharacterizationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleKind4729);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleKind5084);
             	    lv_characterizedBy_4_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -4480,11 +4905,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop26;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleKind4742); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleKind5097); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getKindAccess().getRightCurlyBracketKeyword_5());
                 
@@ -4509,7 +4934,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQuantityUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2031:1: entryRuleQuantityUniversal returns [EObject current=null] : iv_ruleQuantityUniversal= ruleQuantityUniversal EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2162:1: entryRuleQuantityUniversal returns [EObject current=null] : iv_ruleQuantityUniversal= ruleQuantityUniversal EOF ;
     public final EObject entryRuleQuantityUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -4517,17 +4942,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2032:2: (iv_ruleQuantityUniversal= ruleQuantityUniversal EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2033:2: iv_ruleQuantityUniversal= ruleQuantityUniversal EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2163:2: (iv_ruleQuantityUniversal= ruleQuantityUniversal EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2164:2: iv_ruleQuantityUniversal= ruleQuantityUniversal EOF
             {
              newCompositeNode(grammarAccess.getQuantityUniversalRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleQuantityUniversal_in_entryRuleQuantityUniversal4778);
+            pushFollow(FollowSets000.FOLLOW_ruleQuantityUniversal_in_entryRuleQuantityUniversal5133);
             iv_ruleQuantityUniversal=ruleQuantityUniversal();
 
             state._fsp--;
 
              current =iv_ruleQuantityUniversal; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQuantityUniversal4788); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQuantityUniversal5143); 
 
             }
 
@@ -4545,7 +4970,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantityUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2040:1: ruleQuantityUniversal returns [EObject current=null] : ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2171:1: ruleQuantityUniversal returns [EObject current=null] : ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
     public final EObject ruleQuantityUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -4559,14 +4984,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2043:28: ( ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2044:1: ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2174:28: ( ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2175:1: ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2044:1: ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2044:2: () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2175:1: ( () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2175:2: () otherlv_1= 'Quantity' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2044:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2045:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2175:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2176:5: 
             {
 
                     current = forceCreateModelElement(
@@ -4576,17 +5001,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,38,FollowSets000.FOLLOW_38_in_ruleQuantityUniversal4834); 
+            otherlv_1=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleQuantityUniversal5189); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getQuantityUniversalAccess().getQuantityKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2054:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2055:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2185:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2186:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2055:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2056:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2186:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2187:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQuantityUniversal4851); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQuantityUniversal5206); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getQuantityUniversalAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -4606,32 +5031,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleQuantityUniversal4868); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleQuantityUniversal5223); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getQuantityUniversalAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2076:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
-            loop22:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2207:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
+            loop27:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA22_0==30||LA22_0==59) ) {
-                    alt22=1;
+                if ( (LA27_0==32||LA27_0==61) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt27) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2077:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2208:1: (lv_characterizedBy_4_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2077:1: (lv_characterizedBy_4_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2078:3: lv_characterizedBy_4_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2208:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2209:3: lv_characterizedBy_4_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getQuantityUniversalAccess().getCharacterizedByCharacterizationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleQuantityUniversal4889);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleQuantityUniversal5244);
             	    lv_characterizedBy_4_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -4655,11 +5080,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop27;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleQuantityUniversal4902); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleQuantityUniversal5257); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getQuantityUniversalAccess().getRightCurlyBracketKeyword_5());
                 
@@ -4684,7 +5109,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCollectiveUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2106:1: entryRuleCollectiveUniversal returns [EObject current=null] : iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2237:1: entryRuleCollectiveUniversal returns [EObject current=null] : iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF ;
     public final EObject entryRuleCollectiveUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -4692,17 +5117,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2107:2: (iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2108:2: iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2238:2: (iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2239:2: iv_ruleCollectiveUniversal= ruleCollectiveUniversal EOF
             {
              newCompositeNode(grammarAccess.getCollectiveUniversalRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleCollectiveUniversal_in_entryRuleCollectiveUniversal4938);
+            pushFollow(FollowSets000.FOLLOW_ruleCollectiveUniversal_in_entryRuleCollectiveUniversal5293);
             iv_ruleCollectiveUniversal=ruleCollectiveUniversal();
 
             state._fsp--;
 
              current =iv_ruleCollectiveUniversal; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCollectiveUniversal4948); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCollectiveUniversal5303); 
 
             }
 
@@ -4720,7 +5145,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCollectiveUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2115:1: ruleCollectiveUniversal returns [EObject current=null] : ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2246:1: ruleCollectiveUniversal returns [EObject current=null] : ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
     public final EObject ruleCollectiveUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -4735,27 +5160,27 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2118:28: ( ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2119:1: ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2249:28: ( ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2250:1: ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2119:1: ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2119:2: ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2250:1: ( ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2250:2: ( (lv_isExtensional_0_0= 'extensional' ) )? otherlv_1= 'CollectiveUniversal' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2119:2: ( (lv_isExtensional_0_0= 'extensional' ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2250:2: ( (lv_isExtensional_0_0= 'extensional' ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA23_0==39) ) {
-                alt23=1;
+            if ( (LA28_0==41) ) {
+                alt28=1;
             }
-            switch (alt23) {
+            switch (alt28) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2120:1: (lv_isExtensional_0_0= 'extensional' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2251:1: (lv_isExtensional_0_0= 'extensional' )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2120:1: (lv_isExtensional_0_0= 'extensional' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2121:3: lv_isExtensional_0_0= 'extensional'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2251:1: (lv_isExtensional_0_0= 'extensional' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2252:3: lv_isExtensional_0_0= 'extensional'
                     {
-                    lv_isExtensional_0_0=(Token)match(input,39,FollowSets000.FOLLOW_39_in_ruleCollectiveUniversal4991); 
+                    lv_isExtensional_0_0=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleCollectiveUniversal5346); 
 
                             newLeafNode(lv_isExtensional_0_0, grammarAccess.getCollectiveUniversalAccess().getIsExtensionalExtensionalKeyword_0_0());
                         
@@ -4774,17 +5199,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,40,FollowSets000.FOLLOW_40_in_ruleCollectiveUniversal5017); 
+            otherlv_1=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleCollectiveUniversal5372); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getCollectiveUniversalAccess().getCollectiveUniversalKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2138:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2139:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2269:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2270:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2139:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2140:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2270:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2271:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCollectiveUniversal5034); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCollectiveUniversal5389); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getCollectiveUniversalAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -4804,32 +5229,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleCollectiveUniversal5051); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleCollectiveUniversal5406); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getCollectiveUniversalAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2160:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
-            loop24:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2291:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
+            loop29:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA24_0==30||LA24_0==59) ) {
-                    alt24=1;
+                if ( (LA29_0==32||LA29_0==61) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt29) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2161:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2292:1: (lv_characterizedBy_4_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2161:1: (lv_characterizedBy_4_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2162:3: lv_characterizedBy_4_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2292:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2293:3: lv_characterizedBy_4_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getCollectiveUniversalAccess().getCharacterizedByCharacterizationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleCollectiveUniversal5072);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleCollectiveUniversal5427);
             	    lv_characterizedBy_4_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -4853,11 +5278,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop29;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleCollectiveUniversal5085); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleCollectiveUniversal5440); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getCollectiveUniversalAccess().getRightCurlyBracketKeyword_5());
                 
@@ -4882,7 +5307,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSubKind"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2190:1: entryRuleSubKind returns [EObject current=null] : iv_ruleSubKind= ruleSubKind EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2321:1: entryRuleSubKind returns [EObject current=null] : iv_ruleSubKind= ruleSubKind EOF ;
     public final EObject entryRuleSubKind() throws RecognitionException {
         EObject current = null;
 
@@ -4890,17 +5315,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2191:2: (iv_ruleSubKind= ruleSubKind EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2192:2: iv_ruleSubKind= ruleSubKind EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2322:2: (iv_ruleSubKind= ruleSubKind EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2323:2: iv_ruleSubKind= ruleSubKind EOF
             {
              newCompositeNode(grammarAccess.getSubKindRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSubKind_in_entryRuleSubKind5121);
+            pushFollow(FollowSets000.FOLLOW_ruleSubKind_in_entryRuleSubKind5476);
             iv_ruleSubKind=ruleSubKind();
 
             state._fsp--;
 
              current =iv_ruleSubKind; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubKind5131); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSubKind5486); 
 
             }
 
@@ -4918,7 +5343,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSubKind"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2199:1: ruleSubKind returns [EObject current=null] : ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2330:1: ruleSubKind returns [EObject current=null] : ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
     public final EObject ruleSubKind() throws RecognitionException {
         EObject current = null;
 
@@ -4932,14 +5357,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2202:28: ( ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2203:1: ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2333:28: ( ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2334:1: ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2203:1: ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2203:2: () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2334:1: ( () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2334:2: () otherlv_1= 'SubKind' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2203:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2204:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2334:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2335:5: 
             {
 
                     current = forceCreateModelElement(
@@ -4949,17 +5374,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,41,FollowSets000.FOLLOW_41_in_ruleSubKind5177); 
+            otherlv_1=(Token)match(input,43,FollowSets000.FOLLOW_43_in_ruleSubKind5532); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSubKindAccess().getSubKindKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2213:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2214:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2344:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2345:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2214:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2215:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2345:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2346:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubKind5194); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleSubKind5549); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getSubKindAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -4979,32 +5404,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleSubKind5211); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleSubKind5566); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getSubKindAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2235:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
-            loop25:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2366:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
+            loop30:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA25_0==30||LA25_0==59) ) {
-                    alt25=1;
+                if ( (LA30_0==32||LA30_0==61) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt30) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2236:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2367:1: (lv_characterizedBy_4_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2236:1: (lv_characterizedBy_4_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2237:3: lv_characterizedBy_4_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2367:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2368:3: lv_characterizedBy_4_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getSubKindAccess().getCharacterizedByCharacterizationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleSubKind5232);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleSubKind5587);
             	    lv_characterizedBy_4_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -5028,11 +5453,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop30;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleSubKind5245); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleSubKind5600); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getSubKindAccess().getRightCurlyBracketKeyword_5());
                 
@@ -5057,7 +5482,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRole"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2265:1: entryRuleRole returns [EObject current=null] : iv_ruleRole= ruleRole EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2396:1: entryRuleRole returns [EObject current=null] : iv_ruleRole= ruleRole EOF ;
     public final EObject entryRuleRole() throws RecognitionException {
         EObject current = null;
 
@@ -5065,17 +5490,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2266:2: (iv_ruleRole= ruleRole EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2267:2: iv_ruleRole= ruleRole EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2397:2: (iv_ruleRole= ruleRole EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2398:2: iv_ruleRole= ruleRole EOF
             {
              newCompositeNode(grammarAccess.getRoleRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRole_in_entryRuleRole5281);
+            pushFollow(FollowSets000.FOLLOW_ruleRole_in_entryRuleRole5636);
             iv_ruleRole=ruleRole();
 
             state._fsp--;
 
              current =iv_ruleRole; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRole5291); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRole5646); 
 
             }
 
@@ -5093,7 +5518,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRole"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2274:1: ruleRole returns [EObject current=null] : (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2405:1: ruleRole returns [EObject current=null] : (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) ;
     public final EObject ruleRole() throws RecognitionException {
         EObject current = null;
 
@@ -5107,23 +5532,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2277:28: ( (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2278:1: (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2408:28: ( (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2409:1: (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2278:1: (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2278:3: otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2409:1: (otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2409:3: otherlv_0= 'Role' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,42,FollowSets000.FOLLOW_42_in_ruleRole5328); 
+            otherlv_0=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleRole5683); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRoleAccess().getRoleKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2282:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2283:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2413:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2414:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2283:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2284:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2414:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2415:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRole5345); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRole5700); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getRoleAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -5143,32 +5568,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRole5362); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRole5717); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRoleAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2304:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
-            loop26:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2435:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
+            loop31:
             do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
+                int alt31=2;
+                int LA31_0 = input.LA(1);
 
-                if ( (LA26_0==30||LA26_0==59) ) {
-                    alt26=1;
+                if ( (LA31_0==32||LA31_0==61) ) {
+                    alt31=1;
                 }
 
 
-                switch (alt26) {
+                switch (alt31) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2305:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2436:1: (lv_characterizedBy_3_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2305:1: (lv_characterizedBy_3_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2306:3: lv_characterizedBy_3_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2436:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2437:3: lv_characterizedBy_3_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getRoleAccess().getCharacterizedByCharacterizationParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleRole5383);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleRole5738);
             	    lv_characterizedBy_3_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -5192,11 +5617,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop26;
+            	    break loop31;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRole5396); 
+            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRole5751); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getRoleAccess().getRightCurlyBracketKeyword_4());
                 
@@ -5221,7 +5646,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePhase"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2334:1: entryRulePhase returns [EObject current=null] : iv_rulePhase= rulePhase EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2465:1: entryRulePhase returns [EObject current=null] : iv_rulePhase= rulePhase EOF ;
     public final EObject entryRulePhase() throws RecognitionException {
         EObject current = null;
 
@@ -5229,17 +5654,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2335:2: (iv_rulePhase= rulePhase EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2336:2: iv_rulePhase= rulePhase EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2466:2: (iv_rulePhase= rulePhase EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2467:2: iv_rulePhase= rulePhase EOF
             {
              newCompositeNode(grammarAccess.getPhaseRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePhase_in_entryRulePhase5432);
+            pushFollow(FollowSets000.FOLLOW_rulePhase_in_entryRulePhase5787);
             iv_rulePhase=rulePhase();
 
             state._fsp--;
 
              current =iv_rulePhase; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePhase5442); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePhase5797); 
 
             }
 
@@ -5257,7 +5682,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePhase"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2343:1: rulePhase returns [EObject current=null] : ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2474:1: rulePhase returns [EObject current=null] : ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) ;
     public final EObject rulePhase() throws RecognitionException {
         EObject current = null;
 
@@ -5271,14 +5696,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2346:28: ( ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2347:1: ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2477:28: ( ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2478:1: ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2347:1: ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2347:2: () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2478:1: ( () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2478:2: () otherlv_1= 'Phase' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' ( (lv_characterizedBy_4_0= ruleCharacterization ) )* otherlv_5= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2347:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2348:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2478:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2479:5: 
             {
 
                     current = forceCreateModelElement(
@@ -5288,17 +5713,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,43,FollowSets000.FOLLOW_43_in_rulePhase5488); 
+            otherlv_1=(Token)match(input,45,FollowSets000.FOLLOW_45_in_rulePhase5843); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getPhaseAccess().getPhaseKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2357:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2358:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2488:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2489:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2358:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2359:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2489:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2490:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhase5505); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulePhase5860); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getPhaseAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -5318,32 +5743,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_rulePhase5522); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_rulePhase5877); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getPhaseAccess().getLeftCurlyBracketKeyword_3());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2379:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
-            loop27:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2510:1: ( (lv_characterizedBy_4_0= ruleCharacterization ) )*
+            loop32:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-                if ( (LA27_0==30||LA27_0==59) ) {
-                    alt27=1;
+                if ( (LA32_0==32||LA32_0==61) ) {
+                    alt32=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt32) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2380:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2511:1: (lv_characterizedBy_4_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2380:1: (lv_characterizedBy_4_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2381:3: lv_characterizedBy_4_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2511:1: (lv_characterizedBy_4_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2512:3: lv_characterizedBy_4_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getPhaseAccess().getCharacterizedByCharacterizationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_rulePhase5543);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_rulePhase5898);
             	    lv_characterizedBy_4_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -5367,11 +5792,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop32;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhase5556); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_rulePhase5911); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getPhaseAccess().getRightCurlyBracketKeyword_5());
                 
@@ -5396,7 +5821,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCategory"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2409:1: entryRuleCategory returns [EObject current=null] : iv_ruleCategory= ruleCategory EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2540:1: entryRuleCategory returns [EObject current=null] : iv_ruleCategory= ruleCategory EOF ;
     public final EObject entryRuleCategory() throws RecognitionException {
         EObject current = null;
 
@@ -5404,17 +5829,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2410:2: (iv_ruleCategory= ruleCategory EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2411:2: iv_ruleCategory= ruleCategory EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2541:2: (iv_ruleCategory= ruleCategory EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2542:2: iv_ruleCategory= ruleCategory EOF
             {
              newCompositeNode(grammarAccess.getCategoryRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleCategory_in_entryRuleCategory5592);
+            pushFollow(FollowSets000.FOLLOW_ruleCategory_in_entryRuleCategory5947);
             iv_ruleCategory=ruleCategory();
 
             state._fsp--;
 
              current =iv_ruleCategory; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCategory5602); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCategory5957); 
 
             }
 
@@ -5432,7 +5857,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCategory"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2418:1: ruleCategory returns [EObject current=null] : ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2549:1: ruleCategory returns [EObject current=null] : ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) ;
     public final EObject ruleCategory() throws RecognitionException {
         EObject current = null;
 
@@ -5444,14 +5869,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2421:28: ( ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2422:1: ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2552:28: ( ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2553:1: ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2422:1: ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2422:2: () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2553:1: ( () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2553:2: () otherlv_1= 'Category' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2422:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2423:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2553:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2554:5: 
             {
 
                     current = forceCreateModelElement(
@@ -5461,17 +5886,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,44,FollowSets000.FOLLOW_44_in_ruleCategory5648); 
+            otherlv_1=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleCategory6003); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getCategoryAccess().getCategoryKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2432:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2433:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2563:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2564:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2433:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2434:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2564:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2565:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCategory5665); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCategory6020); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getCategoryAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -5491,11 +5916,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleCategory5682); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleCategory6037); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getCategoryAccess().getLeftCurlyBracketKeyword_3());
                 
-            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleCategory5694); 
+            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleCategory6049); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getCategoryAccess().getRightCurlyBracketKeyword_4());
                 
@@ -5520,7 +5945,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMixin"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2466:1: entryRuleMixin returns [EObject current=null] : iv_ruleMixin= ruleMixin EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2597:1: entryRuleMixin returns [EObject current=null] : iv_ruleMixin= ruleMixin EOF ;
     public final EObject entryRuleMixin() throws RecognitionException {
         EObject current = null;
 
@@ -5528,17 +5953,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2467:2: (iv_ruleMixin= ruleMixin EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2468:2: iv_ruleMixin= ruleMixin EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2598:2: (iv_ruleMixin= ruleMixin EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2599:2: iv_ruleMixin= ruleMixin EOF
             {
              newCompositeNode(grammarAccess.getMixinRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMixin_in_entryRuleMixin5730);
+            pushFollow(FollowSets000.FOLLOW_ruleMixin_in_entryRuleMixin6085);
             iv_ruleMixin=ruleMixin();
 
             state._fsp--;
 
              current =iv_ruleMixin; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMixin5740); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMixin6095); 
 
             }
 
@@ -5556,7 +5981,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMixin"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2475:1: ruleMixin returns [EObject current=null] : ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2606:1: ruleMixin returns [EObject current=null] : ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) ;
     public final EObject ruleMixin() throws RecognitionException {
         EObject current = null;
 
@@ -5568,14 +5993,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2478:28: ( ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2479:1: ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2609:28: ( ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2610:1: ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2479:1: ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2479:2: () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2610:1: ( () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2610:2: () otherlv_1= 'Mixin' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '{' otherlv_4= '}'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2479:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2480:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2610:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2611:5: 
             {
 
                     current = forceCreateModelElement(
@@ -5585,17 +6010,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,45,FollowSets000.FOLLOW_45_in_ruleMixin5786); 
+            otherlv_1=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleMixin6141); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMixinAccess().getMixinKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2489:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2490:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2620:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2621:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2490:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2491:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2621:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2622:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMixin5803); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMixin6158); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getMixinAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -5615,11 +6040,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleMixin5820); 
+            otherlv_3=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleMixin6175); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getMixinAccess().getLeftCurlyBracketKeyword_3());
                 
-            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleMixin5832); 
+            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleMixin6187); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getMixinAccess().getRightCurlyBracketKeyword_4());
                 
@@ -5644,7 +6069,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRoleMixin"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2523:1: entryRuleRoleMixin returns [EObject current=null] : iv_ruleRoleMixin= ruleRoleMixin EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2654:1: entryRuleRoleMixin returns [EObject current=null] : iv_ruleRoleMixin= ruleRoleMixin EOF ;
     public final EObject entryRuleRoleMixin() throws RecognitionException {
         EObject current = null;
 
@@ -5652,17 +6077,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2524:2: (iv_ruleRoleMixin= ruleRoleMixin EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2525:2: iv_ruleRoleMixin= ruleRoleMixin EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2655:2: (iv_ruleRoleMixin= ruleRoleMixin EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2656:2: iv_ruleRoleMixin= ruleRoleMixin EOF
             {
              newCompositeNode(grammarAccess.getRoleMixinRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRoleMixin_in_entryRuleRoleMixin5868);
+            pushFollow(FollowSets000.FOLLOW_ruleRoleMixin_in_entryRuleRoleMixin6223);
             iv_ruleRoleMixin=ruleRoleMixin();
 
             state._fsp--;
 
              current =iv_ruleRoleMixin; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRoleMixin5878); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRoleMixin6233); 
 
             }
 
@@ -5680,7 +6105,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRoleMixin"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2532:1: ruleRoleMixin returns [EObject current=null] : (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2663:1: ruleRoleMixin returns [EObject current=null] : (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' ) ;
     public final EObject ruleRoleMixin() throws RecognitionException {
         EObject current = null;
 
@@ -5692,23 +6117,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2535:28: ( (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2536:1: (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2666:28: ( (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2667:1: (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2536:1: (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2536:3: otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2667:1: (otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2667:3: otherlv_0= 'RoleMixin' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= '}'
             {
-            otherlv_0=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleRoleMixin5915); 
+            otherlv_0=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleRoleMixin6270); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRoleMixinAccess().getRoleMixinKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2540:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2541:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2671:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2672:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2541:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2542:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2672:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2673:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRoleMixin5932); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRoleMixin6287); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getRoleMixinAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -5728,11 +6153,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRoleMixin5949); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRoleMixin6304); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRoleMixinAccess().getLeftCurlyBracketKeyword_2());
                 
-            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRoleMixin5961); 
+            otherlv_3=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRoleMixin6316); 
 
                 	newLeafNode(otherlv_3, grammarAccess.getRoleMixinAccess().getRightCurlyBracketKeyword_3());
                 
@@ -5757,7 +6182,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRelatorUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2574:1: entryRuleRelatorUniversal returns [EObject current=null] : iv_ruleRelatorUniversal= ruleRelatorUniversal EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2705:1: entryRuleRelatorUniversal returns [EObject current=null] : iv_ruleRelatorUniversal= ruleRelatorUniversal EOF ;
     public final EObject entryRuleRelatorUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -5765,17 +6190,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2575:2: (iv_ruleRelatorUniversal= ruleRelatorUniversal EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2576:2: iv_ruleRelatorUniversal= ruleRelatorUniversal EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2706:2: (iv_ruleRelatorUniversal= ruleRelatorUniversal EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2707:2: iv_ruleRelatorUniversal= ruleRelatorUniversal EOF
             {
              newCompositeNode(grammarAccess.getRelatorUniversalRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleRelatorUniversal_in_entryRuleRelatorUniversal5997);
+            pushFollow(FollowSets000.FOLLOW_ruleRelatorUniversal_in_entryRuleRelatorUniversal6352);
             iv_ruleRelatorUniversal=ruleRelatorUniversal();
 
             state._fsp--;
 
              current =iv_ruleRelatorUniversal; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRelatorUniversal6007); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleRelatorUniversal6362); 
 
             }
 
@@ -5793,7 +6218,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelatorUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2583:1: ruleRelatorUniversal returns [EObject current=null] : (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2714:1: ruleRelatorUniversal returns [EObject current=null] : (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' ) ;
     public final EObject ruleRelatorUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -5809,23 +6234,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2586:28: ( (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2587:1: (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2717:28: ( (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2718:1: (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2587:1: (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2587:3: otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2718:1: (otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2718:3: otherlv_0= 'RelatorUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* ( (lv_mediations_4_0= ruleMediation ) )* otherlv_5= '}'
             {
-            otherlv_0=(Token)match(input,47,FollowSets000.FOLLOW_47_in_ruleRelatorUniversal6044); 
+            otherlv_0=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleRelatorUniversal6399); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getRelatorUniversalAccess().getRelatorUniversalKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2591:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2592:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2722:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2723:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2592:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2593:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2723:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2724:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRelatorUniversal6061); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleRelatorUniversal6416); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getRelatorUniversalAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -5845,32 +6270,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRelatorUniversal6078); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleRelatorUniversal6433); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getRelatorUniversalAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2613:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
-            loop28:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2744:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
+            loop33:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA28_0==30||LA28_0==59) ) {
-                    alt28=1;
+                if ( (LA33_0==32||LA33_0==61) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt33) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2614:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2745:1: (lv_characterizedBy_3_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2614:1: (lv_characterizedBy_3_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2615:3: lv_characterizedBy_3_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2745:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2746:3: lv_characterizedBy_3_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getRelatorUniversalAccess().getCharacterizedByCharacterizationParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleRelatorUniversal6099);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleRelatorUniversal6454);
             	    lv_characterizedBy_3_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -5894,32 +6319,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop33;
                 }
             } while (true);
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2631:3: ( (lv_mediations_4_0= ruleMediation ) )*
-            loop29:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2762:3: ( (lv_mediations_4_0= ruleMediation ) )*
+            loop34:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA29_0==60) ) {
-                    alt29=1;
+                if ( (LA34_0==62) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt34) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2632:1: (lv_mediations_4_0= ruleMediation )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2763:1: (lv_mediations_4_0= ruleMediation )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2632:1: (lv_mediations_4_0= ruleMediation )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2633:3: lv_mediations_4_0= ruleMediation
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2763:1: (lv_mediations_4_0= ruleMediation )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2764:3: lv_mediations_4_0= ruleMediation
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getRelatorUniversalAccess().getMediationsMediationParserRuleCall_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleMediation_in_ruleRelatorUniversal6121);
+            	    pushFollow(FollowSets000.FOLLOW_ruleMediation_in_ruleRelatorUniversal6476);
             	    lv_mediations_4_0=ruleMediation();
 
             	    state._fsp--;
@@ -5943,11 +6368,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop34;
                 }
             } while (true);
 
-            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRelatorUniversal6134); 
+            otherlv_5=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleRelatorUniversal6489); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getRelatorUniversalAccess().getRightCurlyBracketKeyword_5());
                 
@@ -5972,7 +6397,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinaryMaterialRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2661:1: entryRuleBinaryMaterialRelation returns [EObject current=null] : iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2792:1: entryRuleBinaryMaterialRelation returns [EObject current=null] : iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF ;
     public final EObject entryRuleBinaryMaterialRelation() throws RecognitionException {
         EObject current = null;
 
@@ -5980,17 +6405,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2662:2: (iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2663:2: iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2793:2: (iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2794:2: iv_ruleBinaryMaterialRelation= ruleBinaryMaterialRelation EOF
             {
              newCompositeNode(grammarAccess.getBinaryMaterialRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleBinaryMaterialRelation_in_entryRuleBinaryMaterialRelation6170);
+            pushFollow(FollowSets000.FOLLOW_ruleBinaryMaterialRelation_in_entryRuleBinaryMaterialRelation6525);
             iv_ruleBinaryMaterialRelation=ruleBinaryMaterialRelation();
 
             state._fsp--;
 
              current =iv_ruleBinaryMaterialRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBinaryMaterialRelation6180); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBinaryMaterialRelation6535); 
 
             }
 
@@ -6008,7 +6433,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinaryMaterialRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2670:1: ruleBinaryMaterialRelation returns [EObject current=null] : (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2801:1: ruleBinaryMaterialRelation returns [EObject current=null] : (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) ;
     public final EObject ruleBinaryMaterialRelation() throws RecognitionException {
         EObject current = null;
 
@@ -6040,32 +6465,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2673:28: ( (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2674:1: (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2804:28: ( (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2805:1: (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2674:1: (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2674:3: otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2805:1: (otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2805:3: otherlv_0= 'material' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )? otherlv_12= 'target' ( (otherlv_13= RULE_ID ) ) (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )? otherlv_19= ';'
             {
-            otherlv_0=(Token)match(input,48,FollowSets000.FOLLOW_48_in_ruleBinaryMaterialRelation6217); 
+            otherlv_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleBinaryMaterialRelation6572); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getBinaryMaterialRelationAccess().getMaterialKeyword_0());
                 
-            otherlv_1=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleBinaryMaterialRelation6229); 
+            otherlv_1=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleBinaryMaterialRelation6584); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getBinaryMaterialRelationAccess().getRelKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2682:1: ( (otherlv_2= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2683:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2813:1: ( (otherlv_2= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2814:1: (otherlv_2= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2683:1: (otherlv_2= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2684:3: otherlv_2= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2814:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2815:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getBinaryMaterialRelationRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6249); 
+            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6604); 
 
             		newLeafNode(otherlv_2, grammarAccess.getBinaryMaterialRelationAccess().getSourceExternallyDependentUniversalCrossReference_2_0()); 
             	
@@ -6075,31 +6500,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2695:2: (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2826:2: (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA30_0==30) ) {
-                alt30=1;
+            if ( (LA35_0==32) ) {
+                alt35=1;
             }
-            switch (alt30) {
+            switch (alt35) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2695:4: otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2826:4: otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']'
                     {
-                    otherlv_3=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleBinaryMaterialRelation6262); 
+                    otherlv_3=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryMaterialRelation6617); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getBinaryMaterialRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2699:1: ( (lv_sourceLowerBound_4_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2700:1: (lv_sourceLowerBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2830:1: ( (lv_sourceLowerBound_4_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2831:1: (lv_sourceLowerBound_4_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2700:1: (lv_sourceLowerBound_4_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2701:3: lv_sourceLowerBound_4_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2831:1: (lv_sourceLowerBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2832:3: lv_sourceLowerBound_4_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryMaterialRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6283);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6638);
                     lv_sourceLowerBound_4_0=ruleEInt();
 
                     state._fsp--;
@@ -6121,20 +6546,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleBinaryMaterialRelation6295); 
+                    otherlv_5=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleBinaryMaterialRelation6650); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getBinaryMaterialRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2721:1: ( (lv_sourceUpperBound_6_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2722:1: (lv_sourceUpperBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2852:1: ( (lv_sourceUpperBound_6_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2853:1: (lv_sourceUpperBound_6_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2722:1: (lv_sourceUpperBound_6_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2723:3: lv_sourceUpperBound_6_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2853:1: (lv_sourceUpperBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2854:3: lv_sourceUpperBound_6_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryMaterialRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6316);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6671);
                     lv_sourceUpperBound_6_0=ruleEInt();
 
                     state._fsp--;
@@ -6156,7 +6581,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryMaterialRelation6328); 
+                    otherlv_7=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleBinaryMaterialRelation6683); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getBinaryMaterialRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -6166,13 +6591,13 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2743:3: ( (lv_name_8_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2744:1: (lv_name_8_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2874:3: ( (lv_name_8_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2875:1: (lv_name_8_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2744:1: (lv_name_8_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2745:3: lv_name_8_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2875:1: (lv_name_8_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2876:3: lv_name_8_0= RULE_ID
             {
-            lv_name_8_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6347); 
+            lv_name_8_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6702); 
 
             			newLeafNode(lv_name_8_0, grammarAccess.getBinaryMaterialRelationAccess().getNameIDTerminalRuleCall_4_0()); 
             		
@@ -6192,33 +6617,33 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2761:2: (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2892:2: (otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')' )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA31_0==21) ) {
-                alt31=1;
+            if ( (LA36_0==23) ) {
+                alt36=1;
             }
-            switch (alt31) {
+            switch (alt36) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2761:4: otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2892:4: otherlv_9= '(' ( (otherlv_10= RULE_ID ) ) otherlv_11= ')'
                     {
-                    otherlv_9=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleBinaryMaterialRelation6365); 
+                    otherlv_9=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleBinaryMaterialRelation6720); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getBinaryMaterialRelationAccess().getLeftParenthesisKeyword_5_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2765:1: ( (otherlv_10= RULE_ID ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2766:1: (otherlv_10= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2896:1: ( (otherlv_10= RULE_ID ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2897:1: (otherlv_10= RULE_ID )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2766:1: (otherlv_10= RULE_ID )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2767:3: otherlv_10= RULE_ID
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2897:1: (otherlv_10= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2898:3: otherlv_10= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getBinaryMaterialRelationRule());
                     	        }
                             
-                    otherlv_10=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6385); 
+                    otherlv_10=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6740); 
 
                     		newLeafNode(otherlv_10, grammarAccess.getBinaryMaterialRelationAccess().getDerivedFromRelatorUniversalCrossReference_5_1_0()); 
                     	
@@ -6228,7 +6653,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_11=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleBinaryMaterialRelation6397); 
+                    otherlv_11=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleBinaryMaterialRelation6752); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getBinaryMaterialRelationAccess().getRightParenthesisKeyword_5_2());
                         
@@ -6238,22 +6663,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_12=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleBinaryMaterialRelation6411); 
+            otherlv_12=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleBinaryMaterialRelation6766); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getBinaryMaterialRelationAccess().getTargetKeyword_6());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2786:1: ( (otherlv_13= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2787:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2917:1: ( (otherlv_13= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2918:1: (otherlv_13= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2787:1: (otherlv_13= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2788:3: otherlv_13= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2918:1: (otherlv_13= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2919:3: otherlv_13= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getBinaryMaterialRelationRule());
             	        }
                     
-            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6431); 
+            otherlv_13=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6786); 
 
             		newLeafNode(otherlv_13, grammarAccess.getBinaryMaterialRelationAccess().getTargetExternallyDependentUniversalCrossReference_7_0()); 
             	
@@ -6263,31 +6688,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2799:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2930:2: (otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']' )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA32_0==30) ) {
-                alt32=1;
+            if ( (LA37_0==32) ) {
+                alt37=1;
             }
-            switch (alt32) {
+            switch (alt37) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2799:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2930:4: otherlv_14= '[' ( (lv_targetLowerBound_15_0= ruleEInt ) ) otherlv_16= '..' ( (lv_targetUpperBound_17_0= ruleEInt ) ) otherlv_18= ']'
                     {
-                    otherlv_14=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleBinaryMaterialRelation6444); 
+                    otherlv_14=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryMaterialRelation6799); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getBinaryMaterialRelationAccess().getLeftSquareBracketKeyword_8_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2803:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2804:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2934:1: ( (lv_targetLowerBound_15_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2935:1: (lv_targetLowerBound_15_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2804:1: (lv_targetLowerBound_15_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2805:3: lv_targetLowerBound_15_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2935:1: (lv_targetLowerBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2936:3: lv_targetLowerBound_15_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryMaterialRelationAccess().getTargetLowerBoundEIntParserRuleCall_8_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6465);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6820);
                     lv_targetLowerBound_15_0=ruleEInt();
 
                     state._fsp--;
@@ -6309,20 +6734,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleBinaryMaterialRelation6477); 
+                    otherlv_16=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleBinaryMaterialRelation6832); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getBinaryMaterialRelationAccess().getFullStopFullStopKeyword_8_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2825:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2826:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2956:1: ( (lv_targetUpperBound_17_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2957:1: (lv_targetUpperBound_17_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2826:1: (lv_targetUpperBound_17_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2827:3: lv_targetUpperBound_17_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2957:1: (lv_targetUpperBound_17_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2958:3: lv_targetUpperBound_17_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryMaterialRelationAccess().getTargetUpperBoundEIntParserRuleCall_8_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6498);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6853);
                     lv_targetUpperBound_17_0=ruleEInt();
 
                     state._fsp--;
@@ -6344,7 +6769,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_18=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryMaterialRelation6510); 
+                    otherlv_18=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleBinaryMaterialRelation6865); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getBinaryMaterialRelationAccess().getRightSquareBracketKeyword_8_4());
                         
@@ -6354,7 +6779,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBinaryMaterialRelation6524); 
+            otherlv_19=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBinaryMaterialRelation6879); 
 
                 	newLeafNode(otherlv_19, grammarAccess.getBinaryMaterialRelationAccess().getSemicolonKeyword_9());
                 
@@ -6379,7 +6804,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinaryFormalRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2859:1: entryRuleBinaryFormalRelation returns [EObject current=null] : iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2990:1: entryRuleBinaryFormalRelation returns [EObject current=null] : iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF ;
     public final EObject entryRuleBinaryFormalRelation() throws RecognitionException {
         EObject current = null;
 
@@ -6387,17 +6812,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2860:2: (iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2861:2: iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2991:2: (iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2992:2: iv_ruleBinaryFormalRelation= ruleBinaryFormalRelation EOF
             {
              newCompositeNode(grammarAccess.getBinaryFormalRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleBinaryFormalRelation_in_entryRuleBinaryFormalRelation6560);
+            pushFollow(FollowSets000.FOLLOW_ruleBinaryFormalRelation_in_entryRuleBinaryFormalRelation6915);
             iv_ruleBinaryFormalRelation=ruleBinaryFormalRelation();
 
             state._fsp--;
 
              current =iv_ruleBinaryFormalRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBinaryFormalRelation6570); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBinaryFormalRelation6925); 
 
             }
 
@@ -6415,7 +6840,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinaryFormalRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2868:1: ruleBinaryFormalRelation returns [EObject current=null] : (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2999:1: ruleBinaryFormalRelation returns [EObject current=null] : (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' ) ;
     public final EObject ruleBinaryFormalRelation() throws RecognitionException {
         EObject current = null;
 
@@ -6443,32 +6868,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2871:28: ( (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2872:1: (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3002:28: ( (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3003:1: (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2872:1: (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2872:3: otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3003:1: (otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3003:3: otherlv_0= 'formal' otherlv_1= 'rel' ( (otherlv_2= RULE_ID ) ) (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )? ( (lv_name_8_0= RULE_ID ) ) ( (otherlv_9= RULE_ID ) ) (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )? otherlv_15= ';'
             {
-            otherlv_0=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleBinaryFormalRelation6607); 
+            otherlv_0=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleBinaryFormalRelation6962); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getBinaryFormalRelationAccess().getFormalKeyword_0());
                 
-            otherlv_1=(Token)match(input,49,FollowSets000.FOLLOW_49_in_ruleBinaryFormalRelation6619); 
+            otherlv_1=(Token)match(input,51,FollowSets000.FOLLOW_51_in_ruleBinaryFormalRelation6974); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getBinaryFormalRelationAccess().getRelKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2880:1: ( (otherlv_2= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2881:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3011:1: ( (otherlv_2= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3012:1: (otherlv_2= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2881:1: (otherlv_2= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2882:3: otherlv_2= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3012:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3013:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getBinaryFormalRelationRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6639); 
+            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6994); 
 
             		newLeafNode(otherlv_2, grammarAccess.getBinaryFormalRelationAccess().getSourceUniversalCrossReference_2_0()); 
             	
@@ -6478,31 +6903,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2893:2: (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3024:2: (otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']' )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA33_0==30) ) {
-                alt33=1;
+            if ( (LA38_0==32) ) {
+                alt38=1;
             }
-            switch (alt33) {
+            switch (alt38) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2893:4: otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3024:4: otherlv_3= '[' ( (lv_sourceLowerBound_4_0= ruleEInt ) ) otherlv_5= '..' ( (lv_sourceUpperBound_6_0= ruleEInt ) ) otherlv_7= ']'
                     {
-                    otherlv_3=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleBinaryFormalRelation6652); 
+                    otherlv_3=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryFormalRelation7007); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getBinaryFormalRelationAccess().getLeftSquareBracketKeyword_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2897:1: ( (lv_sourceLowerBound_4_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2898:1: (lv_sourceLowerBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3028:1: ( (lv_sourceLowerBound_4_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3029:1: (lv_sourceLowerBound_4_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2898:1: (lv_sourceLowerBound_4_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2899:3: lv_sourceLowerBound_4_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3029:1: (lv_sourceLowerBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3030:3: lv_sourceLowerBound_4_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryFormalRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6673);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7028);
                     lv_sourceLowerBound_4_0=ruleEInt();
 
                     state._fsp--;
@@ -6524,20 +6949,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleBinaryFormalRelation6685); 
+                    otherlv_5=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleBinaryFormalRelation7040); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getBinaryFormalRelationAccess().getFullStopFullStopKeyword_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2919:1: ( (lv_sourceUpperBound_6_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2920:1: (lv_sourceUpperBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3050:1: ( (lv_sourceUpperBound_6_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3051:1: (lv_sourceUpperBound_6_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2920:1: (lv_sourceUpperBound_6_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2921:3: lv_sourceUpperBound_6_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3051:1: (lv_sourceUpperBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3052:3: lv_sourceUpperBound_6_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryFormalRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6706);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7061);
                     lv_sourceUpperBound_6_0=ruleEInt();
 
                     state._fsp--;
@@ -6559,7 +6984,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryFormalRelation6718); 
+                    otherlv_7=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleBinaryFormalRelation7073); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getBinaryFormalRelationAccess().getRightSquareBracketKeyword_3_4());
                         
@@ -6569,13 +6994,13 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2941:3: ( (lv_name_8_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2942:1: (lv_name_8_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3072:3: ( (lv_name_8_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3073:1: (lv_name_8_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2942:1: (lv_name_8_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2943:3: lv_name_8_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3073:1: (lv_name_8_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3074:3: lv_name_8_0= RULE_ID
             {
-            lv_name_8_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6737); 
+            lv_name_8_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation7092); 
 
             			newLeafNode(lv_name_8_0, grammarAccess.getBinaryFormalRelationAccess().getNameIDTerminalRuleCall_4_0()); 
             		
@@ -6595,18 +7020,18 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2959:2: ( (otherlv_9= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2960:1: (otherlv_9= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3090:2: ( (otherlv_9= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3091:1: (otherlv_9= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2960:1: (otherlv_9= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2961:3: otherlv_9= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3091:1: (otherlv_9= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3092:3: otherlv_9= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getBinaryFormalRelationRule());
             	        }
                     
-            otherlv_9=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6762); 
+            otherlv_9=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleBinaryFormalRelation7117); 
 
             		newLeafNode(otherlv_9, grammarAccess.getBinaryFormalRelationAccess().getTargetUniversalCrossReference_5_0()); 
             	
@@ -6616,31 +7041,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2972:2: (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3103:2: (otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']' )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA34_0==30) ) {
-                alt34=1;
+            if ( (LA39_0==32) ) {
+                alt39=1;
             }
-            switch (alt34) {
+            switch (alt39) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2972:4: otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3103:4: otherlv_10= '[' ( (lv_targetLowerBound_11_0= ruleEInt ) ) otherlv_12= '..' ( (lv_targetUpperBound_13_0= ruleEInt ) ) otherlv_14= ']'
                     {
-                    otherlv_10=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleBinaryFormalRelation6775); 
+                    otherlv_10=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryFormalRelation7130); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getBinaryFormalRelationAccess().getLeftSquareBracketKeyword_6_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2976:1: ( (lv_targetLowerBound_11_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2977:1: (lv_targetLowerBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3107:1: ( (lv_targetLowerBound_11_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3108:1: (lv_targetLowerBound_11_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2977:1: (lv_targetLowerBound_11_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2978:3: lv_targetLowerBound_11_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3108:1: (lv_targetLowerBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3109:3: lv_targetLowerBound_11_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryFormalRelationAccess().getTargetLowerBoundEIntParserRuleCall_6_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6796);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7151);
                     lv_targetLowerBound_11_0=ruleEInt();
 
                     state._fsp--;
@@ -6662,20 +7087,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_12=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleBinaryFormalRelation6808); 
+                    otherlv_12=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleBinaryFormalRelation7163); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getBinaryFormalRelationAccess().getFullStopFullStopKeyword_6_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2998:1: ( (lv_targetUpperBound_13_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2999:1: (lv_targetUpperBound_13_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3129:1: ( (lv_targetUpperBound_13_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3130:1: (lv_targetUpperBound_13_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:2999:1: (lv_targetUpperBound_13_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3000:3: lv_targetUpperBound_13_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3130:1: (lv_targetUpperBound_13_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3131:3: lv_targetUpperBound_13_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getBinaryFormalRelationAccess().getTargetUpperBoundEIntParserRuleCall_6_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6829);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7184);
                     lv_targetUpperBound_13_0=ruleEInt();
 
                     state._fsp--;
@@ -6697,7 +7122,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_14=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleBinaryFormalRelation6841); 
+                    otherlv_14=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleBinaryFormalRelation7196); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getBinaryFormalRelationAccess().getRightSquareBracketKeyword_6_4());
                         
@@ -6707,7 +7132,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_15=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBinaryFormalRelation6855); 
+            otherlv_15=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleBinaryFormalRelation7210); 
 
                 	newLeafNode(otherlv_15, grammarAccess.getBinaryFormalRelationAccess().getSemicolonKeyword_7());
                 
@@ -6732,7 +7157,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleModeUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3032:1: entryRuleModeUniversal returns [EObject current=null] : iv_ruleModeUniversal= ruleModeUniversal EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3163:1: entryRuleModeUniversal returns [EObject current=null] : iv_ruleModeUniversal= ruleModeUniversal EOF ;
     public final EObject entryRuleModeUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -6740,17 +7165,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3033:2: (iv_ruleModeUniversal= ruleModeUniversal EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3034:2: iv_ruleModeUniversal= ruleModeUniversal EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3164:2: (iv_ruleModeUniversal= ruleModeUniversal EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3165:2: iv_ruleModeUniversal= ruleModeUniversal EOF
             {
              newCompositeNode(grammarAccess.getModeUniversalRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleModeUniversal_in_entryRuleModeUniversal6891);
+            pushFollow(FollowSets000.FOLLOW_ruleModeUniversal_in_entryRuleModeUniversal7246);
             iv_ruleModeUniversal=ruleModeUniversal();
 
             state._fsp--;
 
              current =iv_ruleModeUniversal; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleModeUniversal6901); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleModeUniversal7256); 
 
             }
 
@@ -6768,7 +7193,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModeUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3041:1: ruleModeUniversal returns [EObject current=null] : (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3172:1: ruleModeUniversal returns [EObject current=null] : (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) ;
     public final EObject ruleModeUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -6782,23 +7207,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3044:28: ( (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3045:1: (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3175:28: ( (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3176:1: (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3045:1: (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3045:3: otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3176:1: (otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3176:3: otherlv_0= 'ModeUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' ( (lv_characterizedBy_3_0= ruleCharacterization ) )* otherlv_4= '}'
             {
-            otherlv_0=(Token)match(input,52,FollowSets000.FOLLOW_52_in_ruleModeUniversal6938); 
+            otherlv_0=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleModeUniversal7293); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getModeUniversalAccess().getModeUniversalKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3049:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3050:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3180:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3181:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3050:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3051:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3181:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3182:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleModeUniversal6955); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleModeUniversal7310); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getModeUniversalAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -6818,32 +7243,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleModeUniversal6972); 
+            otherlv_2=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleModeUniversal7327); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getModeUniversalAccess().getLeftCurlyBracketKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3071:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
-            loop35:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3202:1: ( (lv_characterizedBy_3_0= ruleCharacterization ) )*
+            loop40:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt40=2;
+                int LA40_0 = input.LA(1);
 
-                if ( (LA35_0==30||LA35_0==59) ) {
-                    alt35=1;
+                if ( (LA40_0==32||LA40_0==61) ) {
+                    alt40=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt40) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3072:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3203:1: (lv_characterizedBy_3_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3072:1: (lv_characterizedBy_3_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3073:3: lv_characterizedBy_3_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3203:1: (lv_characterizedBy_3_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3204:3: lv_characterizedBy_3_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getModeUniversalAccess().getCharacterizedByCharacterizationParserRuleCall_3_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleModeUniversal6993);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleModeUniversal7348);
             	    lv_characterizedBy_3_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -6867,11 +7292,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop40;
                 }
             } while (true);
 
-            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleModeUniversal7006); 
+            otherlv_4=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleModeUniversal7361); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getModeUniversalAccess().getRightCurlyBracketKeyword_4());
                 
@@ -6896,7 +7321,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleQualityUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3101:1: entryRuleQualityUniversal returns [EObject current=null] : iv_ruleQualityUniversal= ruleQualityUniversal EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3232:1: entryRuleQualityUniversal returns [EObject current=null] : iv_ruleQualityUniversal= ruleQualityUniversal EOF ;
     public final EObject entryRuleQualityUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -6904,17 +7329,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3102:2: (iv_ruleQualityUniversal= ruleQualityUniversal EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3103:2: iv_ruleQualityUniversal= ruleQualityUniversal EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3233:2: (iv_ruleQualityUniversal= ruleQualityUniversal EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3234:2: iv_ruleQualityUniversal= ruleQualityUniversal EOF
             {
              newCompositeNode(grammarAccess.getQualityUniversalRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleQualityUniversal_in_entryRuleQualityUniversal7042);
+            pushFollow(FollowSets000.FOLLOW_ruleQualityUniversal_in_entryRuleQualityUniversal7397);
             iv_ruleQualityUniversal=ruleQualityUniversal();
 
             state._fsp--;
 
              current =iv_ruleQualityUniversal; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQualityUniversal7052); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleQualityUniversal7407); 
 
             }
 
@@ -6932,7 +7357,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualityUniversal"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3110:1: ruleQualityUniversal returns [EObject current=null] : (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3241:1: ruleQualityUniversal returns [EObject current=null] : (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' ) ;
     public final EObject ruleQualityUniversal() throws RecognitionException {
         EObject current = null;
 
@@ -6954,23 +7379,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3113:28: ( (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3114:1: (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3244:28: ( (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3245:1: (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3114:1: (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3114:3: otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3245:1: (otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3245:3: otherlv_0= 'QualityUniversal' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= 'characterizes' ( (otherlv_3= RULE_ID ) ) otherlv_4= '{' (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )? ( (lv_characterizedBy_11_0= ruleCharacterization ) )* otherlv_12= '}'
             {
-            otherlv_0=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleQualityUniversal7089); 
+            otherlv_0=(Token)match(input,55,FollowSets000.FOLLOW_55_in_ruleQualityUniversal7444); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getQualityUniversalAccess().getQualityUniversalKeyword_0());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3118:1: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3119:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3249:1: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3250:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3119:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3120:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3250:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3251:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7106); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7461); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getQualityUniversalAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -6990,22 +7415,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleQualityUniversal7123); 
+            otherlv_2=(Token)match(input,56,FollowSets000.FOLLOW_56_in_ruleQualityUniversal7478); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getQualityUniversalAccess().getCharacterizesKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3140:1: ( (otherlv_3= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3141:1: (otherlv_3= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3271:1: ( (otherlv_3= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3272:1: (otherlv_3= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3141:1: (otherlv_3= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3142:3: otherlv_3= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3272:1: (otherlv_3= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3273:3: otherlv_3= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getQualityUniversalRule());
             	        }
                     
-            otherlv_3=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7143); 
+            otherlv_3=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7498); 
 
             		newLeafNode(otherlv_3, grammarAccess.getQualityUniversalAccess().getCharacterizationCharacterizationCrossReference_3_0()); 
             	
@@ -7015,41 +7440,41 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleQualityUniversal7155); 
+            otherlv_4=(Token)match(input,12,FollowSets000.FOLLOW_12_in_ruleQualityUniversal7510); 
 
                 	newLeafNode(otherlv_4, grammarAccess.getQualityUniversalAccess().getLeftCurlyBracketKeyword_4());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3157:1: (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3288:1: (otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')' )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA37_0==55) ) {
-                alt37=1;
+            if ( (LA42_0==57) ) {
+                alt42=1;
             }
-            switch (alt37) {
+            switch (alt42) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3157:3: otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3288:3: otherlv_5= 'datatypes' otherlv_6= '(' ( (otherlv_7= RULE_ID ) ) (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )* otherlv_10= ')'
                     {
-                    otherlv_5=(Token)match(input,55,FollowSets000.FOLLOW_55_in_ruleQualityUniversal7168); 
+                    otherlv_5=(Token)match(input,57,FollowSets000.FOLLOW_57_in_ruleQualityUniversal7523); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getQualityUniversalAccess().getDatatypesKeyword_5_0());
                         
-                    otherlv_6=(Token)match(input,21,FollowSets000.FOLLOW_21_in_ruleQualityUniversal7180); 
+                    otherlv_6=(Token)match(input,23,FollowSets000.FOLLOW_23_in_ruleQualityUniversal7535); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getQualityUniversalAccess().getLeftParenthesisKeyword_5_1());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3165:1: ( (otherlv_7= RULE_ID ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3166:1: (otherlv_7= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3296:1: ( (otherlv_7= RULE_ID ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3297:1: (otherlv_7= RULE_ID )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3166:1: (otherlv_7= RULE_ID )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3167:3: otherlv_7= RULE_ID
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3297:1: (otherlv_7= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3298:3: otherlv_7= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getQualityUniversalRule());
                     	        }
                             
-                    otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7200); 
+                    otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7555); 
 
                     		newLeafNode(otherlv_7, grammarAccess.getQualityUniversalAccess().getDatatypesDataTypeCrossReference_5_2_0()); 
                     	
@@ -7059,37 +7484,37 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3178:2: (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )*
-                    loop36:
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3309:2: (otherlv_8= ',' ( (otherlv_9= RULE_ID ) ) )*
+                    loop41:
                     do {
-                        int alt36=2;
-                        int LA36_0 = input.LA(1);
+                        int alt41=2;
+                        int LA41_0 = input.LA(1);
 
-                        if ( (LA36_0==18) ) {
-                            alt36=1;
+                        if ( (LA41_0==18) ) {
+                            alt41=1;
                         }
 
 
-                        switch (alt36) {
+                        switch (alt41) {
                     	case 1 :
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3178:4: otherlv_8= ',' ( (otherlv_9= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3309:4: otherlv_8= ',' ( (otherlv_9= RULE_ID ) )
                     	    {
-                    	    otherlv_8=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleQualityUniversal7213); 
+                    	    otherlv_8=(Token)match(input,18,FollowSets000.FOLLOW_18_in_ruleQualityUniversal7568); 
 
                     	        	newLeafNode(otherlv_8, grammarAccess.getQualityUniversalAccess().getCommaKeyword_5_3_0());
                     	        
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3182:1: ( (otherlv_9= RULE_ID ) )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3183:1: (otherlv_9= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3313:1: ( (otherlv_9= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3314:1: (otherlv_9= RULE_ID )
                     	    {
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3183:1: (otherlv_9= RULE_ID )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3184:3: otherlv_9= RULE_ID
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3314:1: (otherlv_9= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3315:3: otherlv_9= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getQualityUniversalRule());
                     	    	        }
                     	            
-                    	    otherlv_9=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7233); 
+                    	    otherlv_9=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleQualityUniversal7588); 
 
                     	    		newLeafNode(otherlv_9, grammarAccess.getQualityUniversalAccess().getDatatypesDataTypeCrossReference_5_3_1_0()); 
                     	    	
@@ -7104,11 +7529,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop36;
+                    	    break loop41;
                         }
                     } while (true);
 
-                    otherlv_10=(Token)match(input,22,FollowSets000.FOLLOW_22_in_ruleQualityUniversal7247); 
+                    otherlv_10=(Token)match(input,24,FollowSets000.FOLLOW_24_in_ruleQualityUniversal7602); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getQualityUniversalAccess().getRightParenthesisKeyword_5_4());
                         
@@ -7118,28 +7543,28 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3199:3: ( (lv_characterizedBy_11_0= ruleCharacterization ) )*
-            loop38:
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3330:3: ( (lv_characterizedBy_11_0= ruleCharacterization ) )*
+            loop43:
             do {
-                int alt38=2;
-                int LA38_0 = input.LA(1);
+                int alt43=2;
+                int LA43_0 = input.LA(1);
 
-                if ( (LA38_0==30||LA38_0==59) ) {
-                    alt38=1;
+                if ( (LA43_0==32||LA43_0==61) ) {
+                    alt43=1;
                 }
 
 
-                switch (alt38) {
+                switch (alt43) {
             	case 1 :
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3200:1: (lv_characterizedBy_11_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3331:1: (lv_characterizedBy_11_0= ruleCharacterization )
             	    {
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3200:1: (lv_characterizedBy_11_0= ruleCharacterization )
-            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3201:3: lv_characterizedBy_11_0= ruleCharacterization
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3331:1: (lv_characterizedBy_11_0= ruleCharacterization )
+            	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3332:3: lv_characterizedBy_11_0= ruleCharacterization
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getQualityUniversalAccess().getCharacterizedByCharacterizationParserRuleCall_6_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleQualityUniversal7270);
+            	    pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_ruleQualityUniversal7625);
             	    lv_characterizedBy_11_0=ruleCharacterization();
 
             	    state._fsp--;
@@ -7163,11 +7588,11 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop38;
+            	    break loop43;
                 }
             } while (true);
 
-            otherlv_12=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleQualityUniversal7283); 
+            otherlv_12=(Token)match(input,13,FollowSets000.FOLLOW_13_in_ruleQualityUniversal7638); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getQualityUniversalAccess().getRightCurlyBracketKeyword_7());
                 
@@ -7192,7 +7617,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulenAryMaterialRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3229:1: entryRulenAryMaterialRelation returns [EObject current=null] : iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3360:1: entryRulenAryMaterialRelation returns [EObject current=null] : iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF ;
     public final EObject entryRulenAryMaterialRelation() throws RecognitionException {
         EObject current = null;
 
@@ -7200,17 +7625,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3230:2: (iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3231:2: iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3361:2: (iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3362:2: iv_rulenAryMaterialRelation= rulenAryMaterialRelation EOF
             {
              newCompositeNode(grammarAccess.getNAryMaterialRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulenAryMaterialRelation_in_entryRulenAryMaterialRelation7319);
+            pushFollow(FollowSets000.FOLLOW_rulenAryMaterialRelation_in_entryRulenAryMaterialRelation7674);
             iv_rulenAryMaterialRelation=rulenAryMaterialRelation();
 
             state._fsp--;
 
              current =iv_rulenAryMaterialRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulenAryMaterialRelation7329); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulenAryMaterialRelation7684); 
 
             }
 
@@ -7228,7 +7653,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulenAryMaterialRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3238:1: rulenAryMaterialRelation returns [EObject current=null] : (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3369:1: rulenAryMaterialRelation returns [EObject current=null] : (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' ) ;
     public final EObject rulenAryMaterialRelation() throws RecognitionException {
         EObject current = null;
 
@@ -7258,32 +7683,32 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3241:28: ( (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3242:1: (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3372:28: ( (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3373:1: (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3242:1: (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3242:3: otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3373:1: (otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3373:3: otherlv_0= 'material' otherlv_1= 'assoc' ( (otherlv_2= RULE_ID ) ) ( (lv_name_3_0= RULE_ID ) ) ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )? otherlv_17= ';'
             {
-            otherlv_0=(Token)match(input,48,FollowSets000.FOLLOW_48_in_rulenAryMaterialRelation7366); 
+            otherlv_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_rulenAryMaterialRelation7721); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getNAryMaterialRelationAccess().getMaterialKeyword_0());
                 
-            otherlv_1=(Token)match(input,56,FollowSets000.FOLLOW_56_in_rulenAryMaterialRelation7378); 
+            otherlv_1=(Token)match(input,58,FollowSets000.FOLLOW_58_in_rulenAryMaterialRelation7733); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getNAryMaterialRelationAccess().getAssocKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3250:1: ( (otherlv_2= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3251:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3381:1: ( (otherlv_2= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3382:1: (otherlv_2= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3251:1: (otherlv_2= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3252:3: otherlv_2= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3382:1: (otherlv_2= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3383:3: otherlv_2= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getNAryMaterialRelationRule());
             	        }
                     
-            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7398); 
+            otherlv_2=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7753); 
 
             		newLeafNode(otherlv_2, grammarAccess.getNAryMaterialRelationAccess().getDerivedFromRelatorUniversalCrossReference_2_0()); 
             	
@@ -7293,13 +7718,13 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3263:2: ( (lv_name_3_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3264:1: (lv_name_3_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3394:2: ( (lv_name_3_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3395:1: (lv_name_3_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3264:1: (lv_name_3_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3265:3: lv_name_3_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3395:1: (lv_name_3_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3396:3: lv_name_3_0= RULE_ID
             {
-            lv_name_3_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7415); 
+            lv_name_3_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7770); 
 
             			newLeafNode(lv_name_3_0, grammarAccess.getNAryMaterialRelationAccess().getNameIDTerminalRuleCall_3_0()); 
             		
@@ -7319,29 +7744,29 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3281:2: ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3412:2: ( ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' ) )?
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA40_0==RULE_ID) ) {
-                alt40=1;
+            if ( (LA45_0==RULE_ID) ) {
+                alt45=1;
             }
-            switch (alt40) {
+            switch (alt45) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3281:3: ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3412:3: ( (otherlv_4= RULE_ID ) ) (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' ) (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )* (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3281:3: ( (otherlv_4= RULE_ID ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3282:1: (otherlv_4= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3412:3: ( (otherlv_4= RULE_ID ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3413:1: (otherlv_4= RULE_ID )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3282:1: (otherlv_4= RULE_ID )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3283:3: otherlv_4= RULE_ID
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3413:1: (otherlv_4= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3414:3: otherlv_4= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getNAryMaterialRelationRule());
                     	        }
                             
-                    otherlv_4=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7441); 
+                    otherlv_4=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7796); 
 
                     		newLeafNode(otherlv_4, grammarAccess.getNAryMaterialRelationAccess().getTargetRelataExternallyDependentUniversalCrossReference_4_0_0()); 
                     	
@@ -7351,23 +7776,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3294:2: (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3294:4: otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3425:2: (otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3425:4: otherlv_5= '[' ( (lv_sourceLowerBound_6_0= ruleEInt ) ) otherlv_7= '..' ( (lv_sourceUpperBound_8_0= ruleEInt ) ) otherlv_9= ']'
                     {
-                    otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulenAryMaterialRelation7454); 
+                    otherlv_5=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryMaterialRelation7809); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getNAryMaterialRelationAccess().getLeftSquareBracketKeyword_4_1_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3298:1: ( (lv_sourceLowerBound_6_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3299:1: (lv_sourceLowerBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3429:1: ( (lv_sourceLowerBound_6_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3430:1: (lv_sourceLowerBound_6_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3299:1: (lv_sourceLowerBound_6_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3300:3: lv_sourceLowerBound_6_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3430:1: (lv_sourceLowerBound_6_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3431:3: lv_sourceLowerBound_6_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryMaterialRelationAccess().getSourceLowerBoundEIntParserRuleCall_4_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7475);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7830);
                     lv_sourceLowerBound_6_0=ruleEInt();
 
                     state._fsp--;
@@ -7389,20 +7814,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_7=(Token)match(input,31,FollowSets000.FOLLOW_31_in_rulenAryMaterialRelation7487); 
+                    otherlv_7=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulenAryMaterialRelation7842); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getNAryMaterialRelationAccess().getFullStopFullStopKeyword_4_1_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3320:1: ( (lv_sourceUpperBound_8_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3321:1: (lv_sourceUpperBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3451:1: ( (lv_sourceUpperBound_8_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3452:1: (lv_sourceUpperBound_8_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3321:1: (lv_sourceUpperBound_8_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3322:3: lv_sourceUpperBound_8_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3452:1: (lv_sourceUpperBound_8_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3453:3: lv_sourceUpperBound_8_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryMaterialRelationAccess().getSourceUpperBoundEIntParserRuleCall_4_1_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7508);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7863);
                     lv_sourceUpperBound_8_0=ruleEInt();
 
                     state._fsp--;
@@ -7424,44 +7849,44 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_9=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryMaterialRelation7520); 
+                    otherlv_9=(Token)match(input,34,FollowSets000.FOLLOW_34_in_rulenAryMaterialRelation7875); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getNAryMaterialRelationAccess().getRightSquareBracketKeyword_4_1_4());
                         
 
                     }
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3342:2: (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )*
-                    loop39:
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3473:2: (otherlv_10= ',' ( (otherlv_11= RULE_ID ) ) )*
+                    loop44:
                     do {
-                        int alt39=2;
-                        int LA39_0 = input.LA(1);
+                        int alt44=2;
+                        int LA44_0 = input.LA(1);
 
-                        if ( (LA39_0==18) ) {
-                            alt39=1;
+                        if ( (LA44_0==18) ) {
+                            alt44=1;
                         }
 
 
-                        switch (alt39) {
+                        switch (alt44) {
                     	case 1 :
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3342:4: otherlv_10= ',' ( (otherlv_11= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3473:4: otherlv_10= ',' ( (otherlv_11= RULE_ID ) )
                     	    {
-                    	    otherlv_10=(Token)match(input,18,FollowSets000.FOLLOW_18_in_rulenAryMaterialRelation7534); 
+                    	    otherlv_10=(Token)match(input,18,FollowSets000.FOLLOW_18_in_rulenAryMaterialRelation7889); 
 
                     	        	newLeafNode(otherlv_10, grammarAccess.getNAryMaterialRelationAccess().getCommaKeyword_4_2_0());
                     	        
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3346:1: ( (otherlv_11= RULE_ID ) )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3347:1: (otherlv_11= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3477:1: ( (otherlv_11= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3478:1: (otherlv_11= RULE_ID )
                     	    {
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3347:1: (otherlv_11= RULE_ID )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3348:3: otherlv_11= RULE_ID
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3478:1: (otherlv_11= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3479:3: otherlv_11= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getNAryMaterialRelationRule());
                     	    	        }
                     	            
-                    	    otherlv_11=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7554); 
+                    	    otherlv_11=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryMaterialRelation7909); 
 
                     	    		newLeafNode(otherlv_11, grammarAccess.getNAryMaterialRelationAccess().getTargetRelataExternallyDependentUniversalCrossReference_4_2_1_0()); 
                     	    	
@@ -7476,27 +7901,27 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop39;
+                    	    break loop44;
                         }
                     } while (true);
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3359:4: (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3359:6: otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3490:4: (otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3490:6: otherlv_12= '[' ( (lv_sourceLowerBound_13_0= ruleEInt ) ) otherlv_14= '..' ( (lv_sourceUpperBound_15_0= ruleEInt ) ) otherlv_16= ']'
                     {
-                    otherlv_12=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulenAryMaterialRelation7569); 
+                    otherlv_12=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryMaterialRelation7924); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getNAryMaterialRelationAccess().getLeftSquareBracketKeyword_4_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3363:1: ( (lv_sourceLowerBound_13_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3364:1: (lv_sourceLowerBound_13_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3494:1: ( (lv_sourceLowerBound_13_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3495:1: (lv_sourceLowerBound_13_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3364:1: (lv_sourceLowerBound_13_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3365:3: lv_sourceLowerBound_13_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3495:1: (lv_sourceLowerBound_13_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3496:3: lv_sourceLowerBound_13_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryMaterialRelationAccess().getSourceLowerBoundEIntParserRuleCall_4_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7590);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7945);
                     lv_sourceLowerBound_13_0=ruleEInt();
 
                     state._fsp--;
@@ -7518,20 +7943,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_14=(Token)match(input,31,FollowSets000.FOLLOW_31_in_rulenAryMaterialRelation7602); 
+                    otherlv_14=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulenAryMaterialRelation7957); 
 
                         	newLeafNode(otherlv_14, grammarAccess.getNAryMaterialRelationAccess().getFullStopFullStopKeyword_4_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3385:1: ( (lv_sourceUpperBound_15_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3386:1: (lv_sourceUpperBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3516:1: ( (lv_sourceUpperBound_15_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3517:1: (lv_sourceUpperBound_15_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3386:1: (lv_sourceUpperBound_15_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3387:3: lv_sourceUpperBound_15_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3517:1: (lv_sourceUpperBound_15_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3518:3: lv_sourceUpperBound_15_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryMaterialRelationAccess().getSourceUpperBoundEIntParserRuleCall_4_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7623);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryMaterialRelation7978);
                     lv_sourceUpperBound_15_0=ruleEInt();
 
                     state._fsp--;
@@ -7553,7 +7978,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_16=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryMaterialRelation7635); 
+                    otherlv_16=(Token)match(input,34,FollowSets000.FOLLOW_34_in_rulenAryMaterialRelation7990); 
 
                         	newLeafNode(otherlv_16, grammarAccess.getNAryMaterialRelationAccess().getRightSquareBracketKeyword_4_3_4());
                         
@@ -7566,7 +7991,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_17=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulenAryMaterialRelation7650); 
+            otherlv_17=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulenAryMaterialRelation8005); 
 
                 	newLeafNode(otherlv_17, grammarAccess.getNAryMaterialRelationAccess().getSemicolonKeyword_5());
                 
@@ -7591,7 +8016,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulenAryFormalRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3419:1: entryRulenAryFormalRelation returns [EObject current=null] : iv_rulenAryFormalRelation= rulenAryFormalRelation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3550:1: entryRulenAryFormalRelation returns [EObject current=null] : iv_rulenAryFormalRelation= rulenAryFormalRelation EOF ;
     public final EObject entryRulenAryFormalRelation() throws RecognitionException {
         EObject current = null;
 
@@ -7599,17 +8024,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3420:2: (iv_rulenAryFormalRelation= rulenAryFormalRelation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3421:2: iv_rulenAryFormalRelation= rulenAryFormalRelation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3551:2: (iv_rulenAryFormalRelation= rulenAryFormalRelation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3552:2: iv_rulenAryFormalRelation= rulenAryFormalRelation EOF
             {
              newCompositeNode(grammarAccess.getNAryFormalRelationRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulenAryFormalRelation_in_entryRulenAryFormalRelation7686);
+            pushFollow(FollowSets000.FOLLOW_rulenAryFormalRelation_in_entryRulenAryFormalRelation8041);
             iv_rulenAryFormalRelation=rulenAryFormalRelation();
 
             state._fsp--;
 
              current =iv_rulenAryFormalRelation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulenAryFormalRelation7696); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulenAryFormalRelation8051); 
 
             }
 
@@ -7627,7 +8052,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulenAryFormalRelation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3428:1: rulenAryFormalRelation returns [EObject current=null] : (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3559:1: rulenAryFormalRelation returns [EObject current=null] : (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' ) ;
     public final EObject rulenAryFormalRelation() throws RecognitionException {
         EObject current = null;
 
@@ -7656,27 +8081,27 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3431:28: ( (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3432:1: (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3562:28: ( (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3563:1: (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3432:1: (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3432:3: otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3563:1: (otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3563:3: otherlv_0= 'formal' otherlv_1= 'assoc' ( (lv_name_2_0= RULE_ID ) ) ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )? otherlv_16= ';'
             {
-            otherlv_0=(Token)match(input,51,FollowSets000.FOLLOW_51_in_rulenAryFormalRelation7733); 
+            otherlv_0=(Token)match(input,53,FollowSets000.FOLLOW_53_in_rulenAryFormalRelation8088); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getNAryFormalRelationAccess().getFormalKeyword_0());
                 
-            otherlv_1=(Token)match(input,56,FollowSets000.FOLLOW_56_in_rulenAryFormalRelation7745); 
+            otherlv_1=(Token)match(input,58,FollowSets000.FOLLOW_58_in_rulenAryFormalRelation8100); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getNAryFormalRelationAccess().getAssocKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3440:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3441:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3571:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3572:1: (lv_name_2_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3441:1: (lv_name_2_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3442:3: lv_name_2_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3572:1: (lv_name_2_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3573:3: lv_name_2_0= RULE_ID
             {
-            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation7762); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation8117); 
 
             			newLeafNode(lv_name_2_0, grammarAccess.getNAryFormalRelationAccess().getNameIDTerminalRuleCall_2_0()); 
             		
@@ -7696,29 +8121,29 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3458:2: ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3589:2: ( ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' ) )?
+            int alt47=2;
+            int LA47_0 = input.LA(1);
 
-            if ( (LA42_0==RULE_ID) ) {
-                alt42=1;
+            if ( (LA47_0==RULE_ID) ) {
+                alt47=1;
             }
-            switch (alt42) {
+            switch (alt47) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3458:3: ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3589:3: ( (otherlv_3= RULE_ID ) ) (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' ) (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )* (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3458:3: ( (otherlv_3= RULE_ID ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3459:1: (otherlv_3= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3589:3: ( (otherlv_3= RULE_ID ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3590:1: (otherlv_3= RULE_ID )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3459:1: (otherlv_3= RULE_ID )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3460:3: otherlv_3= RULE_ID
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3590:1: (otherlv_3= RULE_ID )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3591:3: otherlv_3= RULE_ID
                     {
 
                     			if (current==null) {
                     	            current = createModelElement(grammarAccess.getNAryFormalRelationRule());
                     	        }
                             
-                    otherlv_3=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation7788); 
+                    otherlv_3=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation8143); 
 
                     		newLeafNode(otherlv_3, grammarAccess.getNAryFormalRelationAccess().getTargetRelataUniversalCrossReference_3_0_0()); 
                     	
@@ -7728,23 +8153,23 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3471:2: (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3471:4: otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3602:2: (otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3602:4: otherlv_4= '[' ( (lv_sourceLowerBound_5_0= ruleEInt ) ) otherlv_6= '..' ( (lv_sourceUpperBound_7_0= ruleEInt ) ) otherlv_8= ']'
                     {
-                    otherlv_4=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulenAryFormalRelation7801); 
+                    otherlv_4=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryFormalRelation8156); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getNAryFormalRelationAccess().getLeftSquareBracketKeyword_3_1_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3475:1: ( (lv_sourceLowerBound_5_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3476:1: (lv_sourceLowerBound_5_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3606:1: ( (lv_sourceLowerBound_5_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3607:1: (lv_sourceLowerBound_5_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3476:1: (lv_sourceLowerBound_5_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3477:3: lv_sourceLowerBound_5_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3607:1: (lv_sourceLowerBound_5_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3608:3: lv_sourceLowerBound_5_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryFormalRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation7822);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation8177);
                     lv_sourceLowerBound_5_0=ruleEInt();
 
                     state._fsp--;
@@ -7766,20 +8191,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,31,FollowSets000.FOLLOW_31_in_rulenAryFormalRelation7834); 
+                    otherlv_6=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulenAryFormalRelation8189); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getNAryFormalRelationAccess().getFullStopFullStopKeyword_3_1_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3497:1: ( (lv_sourceUpperBound_7_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3498:1: (lv_sourceUpperBound_7_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3628:1: ( (lv_sourceUpperBound_7_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3629:1: (lv_sourceUpperBound_7_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3498:1: (lv_sourceUpperBound_7_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3499:3: lv_sourceUpperBound_7_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3629:1: (lv_sourceUpperBound_7_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3630:3: lv_sourceUpperBound_7_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryFormalRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_1_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation7855);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation8210);
                     lv_sourceUpperBound_7_0=ruleEInt();
 
                     state._fsp--;
@@ -7801,44 +8226,44 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_8=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryFormalRelation7867); 
+                    otherlv_8=(Token)match(input,34,FollowSets000.FOLLOW_34_in_rulenAryFormalRelation8222); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getNAryFormalRelationAccess().getRightSquareBracketKeyword_3_1_4());
                         
 
                     }
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3519:2: (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
-                    loop41:
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3650:2: (otherlv_9= ',' ( (otherlv_10= RULE_ID ) ) )*
+                    loop46:
                     do {
-                        int alt41=2;
-                        int LA41_0 = input.LA(1);
+                        int alt46=2;
+                        int LA46_0 = input.LA(1);
 
-                        if ( (LA41_0==18) ) {
-                            alt41=1;
+                        if ( (LA46_0==18) ) {
+                            alt46=1;
                         }
 
 
-                        switch (alt41) {
+                        switch (alt46) {
                     	case 1 :
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3519:4: otherlv_9= ',' ( (otherlv_10= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3650:4: otherlv_9= ',' ( (otherlv_10= RULE_ID ) )
                     	    {
-                    	    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_rulenAryFormalRelation7881); 
+                    	    otherlv_9=(Token)match(input,18,FollowSets000.FOLLOW_18_in_rulenAryFormalRelation8236); 
 
                     	        	newLeafNode(otherlv_9, grammarAccess.getNAryFormalRelationAccess().getCommaKeyword_3_2_0());
                     	        
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3523:1: ( (otherlv_10= RULE_ID ) )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3524:1: (otherlv_10= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3654:1: ( (otherlv_10= RULE_ID ) )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3655:1: (otherlv_10= RULE_ID )
                     	    {
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3524:1: (otherlv_10= RULE_ID )
-                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3525:3: otherlv_10= RULE_ID
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3655:1: (otherlv_10= RULE_ID )
+                    	    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3656:3: otherlv_10= RULE_ID
                     	    {
 
                     	    			if (current==null) {
                     	    	            current = createModelElement(grammarAccess.getNAryFormalRelationRule());
                     	    	        }
                     	            
-                    	    otherlv_10=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation7901); 
+                    	    otherlv_10=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_rulenAryFormalRelation8256); 
 
                     	    		newLeafNode(otherlv_10, grammarAccess.getNAryFormalRelationAccess().getTargetRelataUniversalCrossReference_3_2_1_0()); 
                     	    	
@@ -7853,27 +8278,27 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop41;
+                    	    break loop46;
                         }
                     } while (true);
 
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3536:4: (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3536:6: otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3667:4: (otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']' )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3667:6: otherlv_11= '[' ( (lv_sourceLowerBound_12_0= ruleEInt ) ) otherlv_13= '..' ( (lv_sourceUpperBound_14_0= ruleEInt ) ) otherlv_15= ']'
                     {
-                    otherlv_11=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulenAryFormalRelation7916); 
+                    otherlv_11=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryFormalRelation8271); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getNAryFormalRelationAccess().getLeftSquareBracketKeyword_3_3_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3540:1: ( (lv_sourceLowerBound_12_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3541:1: (lv_sourceLowerBound_12_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3671:1: ( (lv_sourceLowerBound_12_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3672:1: (lv_sourceLowerBound_12_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3541:1: (lv_sourceLowerBound_12_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3542:3: lv_sourceLowerBound_12_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3672:1: (lv_sourceLowerBound_12_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3673:3: lv_sourceLowerBound_12_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryFormalRelationAccess().getSourceLowerBoundEIntParserRuleCall_3_3_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation7937);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation8292);
                     lv_sourceLowerBound_12_0=ruleEInt();
 
                     state._fsp--;
@@ -7895,20 +8320,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_13=(Token)match(input,31,FollowSets000.FOLLOW_31_in_rulenAryFormalRelation7949); 
+                    otherlv_13=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulenAryFormalRelation8304); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getNAryFormalRelationAccess().getFullStopFullStopKeyword_3_3_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3562:1: ( (lv_sourceUpperBound_14_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3563:1: (lv_sourceUpperBound_14_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3693:1: ( (lv_sourceUpperBound_14_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3694:1: (lv_sourceUpperBound_14_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3563:1: (lv_sourceUpperBound_14_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3564:3: lv_sourceUpperBound_14_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3694:1: (lv_sourceUpperBound_14_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3695:3: lv_sourceUpperBound_14_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getNAryFormalRelationAccess().getSourceUpperBoundEIntParserRuleCall_3_3_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation7970);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulenAryFormalRelation8325);
                     lv_sourceUpperBound_14_0=ruleEInt();
 
                     state._fsp--;
@@ -7930,7 +8355,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_15=(Token)match(input,32,FollowSets000.FOLLOW_32_in_rulenAryFormalRelation7982); 
+                    otherlv_15=(Token)match(input,34,FollowSets000.FOLLOW_34_in_rulenAryFormalRelation8337); 
 
                         	newLeafNode(otherlv_15, grammarAccess.getNAryFormalRelationAccess().getRightSquareBracketKeyword_3_3_4());
                         
@@ -7943,7 +8368,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_16=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulenAryFormalRelation7997); 
+            otherlv_16=(Token)match(input,19,FollowSets000.FOLLOW_19_in_rulenAryFormalRelation8352); 
 
                 	newLeafNode(otherlv_16, grammarAccess.getNAryFormalRelationAccess().getSemicolonKeyword_4());
                 
@@ -7968,7 +8393,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3596:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3727:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -7976,17 +8401,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3597:2: (iv_ruleEString= ruleEString EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3598:2: iv_ruleEString= ruleEString EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3728:2: (iv_ruleEString= ruleEString EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3729:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString8034);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_entryRuleEString8389);
             iv_ruleEString=ruleEString();
 
             state._fsp--;
 
              current =iv_ruleEString.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString8045); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEString8400); 
 
             }
 
@@ -8004,7 +8429,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3605:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3736:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8014,30 +8439,30 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3608:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3609:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3739:28: ( (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3740:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3609:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3740:1: (this_STRING_0= RULE_STRING | this_ID_1= RULE_ID )
+            int alt48=2;
+            int LA48_0 = input.LA(1);
 
-            if ( (LA43_0==RULE_STRING) ) {
-                alt43=1;
+            if ( (LA48_0==RULE_STRING) ) {
+                alt48=1;
             }
-            else if ( (LA43_0==RULE_ID) ) {
-                alt43=2;
+            else if ( (LA48_0==RULE_ID) ) {
+                alt48=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 48, 0, input);
 
                 throw nvae;
             }
-            switch (alt43) {
+            switch (alt48) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3609:6: this_STRING_0= RULE_STRING
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3740:6: this_STRING_0= RULE_STRING
                     {
-                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString8085); 
+                    this_STRING_0=(Token)match(input,RULE_STRING,FollowSets000.FOLLOW_RULE_STRING_in_ruleEString8440); 
 
                     		current.merge(this_STRING_0);
                         
@@ -8048,9 +8473,9 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3617:10: this_ID_1= RULE_ID
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3748:10: this_ID_1= RULE_ID
                     {
-                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString8111); 
+                    this_ID_1=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleEString8466); 
 
                     		current.merge(this_ID_1);
                         
@@ -8081,7 +8506,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimitiveDataTypeType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3634:1: entryRulePrimitiveDataTypeType returns [String current=null] : iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3765:1: entryRulePrimitiveDataTypeType returns [String current=null] : iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF ;
     public final String entryRulePrimitiveDataTypeType() throws RecognitionException {
         String current = null;
 
@@ -8089,17 +8514,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3635:2: (iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3636:2: iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3766:2: (iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3767:2: iv_rulePrimitiveDataTypeType= rulePrimitiveDataTypeType EOF
             {
              newCompositeNode(grammarAccess.getPrimitiveDataTypeTypeRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataTypeType_in_entryRulePrimitiveDataTypeType8159);
+            pushFollow(FollowSets000.FOLLOW_rulePrimitiveDataTypeType_in_entryRulePrimitiveDataTypeType8514);
             iv_rulePrimitiveDataTypeType=rulePrimitiveDataTypeType();
 
             state._fsp--;
 
              current =iv_rulePrimitiveDataTypeType.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveDataTypeType8170); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimitiveDataTypeType8525); 
 
             }
 
@@ -8117,7 +8542,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimitiveDataTypeType"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3643:1: rulePrimitiveDataTypeType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'PrimitiveDataTypeType' ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3774:1: rulePrimitiveDataTypeType returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : kw= 'PrimitiveDataTypeType' ;
     public final AntlrDatatypeRuleToken rulePrimitiveDataTypeType() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8126,10 +8551,10 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3646:28: (kw= 'PrimitiveDataTypeType' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3648:2: kw= 'PrimitiveDataTypeType'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3777:28: (kw= 'PrimitiveDataTypeType' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3779:2: kw= 'PrimitiveDataTypeType'
             {
-            kw=(Token)match(input,57,FollowSets000.FOLLOW_57_in_rulePrimitiveDataTypeType8207); 
+            kw=(Token)match(input,59,FollowSets000.FOLLOW_59_in_rulePrimitiveDataTypeType8562); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getPrimitiveDataTypeTypeAccess().getPrimitiveDataTypeTypeKeyword()); 
@@ -8152,7 +8577,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDataTypeAttribute"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3661:1: entryRuleDataTypeAttribute returns [EObject current=null] : iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3792:1: entryRuleDataTypeAttribute returns [EObject current=null] : iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF ;
     public final EObject entryRuleDataTypeAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -8160,17 +8585,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3662:2: (iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3663:2: iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3793:2: (iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3794:2: iv_ruleDataTypeAttribute= ruleDataTypeAttribute EOF
             {
              newCompositeNode(grammarAccess.getDataTypeAttributeRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_entryRuleDataTypeAttribute8246);
+            pushFollow(FollowSets000.FOLLOW_ruleDataTypeAttribute_in_entryRuleDataTypeAttribute8601);
             iv_ruleDataTypeAttribute=ruleDataTypeAttribute();
 
             state._fsp--;
 
              current =iv_ruleDataTypeAttribute; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDataTypeAttribute8256); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDataTypeAttribute8611); 
 
             }
 
@@ -8188,7 +8613,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDataTypeAttribute"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3670:1: ruleDataTypeAttribute returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3801:1: ruleDataTypeAttribute returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleDataTypeAttribute() throws RecognitionException {
         EObject current = null;
 
@@ -8198,24 +8623,24 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3673:28: ( ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3674:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3804:28: ( ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3805:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3674:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3674:2: ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3805:1: ( ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3805:2: ( (otherlv_0= RULE_ID ) ) ( (lv_name_1_0= RULE_ID ) )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3674:2: ( (otherlv_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3675:1: (otherlv_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3805:2: ( (otherlv_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3806:1: (otherlv_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3675:1: (otherlv_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3676:3: otherlv_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3806:1: (otherlv_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3807:3: otherlv_0= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getDataTypeAttributeRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDataTypeAttribute8301); 
+            otherlv_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDataTypeAttribute8656); 
 
             		newLeafNode(otherlv_0, grammarAccess.getDataTypeAttributeAccess().getIsOfTypeDataTypeCrossReference_0_0()); 
             	
@@ -8225,13 +8650,13 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3687:2: ( (lv_name_1_0= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3688:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3818:2: ( (lv_name_1_0= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3819:1: (lv_name_1_0= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3688:1: (lv_name_1_0= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3689:3: lv_name_1_0= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3819:1: (lv_name_1_0= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3820:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDataTypeAttribute8318); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleDataTypeAttribute8673); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getDataTypeAttributeAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -8272,7 +8697,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3713:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3844:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -8280,17 +8705,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3714:2: (iv_ruleEInt= ruleEInt EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3715:2: iv_ruleEInt= ruleEInt EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3845:2: (iv_ruleEInt= ruleEInt EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3846:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt8360);
+            pushFollow(FollowSets000.FOLLOW_ruleEInt_in_entryRuleEInt8715);
             iv_ruleEInt=ruleEInt();
 
             state._fsp--;
 
              current =iv_ruleEInt.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt8371); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleEInt8726); 
 
             }
 
@@ -8308,7 +8733,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3722:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3853:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8318,24 +8743,24 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3725:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3726:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3856:28: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3857:1: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3726:1: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3726:2: (kw= '-' )? this_INT_1= RULE_INT
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3857:1: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3857:2: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3726:2: (kw= '-' )?
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3857:2: (kw= '-' )?
+            int alt49=2;
+            int LA49_0 = input.LA(1);
 
-            if ( (LA44_0==58) ) {
-                alt44=1;
+            if ( (LA49_0==60) ) {
+                alt49=1;
             }
-            switch (alt44) {
+            switch (alt49) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3727:2: kw= '-'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3858:2: kw= '-'
                     {
-                    kw=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleEInt8410); 
+                    kw=(Token)match(input,60,FollowSets000.FOLLOW_60_in_ruleEInt8765); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
@@ -8346,7 +8771,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt8427); 
+            this_INT_1=(Token)match(input,RULE_INT,FollowSets000.FOLLOW_RULE_INT_in_ruleEInt8782); 
 
             		current.merge(this_INT_1);
                 
@@ -8374,7 +8799,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleCharacterization"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3747:1: entryRuleCharacterization returns [EObject current=null] : iv_ruleCharacterization= ruleCharacterization EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3878:1: entryRuleCharacterization returns [EObject current=null] : iv_ruleCharacterization= ruleCharacterization EOF ;
     public final EObject entryRuleCharacterization() throws RecognitionException {
         EObject current = null;
 
@@ -8382,17 +8807,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3748:2: (iv_ruleCharacterization= ruleCharacterization EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3749:2: iv_ruleCharacterization= ruleCharacterization EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3879:2: (iv_ruleCharacterization= ruleCharacterization EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3880:2: iv_ruleCharacterization= ruleCharacterization EOF
             {
              newCompositeNode(grammarAccess.getCharacterizationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_entryRuleCharacterization8472);
+            pushFollow(FollowSets000.FOLLOW_ruleCharacterization_in_entryRuleCharacterization8827);
             iv_ruleCharacterization=ruleCharacterization();
 
             state._fsp--;
 
              current =iv_ruleCharacterization; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCharacterization8482); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleCharacterization8837); 
 
             }
 
@@ -8410,7 +8835,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCharacterization"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3756:1: ruleCharacterization returns [EObject current=null] : ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3887:1: ruleCharacterization returns [EObject current=null] : ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) ;
     public final EObject ruleCharacterization() throws RecognitionException {
         EObject current = null;
 
@@ -8435,14 +8860,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3759:28: ( ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3760:1: ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3890:28: ( ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3891:1: ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3760:1: ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3760:2: () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3891:1: ( () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3891:2: () (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )? otherlv_6= 'characterizedBy' ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3760:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3761:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3891:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3892:5: 
             {
 
                     current = forceCreateModelElement(
@@ -8452,31 +8877,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3766:2: (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3897:2: (otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']' )?
+            int alt50=2;
+            int LA50_0 = input.LA(1);
 
-            if ( (LA45_0==30) ) {
-                alt45=1;
+            if ( (LA50_0==32) ) {
+                alt50=1;
             }
-            switch (alt45) {
+            switch (alt50) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3766:4: otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3897:4: otherlv_1= '[' ( (lv_sourceLowerBound_2_0= ruleEInt ) ) otherlv_3= '..' ( (lv_sourceUpperBound_4_0= ruleEInt ) ) otherlv_5= ']'
                     {
-                    otherlv_1=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleCharacterization8529); 
+                    otherlv_1=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCharacterization8884); 
 
                         	newLeafNode(otherlv_1, grammarAccess.getCharacterizationAccess().getLeftSquareBracketKeyword_1_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3770:1: ( (lv_sourceLowerBound_2_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3771:1: (lv_sourceLowerBound_2_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3901:1: ( (lv_sourceLowerBound_2_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3902:1: (lv_sourceLowerBound_2_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3771:1: (lv_sourceLowerBound_2_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3772:3: lv_sourceLowerBound_2_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3902:1: (lv_sourceLowerBound_2_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3903:3: lv_sourceLowerBound_2_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getCharacterizationAccess().getSourceLowerBoundEIntParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8550);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8905);
                     lv_sourceLowerBound_2_0=ruleEInt();
 
                     state._fsp--;
@@ -8498,20 +8923,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_3=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleCharacterization8562); 
+                    otherlv_3=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleCharacterization8917); 
 
                         	newLeafNode(otherlv_3, grammarAccess.getCharacterizationAccess().getFullStopFullStopKeyword_1_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3792:1: ( (lv_sourceUpperBound_4_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3793:1: (lv_sourceUpperBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3923:1: ( (lv_sourceUpperBound_4_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3924:1: (lv_sourceUpperBound_4_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3793:1: (lv_sourceUpperBound_4_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3794:3: lv_sourceUpperBound_4_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3924:1: (lv_sourceUpperBound_4_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3925:3: lv_sourceUpperBound_4_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getCharacterizationAccess().getSourceUpperBoundEIntParserRuleCall_1_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8583);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8938);
                     lv_sourceUpperBound_4_0=ruleEInt();
 
                     state._fsp--;
@@ -8533,7 +8958,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_5=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCharacterization8595); 
+                    otherlv_5=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleCharacterization8950); 
 
                         	newLeafNode(otherlv_5, grammarAccess.getCharacterizationAccess().getRightSquareBracketKeyword_1_4());
                         
@@ -8543,22 +8968,22 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,59,FollowSets000.FOLLOW_59_in_ruleCharacterization8609); 
+            otherlv_6=(Token)match(input,61,FollowSets000.FOLLOW_61_in_ruleCharacterization8964); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getCharacterizationAccess().getCharacterizedByKeyword_2());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3818:1: ( (otherlv_7= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3819:1: (otherlv_7= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3949:1: ( (otherlv_7= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3950:1: (otherlv_7= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3819:1: (otherlv_7= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3820:3: otherlv_7= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3950:1: (otherlv_7= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3951:3: otherlv_7= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getCharacterizationRule());
             	        }
                     
-            otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCharacterization8629); 
+            otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleCharacterization8984); 
 
             		newLeafNode(otherlv_7, grammarAccess.getCharacterizationAccess().getTargetIntrinsicMomentUniversalCrossReference_3_0()); 
             	
@@ -8568,31 +8993,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3831:2: (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )?
-            int alt46=2;
-            int LA46_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3962:2: (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )?
+            int alt51=2;
+            int LA51_0 = input.LA(1);
 
-            if ( (LA46_0==30) ) {
-                alt46=1;
+            if ( (LA51_0==32) ) {
+                alt51=1;
             }
-            switch (alt46) {
+            switch (alt51) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3831:4: otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3962:4: otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']'
                     {
-                    otherlv_8=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleCharacterization8642); 
+                    otherlv_8=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCharacterization8997); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getCharacterizationAccess().getLeftSquareBracketKeyword_4_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3835:1: ( (lv_targetLowerBound_9_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3836:1: (lv_targetLowerBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3966:1: ( (lv_targetLowerBound_9_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3967:1: (lv_targetLowerBound_9_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3836:1: (lv_targetLowerBound_9_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3837:3: lv_targetLowerBound_9_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3967:1: (lv_targetLowerBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3968:3: lv_targetLowerBound_9_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getCharacterizationAccess().getTargetLowerBoundEIntParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8663);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization9018);
                     lv_targetLowerBound_9_0=ruleEInt();
 
                     state._fsp--;
@@ -8614,20 +9039,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_10=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleCharacterization8675); 
+                    otherlv_10=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleCharacterization9030); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getCharacterizationAccess().getFullStopFullStopKeyword_4_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3857:1: ( (lv_targetUpperBound_11_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3858:1: (lv_targetUpperBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3988:1: ( (lv_targetUpperBound_11_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3989:1: (lv_targetUpperBound_11_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3858:1: (lv_targetUpperBound_11_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3859:3: lv_targetUpperBound_11_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3989:1: (lv_targetUpperBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3990:3: lv_targetUpperBound_11_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getCharacterizationAccess().getTargetUpperBoundEIntParserRuleCall_4_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization8696);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleCharacterization9051);
                     lv_targetUpperBound_11_0=ruleEInt();
 
                     state._fsp--;
@@ -8649,7 +9074,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_12=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleCharacterization8708); 
+                    otherlv_12=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleCharacterization9063); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getCharacterizationAccess().getRightSquareBracketKeyword_4_4());
                         
@@ -8659,7 +9084,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleCharacterization8722); 
+            otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleCharacterization9077); 
 
                 	newLeafNode(otherlv_13, grammarAccess.getCharacterizationAccess().getSemicolonKeyword_5());
                 
@@ -8684,7 +9109,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMediation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3891:1: entryRuleMediation returns [EObject current=null] : iv_ruleMediation= ruleMediation EOF ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4022:1: entryRuleMediation returns [EObject current=null] : iv_ruleMediation= ruleMediation EOF ;
     public final EObject entryRuleMediation() throws RecognitionException {
         EObject current = null;
 
@@ -8692,17 +9117,17 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3892:2: (iv_ruleMediation= ruleMediation EOF )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3893:2: iv_ruleMediation= ruleMediation EOF
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4023:2: (iv_ruleMediation= ruleMediation EOF )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4024:2: iv_ruleMediation= ruleMediation EOF
             {
              newCompositeNode(grammarAccess.getMediationRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMediation_in_entryRuleMediation8758);
+            pushFollow(FollowSets000.FOLLOW_ruleMediation_in_entryRuleMediation9113);
             iv_ruleMediation=ruleMediation();
 
             state._fsp--;
 
              current =iv_ruleMediation; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMediation8768); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMediation9123); 
 
             }
 
@@ -8720,7 +9145,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMediation"
-    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3900:1: ruleMediation returns [EObject current=null] : ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) ;
+    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4031:1: ruleMediation returns [EObject current=null] : ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) ;
     public final EObject ruleMediation() throws RecognitionException {
         EObject current = null;
 
@@ -8745,14 +9170,14 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3903:28: ( ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3904:1: ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4034:28: ( ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4035:1: ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3904:1: ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3904:2: () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';'
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4035:1: ( () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';' )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4035:2: () otherlv_1= 'mediates' (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )? ( (otherlv_7= RULE_ID ) ) (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )? otherlv_13= ';'
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3904:2: ()
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3905:5: 
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4035:2: ()
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4036:5: 
             {
 
                     current = forceCreateModelElement(
@@ -8762,35 +9187,35 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,60,FollowSets000.FOLLOW_60_in_ruleMediation8814); 
+            otherlv_1=(Token)match(input,62,FollowSets000.FOLLOW_62_in_ruleMediation9169); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getMediationAccess().getMediatesKeyword_1());
                 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3914:1: (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )?
-            int alt47=2;
-            int LA47_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4045:1: (otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']' )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
 
-            if ( (LA47_0==30) ) {
-                alt47=1;
+            if ( (LA52_0==32) ) {
+                alt52=1;
             }
-            switch (alt47) {
+            switch (alt52) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3914:3: otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4045:3: otherlv_2= '[' ( (lv_sourceLowerBound_3_0= ruleEInt ) ) otherlv_4= '..' ( (lv_sourceUpperBound_5_0= ruleEInt ) ) otherlv_6= ']'
                     {
-                    otherlv_2=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleMediation8827); 
+                    otherlv_2=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMediation9182); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getMediationAccess().getLeftSquareBracketKeyword_2_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3918:1: ( (lv_sourceLowerBound_3_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3919:1: (lv_sourceLowerBound_3_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4049:1: ( (lv_sourceLowerBound_3_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4050:1: (lv_sourceLowerBound_3_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3919:1: (lv_sourceLowerBound_3_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3920:3: lv_sourceLowerBound_3_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4050:1: (lv_sourceLowerBound_3_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4051:3: lv_sourceLowerBound_3_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMediationAccess().getSourceLowerBoundEIntParserRuleCall_2_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation8848);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation9203);
                     lv_sourceLowerBound_3_0=ruleEInt();
 
                     state._fsp--;
@@ -8812,20 +9237,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleMediation8860); 
+                    otherlv_4=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleMediation9215); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getMediationAccess().getFullStopFullStopKeyword_2_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3940:1: ( (lv_sourceUpperBound_5_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3941:1: (lv_sourceUpperBound_5_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4071:1: ( (lv_sourceUpperBound_5_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4072:1: (lv_sourceUpperBound_5_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3941:1: (lv_sourceUpperBound_5_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3942:3: lv_sourceUpperBound_5_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4072:1: (lv_sourceUpperBound_5_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4073:3: lv_sourceUpperBound_5_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMediationAccess().getSourceUpperBoundEIntParserRuleCall_2_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation8881);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation9236);
                     lv_sourceUpperBound_5_0=ruleEInt();
 
                     state._fsp--;
@@ -8847,7 +9272,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMediation8893); 
+                    otherlv_6=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleMediation9248); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getMediationAccess().getRightSquareBracketKeyword_2_4());
                         
@@ -8857,18 +9282,18 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3962:3: ( (otherlv_7= RULE_ID ) )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3963:1: (otherlv_7= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4093:3: ( (otherlv_7= RULE_ID ) )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4094:1: (otherlv_7= RULE_ID )
             {
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3963:1: (otherlv_7= RULE_ID )
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3964:3: otherlv_7= RULE_ID
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4094:1: (otherlv_7= RULE_ID )
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4095:3: otherlv_7= RULE_ID
             {
 
             			if (current==null) {
             	            current = createModelElement(grammarAccess.getMediationRule());
             	        }
                     
-            otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMediation8915); 
+            otherlv_7=(Token)match(input,RULE_ID,FollowSets000.FOLLOW_RULE_ID_in_ruleMediation9270); 
 
             		newLeafNode(otherlv_7, grammarAccess.getMediationAccess().getTargetExternallyDependentUniversalCrossReference_3_0()); 
             	
@@ -8878,31 +9303,31 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3975:2: (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )?
-            int alt48=2;
-            int LA48_0 = input.LA(1);
+            // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4106:2: (otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']' )?
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA48_0==30) ) {
-                alt48=1;
+            if ( (LA53_0==32) ) {
+                alt53=1;
             }
-            switch (alt48) {
+            switch (alt53) {
                 case 1 :
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3975:4: otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']'
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4106:4: otherlv_8= '[' ( (lv_targetLowerBound_9_0= ruleEInt ) ) otherlv_10= '..' ( (lv_targetUpperBound_11_0= ruleEInt ) ) otherlv_12= ']'
                     {
-                    otherlv_8=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleMediation8928); 
+                    otherlv_8=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMediation9283); 
 
                         	newLeafNode(otherlv_8, grammarAccess.getMediationAccess().getLeftSquareBracketKeyword_4_0());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3979:1: ( (lv_targetLowerBound_9_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3980:1: (lv_targetLowerBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4110:1: ( (lv_targetLowerBound_9_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4111:1: (lv_targetLowerBound_9_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3980:1: (lv_targetLowerBound_9_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:3981:3: lv_targetLowerBound_9_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4111:1: (lv_targetLowerBound_9_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4112:3: lv_targetLowerBound_9_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMediationAccess().getTargetLowerBoundEIntParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation8949);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation9304);
                     lv_targetLowerBound_9_0=ruleEInt();
 
                     state._fsp--;
@@ -8924,20 +9349,20 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_10=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleMediation8961); 
+                    otherlv_10=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleMediation9316); 
 
                         	newLeafNode(otherlv_10, grammarAccess.getMediationAccess().getFullStopFullStopKeyword_4_2());
                         
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4001:1: ( (lv_targetUpperBound_11_0= ruleEInt ) )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4002:1: (lv_targetUpperBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4132:1: ( (lv_targetUpperBound_11_0= ruleEInt ) )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4133:1: (lv_targetUpperBound_11_0= ruleEInt )
                     {
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4002:1: (lv_targetUpperBound_11_0= ruleEInt )
-                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4003:3: lv_targetUpperBound_11_0= ruleEInt
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4133:1: (lv_targetUpperBound_11_0= ruleEInt )
+                    // ../br.ufes.inf.nemo.ontouml.ontoumlprime.dsl/src-gen/br/ufes/inf/nemo/ontouml/ontoumlprime/parser/antlr/internal/InternalDsl.g:4134:3: lv_targetUpperBound_11_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getMediationAccess().getTargetUpperBoundEIntParserRuleCall_4_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation8982);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleMediation9337);
                     lv_targetUpperBound_11_0=ruleEInt();
 
                     state._fsp--;
@@ -8959,7 +9384,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_12=(Token)match(input,32,FollowSets000.FOLLOW_32_in_ruleMediation8994); 
+                    otherlv_12=(Token)match(input,34,FollowSets000.FOLLOW_34_in_ruleMediation9349); 
 
                         	newLeafNode(otherlv_12, grammarAccess.getMediationAccess().getRightSquareBracketKeyword_4_4());
                         
@@ -8969,7 +9394,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleMediation9008); 
+            otherlv_13=(Token)match(input,19,FollowSets000.FOLLOW_19_in_ruleMediation9363); 
 
                 	newLeafNode(otherlv_13, grammarAccess.getMediationAccess().getSemicolonKeyword_5());
                 
@@ -8996,24 +9421,24 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
 
 
     protected DFA2 dfa2 = new DFA2(this);
-    protected DFA8 dfa8 = new DFA8(this);
+    protected DFA13 dfa13 = new DFA13(this);
     static final String DFA2_eotS =
         "\31\uffff";
     static final String DFA2_eofS =
         "\31\uffff";
     static final String DFA2_minS =
-        "\1\13\20\uffff\2\61\6\uffff";
+        "\1\4\20\uffff\2\63\6\uffff";
     static final String DFA2_maxS =
-        "\1\65\20\uffff\2\70\6\uffff";
+        "\1\67\20\uffff\2\72\6\uffff";
     static final String DFA2_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
         "\15\1\16\1\17\1\20\2\uffff\1\23\1\24\1\25\1\21\1\22\1\26";
     static final String DFA2_specialS =
         "\31\uffff}>";
     static final String[] DFA2_transitionS = {
-            "\1\1\2\uffff\2\2\4\uffff\1\3\2\uffff\1\4\1\5\4\6\10\uffff\1"+
-            "\7\1\10\2\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\2\uffff"+
-            "\1\22\1\23\1\24",
+            "\1\2\6\uffff\1\1\2\uffff\2\2\6\uffff\1\3\2\uffff\1\4\1\5\4\6"+
+            "\10\uffff\1\7\1\10\2\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1"+
+            "\21\2\uffff\1\22\1\23\1\24",
             "",
             "",
             "",
@@ -9073,21 +9498,21 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             return "125:1: (this_Package_0= rulePackage | this_GeneralizationSet_1= ruleGeneralizationSet | this_PrimitiveDataType_2= rulePrimitiveDataType | this_ComplexDataType_3= ruleComplexDataType | this_Enumeration_4= ruleEnumeration | this_MeronymicRelation_5= ruleMeronymicRelation | this_Kind_6= ruleKind | this_QuantityUniversal_7= ruleQuantityUniversal | this_CollectiveUniversal_8= ruleCollectiveUniversal | this_SubKind_9= ruleSubKind | this_Role_10= ruleRole | this_Phase_11= rulePhase | this_Category_12= ruleCategory | this_Mixin_13= ruleMixin | this_RoleMixin_14= ruleRoleMixin | this_RelatorUniversal_15= ruleRelatorUniversal | this_BinaryMaterialRelation_16= ruleBinaryMaterialRelation | this_BinaryFormalRelation_17= ruleBinaryFormalRelation | this_ModeUniversal_18= ruleModeUniversal | this_QualityUniversal_19= ruleQualityUniversal | this_nAryMaterialRelation_20= rulenAryMaterialRelation | this_nAryFormalRelation_21= rulenAryFormalRelation )";
         }
     }
-    static final String DFA8_eotS =
+    static final String DFA13_eotS =
         "\36\uffff";
-    static final String DFA8_eofS =
+    static final String DFA13_eofS =
         "\36\uffff";
-    static final String DFA8_minS =
-        "\5\31\2\4\3\31\2\36\1\6\4\uffff\2\6\1\37\1\6\1\37\3\6\1\40\1\6\1"+
-        "\40\2\41";
-    static final String DFA8_maxS =
-        "\1\34\4\35\2\4\3\35\1\44\1\43\1\72\4\uffff\1\72\1\6\1\37\1\6\1\37"+
-        "\2\72\1\6\1\40\1\6\1\40\1\44\1\43";
-    static final String DFA8_acceptS =
-        "\15\uffff\1\4\1\2\1\3\1\1\15\uffff";
-    static final String DFA8_specialS =
+    static final String DFA13_minS =
+        "\5\33\2\4\3\33\2\40\1\6\4\uffff\2\6\1\41\1\6\1\41\3\6\1\42\1\6\1"+
+        "\42\2\43";
+    static final String DFA13_maxS =
+        "\1\36\4\37\2\4\3\37\1\46\1\45\1\74\4\uffff\1\74\1\6\1\41\1\6\1\41"+
+        "\2\74\1\6\1\42\1\6\1\42\1\46\1\45";
+    static final String DFA13_acceptS =
+        "\15\uffff\1\3\1\4\1\1\1\2\15\uffff";
+    static final String DFA13_specialS =
         "\36\uffff}>";
-    static final String[] DFA8_transitionS = {
+    static final String[] DFA13_transitionS = {
             "\1\1\1\2\1\3\1\4",
             "\1\1\1\2\1\3\1\4\1\5",
             "\1\1\1\2\1\3\1\4\1\5",
@@ -9098,59 +9523,59 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
             "\1\7\1\10\1\3\1\11\1\6",
             "\1\7\1\10\1\3\1\11\1\6",
             "\1\7\1\10\1\3\1\11\1\6",
-            "\1\14\2\uffff\1\20\1\16\1\17\1\15",
-            "\1\21\2\uffff\1\20\1\16\1\17",
-            "\1\23\63\uffff\1\22",
+            "\1\14\2\uffff\1\17\1\20\1\15\1\16",
+            "\1\21\2\uffff\1\17\1\20\1\15",
+            "\1\23\65\uffff\1\22",
             "",
             "",
             "",
             "",
-            "\1\25\63\uffff\1\24",
+            "\1\25\65\uffff\1\24",
             "\1\23",
             "\1\26",
             "\1\25",
             "\1\27",
-            "\1\31\63\uffff\1\30",
-            "\1\33\63\uffff\1\32",
+            "\1\31\65\uffff\1\30",
+            "\1\33\65\uffff\1\32",
             "\1\31",
             "\1\34",
             "\1\33",
             "\1\35",
-            "\1\20\1\16\1\17\1\15",
-            "\1\20\1\16\1\17"
+            "\1\17\1\20\1\15\1\16",
+            "\1\17\1\20\1\15"
     };
 
-    static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
-    static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
-    static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
-    static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
-    static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
-    static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
-    static final short[][] DFA8_transition;
+    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
+    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
+    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
+    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
+    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
+    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
+    static final short[][] DFA13_transition;
 
     static {
-        int numStates = DFA8_transitionS.length;
-        DFA8_transition = new short[numStates][];
+        int numStates = DFA13_transitionS.length;
+        DFA13_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
+            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
         }
     }
 
-    class DFA8 extends DFA {
+    class DFA13 extends DFA {
 
-        public DFA8(BaseRecognizer recognizer) {
+        public DFA13(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 8;
-            this.eot = DFA8_eot;
-            this.eof = DFA8_eof;
-            this.min = DFA8_min;
-            this.max = DFA8_max;
-            this.accept = DFA8_accept;
-            this.special = DFA8_special;
-            this.transition = DFA8_transition;
+            this.decisionNumber = 13;
+            this.eot = DFA13_eot;
+            this.eof = DFA13_eof;
+            this.min = DFA13_min;
+            this.max = DFA13_max;
+            this.accept = DFA13_accept;
+            this.special = DFA13_special;
+            this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "816:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )";
+            return "947:1: (this_ComponentOfRelation_0= ruleComponentOfRelation | this_MembershipRelation_1= ruleMembershipRelation | this_SubCollectionRelation_2= ruleSubCollectionRelation | this_SubQuantityRelation_3= ruleSubQuantityRelation )";
         }
     }
  
@@ -9159,7 +9584,7 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
     private static class FollowSets000 {
         public static final BitSet FOLLOW_ruleModel_in_entryRuleModel75 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleModel85 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleElement_in_ruleModel140 = new BitSet(new long[]{0x0039FFE01F90C802L});
+        public static final BitSet FOLLOW_ruleElement_in_ruleModel140 = new BitSet(new long[]{0x00E7FF807E40C812L});
         public static final BitSet FOLLOW_ruleElement_in_entryRuleElement177 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleElement187 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rulePackage_in_ruleElement234 = new BitSet(new long[]{0x0000000000000002L});
@@ -9188,351 +9613,366 @@ public class InternalDslParser extends AbstractInternalAntlrParser {
         public static final BitSet FOLLOW_EOF_in_entryRulePackage854 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_11_in_rulePackage900 = new BitSet(new long[]{0x0000000000000010L});
         public static final BitSet FOLLOW_RULE_ID_in_rulePackage917 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_rulePackage934 = new BitSet(new long[]{0x0039FFE01F90E800L});
-        public static final BitSet FOLLOW_ruleElement_in_rulePackage955 = new BitSet(new long[]{0x0039FFE01F90E800L});
+        public static final BitSet FOLLOW_12_in_rulePackage934 = new BitSet(new long[]{0x00E7FF807E40E810L});
+        public static final BitSet FOLLOW_ruleElement_in_rulePackage955 = new BitSet(new long[]{0x00E7FF807E40E810L});
         public static final BitSet FOLLOW_13_in_rulePackage968 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleGeneralizationSet_in_entryRuleGeneralizationSet1004 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleGeneralizationSet1014 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_14_in_ruleGeneralizationSet1057 = new BitSet(new long[]{0x0000000000008000L});
-        public static final BitSet FOLLOW_15_in_ruleGeneralizationSet1083 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleGeneralizationSet1100 = new BitSet(new long[]{0x0000000000010000L});
-        public static final BitSet FOLLOW_16_in_ruleGeneralizationSet1117 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleGeneralizationSet1137 = new BitSet(new long[]{0x0000000000020000L});
-        public static final BitSet FOLLOW_17_in_ruleGeneralizationSet1149 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleGeneralizationSet1169 = new BitSet(new long[]{0x00000000000C0000L});
-        public static final BitSet FOLLOW_18_in_ruleGeneralizationSet1182 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleGeneralizationSet1202 = new BitSet(new long[]{0x00000000000C0000L});
-        public static final BitSet FOLLOW_19_in_ruleGeneralizationSet1216 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimitiveDataType_in_entryRulePrimitiveDataType1252 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDataType1262 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_20_in_rulePrimitiveDataType1299 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulePrimitiveDataType1316 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_21_in_rulePrimitiveDataType1333 = new BitSet(new long[]{0x0200000000000000L});
-        public static final BitSet FOLLOW_rulePrimitiveDataTypeType_in_rulePrimitiveDataType1354 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_22_in_rulePrimitiveDataType1366 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_rulePrimitiveDataType1378 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComplexDataType_in_entryRuleComplexDataType1414 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleComplexDataType1424 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_23_in_ruleComplexDataType1461 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleComplexDataType1478 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleComplexDataType1495 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1516 = new BitSet(new long[]{0x0000000000082000L});
-        public static final BitSet FOLLOW_19_in_ruleComplexDataType1529 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1550 = new BitSet(new long[]{0x0000000000082000L});
-        public static final BitSet FOLLOW_13_in_ruleComplexDataType1564 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEnumeration_in_entryRuleEnumeration1600 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEnumeration1610 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_24_in_ruleEnumeration1647 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleEnumeration1664 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleEnumeration1681 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleEnumeration1702 = new BitSet(new long[]{0x0000000000042000L});
-        public static final BitSet FOLLOW_18_in_ruleEnumeration1715 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleEnumeration1736 = new BitSet(new long[]{0x0000000000042000L});
-        public static final BitSet FOLLOW_13_in_ruleEnumeration1750 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMeronymicRelation_in_entryRuleMeronymicRelation1786 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMeronymicRelation1796 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComponentOfRelation_in_ruleMeronymicRelation1843 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMembershipRelation_in_ruleMeronymicRelation1870 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubCollectionRelation_in_ruleMeronymicRelation1897 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubQuantityRelation_in_ruleMeronymicRelation1924 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComponentOfRelation_in_entryRuleComponentOfRelation1959 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleComponentOfRelation1969 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_25_in_ruleComponentOfRelation2057 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_26_in_ruleComponentOfRelation2142 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_27_in_ruleComponentOfRelation2227 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_28_in_ruleComponentOfRelation2312 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_29_in_ruleComponentOfRelation2383 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleComponentOfRelation2403 = new BitSet(new long[]{0x0000000240000000L});
-        public static final BitSet FOLLOW_30_in_ruleComponentOfRelation2416 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2437 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleComponentOfRelation2449 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2470 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleComponentOfRelation2482 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleComponentOfRelation2496 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleComponentOfRelation2516 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleComponentOfRelation2529 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2550 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleComponentOfRelation2562 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2583 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleComponentOfRelation2595 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleComponentOfRelation2609 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMembershipRelation_in_entryRuleMembershipRelation2645 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMembershipRelation2655 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_25_in_ruleMembershipRelation2743 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_26_in_ruleMembershipRelation2828 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_27_in_ruleMembershipRelation2913 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_28_in_ruleMembershipRelation2998 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_29_in_ruleMembershipRelation3069 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleMembershipRelation3089 = new BitSet(new long[]{0x0000000440000000L});
-        public static final BitSet FOLLOW_30_in_ruleMembershipRelation3102 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3123 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleMembershipRelation3135 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3156 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleMembershipRelation3168 = new BitSet(new long[]{0x0000000400000000L});
-        public static final BitSet FOLLOW_34_in_ruleMembershipRelation3182 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleMembershipRelation3202 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleMembershipRelation3215 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3236 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleMembershipRelation3248 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3269 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleMembershipRelation3281 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleMembershipRelation3295 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubCollectionRelation_in_entryRuleSubCollectionRelation3331 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSubCollectionRelation3341 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_25_in_ruleSubCollectionRelation3429 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_26_in_ruleSubCollectionRelation3514 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_27_in_ruleSubCollectionRelation3599 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_28_in_ruleSubCollectionRelation3684 = new BitSet(new long[]{0x000000003E000000L});
-        public static final BitSet FOLLOW_29_in_ruleSubCollectionRelation3755 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSubCollectionRelation3775 = new BitSet(new long[]{0x0000000840000000L});
-        public static final BitSet FOLLOW_30_in_ruleSubCollectionRelation3788 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation3809 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleSubCollectionRelation3821 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation3842 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleSubCollectionRelation3854 = new BitSet(new long[]{0x0000000800000000L});
-        public static final BitSet FOLLOW_35_in_ruleSubCollectionRelation3868 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSubCollectionRelation3888 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleSubCollectionRelation3901 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation3922 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleSubCollectionRelation3934 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation3955 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleSubCollectionRelation3967 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleSubCollectionRelation3981 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubQuantityRelation_in_entryRuleSubQuantityRelation4017 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSubQuantityRelation4027 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_25_in_ruleSubQuantityRelation4115 = new BitSet(new long[]{0x0000000036000000L});
-        public static final BitSet FOLLOW_26_in_ruleSubQuantityRelation4200 = new BitSet(new long[]{0x0000000036000000L});
-        public static final BitSet FOLLOW_28_in_ruleSubQuantityRelation4285 = new BitSet(new long[]{0x0000000036000000L});
-        public static final BitSet FOLLOW_29_in_ruleSubQuantityRelation4356 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSubQuantityRelation4376 = new BitSet(new long[]{0x0000001040000000L});
-        public static final BitSet FOLLOW_30_in_ruleSubQuantityRelation4389 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4410 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleSubQuantityRelation4422 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4443 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleSubQuantityRelation4455 = new BitSet(new long[]{0x0000001000000000L});
-        public static final BitSet FOLLOW_36_in_ruleSubQuantityRelation4469 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSubQuantityRelation4489 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleSubQuantityRelation4502 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4523 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleSubQuantityRelation4535 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4556 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleSubQuantityRelation4568 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleSubQuantityRelation4582 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleKind_in_entryRuleKind4618 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleKind4628 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_37_in_ruleKind4674 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleKind4691 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleKind4708 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleKind4729 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleKind4742 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQuantityUniversal_in_entryRuleQuantityUniversal4778 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQuantityUniversal4788 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_38_in_ruleQuantityUniversal4834 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQuantityUniversal4851 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleQuantityUniversal4868 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleQuantityUniversal4889 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleQuantityUniversal4902 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCollectiveUniversal_in_entryRuleCollectiveUniversal4938 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleCollectiveUniversal4948 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_ruleCollectiveUniversal4991 = new BitSet(new long[]{0x0000010000000000L});
-        public static final BitSet FOLLOW_40_in_ruleCollectiveUniversal5017 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleCollectiveUniversal5034 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleCollectiveUniversal5051 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleCollectiveUniversal5072 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleCollectiveUniversal5085 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubKind_in_entryRuleSubKind5121 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSubKind5131 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_ruleSubKind5177 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleSubKind5194 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleSubKind5211 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleSubKind5232 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleSubKind5245 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRole_in_entryRuleRole5281 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRole5291 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_ruleRole5328 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleRole5345 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRole5362 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleRole5383 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleRole5396 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePhase_in_entryRulePhase5432 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePhase5442 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_43_in_rulePhase5488 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulePhase5505 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_rulePhase5522 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_rulePhase5543 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_rulePhase5556 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCategory_in_entryRuleCategory5592 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleCategory5602 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_44_in_ruleCategory5648 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleCategory5665 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleCategory5682 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleCategory5694 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMixin_in_entryRuleMixin5730 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMixin5740 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_45_in_ruleMixin5786 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleMixin5803 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleMixin5820 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleMixin5832 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRoleMixin_in_entryRuleRoleMixin5868 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRoleMixin5878 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_46_in_ruleRoleMixin5915 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleRoleMixin5932 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRoleMixin5949 = new BitSet(new long[]{0x0000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleRoleMixin5961 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleRelatorUniversal_in_entryRuleRelatorUniversal5997 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleRelatorUniversal6007 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_ruleRelatorUniversal6044 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleRelatorUniversal6061 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleRelatorUniversal6078 = new BitSet(new long[]{0x1800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleRelatorUniversal6099 = new BitSet(new long[]{0x1800000040002000L});
-        public static final BitSet FOLLOW_ruleMediation_in_ruleRelatorUniversal6121 = new BitSet(new long[]{0x1000000000002000L});
-        public static final BitSet FOLLOW_13_in_ruleRelatorUniversal6134 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleBinaryMaterialRelation_in_entryRuleBinaryMaterialRelation6170 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleBinaryMaterialRelation6180 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_48_in_ruleBinaryMaterialRelation6217 = new BitSet(new long[]{0x0002000000000000L});
-        public static final BitSet FOLLOW_49_in_ruleBinaryMaterialRelation6229 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6249 = new BitSet(new long[]{0x0000000040000010L});
-        public static final BitSet FOLLOW_30_in_ruleBinaryMaterialRelation6262 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6283 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleBinaryMaterialRelation6295 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6316 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleBinaryMaterialRelation6328 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6347 = new BitSet(new long[]{0x0004000000200000L});
-        public static final BitSet FOLLOW_21_in_ruleBinaryMaterialRelation6365 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6385 = new BitSet(new long[]{0x0000000000400000L});
-        public static final BitSet FOLLOW_22_in_ruleBinaryMaterialRelation6397 = new BitSet(new long[]{0x0004000000000000L});
-        public static final BitSet FOLLOW_50_in_ruleBinaryMaterialRelation6411 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6431 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleBinaryMaterialRelation6444 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6465 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleBinaryMaterialRelation6477 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6498 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleBinaryMaterialRelation6510 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleBinaryMaterialRelation6524 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleBinaryFormalRelation_in_entryRuleBinaryFormalRelation6560 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleBinaryFormalRelation6570 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_ruleBinaryFormalRelation6607 = new BitSet(new long[]{0x0002000000000000L});
-        public static final BitSet FOLLOW_49_in_ruleBinaryFormalRelation6619 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6639 = new BitSet(new long[]{0x0000000040000010L});
-        public static final BitSet FOLLOW_30_in_ruleBinaryFormalRelation6652 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6673 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleBinaryFormalRelation6685 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6706 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleBinaryFormalRelation6718 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6737 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6762 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleBinaryFormalRelation6775 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6796 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleBinaryFormalRelation6808 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation6829 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleBinaryFormalRelation6841 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleBinaryFormalRelation6855 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleModeUniversal_in_entryRuleModeUniversal6891 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleModeUniversal6901 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_52_in_ruleModeUniversal6938 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleModeUniversal6955 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleModeUniversal6972 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleModeUniversal6993 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleModeUniversal7006 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleQualityUniversal_in_entryRuleQualityUniversal7042 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleQualityUniversal7052 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_53_in_ruleQualityUniversal7089 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7106 = new BitSet(new long[]{0x0040000000000000L});
-        public static final BitSet FOLLOW_54_in_ruleQualityUniversal7123 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7143 = new BitSet(new long[]{0x0000000000001000L});
-        public static final BitSet FOLLOW_12_in_ruleQualityUniversal7155 = new BitSet(new long[]{0x0880000040002000L});
-        public static final BitSet FOLLOW_55_in_ruleQualityUniversal7168 = new BitSet(new long[]{0x0000000000200000L});
-        public static final BitSet FOLLOW_21_in_ruleQualityUniversal7180 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7200 = new BitSet(new long[]{0x0000000000440000L});
-        public static final BitSet FOLLOW_18_in_ruleQualityUniversal7213 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7233 = new BitSet(new long[]{0x0000000000440000L});
-        public static final BitSet FOLLOW_22_in_ruleQualityUniversal7247 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_ruleQualityUniversal7270 = new BitSet(new long[]{0x0800000040002000L});
-        public static final BitSet FOLLOW_13_in_ruleQualityUniversal7283 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulenAryMaterialRelation_in_entryRulenAryMaterialRelation7319 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulenAryMaterialRelation7329 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_48_in_rulenAryMaterialRelation7366 = new BitSet(new long[]{0x0100000000000000L});
-        public static final BitSet FOLLOW_56_in_rulenAryMaterialRelation7378 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7398 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7415 = new BitSet(new long[]{0x0000000000080010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7441 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_rulenAryMaterialRelation7454 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7475 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_rulenAryMaterialRelation7487 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7508 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_rulenAryMaterialRelation7520 = new BitSet(new long[]{0x0000000040040000L});
-        public static final BitSet FOLLOW_18_in_rulenAryMaterialRelation7534 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7554 = new BitSet(new long[]{0x0000000040040000L});
-        public static final BitSet FOLLOW_30_in_rulenAryMaterialRelation7569 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7590 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_rulenAryMaterialRelation7602 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7623 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_rulenAryMaterialRelation7635 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_rulenAryMaterialRelation7650 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulenAryFormalRelation_in_entryRulenAryFormalRelation7686 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulenAryFormalRelation7696 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_rulenAryFormalRelation7733 = new BitSet(new long[]{0x0100000000000000L});
-        public static final BitSet FOLLOW_56_in_rulenAryFormalRelation7745 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation7762 = new BitSet(new long[]{0x0000000000080010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation7788 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_rulenAryFormalRelation7801 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation7822 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_rulenAryFormalRelation7834 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation7855 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_rulenAryFormalRelation7867 = new BitSet(new long[]{0x0000000040040000L});
-        public static final BitSet FOLLOW_18_in_rulenAryFormalRelation7881 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation7901 = new BitSet(new long[]{0x0000000040040000L});
-        public static final BitSet FOLLOW_30_in_rulenAryFormalRelation7916 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation7937 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_rulenAryFormalRelation7949 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation7970 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_rulenAryFormalRelation7982 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_rulenAryFormalRelation7997 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString8034 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEString8045 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString8085 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleEString8111 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimitiveDataTypeType_in_entryRulePrimitiveDataTypeType8159 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDataTypeType8170 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_57_in_rulePrimitiveDataTypeType8207 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_entryRuleDataTypeAttribute8246 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleDataTypeAttribute8256 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleDataTypeAttribute8301 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleDataTypeAttribute8318 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt8360 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleEInt8371 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_58_in_ruleEInt8410 = new BitSet(new long[]{0x0000000000000040L});
-        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt8427 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCharacterization_in_entryRuleCharacterization8472 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleCharacterization8482 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_30_in_ruleCharacterization8529 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8550 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleCharacterization8562 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8583 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleCharacterization8595 = new BitSet(new long[]{0x0800000000000000L});
-        public static final BitSet FOLLOW_59_in_ruleCharacterization8609 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleCharacterization8629 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleCharacterization8642 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8663 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleCharacterization8675 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8696 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleCharacterization8708 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleCharacterization8722 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMediation_in_entryRuleMediation8758 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMediation8768 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_60_in_ruleMediation8814 = new BitSet(new long[]{0x0000000040000010L});
-        public static final BitSet FOLLOW_30_in_ruleMediation8827 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation8848 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleMediation8860 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation8881 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleMediation8893 = new BitSet(new long[]{0x0000000000000010L});
-        public static final BitSet FOLLOW_RULE_ID_in_ruleMediation8915 = new BitSet(new long[]{0x0000000040080000L});
-        public static final BitSet FOLLOW_30_in_ruleMediation8928 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation8949 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleMediation8961 = new BitSet(new long[]{0x0400000000000040L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation8982 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_32_in_ruleMediation8994 = new BitSet(new long[]{0x0000000000080000L});
-        public static final BitSet FOLLOW_19_in_ruleMediation9008 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompleteGeneralizationSet_in_ruleGeneralizationSet1061 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnonymousGeneralizationSet_in_ruleGeneralizationSet1088 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCompleteGeneralizationSet_in_entryRuleCompleteGeneralizationSet1123 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCompleteGeneralizationSet1133 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_14_in_ruleCompleteGeneralizationSet1176 = new BitSet(new long[]{0x0000000000008000L});
+        public static final BitSet FOLLOW_15_in_ruleCompleteGeneralizationSet1202 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1219 = new BitSet(new long[]{0x0000000000010000L});
+        public static final BitSet FOLLOW_16_in_ruleCompleteGeneralizationSet1236 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1256 = new BitSet(new long[]{0x0000000000020000L});
+        public static final BitSet FOLLOW_17_in_ruleCompleteGeneralizationSet1268 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1288 = new BitSet(new long[]{0x00000000000C0000L});
+        public static final BitSet FOLLOW_18_in_ruleCompleteGeneralizationSet1301 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCompleteGeneralizationSet1321 = new BitSet(new long[]{0x00000000000C0000L});
+        public static final BitSet FOLLOW_19_in_ruleCompleteGeneralizationSet1335 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnonymousGeneralizationSet_in_entryRuleAnonymousGeneralizationSet1371 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnonymousGeneralizationSet1381 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1426 = new BitSet(new long[]{0x0000000000250000L});
+        public static final BitSet FOLLOW_18_in_ruleAnonymousGeneralizationSet1441 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1461 = new BitSet(new long[]{0x0000000000340000L});
+        public static final BitSet FOLLOW_20_in_ruleAnonymousGeneralizationSet1476 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_21_in_ruleAnonymousGeneralizationSet1494 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_16_in_ruleAnonymousGeneralizationSet1515 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_21_in_ruleAnonymousGeneralizationSet1533 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleAnonymousGeneralizationSet1555 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleAnonymousGeneralizationSet1567 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveDataType_in_entryRulePrimitiveDataType1607 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDataType1617 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_22_in_rulePrimitiveDataType1654 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulePrimitiveDataType1671 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_rulePrimitiveDataType1688 = new BitSet(new long[]{0x0800000000000000L});
+        public static final BitSet FOLLOW_rulePrimitiveDataTypeType_in_rulePrimitiveDataType1709 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_rulePrimitiveDataType1721 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_rulePrimitiveDataType1733 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComplexDataType_in_entryRuleComplexDataType1769 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComplexDataType1779 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_25_in_ruleComplexDataType1816 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleComplexDataType1833 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleComplexDataType1850 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1871 = new BitSet(new long[]{0x0000000000082000L});
+        public static final BitSet FOLLOW_19_in_ruleComplexDataType1884 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_ruleComplexDataType1905 = new BitSet(new long[]{0x0000000000082000L});
+        public static final BitSet FOLLOW_13_in_ruleComplexDataType1919 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEnumeration_in_entryRuleEnumeration1955 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEnumeration1965 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_26_in_ruleEnumeration2002 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleEnumeration2019 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleEnumeration2036 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleEnumeration2057 = new BitSet(new long[]{0x0000000000042000L});
+        public static final BitSet FOLLOW_18_in_ruleEnumeration2070 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleEnumeration2091 = new BitSet(new long[]{0x0000000000042000L});
+        public static final BitSet FOLLOW_13_in_ruleEnumeration2105 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMeronymicRelation_in_entryRuleMeronymicRelation2141 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMeronymicRelation2151 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComponentOfRelation_in_ruleMeronymicRelation2198 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMembershipRelation_in_ruleMeronymicRelation2225 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubCollectionRelation_in_ruleMeronymicRelation2252 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubQuantityRelation_in_ruleMeronymicRelation2279 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComponentOfRelation_in_entryRuleComponentOfRelation2314 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComponentOfRelation2324 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleComponentOfRelation2412 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_28_in_ruleComponentOfRelation2497 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_29_in_ruleComponentOfRelation2582 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_30_in_ruleComponentOfRelation2667 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_31_in_ruleComponentOfRelation2738 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleComponentOfRelation2758 = new BitSet(new long[]{0x0000000900000000L});
+        public static final BitSet FOLLOW_32_in_ruleComponentOfRelation2771 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2792 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleComponentOfRelation2804 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2825 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleComponentOfRelation2837 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_35_in_ruleComponentOfRelation2851 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleComponentOfRelation2871 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleComponentOfRelation2884 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2905 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleComponentOfRelation2917 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleComponentOfRelation2938 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleComponentOfRelation2950 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleComponentOfRelation2964 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMembershipRelation_in_entryRuleMembershipRelation3000 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMembershipRelation3010 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleMembershipRelation3098 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_28_in_ruleMembershipRelation3183 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_29_in_ruleMembershipRelation3268 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_30_in_ruleMembershipRelation3353 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_31_in_ruleMembershipRelation3424 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleMembershipRelation3444 = new BitSet(new long[]{0x0000001100000000L});
+        public static final BitSet FOLLOW_32_in_ruleMembershipRelation3457 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3478 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleMembershipRelation3490 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3511 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleMembershipRelation3523 = new BitSet(new long[]{0x0000001000000000L});
+        public static final BitSet FOLLOW_36_in_ruleMembershipRelation3537 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleMembershipRelation3557 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleMembershipRelation3570 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3591 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleMembershipRelation3603 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMembershipRelation3624 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleMembershipRelation3636 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleMembershipRelation3650 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubCollectionRelation_in_entryRuleSubCollectionRelation3686 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSubCollectionRelation3696 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleSubCollectionRelation3784 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_28_in_ruleSubCollectionRelation3869 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_29_in_ruleSubCollectionRelation3954 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_30_in_ruleSubCollectionRelation4039 = new BitSet(new long[]{0x00000000F8000000L});
+        public static final BitSet FOLLOW_31_in_ruleSubCollectionRelation4110 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubCollectionRelation4130 = new BitSet(new long[]{0x0000002100000000L});
+        public static final BitSet FOLLOW_32_in_ruleSubCollectionRelation4143 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation4164 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleSubCollectionRelation4176 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation4197 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleSubCollectionRelation4209 = new BitSet(new long[]{0x0000002000000000L});
+        public static final BitSet FOLLOW_37_in_ruleSubCollectionRelation4223 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubCollectionRelation4243 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleSubCollectionRelation4256 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation4277 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleSubCollectionRelation4289 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubCollectionRelation4310 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleSubCollectionRelation4322 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleSubCollectionRelation4336 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubQuantityRelation_in_entryRuleSubQuantityRelation4372 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSubQuantityRelation4382 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_27_in_ruleSubQuantityRelation4470 = new BitSet(new long[]{0x00000000D8000000L});
+        public static final BitSet FOLLOW_28_in_ruleSubQuantityRelation4555 = new BitSet(new long[]{0x00000000D8000000L});
+        public static final BitSet FOLLOW_30_in_ruleSubQuantityRelation4640 = new BitSet(new long[]{0x00000000D8000000L});
+        public static final BitSet FOLLOW_31_in_ruleSubQuantityRelation4711 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubQuantityRelation4731 = new BitSet(new long[]{0x0000004100000000L});
+        public static final BitSet FOLLOW_32_in_ruleSubQuantityRelation4744 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4765 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleSubQuantityRelation4777 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4798 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleSubQuantityRelation4810 = new BitSet(new long[]{0x0000004000000000L});
+        public static final BitSet FOLLOW_38_in_ruleSubQuantityRelation4824 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubQuantityRelation4844 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleSubQuantityRelation4857 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4878 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleSubQuantityRelation4890 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleSubQuantityRelation4911 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleSubQuantityRelation4923 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleSubQuantityRelation4937 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleKind_in_entryRuleKind4973 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleKind4983 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_39_in_ruleKind5029 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleKind5046 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleKind5063 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleKind5084 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleKind5097 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQuantityUniversal_in_entryRuleQuantityUniversal5133 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQuantityUniversal5143 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_40_in_ruleQuantityUniversal5189 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQuantityUniversal5206 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleQuantityUniversal5223 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleQuantityUniversal5244 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleQuantityUniversal5257 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCollectiveUniversal_in_entryRuleCollectiveUniversal5293 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCollectiveUniversal5303 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_ruleCollectiveUniversal5346 = new BitSet(new long[]{0x0000040000000000L});
+        public static final BitSet FOLLOW_42_in_ruleCollectiveUniversal5372 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCollectiveUniversal5389 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleCollectiveUniversal5406 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleCollectiveUniversal5427 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleCollectiveUniversal5440 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubKind_in_entryRuleSubKind5476 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSubKind5486 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_43_in_ruleSubKind5532 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleSubKind5549 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleSubKind5566 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleSubKind5587 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleSubKind5600 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRole_in_entryRuleRole5636 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRole5646 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_ruleRole5683 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleRole5700 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleRole5717 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleRole5738 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleRole5751 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePhase_in_entryRulePhase5787 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePhase5797 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_45_in_rulePhase5843 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulePhase5860 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_rulePhase5877 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_rulePhase5898 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_rulePhase5911 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCategory_in_entryRuleCategory5947 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCategory5957 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_46_in_ruleCategory6003 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCategory6020 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleCategory6037 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleCategory6049 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMixin_in_entryRuleMixin6085 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMixin6095 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_ruleMixin6141 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleMixin6158 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleMixin6175 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleMixin6187 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRoleMixin_in_entryRuleRoleMixin6223 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRoleMixin6233 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_48_in_ruleRoleMixin6270 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleRoleMixin6287 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleRoleMixin6304 = new BitSet(new long[]{0x0000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleRoleMixin6316 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleRelatorUniversal_in_entryRuleRelatorUniversal6352 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleRelatorUniversal6362 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_49_in_ruleRelatorUniversal6399 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleRelatorUniversal6416 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleRelatorUniversal6433 = new BitSet(new long[]{0x6000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleRelatorUniversal6454 = new BitSet(new long[]{0x6000000100002000L});
+        public static final BitSet FOLLOW_ruleMediation_in_ruleRelatorUniversal6476 = new BitSet(new long[]{0x4000000000002000L});
+        public static final BitSet FOLLOW_13_in_ruleRelatorUniversal6489 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBinaryMaterialRelation_in_entryRuleBinaryMaterialRelation6525 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleBinaryMaterialRelation6535 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_50_in_ruleBinaryMaterialRelation6572 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleBinaryMaterialRelation6584 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6604 = new BitSet(new long[]{0x0000000100000010L});
+        public static final BitSet FOLLOW_32_in_ruleBinaryMaterialRelation6617 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6638 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleBinaryMaterialRelation6650 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6671 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleBinaryMaterialRelation6683 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6702 = new BitSet(new long[]{0x0010000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleBinaryMaterialRelation6720 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6740 = new BitSet(new long[]{0x0000000001000000L});
+        public static final BitSet FOLLOW_24_in_ruleBinaryMaterialRelation6752 = new BitSet(new long[]{0x0010000000000000L});
+        public static final BitSet FOLLOW_52_in_ruleBinaryMaterialRelation6766 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryMaterialRelation6786 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleBinaryMaterialRelation6799 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6820 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleBinaryMaterialRelation6832 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryMaterialRelation6853 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleBinaryMaterialRelation6865 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleBinaryMaterialRelation6879 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBinaryFormalRelation_in_entryRuleBinaryFormalRelation6915 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleBinaryFormalRelation6925 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_53_in_ruleBinaryFormalRelation6962 = new BitSet(new long[]{0x0008000000000000L});
+        public static final BitSet FOLLOW_51_in_ruleBinaryFormalRelation6974 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation6994 = new BitSet(new long[]{0x0000000100000010L});
+        public static final BitSet FOLLOW_32_in_ruleBinaryFormalRelation7007 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7028 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleBinaryFormalRelation7040 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7061 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleBinaryFormalRelation7073 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation7092 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleBinaryFormalRelation7117 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleBinaryFormalRelation7130 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7151 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleBinaryFormalRelation7163 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleBinaryFormalRelation7184 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleBinaryFormalRelation7196 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleBinaryFormalRelation7210 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleModeUniversal_in_entryRuleModeUniversal7246 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleModeUniversal7256 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_54_in_ruleModeUniversal7293 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleModeUniversal7310 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleModeUniversal7327 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleModeUniversal7348 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleModeUniversal7361 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleQualityUniversal_in_entryRuleQualityUniversal7397 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleQualityUniversal7407 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_55_in_ruleQualityUniversal7444 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7461 = new BitSet(new long[]{0x0100000000000000L});
+        public static final BitSet FOLLOW_56_in_ruleQualityUniversal7478 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7498 = new BitSet(new long[]{0x0000000000001000L});
+        public static final BitSet FOLLOW_12_in_ruleQualityUniversal7510 = new BitSet(new long[]{0x2200000100002000L});
+        public static final BitSet FOLLOW_57_in_ruleQualityUniversal7523 = new BitSet(new long[]{0x0000000000800000L});
+        public static final BitSet FOLLOW_23_in_ruleQualityUniversal7535 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7555 = new BitSet(new long[]{0x0000000001040000L});
+        public static final BitSet FOLLOW_18_in_ruleQualityUniversal7568 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleQualityUniversal7588 = new BitSet(new long[]{0x0000000001040000L});
+        public static final BitSet FOLLOW_24_in_ruleQualityUniversal7602 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_ruleQualityUniversal7625 = new BitSet(new long[]{0x2000000100002000L});
+        public static final BitSet FOLLOW_13_in_ruleQualityUniversal7638 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulenAryMaterialRelation_in_entryRulenAryMaterialRelation7674 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulenAryMaterialRelation7684 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_50_in_rulenAryMaterialRelation7721 = new BitSet(new long[]{0x0400000000000000L});
+        public static final BitSet FOLLOW_58_in_rulenAryMaterialRelation7733 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7753 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7770 = new BitSet(new long[]{0x0000000000080010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7796 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_rulenAryMaterialRelation7809 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7830 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_rulenAryMaterialRelation7842 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7863 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_rulenAryMaterialRelation7875 = new BitSet(new long[]{0x0000000100040000L});
+        public static final BitSet FOLLOW_18_in_rulenAryMaterialRelation7889 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryMaterialRelation7909 = new BitSet(new long[]{0x0000000100040000L});
+        public static final BitSet FOLLOW_32_in_rulenAryMaterialRelation7924 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7945 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_rulenAryMaterialRelation7957 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryMaterialRelation7978 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_rulenAryMaterialRelation7990 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_rulenAryMaterialRelation8005 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulenAryFormalRelation_in_entryRulenAryFormalRelation8041 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulenAryFormalRelation8051 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_53_in_rulenAryFormalRelation8088 = new BitSet(new long[]{0x0400000000000000L});
+        public static final BitSet FOLLOW_58_in_rulenAryFormalRelation8100 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation8117 = new BitSet(new long[]{0x0000000000080010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation8143 = new BitSet(new long[]{0x0000000100000000L});
+        public static final BitSet FOLLOW_32_in_rulenAryFormalRelation8156 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation8177 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_rulenAryFormalRelation8189 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation8210 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_rulenAryFormalRelation8222 = new BitSet(new long[]{0x0000000100040000L});
+        public static final BitSet FOLLOW_18_in_rulenAryFormalRelation8236 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_rulenAryFormalRelation8256 = new BitSet(new long[]{0x0000000100040000L});
+        public static final BitSet FOLLOW_32_in_rulenAryFormalRelation8271 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation8292 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_rulenAryFormalRelation8304 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulenAryFormalRelation8325 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_rulenAryFormalRelation8337 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_rulenAryFormalRelation8352 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_entryRuleEString8389 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEString8400 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_STRING_in_ruleEString8440 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleEString8466 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimitiveDataTypeType_in_entryRulePrimitiveDataTypeType8514 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimitiveDataTypeType8525 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_59_in_rulePrimitiveDataTypeType8562 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDataTypeAttribute_in_entryRuleDataTypeAttribute8601 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleDataTypeAttribute8611 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleDataTypeAttribute8656 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleDataTypeAttribute8673 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_entryRuleEInt8715 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleEInt8726 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_60_in_ruleEInt8765 = new BitSet(new long[]{0x0000000000000040L});
+        public static final BitSet FOLLOW_RULE_INT_in_ruleEInt8782 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCharacterization_in_entryRuleCharacterization8827 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleCharacterization8837 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_ruleCharacterization8884 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8905 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleCharacterization8917 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization8938 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleCharacterization8950 = new BitSet(new long[]{0x2000000000000000L});
+        public static final BitSet FOLLOW_61_in_ruleCharacterization8964 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleCharacterization8984 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleCharacterization8997 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization9018 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleCharacterization9030 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleCharacterization9051 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleCharacterization9063 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleCharacterization9077 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMediation_in_entryRuleMediation9113 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMediation9123 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_62_in_ruleMediation9169 = new BitSet(new long[]{0x0000000100000010L});
+        public static final BitSet FOLLOW_32_in_ruleMediation9182 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation9203 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleMediation9215 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation9236 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleMediation9248 = new BitSet(new long[]{0x0000000000000010L});
+        public static final BitSet FOLLOW_RULE_ID_in_ruleMediation9270 = new BitSet(new long[]{0x0000000100080000L});
+        public static final BitSet FOLLOW_32_in_ruleMediation9283 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation9304 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_33_in_ruleMediation9316 = new BitSet(new long[]{0x1000000000000040L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleMediation9337 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_34_in_ruleMediation9349 = new BitSet(new long[]{0x0000000000080000L});
+        public static final BitSet FOLLOW_19_in_ruleMediation9363 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

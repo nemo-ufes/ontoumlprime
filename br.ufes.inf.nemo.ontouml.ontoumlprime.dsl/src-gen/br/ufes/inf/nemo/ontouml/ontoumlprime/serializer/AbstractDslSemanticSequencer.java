@@ -122,7 +122,23 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 			case PrimeOntoUMLPackage.GENERALIZATION_SET:
 				if(context == grammarAccess.getElementRule() ||
 				   context == grammarAccess.getGeneralizationSetRule()) {
-					sequence_GeneralizationSet(context, (GeneralizationSet) semanticObject); 
+					sequence_AnonymousGeneralizationSet_CompleteGeneralizationSet_GeneralizationSet(context, (GeneralizationSet) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getAnonymousGeneralizationSetRule()) {
+					sequence_AnonymousGeneralizationSet(context, (GeneralizationSet) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getCompleteGeneralizationSetRule()) {
+					sequence_CompleteGeneralizationSet(context, (GeneralizationSet) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getMultipleAnonymousGeneralizationSetRule()) {
+					sequence_MultipleAnonymousGeneralizationSet(context, (GeneralizationSet) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getSingleAnonymousGeneralizationSetRule()) {
+					sequence_SingleAnonymousGeneralizationSet(context, (GeneralizationSet) semanticObject); 
 					return; 
 				}
 				else break;
@@ -288,6 +304,33 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	/**
 	 * Constraint:
 	 *     (
+	 *         (
+	 *             isCovering?='complete'? 
+	 *             name=ID 
+	 *             specializedUniversal=[Universal|ID] 
+	 *             specializingUniversals+=[Universal|ID] 
+	 *             specializingUniversals+=[Universal|ID]*
+	 *         ) | 
+	 *         (specializingUniversals+=[Universal|ID] specializingUniversals+=[Universal|ID]* specializedUniversal=[Universal|ID])
+	 *     )
+	 */
+	protected void sequence_AnonymousGeneralizationSet_CompleteGeneralizationSet_GeneralizationSet(EObject context, GeneralizationSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (specializingUniversals+=[Universal|ID] specializingUniversals+=[Universal|ID]* specializedUniversal=[Universal|ID])
+	 */
+	protected void sequence_AnonymousGeneralizationSet(EObject context, GeneralizationSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (
 	 *         source=[Universal|ID] 
 	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
 	 *         name=ID 
@@ -345,6 +388,21 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
+	 *     (
+	 *         isCovering?='complete'? 
+	 *         name=ID 
+	 *         specializedUniversal=[Universal|ID] 
+	 *         specializingUniversals+=[Universal|ID] 
+	 *         specializingUniversals+=[Universal|ID]*
+	 *     )
+	 */
+	protected void sequence_CompleteGeneralizationSet(EObject context, GeneralizationSet semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID attributes+=DataTypeAttribute attributes+=DataTypeAttribute*)
 	 */
 	protected void sequence_ComplexDataType(EObject context, ComplexDataType semanticObject) {
@@ -384,21 +442,6 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (name=ID enumerationLiterals+=EString enumerationLiterals+=EString*)
 	 */
 	protected void sequence_Enumeration(EObject context, Enumeration semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         isCovering?='complete'? 
-	 *         name=ID 
-	 *         specializedUniversal=[Universal|ID] 
-	 *         specializingUniversals+=[Universal|ID] 
-	 *         specializingUniversals+=[Universal|ID]*
-	 *     )
-	 */
-	protected void sequence_GeneralizationSet(EObject context, GeneralizationSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -462,6 +505,15 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (elements+=Element*)
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (specializingUniversals+=[Universal|ID] specializingUniversals+=[Universal|ID]+ specializedUniversal=[Universal|ID])
+	 */
+	protected void sequence_MultipleAnonymousGeneralizationSet(EObject context, GeneralizationSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -544,6 +596,15 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *     (name=ID characterizedBy+=Characterization*)
 	 */
 	protected void sequence_Role(EObject context, Role semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (specializingUniversals+=[Universal|ID] specializedUniversal=[Universal|ID])
+	 */
+	protected void sequence_SingleAnonymousGeneralizationSet(EObject context, GeneralizationSet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
