@@ -88,13 +88,50 @@ Package returns Package:
 
 
 // complete generalizationSet gender specializes Person into Man, Woman
-GeneralizationSet returns GeneralizationSet:
+// => GeographicalSpace specializes SpatialThing
+// => GeographicalSpace, FooBar specialize SpatialThing
+// => GeographicalSpace specializationOf SpatialThing
+// GeographicalSpace => SpatialThing
+// GeographicalSpace, MultiDimensionalSpace => SpatialThing
+GeneralizationSet :
+	CompleteGeneralizationSet
+	| AnonymousGeneralizationSet
+;
+
+CompleteGeneralizationSet returns GeneralizationSet:
 	(isCovering?='complete')?
 	'GeneralizationSet' name=ID
 	'specializes' specializedUniversal=[Universal|ID]
 	'into' specializingUniversals+=[Universal|ID] ( "," specializingUniversals+=[Universal|ID])* 
 	';'
 ;
+
+AnonymousGeneralizationSet returns GeneralizationSet:
+	specializingUniversals+=[Universal|ID] (
+		(( ',' specializingUniversals+=[Universal|ID])+ ('specialize' | '=>'))
+		|
+		('specializes' | '=>')
+	)
+	specializedUniversal=[Universal|ID]
+	';'
+;
+
+SingleAnonymousGeneralizationSet returns GeneralizationSet:
+	specializingUniversals+=[Universal|ID]
+	('specializes' | '=>')
+	specializedUniversal=[Universal|ID]
+	';'
+;
+
+MultipleAnonymousGeneralizationSet returns GeneralizationSet:
+	specializingUniversals+=[Universal|ID] ( "," specializingUniversals+=[Universal|ID])+
+	('specialize' | '=>')
+	specializedUniversal=[Universal|ID]
+	';'
+;
+
+
+
 
 PrimitiveDataType returns PrimitiveDataType:
 	'PrimitiveDataType' name=ID
