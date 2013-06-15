@@ -22,42 +22,127 @@
 
 -- import the ecore metamodel (generated from xcore in this project).
 
+-- not working, maybe it will work once you export and install the ontoumlprime plugin
+-- is a good idea to move it to a separate plugin ?
+-- import 'http://nemo.inf.ufes.br/ontouml/ontoumlprime'
+
+-- works on the ocl editor
+-- doesnt work when launching the plugin
+-- import 'platform:/plugin/br.ufes.inf.nemo.ontouml.ontoumlprime/model/PrimeOntoUML.ecore'
+
+-- Worked. I think it is only used to resolve types during development (editing of this file)
 import 'platform:/resource/br.ufes.inf.nemo.ontouml.ontoumlprime/model/PrimeOntoUML.ecore'
 
 package PrimeOntoUML
 
--- helper functions
+-- NOTES
+-- SortalClass -> SortalUniversal
+-- SubstanceSortal -> SubstanceSortalUniversal
+
+-- ----------------------------------------------------------------------------
+-- HELPERS
+-- ----------------------------------------------------------------------------
+-- For more info, see: CARRARETTO, pg. 47
+-- ---------------------------------------------------------------------------- 
+context Universal def: asError(verdict : Boolean) : Boolean =
+	if verdict then true else null endif
+
+-- The query parents() gives all of the immediate ancestors of a generalized Classifier.
 context Universal def : parents() : Set(Universal) =
-		self.specializesVia->collect(specializedUniversal)->asSet()
+	self.specializesVia->collect(specializedUniversal)->asSet()
 
--- apparently cannot call parents from allparents, seems to be a limitation of defining them here in a separate OCL file instead
--- of as part of the model
+-- The query allParents() gives all of the direct and indirect ancestors of a generalized Classifier.
 context Universal def : allParents() : Set(Universal) =
-		self.specializesVia->collect(specializedUniversal)->asSet()->union(
-			self.specializesVia->collect(specializedUniversal)->asSet()->collect(p : Universal | p.allParents())
-		)
+	self.specializesVia->collect(specializedUniversal)->asSet()->union(
+		self.specializesVia->collect(specializedUniversal)->asSet()->collect(p : Universal | p.allParents())
+	)
 
--- if parents and allParents were part of the model, they could be defined in this way:
--- context Universal::parents() : Set(Universal)
---		body: self.specializesVia->collect(specializedUniversal)->asSet()
+-- GUIZZARDI, pg 349
+-- Non-sortal cant have instances (Mixins are always abstract)
+context Universal def : isAbstract(target : Universal) : Boolean =
+	target.oclIsKindOf(MixinUniversal)
 
--- context Universal::allParents() : Set(Universal)
---		body: self.parents()->union(self.parents()->collect(p : Universal | p.allParents()))
+-- QUESTION: Is it needed?
+--context Universal def : isObjectClass() : Boolean =
+--	oclIsKindOf(EndurantUniversal) or oclIsKindOf(MixinUniversal)
 
--- invariants
-context Universal inv 
-		mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor('A universal cannot specialize more than one substance sortal universal. This would lead to conflicting identity criteria.'):
---		asError(
-			allParents()->select(x : Universal | x.oclIsKindOf(SubstanceSortalUniversal))->size() <= 1
---		)
+-- ============================================================================
+-- INVARIANTS
+-- ----------------------------------------------------------------------------
+-- For more info, see: CARRARETTO, pg. 47
+-- ============================================================================
+
+-- For debugging purposes
+context SubKind
+	inv dogma('A subkind is invalid'):
+	asError(false)
+
+context Universal
+	inv mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor('A universal cannot specialize more than one substance sortal universal. This would lead to conflicting identity criteria.'):
+	allParents()->select(x : Universal | x.oclIsKindOf(SubstanceSortalUniversal))->size() <= 1
+ 
+
+-- ----------------------------------------------------------------------------
+-- GUIZZARDI pg 317
+-- ----------------------------------------------------------------------------
+
+-- Substance Sortal, Constraint 1
+context SortalUniversal
+	inv ConcreteSortalHasSubstanceSortalAncestor('Every non-abstract Sortal must have a Substance Sortal ancestor (or be a Substance Sortal)'):
+	not isAbstract(self) and not oclIsKindOf(SubstanceSortalUniversal) implies
+		self.allParents()->exists( x | x.oclIsKindOf(SubstanceSortalUniversal) )
+
+-- Substance Sortal, Constraint 2
+context SubstanceSortalUniversal
+	inv SubstanceSortalDoesNotSpecializeRigidSortal('A Substance Sortal cannot have a Rigid Sortal parent'):
+--	 self.parents()->select( x | x.oclIsKindOf(RigidSortalUniversal) )->isEmpty()
+	not self.parents()->exists( x | x.oclIsKindOf(RigidSortalUniversal) )
+
+-- Substance Sortal, Constraint 3
+-- ??
+
+context RigidSortalUniversal
+	inv RigidSortalDoesNotSpecializeAntiRigid('A Rigid Sortal cannot have an Anti-Rigid parent (Role, Phase and RoleMixin)') :
+--	parents()->select( x | x.oclIsKindOf(AntiRigidSortalUniversal) or x.oclIsKindOf(AntiRigidMixinUniversal) )->isEmpty()
+	not parents()->exists( x | x.oclIsKindOf(AntiRigidSortalUniversal) or x.oclIsKindOf(AntiRigidMixinUniversal) )
+
+context MixinUniversal
+	inv MixinClassDoesNotSpecializeSortalClass('A Mixin Class (Category, Mixin, RoleMixin) cannot have a Sortal parent (Kind, Quantity, Collective, SubKind, Phase, Role)') :
+--	parents()->select( x | x.oclIsKindOf(SortalUniversal) )->isEmpty()
+	not parents()->exists( x | x.oclIsKindOf(SortalUniversal) )
+
+
+context Category
+	inv CategoryDoesNotSpecializeRoleMixin('A Category cannot have a Role Mixin parent') :
+--	self.parents()->select( x | x.oclIsTypeOf(RoleMixin) )->isEmpty()
+	not self.parents()->exists( x | x.oclIsTypeOf(RoleMixin) )
+ 
+-- QUESTION: Is it needed? A GeneralizationSet is restricted to Universals. Which universals cant be	 part of a generalization?
+--context GeneralizationSet
+--	inv ObjectClassSpecializesObjectClass('An Object Class only participates in a Generalization with another Object Class') :
+--	(self.specializedUniversal.isObjectClass() implies self.specializingUniversals->forAll(x | x.isObjectClass()))
+--	and
+--	(self.specializingUniversals->exists(x | x.isObjectClass()) implies self.specializedUniversal.isObjectClass() )
+
+
+
+--context Mediation inv
+--	MediationConstraint1('The source must be a Relator'):
+--	relator().oclIsKindOf(Relator)
+--
+--inv MediationConstraint2('The mediated end minimum cardinality must be greater or equal to 1'):
+--mediatedEnd().lower >= 1
+
+
+--	context Characterization
+--			inv CharacterizationConstraint1('The source must be an IntrinsicMoment'):
+--				characterizing().oclIsKindOf(IntrinsicMomentClass)
+--			inv CharacterizationConstraint2('The characterized end cardinality is exactly one'):
+--				characterizedEnd().lower = 1 and characterizedEnd().upper = 1
 
 
 -- if an OCL invariant returns null, it is treated as an Error by Eclipse (during Validation)
 -- if it returns false, it is treated as a Warning
 
--- I think this asError could be useful in 
---def: asError(verdict : Boolean) : Boolean =
---		if verdict then true else null endif
 
 endpackage
-
