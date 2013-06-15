@@ -108,9 +108,9 @@
     </genClasses>
     <genClasses image="false" ecoreClass="PrimeOntoUML.ecore#//BinaryDirectedRelationship">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceEndName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetEndName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceLowerBound"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/sourceUpperBound"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetEndName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetLowerBound"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PrimeOntoUML.ecore#//BinaryDirectedRelationship/targetUpperBound"/>
     </genClasses>

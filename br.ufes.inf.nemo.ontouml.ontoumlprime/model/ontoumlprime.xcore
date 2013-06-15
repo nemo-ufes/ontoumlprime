@@ -110,8 +110,10 @@ class GeneralizationSet extends NamedElement, PackageableElement
 	// isDijoint has been removed, use different GeneralizationSets if necessary to represent disjointNess
 
 	refers local Universal[1] specializedUniversal opposite isSpecializedVia
+
 	// here we diverge from UML, which refers to Generalizations from a GeneralizationSet
 	refers local unordered unique Universal[1..*] specializingUniversals opposite specializesVia
+
 	// @TODO: add constraints for universals of the same metaclass
 	// @TODO: refers HigherOrderUniversal[0..1] powertype
 }
@@ -194,11 +196,13 @@ abstract class EndurantUniversal extends Universal {
 }
 
 abstract class ExternallyDependentUniversal {
+	// QUESTION: Why is it required?
 	refers Mediation[1] mediation opposite target
+
 	// should be derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13 instead 
 	// An opposite reference within the same resource can be modeled through a read-only derived property which traverses the model and looks for the incoming reference.
 	// A cross-resource, bidirectional reference has to be explicit (i.e. non transitive) on both sides.
-	
+
 	// I've detected this because
 	// the xtext editor that implements this forces us to specify this manually the opposite relation
 	// but mediations are not named. Making this derived should solve this.. but have to check later in Xtext
@@ -246,12 +250,14 @@ class RelatorUniversal extends MomentUniversal
 
 abstract class BinaryDirectedRelationship
 {
-	String sourceEndName		// names for the association ends
-	String targetEndName		// names for the association ends
-	int[1] sourceLowerBound 
+	String sourceEndName
+	int[1] sourceLowerBound
 	int[1] sourceUpperBound
+
+	String targetEndName
 	int[1] targetLowerBound
 	int[1] targetUpperBound
+
 	// source and target are specified in specializations of this class
 	// by doing this, the typing contraints can be directly specified in the metamodel (in metaclasses
 	// that specialize this abstract metaclass), making some constraints unnecessary
@@ -290,6 +296,7 @@ class Mediation extends BinaryDirectedRelationship
 {
 	container RelatorUniversal[1] source opposite mediations
 	refers ExternallyDependentUniversal[1] target opposite mediation
+
 	// check source and target direction for correspondence to Roberto's metamodel to facilitate 
 	// transformations
 }
@@ -301,6 +308,9 @@ class Characterization extends BinaryDirectedRelationship
 //	TODO contraints int sourceLowerBound must be one
 //	TODO constraints int sourceUpperBound must be one	
 }
+
+// QUESTION: Why is Derivation missing?
+// Because it is implicit and should automatically be created for every (MaterialAssiciation, RelatorUniversal) pair?
 
 abstract class IntrinsicMomentUniversal extends MomentUniversal {
 	refers Characterization[1] characterization opposite target
@@ -320,7 +330,7 @@ class QualityUniversal extends IntrinsicMomentUniversal
 ///////////////////////////////////////////////////////////////////////////////
 /// some advance stuff being considered, really work in progress
 
-
+//QUESTION: Why does it have multiple source bounds it there is only 1 source (derivedFrom) 
 class nAryMaterialRelation extends NamedElement, PackageableElement
 {
 	refers RelatorUniversal[1] derivedFrom
