@@ -48,23 +48,117 @@ context Universal def: asError(verdict : Boolean) : Boolean =
 	if verdict then true else null endif
 
 -- The query parents() gives all of the immediate ancestors of a generalized Classifier.
-context Universal def : parents() : Set(Universal) =
+context Universal
+	def : parents() : Set(Universal) =
 	self.specializesVia->collect(specializedUniversal)->asSet()
 
 -- The query allParents() gives all of the direct and indirect ancestors of a generalized Classifier.
-context Universal def : allParents() : Set(Universal) =
+context Universal
+	def : allParents() : Set(Universal) =
 	self.specializesVia->collect(specializedUniversal)->asSet()->union(
 		self.specializesVia->collect(specializedUniversal)->asSet()->collect(p : Universal | p.allParents())
 	)
 
 -- GUIZZARDI, pg 349
 -- Non-sortal cant have instances (Mixins are always abstract)
-context Universal def : isAbstract(target : Universal) : Boolean =
+context Universal
+	def : isAbstract(target : Universal) : Boolean =
 	target.oclIsKindOf(MixinUniversal)
 
 -- QUESTION: Is it needed?
 --context Universal def : isObjectClass() : Boolean =
 --	oclIsKindOf(EndurantUniversal) or oclIsKindOf(MixinUniversal)
+
+context Universal
+	def : isConnectedDirectlyOrIndirectlyTo(target : Universal) : Boolean =
+	self.allParents()->including(self)->includes(target)
+
+-- Duplicated only because ExternallyDependentUniversal is not an Universal
+-- Can go wrong because allParents() : Set(Universal) and target is not an Universal :S
+context Universal
+	def : isConnectedDirectlyOrIndirectlyTo(target : ExternallyDependentUniversal) : Boolean =
+	self.allParents()->including(self)->includes(target)
+
+
+context Universal
+	def : hasKindAncestor() : Boolean =
+	allParents()->including(self)->exists ( x | x.oclIsKindOf(Kind) )
+
+context Universal
+	def : hasQuantityAncestor() : Boolean =
+	allParents()->including(self)->exists ( x | x.oclIsKindOf(QuantityUniversal) )
+
+context Universal
+	def : hasCollectiveAncestor() : Boolean =
+	allParents()->including(self)->exists ( x | x.oclIsKindOf (CollectiveUniversal) )
+
+context Universal
+	def : offspringFrom(universals : Set(Universal)) : Set(Universal) =
+	universals->select(x | x.allParents()->includes(self) )
+
+--context Universal
+--	def : offspringOf(universals : Set(Universal)) : Set(Universal) =
+--	universals->select(x | x.allParents()->includes(self) )
+
+context Universal
+	def : AllObjectClass() : Set(Universal) =
+	let s : Set(Universal) = Set{}
+	in s->union(EndurantUniversal.allInstances())->union(MixinUniversal.allInstances())
+
+context Universal
+	def : hasKindOffspring () : Boolean =
+	self.offspringFrom(AllObjectClass())->forAll(
+		y | not y.hasQuantityAncestor() and not y.hasCollectiveAncestor()
+	)
+
+context Universal
+	def : hasQuantityOffspring() : Boolean =
+	self.offspringFrom(AllObjectClass())->forAll(
+		y | not y.hasKindAncestor() and not y.hasCollectiveAncestor()
+	)
+
+context Universal
+	def : hasCollectiveOffspring() : Boolean =
+	self.offspringFrom(AllObjectClass())->forAll(
+		y | not y.hasKindAncestor() and not y.hasQuantityAncestor()
+	)
+
+context Universal
+	def : hasFunctionalComplexInstances() : Boolean =
+	if oclIsKindOf(SortalUniversal) then
+		hasKindAncestor()
+	else
+		if oclIsKindOf(MixinUniversal) then
+			hasKindOffspring()
+		else
+			false
+		endif
+	endif
+
+context Universal
+	def : hasQuantityInstances() : Boolean =
+	if oclIsKindOf(SortalUniversal) then
+		hasQuantityAncestor()
+	else
+		if oclIsKindOf (MixinUniversal) then
+			hasQuantityOffspring()
+		else
+			false
+		endif
+	endif
+
+context Universal
+	def : hasCollectiveInstances() : Boolean =
+	if oclIsKindOf(SortalUniversal) then
+		hasCollectiveAncestor()
+	else
+		if oclIsKindOf (MixinUniversal) then
+			hasCollectiveOffspring()
+		else
+			false
+		endif
+	endif
+
 
 -- ============================================================================
 -- INVARIANTS
@@ -111,38 +205,93 @@ context MixinUniversal
 --	parents()->select( x | x.oclIsKindOf(SortalUniversal) )->isEmpty()
 	not parents()->exists( x | x.oclIsKindOf(SortalUniversal) )
 
-
 context Category
 	inv CategoryDoesNotSpecializeRoleMixin('A Category cannot have a Role Mixin parent') :
 --	self.parents()->select( x | x.oclIsTypeOf(RoleMixin) )->isEmpty()
 	not self.parents()->exists( x | x.oclIsTypeOf(RoleMixin) )
  
--- QUESTION: Is it needed? A GeneralizationSet is restricted to Universals. Which universals cant be	 part of a generalization?
+-- QUESTION: Is it needed? A GeneralizationSet is restricted to Universals. Which universals cant be part of a generalization?
 --context GeneralizationSet
 --	inv ObjectClassSpecializesObjectClass('An Object Class only participates in a Generalization with another Object Class') :
 --	(self.specializedUniversal.isObjectClass() implies self.specializingUniversals->forAll(x | x.isObjectClass()))
 --	and
 --	(self.specializingUniversals->exists(x | x.isObjectClass()) implies self.specializedUniversal.isObjectClass() )
 
+context Characterization
+	inv CharacterizationsTargetCardinality('The Characterized end cardinality is exactly one.') :
+	self.sourceLowerBound = 1 and self.sourceUpperBound = 1
 
+-- Derivation is missing
+-- context Derivation
+-- 	inv DerivationsTargetCardinality('The Relator end cardinality is exactly one') :
+-- 	self.sourceLowerBound = 1 and self.sourceUpperBound = 1
 
---context Mediation inv
---	MediationConstraint1('The source must be a Relator'):
---	relator().oclIsKindOf(Relator)
---
---inv MediationConstraint2('The mediated end minimum cardinality must be greater or equal to 1'):
---mediatedEnd().lower >= 1
+-- QUESTION: In which case would it be connected indirectly to a Mediation?
+context RelatorUniversal
+	inv RelatorAndMediation1('A Relator must be connected (directly or indirectly) to a Mediation') :
+	Mediation.allInstances()->exists(x | isConnectedDirectlyOrIndirectlyTo(x.source))
 
+context RelatorUniversal
+	inv RelatorAndMediation2('The sum of the minimum cardinalities of the mediated ends must be greater or equal to 2') :
+	Mediation.allInstances()->select(x | isConnectedDirectlyOrIndirectlyTo(x.source))->collect(y | y.targetLowerBound)->sum() >= 2
 
---	context Characterization
---			inv CharacterizationConstraint1('The source must be an IntrinsicMoment'):
---				characterizing().oclIsKindOf(IntrinsicMomentClass)
---			inv CharacterizationConstraint2('The characterized end cardinality is exactly one'):
---				characterizedEnd().lower = 1 and characterizedEnd().upper = 1
+context Role
+	inv RoleAndMediation('A Role must be connected (directly or indirectly) to a Mediation') :
+	Mediation.allInstances()->exists(x | isConnectedDirectlyOrIndirectlyTo(x.target) )
 
+context RoleMixin
+	inv RoleMixinAndMediation('A RoleMixin must be connected (directly or indirectly) to a Mediation') :
+	Mediation.allInstances()->exists(x | isConnectedDirectlyOrIndirectlyTo(x.target) )
 
--- if an OCL invariant returns null, it is treated as an Error by Eclipse (during Validation)
--- if it returns false, it is treated as a Warning
+-- QUESTION: Is it assured by the cardinality of InstrinsicMomentUniversal#characterization?
+-- What about the "indirectly connected" case? 
+context ModeUniversal
+	inv ModeAndCharacterization('A Mode must be connected (directly or indirectly) to a Characterization') :
+	Characterization.allInstances()->exists( x | isConnectedDirectlyOrIndirectlyTo(x.target) )
 
+-- QUESTION: Why is Derivation missing?
+--context BinaryMaterialRelation
+--	inv BinaryMaterialRelationAndDerivation('Every Material Association must be connected to exactly one Derivation') :
+--	Derivation.allInstances()->one( x | x.material() = self )
+
+context MeronymicRelation
+	inv WeakSupplementation('The sum of the minimum cardinalities of the part ends must be greater or equal to 2') :
+	MeronymicRelation.allInstances()->select( x | x.whole = self.whole )->collect( y | y.targetLowerBound )->sum() >= 2
+
+context CollectiveUniversal
+	inv ExtensionalCollective('All the parts of an extensional Collective are essential') :
+	isExtensional implies MeronymicRelation.allInstances()->forAll( x | x.whole = self implies x.partIsEssential )
+
+context ComponentOfRelation
+	inv ComponentOfRelata1('ComponentOf relates individuals that are functional complexes: whole is not functional complex') :
+	whole.hasFunctionalComplexInstances()
+
+context ComponentOfRelation
+	inv ComponentOfRelata2('ComponentOf relates individuals that are functional complexes: part is not functional complex'):
+	part.hasFunctionalComplexInstances()
+
+context SubQuantityRelation
+	inv SubQuantityRelata1('SubQuantityOf relates individuals that are quantities: whole is not a quantity') :
+	whole.hasFunctionalComplexInstances()
+
+context SubQuantityRelation
+	inv SubQuantityRelata2('SubQuantityOf relates individuals that are quantities: part is not a quantity'):
+	part.hasFunctionalComplexInstances()
+
+context SubCollectionRelation
+	inv SubCollectionRelata1('SubCollectionOf relates individuals that are collectives: whole is not a collective') :
+	whole.hasCollectiveInstances()
+
+context SubCollectionRelation
+	inv SubCollectionRelata2('SubCollectionOf relates individuals that are collectives: part is not a collective'):
+	part.hasCollectiveInstances()
+
+context MembershipRelation
+	inv MembershipRelata1('MemberOf relates individuals that are functional complexes or collectives as parts of individuals that are collectives: whole is not a collective') :
+	whole.hasCollectiveInstances()
+
+context MembershipRelation
+	inv MembershipRelata2('MemberOf relates individuals that are functional complexes or collectives as parts of individuals that are collectives: part is neither a collective or functional complex'):
+	part.hasCollectiveInstances() or part.hasFunctionalComplexInstances()
 
 endpackage
