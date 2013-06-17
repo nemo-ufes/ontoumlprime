@@ -2,7 +2,6 @@
  */
 package br.ufes.inf.nemo.ontouml.PrimeOntoUML;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ExternallyDependentUniversal extends EObject
+public interface ExternallyDependentUniversal extends NamedElement, PackageableElement
 {
   /**
    * Returns the value of the '<em><b>Mediation</b></em>' reference.

@@ -3,6 +3,7 @@
 package br.ufes.inf.nemo.ontouml.PrimeOntoUML.provider;
 
 
+import br.ufes.inf.nemo.ontouml.PrimeOntoUML.ExternallyDependentUniversal;
 import br.ufes.inf.nemo.ontouml.PrimeOntoUML.PrimeOntoUMLPackage;
 
 import java.util.Collection;
@@ -29,7 +30,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class ExternallyDependentUniversalItemProvider
-  extends ItemProviderAdapter
+  extends NamedElementItemProvider
   implements
     IEditingDomainItemProvider,
     IStructuredItemContentProvider,
@@ -98,7 +99,10 @@ public class ExternallyDependentUniversalItemProvider
   @Override
   public String getText(Object object)
   {
-    return getString("_UI_ExternallyDependentUniversal_type");
+    String label = ((ExternallyDependentUniversal)object).getName();
+    return label == null || label.length() == 0 ?
+      getString("_UI_ExternallyDependentUniversal_type") :
+      getString("_UI_ExternallyDependentUniversal_type") + " " + label;
   }
 
   /**
@@ -126,18 +130,6 @@ public class ExternallyDependentUniversalItemProvider
   protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object)
   {
     super.collectNewChildDescriptors(newChildDescriptors, object);
-  }
-
-  /**
-   * Return the resource locator for this item provider's resources.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public ResourceLocator getResourceLocator()
-  {
-    return PrimeOntoUMLEditPlugin.INSTANCE;
   }
 
 }

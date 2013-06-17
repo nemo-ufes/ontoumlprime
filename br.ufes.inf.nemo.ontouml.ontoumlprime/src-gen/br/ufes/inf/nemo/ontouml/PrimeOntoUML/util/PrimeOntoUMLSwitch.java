@@ -316,6 +316,9 @@ public class PrimeOntoUMLSwitch<T> extends Switch<T>
       {
         ExternallyDependentUniversal externallyDependentUniversal = (ExternallyDependentUniversal)theEObject;
         T result = caseExternallyDependentUniversal(externallyDependentUniversal);
+        if (result == null) result = caseNamedElement(externallyDependentUniversal);
+        if (result == null) result = casePackageableElement(externallyDependentUniversal);
+        if (result == null) result = caseElement(externallyDependentUniversal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

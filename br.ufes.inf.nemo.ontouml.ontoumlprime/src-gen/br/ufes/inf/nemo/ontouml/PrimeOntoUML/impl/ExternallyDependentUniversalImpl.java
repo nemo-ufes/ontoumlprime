@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ExternallyDependentUniversalImpl extends MinimalEObjectImpl.Container implements ExternallyDependentUniversal
+public abstract class ExternallyDependentUniversalImpl extends NamedElementImpl implements ExternallyDependentUniversal
 {
   /**
    * The cached value of the '{@link #getMediation() <em>Mediation</em>}' reference.

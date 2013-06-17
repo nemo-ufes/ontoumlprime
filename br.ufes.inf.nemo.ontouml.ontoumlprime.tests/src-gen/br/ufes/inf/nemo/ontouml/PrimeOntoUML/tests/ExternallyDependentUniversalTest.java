@@ -12,16 +12,8 @@ import junit.framework.TestCase;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ExternallyDependentUniversalTest extends TestCase
+public abstract class ExternallyDependentUniversalTest extends NamedElementTest
 {
-
-  /**
-   * The fixture for this Externally Dependent Universal test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected ExternallyDependentUniversal fixture = null;
 
   /**
    * Constructs a new Externally Dependent Universal test case with the given name.
@@ -35,25 +27,15 @@ public abstract class ExternallyDependentUniversalTest extends TestCase
   }
 
   /**
-   * Sets the fixture for this Externally Dependent Universal test case.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  protected void setFixture(ExternallyDependentUniversal fixture)
-  {
-    this.fixture = fixture;
-  }
-
-  /**
    * Returns the fixture for this Externally Dependent Universal test case.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
   protected ExternallyDependentUniversal getFixture()
   {
-    return fixture;
+    return (ExternallyDependentUniversal)fixture;
   }
 
 } //ExternallyDependentUniversalTest

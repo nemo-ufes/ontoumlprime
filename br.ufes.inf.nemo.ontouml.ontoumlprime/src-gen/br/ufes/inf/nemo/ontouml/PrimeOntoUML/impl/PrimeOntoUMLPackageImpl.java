@@ -1753,6 +1753,8 @@ public class PrimeOntoUMLPackageImpl extends EPackageImpl implements PrimeOntoUM
     subCollectionRelationEClass.getESuperTypes().add(this.getMeronymicRelation());
     subQuantityRelationEClass.getESuperTypes().add(this.getMeronymicRelation());
     endurantUniversalEClass.getESuperTypes().add(this.getUniversal());
+    externallyDependentUniversalEClass.getESuperTypes().add(this.getNamedElement());
+    externallyDependentUniversalEClass.getESuperTypes().add(this.getPackageableElement());
     substantialUniversalEClass.getESuperTypes().add(this.getEndurantUniversal());
     sortalUniversalEClass.getESuperTypes().add(this.getSubstantialUniversal());
     rigidSortalUniversalEClass.getESuperTypes().add(this.getSortalUniversal());

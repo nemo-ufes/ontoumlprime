@@ -1376,13 +1376,22 @@ public interface PrimeOntoUMLPackage extends EPackage
   int EXTERNALLY_DEPENDENT_UNIVERSAL = 19;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXTERNALLY_DEPENDENT_UNIVERSAL__NAME = NAMED_ELEMENT__NAME;
+
+  /**
    * The feature id for the '<em><b>Mediation</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION = 0;
+  int EXTERNALLY_DEPENDENT_UNIVERSAL__MEDIATION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Externally Dependent Universal</em>' class.
@@ -1391,7 +1400,7 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNALLY_DEPENDENT_UNIVERSAL_FEATURE_COUNT = 1;
+  int EXTERNALLY_DEPENDENT_UNIVERSAL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The number of operations of the '<em>Externally Dependent Universal</em>' class.
@@ -1400,7 +1409,7 @@ public interface PrimeOntoUMLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXTERNALLY_DEPENDENT_UNIVERSAL_OPERATION_COUNT = 0;
+  int EXTERNALLY_DEPENDENT_UNIVERSAL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
   /**
    * The meta object id for the '{@link br.ufes.inf.nemo.ontouml.PrimeOntoUML.impl.SubstantialUniversalImpl <em>Substantial Universal</em>}' class.
