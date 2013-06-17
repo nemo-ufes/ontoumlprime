@@ -163,14 +163,15 @@ class Enumeration extends UserDefinedDataType
 
 abstract class MeronymicRelation extends PackageableElement, BinaryDirectedRelationship
 {
-	refers SubstantialUniversal[1] whole // acts as source of the Association
-	refers SubstantialUniversal[1] part  // acts as target of the Association
+	refers SubstantialUniversal[1] whole // SOURCE
+	refers SubstantialUniversal[1] part  // TARGET
+
 	// FIXME this is too permissive
-	
 	boolean[1] partIsEssential	// default false
 	boolean[1] partIsInseparable	// default false 
 	boolean[1] partIsShareable	// default true
 	boolean[1] partIsImmutable	// default false
+
 	//derived boolean partIsMandatory get { targetLowerBound>=1 }
 }
 
@@ -294,7 +295,10 @@ class BinaryFormalRelation extends BinaryDirectedRelationship, NamedElement, Pac
 
 class Mediation extends BinaryDirectedRelationship
 {
+	// source -> relator
 	container RelatorUniversal[1] source opposite mediations
+
+	//target -> mediated
 	refers ExternallyDependentUniversal[1] target opposite mediation
 
 	// check source and target direction for correspondence to Roberto's metamodel to facilitate 
@@ -305,14 +309,16 @@ class Characterization extends BinaryDirectedRelationship
 {
 	container EndurantUniversal[1] source opposite characterizedBy 
 	refers IntrinsicMomentUniversal[1] target opposite characterization
+
 //	TODO contraints int sourceLowerBound must be one
 //	TODO constraints int sourceUpperBound must be one	
 }
 
 // QUESTION: Why is Derivation missing?
-// Because it is implicit and should automatically be created for every (MaterialAssiciation, RelatorUniversal) pair?
+// Is it because it should be implicit and automatically created for every (MaterialAssiciation, RelatorUniversal) pair?
 
 abstract class IntrinsicMomentUniversal extends MomentUniversal {
+	// QUESTION: This cardinality is conflicting with the constraint "A Mode must be connected (directly or indirectly) to a Characterization", isn't it?
 	refers Characterization[1] characterization opposite target
 	// should be derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13 instead 
 }
@@ -330,7 +336,7 @@ class QualityUniversal extends IntrinsicMomentUniversal
 ///////////////////////////////////////////////////////////////////////////////
 /// some advance stuff being considered, really work in progress
 
-//QUESTION: Why does it have multiple source bounds it there is only 1 source (derivedFrom) 
+//QUESTION: Why does it have multiple source bounds if there is only 1 source (derivedFrom)
 class nAryMaterialRelation extends NamedElement, PackageableElement
 {
 	refers RelatorUniversal[1] derivedFrom
