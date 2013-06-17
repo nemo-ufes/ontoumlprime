@@ -196,7 +196,8 @@ abstract class EndurantUniversal extends Universal {
 
 }
 
-abstract class ExternallyDependentUniversal {
+// QUESTION: Why isn't it an Universal?
+abstract class ExternallyDependentUniversal extends NamedElement, PackageableElement {
 	// QUESTION: Why is it required?
 	refers Mediation[1] mediation opposite target
 
@@ -323,9 +324,7 @@ abstract class IntrinsicMomentUniversal extends MomentUniversal {
 	// should be derived https://bugs.eclipse.org/bugs/show_bug.cgi?id=282486#c13 instead 
 }
 
-class ModeUniversal extends IntrinsicMomentUniversal {
-
-}
+class ModeUniversal extends IntrinsicMomentUniversal { }
 
 class QualityUniversal extends IntrinsicMomentUniversal 
 {
