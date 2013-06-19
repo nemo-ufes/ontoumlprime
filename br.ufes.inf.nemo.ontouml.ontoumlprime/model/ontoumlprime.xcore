@@ -275,16 +275,16 @@ abstract class BinaryDirectedRelationship
 class BinaryMaterialRelation extends BinaryDirectedRelationship, NamedElement, PackageableElement
 {
 	refers RelatorUniversal[1] derivedFrom
-	refers ExternallyDependentUniversal[1] source 
-	refers ExternallyDependentUniversal[1] target  
+	refers ExternallyDependentUniversal[1] source
+	refers ExternallyDependentUniversal[1] target 
+
 	// TODO: cardinality constraints are derived
 	// TODO: typing constraints for source and target based on the relation universal
-	
+
 	// should also be a set, even if there are two relators relating the same entities, there
 	// should not be two material relations between the same entities... the tuples are identical
 	// e.g., you should not say that there are two "student at" relations between "Student" and
 	// "University" even if there are two "Enrollments".
-
 }
 
 

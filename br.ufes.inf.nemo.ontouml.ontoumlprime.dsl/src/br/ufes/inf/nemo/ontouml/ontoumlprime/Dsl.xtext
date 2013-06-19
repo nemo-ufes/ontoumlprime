@@ -76,7 +76,8 @@ DataType returns DataType:
 // Only to scope solving
 IntrinsicMomentUniversal returns IntrinsicMomentUniversal:
 	ModeUniversal
-	| QualityUniversal;
+	| QualityUniversal
+;
 
 Package returns Package:
 	{Package}
