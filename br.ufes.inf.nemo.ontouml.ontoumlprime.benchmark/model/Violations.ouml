@@ -1,35 +1,60 @@
+//General Stuff
+Kind aKind {}
+Role aRole { }
+aRole => aKind;
+
+RelatorUniversal aRelator {
+	mediates aRole[1..2];
+	mediates aRoleMixin[1..2];
+}
+
+RoleMixin aRoleMixin { }
+SubKind aSubKind { }
+
 // mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor
 Kind GrandParent {}
 Kind Parent {}
-Kind Child {}
-
-GeneralizationSet A specializes GrandParent into Parent;
-GeneralizationSet B specializes Parent into Child;
+Kind mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor {}
+Parent => GrandParent;
+mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor => Parent;
 
 // ConcreteSortalHasSubstanceSortalAncestor
-Role Foo {}
+Role ConcreteSortalHasSubstanceSortalAncestor {}
 
 // SubstanceSortalDoesNotSpecializeRigidSortal
-SubKind SubKindFoo {}
 Kind KindFoo {}
-GeneralizationSet D specializes SubKindFoo into KindFoo;
-// KindFoo specializes SubKindFoo; // Anonymous generalization
-
+KindFoo => aSubKind;
 
 // RigidSortalDoesNotSpecializeAntiRigid
 SubKind SubKindFoo3 {}
 Role RoleFoo2 {}
-GeneralizationSet E specializes RoleFoo2 into SubKindFoo3;
+SubKindFoo3 => RoleFoo2;
 
 // MixinClassDoesNotSpecializeSortalClass
-Kind KindFoo2 {}
 Mixin MixinFoo {}
-GeneralizationSet F specializes KindFoo2 into MixinFoo;
+MixinFoo => aKind;
 
 
 // CategoryDoesNotSpecializeRoleMixin
-Category CatFoo {}
-RoleMixin RoleMixinFoo {}
-GeneralizationSet G specializes RoleMixinFoo into CatFoo;
+Category CategoryDoesNotSpecializeRoleMixin {}
+CategoryDoesNotSpecializeRoleMixin => aRoleMixin;
 
-// 
+// CharacterizationsTargetCardinality
+RelatorUniversal aRelator { mediates CharacterizationsTargetCardinality[2..2]; }
+ModeUniversal Symptom {}
+Role CharacterizationsTargetCardinality {
+	[0..2] characterizedBy Symptom [1..9];
+}
+CharacterizationsTargetCardinality => aKind;
+
+//RelatorAndMediation1
+RelatorUniversal RelatorAndMediation1 { }
+aRelator => aKind;
+
+// RelatorAndMediation2
+
+// PhasePartition
+Kind Person {}
+Phase ChildHood {}
+Phase Teen {}
+GeneralizationSet LifePhases specializes Person into ChildHood, Teen;
