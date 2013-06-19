@@ -35,15 +35,20 @@ import 'platform:/resource/br.ufes.inf.nemo.ontouml.ontoumlprime/model/PrimeOnto
 
 package PrimeOntoUML
 
--- NOTES
--- SortalClass -> SortalUniversal
--- SubstanceSortal -> SubstanceSortalUniversal
-
 -- ----------------------------------------------------------------------------
 -- HELPERS
 -- ----------------------------------------------------------------------------
 -- For more info, see: CARRARETTO, pg. 47
 -- ---------------------------------------------------------------------------- 
+context Element
+	def : offspringFrom(universals : Set(Universal)) : Set(Universal) =
+	universals->select(x | x.allParents()->includes(self) )
+
+context Element
+	def : AllObjectClass() : Set(Universal) =
+	let s : Set(Universal) = Set{}
+	in s->union(EndurantUniversal.allInstances())->union(MixinUniversal.allInstances())
+
 context Universal def: asError(verdict : Boolean) : Boolean =
 	if verdict then true else null endif
 
@@ -64,10 +69,6 @@ context Universal
 context Universal
 	def : isAbstract(target : Universal) : Boolean =
 	target.oclIsKindOf(MixinUniversal)
-
--- QUESTION: Is it needed?
---context Universal def : isObjectClass() : Boolean =
---	oclIsKindOf(EndurantUniversal) or oclIsKindOf(MixinUniversal)
 
 context Universal
 	def : isConnectedDirectlyOrIndirectlyTo(target : Universal) : Boolean =
@@ -91,19 +92,6 @@ context Universal
 context Universal
 	def : hasCollectiveAncestor() : Boolean =
 	allParents()->including(self)->exists ( x | x.oclIsKindOf (CollectiveUniversal) )
-
-context Universal
-	def : offspringFrom(universals : Set(Universal)) : Set(Universal) =
-	universals->select(x | x.allParents()->includes(self) )
-
---context Universal
---	def : offspringOf(universals : Set(Universal)) : Set(Universal) =
---	universals->select(x | x.allParents()->includes(self) )
-
-context Universal
-	def : AllObjectClass() : Set(Universal) =
-	let s : Set(Universal) = Set{}
-	in s->union(EndurantUniversal.allInstances())->union(MixinUniversal.allInstances())
 
 context Universal
 	def : hasKindOffspring () : Boolean =
@@ -167,14 +155,13 @@ context Universal
 -- ============================================================================
 
 -- For debugging purposes
-context SubKind
-	inv dogma('A subkind is invalid'):
-	asError(false)
+--context SubKind
+--	inv dogma('A subkind is invalid'):
+--	asError(false)
 
 context Universal
 	inv mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor('A universal cannot specialize more than one substance sortal universal. This would lead to conflicting identity criteria.'):
 	allParents()->select(x : Universal | x.oclIsKindOf(SubstanceSortalUniversal))->size() <= 1
- 
 
 -- ----------------------------------------------------------------------------
 -- GUIZZARDI pg 317
@@ -189,7 +176,6 @@ context SortalUniversal
 -- Substance Sortal, Constraint 2
 context SubstanceSortalUniversal
 	inv SubstanceSortalDoesNotSpecializeRigidSortal('A Substance Sortal cannot have a Rigid Sortal parent'):
---	 self.parents()->select( x | x.oclIsKindOf(RigidSortalUniversal) )->isEmpty()
 	not self.parents()->exists( x | x.oclIsKindOf(RigidSortalUniversal) )
 
 -- Substance Sortal, Constraint 3
@@ -197,17 +183,14 @@ context SubstanceSortalUniversal
 
 context RigidSortalUniversal
 	inv RigidSortalDoesNotSpecializeAntiRigid('A Rigid Sortal cannot have an Anti-Rigid parent (Role, Phase and RoleMixin)') :
---	parents()->select( x | x.oclIsKindOf(AntiRigidSortalUniversal) or x.oclIsKindOf(AntiRigidMixinUniversal) )->isEmpty()
 	not parents()->exists( x | x.oclIsKindOf(AntiRigidSortalUniversal) or x.oclIsKindOf(AntiRigidMixinUniversal) )
 
 context MixinUniversal
 	inv MixinClassDoesNotSpecializeSortalClass('A Mixin Class (Category, Mixin, RoleMixin) cannot have a Sortal parent (Kind, Quantity, Collective, SubKind, Phase, Role)') :
---	parents()->select( x | x.oclIsKindOf(SortalUniversal) )->isEmpty()
 	not parents()->exists( x | x.oclIsKindOf(SortalUniversal) )
 
 context Category
 	inv CategoryDoesNotSpecializeRoleMixin('A Category cannot have a Role Mixin parent') :
---	self.parents()->select( x | x.oclIsTypeOf(RoleMixin) )->isEmpty()
 	not self.parents()->exists( x | x.oclIsTypeOf(RoleMixin) )
  
 -- QUESTION: Is it needed? A GeneralizationSet is restricted to Universals. Which universals cant be part of a generalization?
@@ -218,7 +201,7 @@ context Category
 --	(self.specializingUniversals->exists(x | x.isObjectClass()) implies self.specializedUniversal.isObjectClass() )
 
 context Characterization
-	inv CharacterizationsTargetCardinality('The Characterized end cardinality is exactly one.') :
+	inv CharacterizationsTargetCardinality('The Characterized end cardinality must be exactly one.') :
 	self.sourceLowerBound = 1 and self.sourceUpperBound = 1
 
 -- Derivation is missing
@@ -233,7 +216,8 @@ context RelatorUniversal
 
 context RelatorUniversal
 	inv RelatorAndMediation2('The sum of the minimum cardinalities of the mediated ends must be greater or equal to 2') :
-	Mediation.allInstances()->select(x | isConnectedDirectlyOrIndirectlyTo(x.source))->collect(y | y.targetLowerBound)->sum() >= 2
+	let mediations : Set(Mediation) = Mediation.allInstances()->select(x | isConnectedDirectlyOrIndirectlyTo(x.source))
+	in not mediations->isEmpty() implies mediations->collect(y | y.targetLowerBound)->sum() >= 2
 
 context Role
 	inv RoleAndMediation('A Role must be connected (directly or indirectly) to a Mediation') :
@@ -260,38 +244,92 @@ context MeronymicRelation
 
 context CollectiveUniversal
 	inv ExtensionalCollective('All the parts of an extensional Collective are essential') :
-	isExtensional implies MeronymicRelation.allInstances()->forAll( x | x.whole = self implies x.partIsEssential )
+	self.isExtensional implies MeronymicRelation.allInstances()->forAll( x | x.whole = self implies x.partIsEssential )
 
 context ComponentOfRelation
 	inv ComponentOfRelata1('ComponentOf relates individuals that are functional complexes: whole is not functional complex') :
-	whole.hasFunctionalComplexInstances()
+	self.whole.hasFunctionalComplexInstances()
 
 context ComponentOfRelation
 	inv ComponentOfRelata2('ComponentOf relates individuals that are functional complexes: part is not functional complex'):
-	part.hasFunctionalComplexInstances()
+	self.part.hasFunctionalComplexInstances()
 
 context SubQuantityRelation
 	inv SubQuantityRelata1('SubQuantityOf relates individuals that are quantities: whole is not a quantity') :
-	whole.hasFunctionalComplexInstances()
+	self.whole.hasFunctionalComplexInstances()
 
 context SubQuantityRelation
 	inv SubQuantityRelata2('SubQuantityOf relates individuals that are quantities: part is not a quantity'):
-	part.hasFunctionalComplexInstances()
+	self.part.hasFunctionalComplexInstances()
 
 context SubCollectionRelation
 	inv SubCollectionRelata1('SubCollectionOf relates individuals that are collectives: whole is not a collective') :
-	whole.hasCollectiveInstances()
+	self.whole.hasCollectiveInstances()
 
 context SubCollectionRelation
 	inv SubCollectionRelata2('SubCollectionOf relates individuals that are collectives: part is not a collective'):
-	part.hasCollectiveInstances()
+	self.part.hasCollectiveInstances()
 
 context MembershipRelation
 	inv MembershipRelata1('MemberOf relates individuals that are functional complexes or collectives as parts of individuals that are collectives: whole is not a collective') :
-	whole.hasCollectiveInstances()
+	self.whole.hasCollectiveInstances()
 
 context MembershipRelation
 	inv MembershipRelata2('MemberOf relates individuals that are functional complexes or collectives as parts of individuals that are collectives: part is neither a collective or functional complex'):
-	part.hasCollectiveInstances() or part.hasFunctionalComplexInstances()
+	self.part.hasCollectiveInstances() or part.hasFunctionalComplexInstances()
+
+context SubCollectionRelation
+	inv SubCollectionCardinality('The maximum cardinality of the part end is equal to 1') :
+	self.targetUpperBound = 1
+
+context SubQuantityRelation
+	inv SubQuantityCardinality('The maximum cardinality of the part end is equal to 1') :
+	self.targetUpperBound = 1
+
+context SubQuantityRelation
+	inv SubQuantityMetaProperties1('A part is always non-shareable') :
+	not self.partIsShareable
+
+context SubQuantityRelation
+	inv SubQuantityMetaProperties2('A part is always essential') :
+	self.partIsEssential
+
+context MembershipRelation
+	inv memberOfWithEssentialParthood('MemberOf with essential parthood implies an extensional whole') :
+	let
+		extensionalWhole : Boolean = if whole.oclIsKindOf (MixinUniversal) then
+			self.offspringFrom(AllObjectClass())->forAll( y | y.oclIsKindOf(CollectiveUniversal) implies y.oclAsType(CollectiveUniversal).isExtensional )
+		else
+			whole.allParents()->including(whole)->forAll( x | x.oclIsKindOf(CollectiveUniversal) implies x.oclAsType(CollectiveUniversal).isExtensional )
+		endif
+	in
+		self.partIsEssential implies extensionalWhole 
+
+context BinaryMaterialRelation
+	inv MaterialAssociationMinimumCardinality('The minimum cardinality of every end must be greater or equal to 1') :
+	sourceLowerBound >= 1 and targetLowerBound >= 1
+
+context nAryMaterialRelation
+	inv nAryMaterialAssociationMinimumCardinality('The minimum cardinality of every end must be greater or equal to 1') :
+	sourceLowerBound->forAll(x | x >= 1)
+
+-- Material Association is derived
+-- Is already enforced by the cardniality of BinaryMaterialRelation#derivedFrom and nAryMaterialRelation#derivedFrom 
+
+-- Mixin Class is abstract
+-- Is already enforced by the metaclas definition 
+
+context Phase
+	inv PhasePartition('A Phase of a Substance Sortal must be grouped in exactly one {disjoint, complete} Generalization Set with other Phases') :
+	let
+		gsets : Set(GeneralizationSet) =
+		self.specializesVia->select( x | x.specializedUniversal.oclIsKindOf(SubstanceSortalUniversal) )
+	in
+		if gsets->size() = 1 then
+			let gs : GeneralizationSet = gsets->any(true)
+			in  gs.specializingUniversals->forAll(x | x.oclIsKindOf(Phase)) and gs.specializingUniversals->size() > 1 and gs.isCovering
+		else
+			false
+		endif
 
 endpackage
