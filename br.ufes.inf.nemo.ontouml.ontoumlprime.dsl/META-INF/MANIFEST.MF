@@ -21,11 +21,12 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: br.ufes.inf.nemo.ontouml.ontoumlprime,
- br.ufes.inf.nemo.ontouml.ontoumlprime.services,
- br.ufes.inf.nemo.ontouml.ontoumlprime.serializer,
+ br.ufes.inf.nemo.ontouml.ontoumlprime.converter,
+ br.ufes.inf.nemo.ontouml.ontoumlprime.formatting,
+ br.ufes.inf.nemo.ontouml.ontoumlprime.generator,
  br.ufes.inf.nemo.ontouml.ontoumlprime.parser.antlr,
  br.ufes.inf.nemo.ontouml.ontoumlprime.parser.antlr.internal,
- br.ufes.inf.nemo.ontouml.ontoumlprime.validation,
  br.ufes.inf.nemo.ontouml.ontoumlprime.scoping,
- br.ufes.inf.nemo.ontouml.ontoumlprime.generator,
- br.ufes.inf.nemo.ontouml.ontoumlprime.formatting
+ br.ufes.inf.nemo.ontouml.ontoumlprime.serializer,
+ br.ufes.inf.nemo.ontouml.ontoumlprime.services,
+ br.ufes.inf.nemo.ontouml.ontoumlprime.validation
