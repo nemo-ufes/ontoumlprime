@@ -131,9 +131,6 @@ MultipleAnonymousGeneralizationSet returns GeneralizationSet:
 	';'
 ;
 
-
-
-
 PrimitiveDataType returns PrimitiveDataType:
 	'PrimitiveDataType' name=ID
 	'(' _type=PrimitiveDataTypeType ')'
@@ -175,10 +172,10 @@ ComponentOfRelation returns ComponentOfRelation:
 	)
 	'relation'
 	part=[SubstantialUniversal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?	
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?	
 	'isComponentOf'
 	whole=[SubstantialUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -196,10 +193,10 @@ MembershipRelation returns MembershipRelation:
 	)
 	'relation'
 	part=[SubstantialUniversal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?	
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?	
 	'isMemberOf'
 	whole=[SubstantialUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -219,10 +216,10 @@ SubCollectionRelation returns SubCollectionRelation:
 	)
 	'relation'
 	part=[SubstantialUniversal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?	
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?	
 	'isSubCollectionOf'
 	whole=[SubstantialUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -243,10 +240,10 @@ SubQuantityRelation returns SubQuantityRelation:
 	)
 	'relation'
 	part=[SubstantialUniversal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?	
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?	
 	'isSubQuantityOf'
 	whole=[SubstantialUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -372,7 +369,7 @@ RelatorUniversal returns RelatorUniversal:
 BinaryMaterialRelation returns BinaryMaterialRelation:
 	'material' 'rel'
 	source=[ExternallyDependentUniversal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	name=ID
 	('(' derivedFrom=[RelatorUniversal] ')')?
 	'target' target=[ExternallyDependentUniversal]
@@ -388,7 +385,7 @@ BinaryMaterialRelation returns BinaryMaterialRelation:
 BinaryFormalRelation returns BinaryFormalRelation:
 	'formal' 'rel'
 	source=[Universal]
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	name=ID
 	target=[Universal]
 	('['targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
@@ -438,7 +435,7 @@ nAryMaterialRelation returns nAryMaterialRelation:
 	'material' 'assoc'
 	derivedFrom=[RelatorUniversal]
 	name=ID
-	(targetRelata+=[ExternallyDependentUniversal] ('['sourceLowerBound+=EInt '..' sourceUpperBound+=EInt ']') ( ',' targetRelata+=[ExternallyDependentUniversal])* ('['sourceLowerBound+=EInt '..' sourceUpperBound+=EInt ']'))?
+	(targetRelata+=[ExternallyDependentUniversal] ('['sourceLowerBound+=CardinalityBound '..' sourceUpperBound+=CardinalityUpperBound ']') ( ',' targetRelata+=[ExternallyDependentUniversal])* ('['sourceLowerBound+=CardinalityBound '..' sourceUpperBound+=CardinalityUpperBound ']'))?
 	';'
 ;
 
@@ -446,27 +443,10 @@ nAryMaterialRelation returns nAryMaterialRelation:
 nAryFormalRelation returns nAryFormalRelation:
 	'formal' 'assoc'
 	name=ID
-	(targetRelata+=[Universal] ('['sourceLowerBound+=EInt '..' sourceUpperBound+=EInt ']') ( ',' targetRelata+=[Universal])* ('['sourceLowerBound+=EInt '..' sourceUpperBound+=EInt ']'))?
+	(targetRelata+=[Universal] ('['sourceLowerBound+=CardinalityBound '..' sourceUpperBound+=CardinalityUpperBound ']') ( ',' targetRelata+=[Universal])* ('['sourceLowerBound+=CardinalityBound '..' sourceUpperBound+=CardinalityUpperBound ']'))?
 	';'
 ;
 
-EString returns ecore::EString:
-	STRING | ID;
-
-EBoolean returns ecore::EBoolean:
-	'true' | 'false';
-
-PrimitiveDataTypeType returns PrimitiveDataTypeType:
-	'PrimitiveDataTypeType'
-	/* TODO: implement this rule and an appropriate IValueConverter */
-;
-
-DataTypeAttribute returns DataTypeAttribute:
-	isOfType=[DataType|ID] name=ID
-;
-
-EInt returns ecore::EInt:
-	'-'? INT;
 
 /*
  * Example
@@ -480,10 +460,10 @@ EInt returns ecore::EInt:
  */
 Characterization returns Characterization:
 	{Characterization}
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	'characterizedBy'
 	target=[IntrinsicMomentUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -499,8 +479,32 @@ Characterization returns Characterization:
 Mediation returns Mediation:
 	{Mediation}
 	'mediates'
-	('['sourceLowerBound=EInt '..' sourceUpperBound=EInt ']')?
+	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	target=[ExternallyDependentUniversal]
-	('[' targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('[' targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
+;
+
+
+EString returns ecore::EString:
+	STRING | ID;
+
+PrimitiveDataTypeType returns PrimitiveDataTypeType:
+	'PrimitiveDataTypeType'
+	/* TODO: implement this rule and an appropriate IValueConverter */
+;
+
+DataTypeAttribute returns DataTypeAttribute:
+	isOfType=[DataType|ID] name=ID
+;
+
+EInt returns ecore::EInt:
+	'-'? INT;
+
+CardinalityUpperBound returns ecore::EInt:
+	CardinalityBound | '*'
+;
+
+CardinalityBound returns ecore::EInt:
+	INT
 ;
