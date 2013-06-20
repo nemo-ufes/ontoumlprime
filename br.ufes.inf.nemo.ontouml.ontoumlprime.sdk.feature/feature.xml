@@ -16,6 +16,14 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.xtext.xbase.lib" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.examples.xtext.completeocl" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.104.0" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="br.ufes.inf.nemo.ontouml.ontoumlprime"
          download-size="0"

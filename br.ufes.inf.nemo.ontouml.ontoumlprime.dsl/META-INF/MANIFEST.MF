@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.xtext;bundle-version="2.4.1";visibility:=reexport,
  org.eclipse.xtext.util;bundle-version="2.4.1",
  org.antlr.runtime,
  org.eclipse.xtext.common.types,
- org.eclipse.ocl.examples.xtext.completeocl;bundle-version="3.2.1"
+ org.eclipse.ocl.examples.xtext.completeocl;bundle-version="3.2.1";visibility:=reexport
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

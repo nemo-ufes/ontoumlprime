@@ -5,6 +5,29 @@
       version="1.0.0.qualifier"
       provider-name="NEMO">
 
+   <requires>
+      <import plugin="org.eclipse.xtext" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.generator" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="br.ufes.inf.nemo.ontouml.ontoumlprime" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.util" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.antlr.runtime"/>
+      <import plugin="org.eclipse.xtext.common.types"/>
+      <import plugin="org.eclipse.ocl.examples.xtext.completeocl" version="3.2.1" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
+      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="br.ufes.inf.nemo.ontouml.ontoumlprime.dsl" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.xtext.builder" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.common.types.ui" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.codetemplates.ui" version="2.4.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.compare"/>
+      <import feature="org.eclipse.ocl.examples" version="3.2.2.v20130130-1128"/>
+   </requires>
+
    <plugin
          id="br.ufes.inf.nemo.ontouml.ontoumlprime.dsl"
          download-size="0"
