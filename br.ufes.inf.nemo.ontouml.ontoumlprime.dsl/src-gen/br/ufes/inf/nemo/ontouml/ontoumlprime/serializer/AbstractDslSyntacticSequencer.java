@@ -58,7 +58,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 
 	/**
 	 * Syntax:
-	 *     '=>' | 'specialize'
+	 *     'specialize' | '=>'
 	 */
 	protected void emit_AnonymousGeneralizationSet_EqualsSignGreaterThanSignKeyword_1_0_1_1_or_SpecializeKeyword_1_0_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -74,7 +74,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     'specialize' | '=>'
+	 *     '=>' | 'specialize'
 	 */
 	protected void emit_MultipleAnonymousGeneralizationSet_EqualsSignGreaterThanSignKeyword_2_1_or_SpecializeKeyword_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -82,7 +82,7 @@ public abstract class AbstractDslSyntacticSequencer extends AbstractSyntacticSeq
 	
 	/**
 	 * Syntax:
-	 *     'specializes' | '=>'
+	 *     '=>' | 'specializes'
 	 */
 	protected void emit_SingleAnonymousGeneralizationSet_EqualsSignGreaterThanSignKeyword_1_1_or_SpecializesKeyword_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

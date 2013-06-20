@@ -50,7 +50,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultipleAnonymousGeneralizationSetAccess().getAlternatives_2(), "rule__MultipleAnonymousGeneralizationSet__Alternatives_2");
 					put(grammarAccess.getMeronymicRelationAccess().getAlternatives(), "rule__MeronymicRelation__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
-					put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+					put(grammarAccess.getCardinalityUpperBoundAccess().getAlternatives(), "rule__CardinalityUpperBound__Alternatives");
 					put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getCompleteGeneralizationSetAccess().getGroup(), "rule__CompleteGeneralizationSet__Group__0");
@@ -109,14 +109,14 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNAryFormalRelationAccess().getGroup_3_1(), "rule__NAryFormalRelation__Group_3_1__0");
 					put(grammarAccess.getNAryFormalRelationAccess().getGroup_3_2(), "rule__NAryFormalRelation__Group_3_2__0");
 					put(grammarAccess.getNAryFormalRelationAccess().getGroup_3_3(), "rule__NAryFormalRelation__Group_3_3__0");
-					put(grammarAccess.getDataTypeAttributeAccess().getGroup(), "rule__DataTypeAttribute__Group__0");
-					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getCharacterizationAccess().getGroup(), "rule__Characterization__Group__0");
 					put(grammarAccess.getCharacterizationAccess().getGroup_1(), "rule__Characterization__Group_1__0");
 					put(grammarAccess.getCharacterizationAccess().getGroup_4(), "rule__Characterization__Group_4__0");
 					put(grammarAccess.getMediationAccess().getGroup(), "rule__Mediation__Group__0");
 					put(grammarAccess.getMediationAccess().getGroup_2(), "rule__Mediation__Group_2__0");
 					put(grammarAccess.getMediationAccess().getGroup_4(), "rule__Mediation__Group_4__0");
+					put(grammarAccess.getDataTypeAttributeAccess().getGroup(), "rule__DataTypeAttribute__Group__0");
+					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 					put(grammarAccess.getModelAccess().getElementsAssignment_1(), "rule__Model__ElementsAssignment_1");
 					put(grammarAccess.getPackageAccess().getNameAssignment_2(), "rule__Package__NameAssignment_2");
 					put(grammarAccess.getPackageAccess().getElementsAssignment_4(), "rule__Package__ElementsAssignment_4");
@@ -236,8 +236,6 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNAryFormalRelationAccess().getTargetRelataAssignment_3_2_1(), "rule__NAryFormalRelation__TargetRelataAssignment_3_2_1");
 					put(grammarAccess.getNAryFormalRelationAccess().getSourceLowerBoundAssignment_3_3_1(), "rule__NAryFormalRelation__SourceLowerBoundAssignment_3_3_1");
 					put(grammarAccess.getNAryFormalRelationAccess().getSourceUpperBoundAssignment_3_3_3(), "rule__NAryFormalRelation__SourceUpperBoundAssignment_3_3_3");
-					put(grammarAccess.getDataTypeAttributeAccess().getIsOfTypeAssignment_0(), "rule__DataTypeAttribute__IsOfTypeAssignment_0");
-					put(grammarAccess.getDataTypeAttributeAccess().getNameAssignment_1(), "rule__DataTypeAttribute__NameAssignment_1");
 					put(grammarAccess.getCharacterizationAccess().getSourceLowerBoundAssignment_1_1(), "rule__Characterization__SourceLowerBoundAssignment_1_1");
 					put(grammarAccess.getCharacterizationAccess().getSourceUpperBoundAssignment_1_3(), "rule__Characterization__SourceUpperBoundAssignment_1_3");
 					put(grammarAccess.getCharacterizationAccess().getTargetAssignment_3(), "rule__Characterization__TargetAssignment_3");
@@ -248,6 +246,8 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMediationAccess().getTargetAssignment_3(), "rule__Mediation__TargetAssignment_3");
 					put(grammarAccess.getMediationAccess().getTargetLowerBoundAssignment_4_1(), "rule__Mediation__TargetLowerBoundAssignment_4_1");
 					put(grammarAccess.getMediationAccess().getTargetUpperBoundAssignment_4_3(), "rule__Mediation__TargetUpperBoundAssignment_4_3");
+					put(grammarAccess.getDataTypeAttributeAccess().getIsOfTypeAssignment_0(), "rule__DataTypeAttribute__IsOfTypeAssignment_0");
+					put(grammarAccess.getDataTypeAttributeAccess().getNameAssignment_1(), "rule__DataTypeAttribute__NameAssignment_1");
 					put(grammarAccess.getComponentOfRelationAccess().getUnorderedGroup_0(), "rule__ComponentOfRelation__UnorderedGroup_0");
 					put(grammarAccess.getMembershipRelationAccess().getUnorderedGroup_0(), "rule__MembershipRelation__UnorderedGroup_0");
 					put(grammarAccess.getSubCollectionRelationAccess().getUnorderedGroup_0(), "rule__SubCollectionRelation__UnorderedGroup_0");

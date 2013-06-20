@@ -332,7 +332,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 * Constraint:
 	 *     (
 	 *         source=[Universal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         name=ID 
 	 *         target=[Universal|ID] 
 	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
@@ -347,7 +347,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 * Constraint:
 	 *     (
 	 *         source=[ExternallyDependentUniversal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         name=ID 
 	 *         derivedFrom=[RelatorUniversal|ID]? 
 	 *         target=[ExternallyDependentUniversal|ID] 
@@ -370,7 +370,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     ((sourceLowerBound=EInt sourceUpperBound=EInt)? target=[IntrinsicMomentUniversal|ID] (targetLowerBound=EInt targetUpperBound=EInt)?)
+	 *     (
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
+	 *         target=[IntrinsicMomentUniversal|ID] 
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
+	 *     )
 	 */
 	protected void sequence_Characterization(EObject context, Characterization semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -418,9 +422,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         partIsShareable?='shareable' 
 	 *         partIsImmutable?='immutable' 
 	 *         part=[SubstantialUniversal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         whole=[SubstantialUniversal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_ComponentOfRelation(EObject context, ComponentOfRelation semanticObject) {
@@ -457,7 +461,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	
 	/**
 	 * Constraint:
-	 *     ((sourceLowerBound=EInt sourceUpperBound=EInt)? target=[ExternallyDependentUniversal|ID] (targetLowerBound=EInt targetUpperBound=EInt)?)
+	 *     (
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
+	 *         target=[ExternallyDependentUniversal|ID] 
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
+	 *     )
 	 */
 	protected void sequence_Mediation(EObject context, Mediation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -472,9 +480,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         partIsShareable?='shareable' 
 	 *         partIsImmutable?='immutable' 
 	 *         part=[SubstantialUniversal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         whole=[SubstantialUniversal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_MembershipRelation(EObject context, MembershipRelation semanticObject) {
@@ -617,9 +625,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         partIsShareable?='shareable' 
 	 *         partIsImmutable?='immutable' 
 	 *         part=[SubstantialUniversal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         whole=[SubstantialUniversal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_SubCollectionRelation(EObject context, SubCollectionRelation semanticObject) {
@@ -643,9 +651,9 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         partIsInseparable?='inseparable' 
 	 *         partIsImmutable?='immutable' 
 	 *         part=[SubstantialUniversal|ID] 
-	 *         (sourceLowerBound=EInt sourceUpperBound=EInt)? 
+	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         whole=[SubstantialUniversal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_SubQuantityRelation(EObject context, SubQuantityRelation semanticObject) {
@@ -659,11 +667,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID 
 	 *         (
 	 *             targetRelata+=[Universal|ID] 
-	 *             sourceLowerBound+=EInt 
-	 *             sourceUpperBound+=EInt 
+	 *             sourceLowerBound+=CardinalityBound 
+	 *             sourceUpperBound+=CardinalityUpperBound 
 	 *             targetRelata+=[Universal|ID]* 
-	 *             sourceLowerBound+=EInt 
-	 *             sourceUpperBound+=EInt
+	 *             sourceLowerBound+=CardinalityBound 
+	 *             sourceUpperBound+=CardinalityUpperBound
 	 *         )?
 	 *     )
 	 */
@@ -679,11 +687,11 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID 
 	 *         (
 	 *             targetRelata+=[ExternallyDependentUniversal|ID] 
-	 *             sourceLowerBound+=EInt 
-	 *             sourceUpperBound+=EInt 
+	 *             sourceLowerBound+=CardinalityBound 
+	 *             sourceUpperBound+=CardinalityUpperBound 
 	 *             targetRelata+=[ExternallyDependentUniversal|ID]* 
-	 *             sourceLowerBound+=EInt 
-	 *             sourceUpperBound+=EInt
+	 *             sourceLowerBound+=CardinalityBound 
+	 *             sourceUpperBound+=CardinalityUpperBound
 	 *         )?
 	 *     )
 	 */
