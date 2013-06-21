@@ -91,7 +91,7 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBinaryMaterialRelationAccess().getGroup(), "rule__BinaryMaterialRelation__Group__0");
 					put(grammarAccess.getBinaryMaterialRelationAccess().getGroup_3(), "rule__BinaryMaterialRelation__Group_3__0");
 					put(grammarAccess.getBinaryMaterialRelationAccess().getGroup_5(), "rule__BinaryMaterialRelation__Group_5__0");
-					put(grammarAccess.getBinaryMaterialRelationAccess().getGroup_8(), "rule__BinaryMaterialRelation__Group_8__0");
+					put(grammarAccess.getBinaryMaterialRelationAccess().getGroup_7(), "rule__BinaryMaterialRelation__Group_7__0");
 					put(grammarAccess.getBinaryFormalRelationAccess().getGroup(), "rule__BinaryFormalRelation__Group__0");
 					put(grammarAccess.getBinaryFormalRelationAccess().getGroup_3(), "rule__BinaryFormalRelation__Group_3__0");
 					put(grammarAccess.getBinaryFormalRelationAccess().getGroup_6(), "rule__BinaryFormalRelation__Group_6__0");
@@ -204,9 +204,9 @@ public class DslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBinaryMaterialRelationAccess().getSourceUpperBoundAssignment_3_3(), "rule__BinaryMaterialRelation__SourceUpperBoundAssignment_3_3");
 					put(grammarAccess.getBinaryMaterialRelationAccess().getNameAssignment_4(), "rule__BinaryMaterialRelation__NameAssignment_4");
 					put(grammarAccess.getBinaryMaterialRelationAccess().getDerivedFromAssignment_5_1(), "rule__BinaryMaterialRelation__DerivedFromAssignment_5_1");
-					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetAssignment_7(), "rule__BinaryMaterialRelation__TargetAssignment_7");
-					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetLowerBoundAssignment_8_1(), "rule__BinaryMaterialRelation__TargetLowerBoundAssignment_8_1");
-					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetUpperBoundAssignment_8_3(), "rule__BinaryMaterialRelation__TargetUpperBoundAssignment_8_3");
+					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetAssignment_6(), "rule__BinaryMaterialRelation__TargetAssignment_6");
+					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetLowerBoundAssignment_7_1(), "rule__BinaryMaterialRelation__TargetLowerBoundAssignment_7_1");
+					put(grammarAccess.getBinaryMaterialRelationAccess().getTargetUpperBoundAssignment_7_3(), "rule__BinaryMaterialRelation__TargetUpperBoundAssignment_7_3");
 					put(grammarAccess.getBinaryFormalRelationAccess().getSourceAssignment_2(), "rule__BinaryFormalRelation__SourceAssignment_2");
 					put(grammarAccess.getBinaryFormalRelationAccess().getSourceLowerBoundAssignment_3_1(), "rule__BinaryFormalRelation__SourceLowerBoundAssignment_3_1");
 					put(grammarAccess.getBinaryFormalRelationAccess().getSourceUpperBoundAssignment_3_3(), "rule__BinaryFormalRelation__SourceUpperBoundAssignment_3_3");

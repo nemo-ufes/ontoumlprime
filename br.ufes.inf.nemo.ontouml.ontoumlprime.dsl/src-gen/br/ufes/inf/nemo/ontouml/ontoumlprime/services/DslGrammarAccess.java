@@ -1984,19 +1984,18 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final CrossReference cDerivedFromRelatorUniversalCrossReference_5_1_0 = (CrossReference)cDerivedFromAssignment_5_1.eContents().get(0);
 		private final RuleCall cDerivedFromRelatorUniversalIDTerminalRuleCall_5_1_0_1 = (RuleCall)cDerivedFromRelatorUniversalCrossReference_5_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
-		private final Keyword cTargetKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cTargetAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final CrossReference cTargetExternallyDependentUniversalCrossReference_7_0 = (CrossReference)cTargetAssignment_7.eContents().get(0);
-		private final RuleCall cTargetExternallyDependentUniversalIDTerminalRuleCall_7_0_1 = (RuleCall)cTargetExternallyDependentUniversalCrossReference_7_0.eContents().get(1);
-		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
-		private final Keyword cLeftSquareBracketKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
-		private final Assignment cTargetLowerBoundAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cTargetLowerBoundEIntParserRuleCall_8_1_0 = (RuleCall)cTargetLowerBoundAssignment_8_1.eContents().get(0);
-		private final Keyword cFullStopFullStopKeyword_8_2 = (Keyword)cGroup_8.eContents().get(2);
-		private final Assignment cTargetUpperBoundAssignment_8_3 = (Assignment)cGroup_8.eContents().get(3);
-		private final RuleCall cTargetUpperBoundEIntParserRuleCall_8_3_0 = (RuleCall)cTargetUpperBoundAssignment_8_3.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_8_4 = (Keyword)cGroup_8.eContents().get(4);
-		private final Keyword cSemicolonKeyword_9 = (Keyword)cGroup.eContents().get(9);
+		private final Assignment cTargetAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final CrossReference cTargetExternallyDependentUniversalCrossReference_6_0 = (CrossReference)cTargetAssignment_6.eContents().get(0);
+		private final RuleCall cTargetExternallyDependentUniversalIDTerminalRuleCall_6_0_1 = (RuleCall)cTargetExternallyDependentUniversalCrossReference_6_0.eContents().get(1);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cLeftSquareBracketKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cTargetLowerBoundAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cTargetLowerBoundCardinalityBoundParserRuleCall_7_1_0 = (RuleCall)cTargetLowerBoundAssignment_7_1.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
+		private final Assignment cTargetUpperBoundAssignment_7_3 = (Assignment)cGroup_7.eContents().get(3);
+		private final RuleCall cTargetUpperBoundCardinalityUpperBoundParserRuleCall_7_3_0 = (RuleCall)cTargetUpperBoundAssignment_7_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
+		private final Keyword cSemicolonKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		/// *
 		// * Example
@@ -2004,13 +2003,15 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		// * material rel Parent[1..2] parentOf OffSpring[1..*];
 		// * / BinaryMaterialRelation:
 		//	"material" "rel" source=[ExternallyDependentUniversal] ("[" sourceLowerBound=CardinalityBound ".."
-		//	sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")? "target"
-		//	target=[ExternallyDependentUniversal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";";
+		//	sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")?
+		//	target=[ExternallyDependentUniversal] ("[" targetLowerBound=CardinalityBound ".."
+		//	targetUpperBound=CardinalityUpperBound "]")? ";";
 		public ParserRule getRule() { return rule; }
 
 		//"material" "rel" source=[ExternallyDependentUniversal] ("[" sourceLowerBound=CardinalityBound ".."
-		//sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")? "target"
-		//target=[ExternallyDependentUniversal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";"
+		//sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")?
+		//target=[ExternallyDependentUniversal] ("[" targetLowerBound=CardinalityBound ".."
+		//targetUpperBound=CardinalityUpperBound "]")? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"material"
@@ -2076,44 +2077,41 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_5_2() { return cRightParenthesisKeyword_5_2; }
 
-		//"target"
-		public Keyword getTargetKeyword_6() { return cTargetKeyword_6; }
-
 		//target=[ExternallyDependentUniversal]
-		public Assignment getTargetAssignment_7() { return cTargetAssignment_7; }
+		public Assignment getTargetAssignment_6() { return cTargetAssignment_6; }
 
 		//[ExternallyDependentUniversal]
-		public CrossReference getTargetExternallyDependentUniversalCrossReference_7_0() { return cTargetExternallyDependentUniversalCrossReference_7_0; }
+		public CrossReference getTargetExternallyDependentUniversalCrossReference_6_0() { return cTargetExternallyDependentUniversalCrossReference_6_0; }
 
 		//ID
-		public RuleCall getTargetExternallyDependentUniversalIDTerminalRuleCall_7_0_1() { return cTargetExternallyDependentUniversalIDTerminalRuleCall_7_0_1; }
+		public RuleCall getTargetExternallyDependentUniversalIDTerminalRuleCall_6_0_1() { return cTargetExternallyDependentUniversalIDTerminalRuleCall_6_0_1; }
 
-		//("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")?
-		public Group getGroup_8() { return cGroup_8; }
+		//("[" targetLowerBound=CardinalityBound ".." targetUpperBound=CardinalityUpperBound "]")?
+		public Group getGroup_7() { return cGroup_7; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_8_0() { return cLeftSquareBracketKeyword_8_0; }
+		public Keyword getLeftSquareBracketKeyword_7_0() { return cLeftSquareBracketKeyword_7_0; }
 
-		//targetLowerBound=EInt
-		public Assignment getTargetLowerBoundAssignment_8_1() { return cTargetLowerBoundAssignment_8_1; }
+		//targetLowerBound=CardinalityBound
+		public Assignment getTargetLowerBoundAssignment_7_1() { return cTargetLowerBoundAssignment_7_1; }
 
-		//EInt
-		public RuleCall getTargetLowerBoundEIntParserRuleCall_8_1_0() { return cTargetLowerBoundEIntParserRuleCall_8_1_0; }
+		//CardinalityBound
+		public RuleCall getTargetLowerBoundCardinalityBoundParserRuleCall_7_1_0() { return cTargetLowerBoundCardinalityBoundParserRuleCall_7_1_0; }
 
 		//".."
-		public Keyword getFullStopFullStopKeyword_8_2() { return cFullStopFullStopKeyword_8_2; }
+		public Keyword getFullStopFullStopKeyword_7_2() { return cFullStopFullStopKeyword_7_2; }
 
-		//targetUpperBound=EInt
-		public Assignment getTargetUpperBoundAssignment_8_3() { return cTargetUpperBoundAssignment_8_3; }
+		//targetUpperBound=CardinalityUpperBound
+		public Assignment getTargetUpperBoundAssignment_7_3() { return cTargetUpperBoundAssignment_7_3; }
 
-		//EInt
-		public RuleCall getTargetUpperBoundEIntParserRuleCall_8_3_0() { return cTargetUpperBoundEIntParserRuleCall_8_3_0; }
+		//CardinalityUpperBound
+		public RuleCall getTargetUpperBoundCardinalityUpperBoundParserRuleCall_7_3_0() { return cTargetUpperBoundCardinalityUpperBoundParserRuleCall_7_3_0; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_8_4() { return cRightSquareBracketKeyword_8_4; }
+		public Keyword getRightSquareBracketKeyword_7_4() { return cRightSquareBracketKeyword_7_4; }
 
 		//";"
-		public Keyword getSemicolonKeyword_9() { return cSemicolonKeyword_9; }
+		public Keyword getSemicolonKeyword_8() { return cSemicolonKeyword_8; }
 	}
 
 	public class BinaryFormalRelationElements extends AbstractParserRuleElementFinder {
@@ -2140,10 +2138,10 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cLeftSquareBracketKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
 		private final Assignment cTargetLowerBoundAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cTargetLowerBoundEIntParserRuleCall_6_1_0 = (RuleCall)cTargetLowerBoundAssignment_6_1.eContents().get(0);
+		private final RuleCall cTargetLowerBoundCardinalityBoundParserRuleCall_6_1_0 = (RuleCall)cTargetLowerBoundAssignment_6_1.eContents().get(0);
 		private final Keyword cFullStopFullStopKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		private final Assignment cTargetUpperBoundAssignment_6_3 = (Assignment)cGroup_6.eContents().get(3);
-		private final RuleCall cTargetUpperBoundEIntParserRuleCall_6_3_0 = (RuleCall)cTargetUpperBoundAssignment_6_3.eContents().get(0);
+		private final RuleCall cTargetUpperBoundCardinalityUpperBoundParserRuleCall_6_3_0 = (RuleCall)cTargetUpperBoundAssignment_6_3.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Keyword cSemicolonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
@@ -2153,11 +2151,13 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		// * formal rel Parent[1..2] parentOf OffSpring[1..*];
 		// * / BinaryFormalRelation:
 		//	"formal" "rel" source=[Universal] ("[" sourceLowerBound=CardinalityBound ".." sourceUpperBound=CardinalityUpperBound
-		//	"]")? name=ID target=[Universal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";";
+		//	"]")? name=ID target=[Universal] ("[" targetLowerBound=CardinalityBound ".." targetUpperBound=CardinalityUpperBound
+		//	"]")? ";";
 		public ParserRule getRule() { return rule; }
 
 		//"formal" "rel" source=[Universal] ("[" sourceLowerBound=CardinalityBound ".." sourceUpperBound=CardinalityUpperBound
-		//"]")? name=ID target=[Universal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";"
+		//"]")? name=ID target=[Universal] ("[" targetLowerBound=CardinalityBound ".." targetUpperBound=CardinalityUpperBound
+		//"]")? ";"
 		public Group getGroup() { return cGroup; }
 
 		//"formal"
@@ -2214,26 +2214,26 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getTargetUniversalIDTerminalRuleCall_5_0_1() { return cTargetUniversalIDTerminalRuleCall_5_0_1; }
 
-		//("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")?
+		//("[" targetLowerBound=CardinalityBound ".." targetUpperBound=CardinalityUpperBound "]")?
 		public Group getGroup_6() { return cGroup_6; }
 
 		//"["
 		public Keyword getLeftSquareBracketKeyword_6_0() { return cLeftSquareBracketKeyword_6_0; }
 
-		//targetLowerBound=EInt
+		//targetLowerBound=CardinalityBound
 		public Assignment getTargetLowerBoundAssignment_6_1() { return cTargetLowerBoundAssignment_6_1; }
 
-		//EInt
-		public RuleCall getTargetLowerBoundEIntParserRuleCall_6_1_0() { return cTargetLowerBoundEIntParserRuleCall_6_1_0; }
+		//CardinalityBound
+		public RuleCall getTargetLowerBoundCardinalityBoundParserRuleCall_6_1_0() { return cTargetLowerBoundCardinalityBoundParserRuleCall_6_1_0; }
 
 		//".."
 		public Keyword getFullStopFullStopKeyword_6_2() { return cFullStopFullStopKeyword_6_2; }
 
-		//targetUpperBound=EInt
+		//targetUpperBound=CardinalityUpperBound
 		public Assignment getTargetUpperBoundAssignment_6_3() { return cTargetUpperBoundAssignment_6_3; }
 
-		//EInt
-		public RuleCall getTargetUpperBoundEIntParserRuleCall_6_3_0() { return cTargetUpperBoundEIntParserRuleCall_6_3_0; }
+		//CardinalityUpperBound
+		public RuleCall getTargetUpperBoundCardinalityUpperBoundParserRuleCall_6_3_0() { return cTargetUpperBoundCardinalityUpperBoundParserRuleCall_6_3_0; }
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_6_4() { return cRightSquareBracketKeyword_6_4; }
@@ -3515,8 +3515,9 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	// * material rel Parent[1..2] parentOf OffSpring[1..*];
 	// * / BinaryMaterialRelation:
 	//	"material" "rel" source=[ExternallyDependentUniversal] ("[" sourceLowerBound=CardinalityBound ".."
-	//	sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")? "target"
-	//	target=[ExternallyDependentUniversal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";";
+	//	sourceUpperBound=CardinalityUpperBound "]")? name=ID ("(" derivedFrom=[RelatorUniversal] ")")?
+	//	target=[ExternallyDependentUniversal] ("[" targetLowerBound=CardinalityBound ".."
+	//	targetUpperBound=CardinalityUpperBound "]")? ";";
 	public BinaryMaterialRelationElements getBinaryMaterialRelationAccess() {
 		return (pBinaryMaterialRelation != null) ? pBinaryMaterialRelation : (pBinaryMaterialRelation = new BinaryMaterialRelationElements());
 	}
@@ -3531,7 +3532,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	// * formal rel Parent[1..2] parentOf OffSpring[1..*];
 	// * / BinaryFormalRelation:
 	//	"formal" "rel" source=[Universal] ("[" sourceLowerBound=CardinalityBound ".." sourceUpperBound=CardinalityUpperBound
-	//	"]")? name=ID target=[Universal] ("[" targetLowerBound=EInt ".." targetUpperBound=EInt "]")? ";";
+	//	"]")? name=ID target=[Universal] ("[" targetLowerBound=CardinalityBound ".." targetUpperBound=CardinalityUpperBound
+	//	"]")? ";";
 	public BinaryFormalRelationElements getBinaryFormalRelationAccess() {
 		return (pBinaryFormalRelation != null) ? pBinaryFormalRelation : (pBinaryFormalRelation = new BinaryFormalRelationElements());
 	}

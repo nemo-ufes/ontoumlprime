@@ -335,7 +335,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         (sourceLowerBound=CardinalityBound sourceUpperBound=CardinalityUpperBound)? 
 	 *         name=ID 
 	 *         target=[Universal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_BinaryFormalRelation(EObject context, BinaryFormalRelation semanticObject) {
@@ -351,7 +351,7 @@ public abstract class AbstractDslSemanticSequencer extends AbstractDelegatingSem
 	 *         name=ID 
 	 *         derivedFrom=[RelatorUniversal|ID]? 
 	 *         target=[ExternallyDependentUniversal|ID] 
-	 *         (targetLowerBound=EInt targetUpperBound=EInt)?
+	 *         (targetLowerBound=CardinalityBound targetUpperBound=CardinalityUpperBound)?
 	 *     )
 	 */
 	protected void sequence_BinaryMaterialRelation(EObject context, BinaryMaterialRelation semanticObject) {
