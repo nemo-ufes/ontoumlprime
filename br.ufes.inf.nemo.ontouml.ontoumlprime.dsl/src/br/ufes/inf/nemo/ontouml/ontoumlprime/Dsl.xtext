@@ -372,8 +372,8 @@ BinaryMaterialRelation returns BinaryMaterialRelation:
 	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	name=ID
 	('(' derivedFrom=[RelatorUniversal] ')')?
-	'target' target=[ExternallyDependentUniversal]
-	('['targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	target=[ExternallyDependentUniversal]
+	('['targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -388,7 +388,7 @@ BinaryFormalRelation returns BinaryFormalRelation:
 	('['sourceLowerBound=CardinalityBound '..' sourceUpperBound=CardinalityUpperBound ']')?
 	name=ID
 	target=[Universal]
-	('['targetLowerBound=EInt '..' targetUpperBound=EInt ']')?
+	('['targetLowerBound=CardinalityBound '..' targetUpperBound=CardinalityUpperBound ']')?
 	';'
 ;
 
@@ -489,9 +489,9 @@ Mediation returns Mediation:
 EString returns ecore::EString:
 	STRING | ID;
 
+/* TODO: implement this rule and an appropriate IValueConverter */
 PrimitiveDataTypeType returns PrimitiveDataTypeType:
 	'PrimitiveDataTypeType'
-	/* TODO: implement this rule and an appropriate IValueConverter */
 ;
 
 DataTypeAttribute returns DataTypeAttribute:
