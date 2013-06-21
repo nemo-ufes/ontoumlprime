@@ -3,6 +3,7 @@ package br.ufes.inf.nemo.ontouml.ontoumlprime.converter;
 import static org.junit.Assert.*;
 
 import org.eclipse.xtext.nodemodel.impl.LeafNode;
+import org.hamcrest.core.IsNull;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,6 +33,12 @@ public class CardinalityUpperBoundConverterTest {
 	}
 
 	@Test
+	public void toValueCanHandleNull() {
+		Integer value = converter.toValue(null, node);
+		assertNull(value);
+	}
+	
+	@Test
 	public void toValueFromIntegerLiteral() {
 		Integer value = converter.toValue("13", node);
 		assertThat(value, is(13));
@@ -43,6 +50,12 @@ public class CardinalityUpperBoundConverterTest {
 		assertThat(token, is("*"));
 	}
 
+	@Test
+	public void toStringCanHandleNull() {
+		String token = converter.toString(null);
+		assertNull(token, null);
+	}
+	
 	@Test
 	public void toStringForIntegerLiteral() {
 		String token = converter.toString(31);

@@ -9,20 +9,28 @@ public class CardinalityUpperBoundConverter implements IValueConverter<Integer> 
 	@Override
 	public Integer toValue(String cardinality, INode node)
 			throws ValueConverterException {
-		if (cardinality == "*") {
+		if(cardinality == null){
+			return null;
+		}
+
+		if (cardinality.equals("*")) {
 			return -1;
-		} else {
-			try {
-				return Integer.parseInt(cardinality);
-			} catch (Exception e) {
-				throw new ValueConverterException(String.format(
-						"Invalid cardinality: %s", cardinality), node, e);
-			}
+		}
+
+		try {
+			return Integer.parseInt(cardinality);
+		} catch (Exception e) {
+			throw new ValueConverterException(String.format(
+					"Invalid cardinality: %s", cardinality), node, e);
 		}
 	}
 
 	@Override
 	public String toString(Integer value) throws ValueConverterException {
+		if(value == null){
+			return null;
+		}
+
 		if (value == -1) {
 			return "*";
 		} else {
