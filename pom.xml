@@ -15,14 +15,7 @@
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.edit</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.editor</module>
-    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark</module-->
-    <!--module>../br.ufes.inf.nemo.ontouml.ontoumlprime.examples.feature</module-->
-    <!--module>br.ufes.inf.nemo.ontouml.ontoumlprime.tests</module-->
-
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl</module>
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.ui</module>
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.sdk</module>
-    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.dsl.tests</module>
+    <module>br.ufes.inf.nemo.ontouml.ontoumlprime.tests</module>
 
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.sdk.feature</module>
     <module>br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite</module>
@@ -60,6 +53,7 @@
       <layout>p2</layout>
     </repository>
     -->
+
     <repository>
       <id>xtend</id>
       <url>http://build.eclipse.org/common/xtend/maven/</url>
