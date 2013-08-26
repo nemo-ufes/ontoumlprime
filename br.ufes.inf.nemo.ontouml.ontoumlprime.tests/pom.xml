@@ -55,7 +55,9 @@
             </excludes>
             -->
 
+            <!-- Test cases are empty -->
             <failIfNoTests>false</failIfNoTests>
+            <skipTests>true</skipTests>
 
             <!-- Kill test JVM if tests take more than 5 minutes (300 seconds) to finish -->
             <forkedProcessTimeoutInSeconds>300</forkedProcessTimeoutInSeconds>
