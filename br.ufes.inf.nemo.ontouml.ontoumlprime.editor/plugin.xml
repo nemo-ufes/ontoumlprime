@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="br.ufes.inf.nemo.ontouml.PrimeOntoUML.presentation.PrimeOntoUMLModelWizardID"
+            name="%_UI_PrimeOntoUMLModelWizard_label"
+            class="br.ufes.inf.nemo.ontouml.PrimeOntoUML.presentation.PrimeOntoUMLModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PrimeOntoUMLModelFile.gif">
+         <description>%_UI_PrimeOntoUMLModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="br.ufes.inf.nemo.ontouml.PrimeOntoUML.presentation.PrimeOntoUMLEditorID"
+            name="%_UI_PrimeOntoUMLEditor_label"
+            icon="icons/full/obj16/PrimeOntoUMLModelFile.gif"
+            extensions="pouml"
+            class="br.ufes.inf.nemo.ontouml.PrimeOntoUML.presentation.PrimeOntoUMLEditor"
+            contributorClass="br.ufes.inf.nemo.ontouml.PrimeOntoUML.presentation.PrimeOntoUMLActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

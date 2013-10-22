@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ontouml-prime:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ontouml-prime="http://nemo.inf.ufes.br/ontouml/ontoumlprime"
+    xsi:schemaLocation="http://nemo.inf.ufes.br/ontouml/ontoumlprime ../../br.ufes.inf.nemo.ontouml.ontoumlprime/model/ontoumlprime.xcore#/EPackage">
+  <elements
+      xsi:type="ontouml-prime:Kind"
+      name="Person"
+      isSpecializedVia="//@elements.3 //@elements.5"/>
+  <elements
+      xsi:type="ontouml-prime:SubKind"
+      name="Male Person"
+      specializesVia="//@elements.3"/>
+  <elements
+      xsi:type="ontouml-prime:SubKind"
+      name="Female Person"
+      specializesVia="//@elements.3"/>
+  <elements
+      xsi:type="ontouml-prime:GeneralizationSet"
+      name="PersonGender"
+      specializedUniversal="//@elements.0"
+      specializingUniversals="//@elements.1 //@elements.2"/>
+  <elements
+      xsi:type="ontouml-prime:Role"
+      name="Parent"
+      isSpecializedVia="//@elements.8"
+      specializesVia="//@elements.5"/>
+  <elements
+      xsi:type="ontouml-prime:GeneralizationSet"
+      name="ParentIsPerson"
+      specializedUniversal="//@elements.0"
+      specializingUniversals="//@elements.4"/>
+  <elements
+      xsi:type="ontouml-prime:Role"
+      name="Father"
+      specializesVia="//@elements.8"/>
+  <elements
+      xsi:type="ontouml-prime:Role"
+      name="Mother"
+      specializesVia="//@elements.8"/>
+  <elements
+      xsi:type="ontouml-prime:GeneralizationSet"
+      name="ParentRole"
+      specializedUniversal="//@elements.4"
+      specializingUniversals="//@elements.6 //@elements.7"/>
+</ontouml-prime:Model>

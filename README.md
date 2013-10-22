@@ -13,7 +13,15 @@ to the ecore and not the xcore file, and also to use tools that depend on ecore 
  
 If you create a genmodel/ecore, make sure you do not generate code from the genmodel. The code is already produced at src-gen
 when the xcore file is saved.
-  
+
+Instructions
+============
+
+1. `mvn install`
+2. Look at `target` folders for the built artifacts.
+3. Upload `br.ufes.inf.nemo.ontouml.ontoumlprime.updatesite/target/` to your
+   update site server.
+
 History:
 ========
 created by João Paulo A. Almeida

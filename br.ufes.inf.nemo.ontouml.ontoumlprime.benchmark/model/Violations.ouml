@@ -1,0 +1,60 @@
+//General Stuff
+Kind aKind {}
+Role aRole { }
+aRole => aKind;
+
+RelatorUniversal aRelator {
+	mediates aRole[1..2];
+	mediates aRoleMixin[1..2];
+}
+
+RoleMixin aRoleMixin { }
+SubKind aSubKind { }
+
+// mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor
+Kind GrandParent {}
+Kind Parent {}
+Kind mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor {}
+Parent => GrandParent;
+mustNotHaveMoreThanOneSubstanceSortalUniversalAncestor => Parent;
+
+// ConcreteSortalHasSubstanceSortalAncestor
+Role ConcreteSortalHasSubstanceSortalAncestor {}
+
+// SubstanceSortalDoesNotSpecializeRigidSortal
+Kind KindFoo {}
+KindFoo => aSubKind;
+
+// RigidSortalDoesNotSpecializeAntiRigid
+SubKind SubKindFoo3 {}
+Role RoleFoo2 {}
+SubKindFoo3 => RoleFoo2;
+
+// MixinClassDoesNotSpecializeSortalClass
+Mixin MixinFoo {}
+MixinFoo => aKind;
+
+
+// CategoryDoesNotSpecializeRoleMixin
+Category CategoryDoesNotSpecializeRoleMixin {}
+CategoryDoesNotSpecializeRoleMixin => aRoleMixin;
+
+// CharacterizationsTargetCardinality
+RelatorUniversal aRelator { mediates CharacterizationsTargetCardinality[2..2]; }
+ModeUniversal Symptom {}
+Role CharacterizationsTargetCardinality {
+	[0..2] characterizedBy Symptom [1..9];
+}
+CharacterizationsTargetCardinality => aKind;
+
+//RelatorAndMediation1
+RelatorUniversal RelatorAndMediation1 { }
+aRelator => aKind;
+
+// RelatorAndMediation2
+
+// PhasePartition
+Kind Person {}
+Phase ChildHood {}
+Phase Teen {}
+GeneralizationSet LifePhases specializes Person into ChildHood, Teen;

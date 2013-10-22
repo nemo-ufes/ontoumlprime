@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ManifestVersion: 2
+Bundle-Name: br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark
+Bundle-SymbolicName: br.ufes.inf.nemo.ontouml.ontoumlprime.benchmark; singleton:=true
+Bundle-Version: 0.1.0
+Require-Bundle: org.eclipse.emf.ecore,
+ br.ufes.inf.nemo.ontouml.ontoumlprime;bundle-version="1.0.0"
