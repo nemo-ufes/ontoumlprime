@@ -1,5 +1,8 @@
 ontoumlprime
 ============
+
+This repository is maintained here for archival purposes only. It was the result of an experiment to refactor the OntoUML metamodel. Do not reuse as is. For current implementations of the OntoUML metamodel and serialization formats, see: <This repository is maintained here for archival purposes.>
+
 The purpose of this is to reimplement a metamodel for OntoUML that is independent of the UML. 
 The previous OntoUML metamodel implementation by Carraretto was based on the UML 2.0 implementation
 in Eclipse. This means that it is too polluted with UML constraints. Strictly speaking this is not 
